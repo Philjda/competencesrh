@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyse de données RH : pilotez vos décisions RH | DataRH</title>
+<meta name="description" content="Absentéisme, turnover, masse salariale : apprenez à lire vos données RH pour décider avec clarté. Guide pratique pour dirigeants de PME.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #161616;
+  --border: #222222;
+  --border-light: #2a2a2a;
+  --accent: #00ff88;
+  --accent-dim: rgba(0, 255, 136, 0.12);
+  --accent-glow: rgba(0, 255, 136, 0.06);
+  --text: #f0f0f0;
+  --text-muted: #888888;
+  --text-dim: #444444;
+  --white: #ffffff;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius: 2px;
+  --max-w: 1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 2.5rem;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+  letter-spacing: 0.08em; color: var(--text); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);
+  text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent);
+  text-decoration: none; border: 1px solid var(--accent); padding: 0.45rem 1rem;
+  border-radius: var(--radius); transition: background 0.2s, color 0.2s; letter-spacing: 0.04em;
+}
+.nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+/* DOT */
+.dot {
+  width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+  animation: pulse 2s infinite; display: inline-block;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* PAGE HERO */
+.page-hero {
+  padding: 10rem 2.5rem 4rem; max-width: var(--max-w);
+  margin: 0 auto; position: relative; z-index: 1;
+}
+.section-label {
+  font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent);
+  letter-spacing: 0.1em; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;
+}
+.page-title {
+  font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800;
+  line-height: 1.05; letter-spacing: -0.02em; margin: 1rem 0 1.5rem;
+}
+.page-title em { font-style: normal; color: var(--accent); }
+.page-sub {
+  font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);
+  line-height: 1.9; max-width: 560px;
+}
+.hero-stats {
+  display: flex; align-items: center; gap: 2.5rem;
+  padding-top: 2rem; margin-top: 2.5rem; border-top: 1px solid var(--border);
+}
+.stat { display: flex; flex-direction: column; gap: 0.2rem; }
+.stat-num { font-size: 1.8rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+.stat-label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); }
+.stat-divider { width: 1px; height: 40px; background: var(--border-light); }
+
+/* MARQUEE */
+.marquee-wrap {
+  overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 1rem 0; background: var(--bg-card); position: relative; z-index: 1;
+}
+.marquee-track {
+  display: flex; gap: 1.5rem; white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.marquee-track .sep { color: var(--accent); opacity: 0.5; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* SECTIONS */
+.section {
+  max-width: var(--max-w); margin: 0 auto; padding: 6rem 2.5rem;
+  position: relative; z-index: 1;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
+  line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 3.5rem;
+}
+.section-title em { font-style: normal; color: var(--accent); }
+
+/* SERVICE LIST */
+.services-list { padding-top: 2rem; }
+.service-item {
+  display: grid; grid-template-columns: 80px 1fr 60px;
+  gap: 2rem; padding: 3rem 0; border-bottom: 1px solid var(--border);
+  align-items: start; transition: background 0.2s;
+}
+.service-item:hover { background: var(--accent-glow); }
+.service-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; padding-top: 0.4rem; }
+.service-body h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.01em; }
+.service-body p { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; max-width: 600px; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; }
+.service-tags li {
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
+  border: 1px solid rgba(0,255,136,0.3); padding: 0.2rem 0.7rem;
+  border-radius: 20px; letter-spacing: 0.05em;
+}
+.service-accent { font-size: 1.8rem; color: var(--border-light); text-align: right; padding-top: 0.3rem; }
+
+/* CARDS */
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5px; background: var(--border);
+}
+.card { background: var(--bg-card); padding: 2.5rem; transition: background 0.2s; }
+.card:hover { background: var(--bg-card-hover); }
+.card-icon { font-size: 1.8rem; color: var(--accent); margin-bottom: 1.2rem; }
+.card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; }
+.card p { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
+
+/* COMPARE */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); margin-top: 2rem; }
+.compare-col { background: var(--bg-card); padding: 2rem; }
+.compare-col.after { background: var(--accent-dim); }
+.compare-head {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--border-light);
+}
+.compare-col.after .compare-head { color: var(--accent); border-color: rgba(0,255,136,0.2); }
+.compare-item {
+  display: flex; gap: 0.8rem; margin-bottom: 0.9rem;
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;
+}
+.compare-item::before { content: '—'; color: var(--text-dim); flex-shrink: 0; }
+.compare-col.after .compare-item { color: var(--text); }
+.compare-col.after .compare-item::before { content: '→'; color: var(--accent); }
+
+/* PROCESS */
+.process-steps { display: flex; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+.process-step { flex: 1; min-width: 180px; background: var(--bg-card); border: 1px solid var(--border); padding: 2rem; }
+.step-num { display: block; font-size: 2.5rem; font-weight: 800; color: var(--accent); opacity: 0.3; margin-bottom: 1rem; }
+.process-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.process-step p { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); line-height: 1.8; }
+.process-arrow { font-size: 1.5rem; color: var(--text-dim); padding-top: 2rem; flex-shrink: 0; }
+
+/* CTA BAND */
+.cta-band { background: var(--accent-dim); border-top: 1px solid rgba(0,255,136,0.2); border-bottom: 1px solid rgba(0,255,136,0.2); position: relative; z-index: 1; }
+.cta-band-inner { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.cta-band-text { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 700; }
+.cta-band-text em { font-style: normal; color: var(--accent); }
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-block; background: var(--accent); color: var(--bg);
+  font-family: var(--font-mono); font-size: 0.82rem; padding: 0.75rem 1.6rem;
+  border-radius: var(--radius); text-decoration: none; letter-spacing: 0.04em;
+  border: none; cursor: pointer; transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-block; background: transparent; color: var(--text-muted);
+  font-family: var(--font-mono); font-size: 0.82rem; padding: 0.75rem 1.6rem;
+  border-radius: var(--radius); text-decoration: none; border: 1px solid var(--border-light);
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid var(--border); max-width: var(--max-w); margin: 0 auto;
+  padding: 3rem 2.5rem; display: grid; grid-template-columns: 1fr auto auto;
+  align-items: center; gap: 2rem; position: relative; z-index: 1;
+}
+.footer-left p { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem; }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-copy { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav { padding: 1rem 1.2rem; }
+  .nav-links { display: none; }
+  .page-hero { padding: 7rem 1.2rem 3rem; }
+  .section { padding: 4rem 1.2rem; }
+  .service-item { grid-template-columns: 50px 1fr; }
+  .service-accent { display: none; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .process-steps { flex-direction: column; }
+  .process-arrow { transform: rotate(90deg); }
+  .cta-band-inner { flex-direction: column; text-align: center; }
+  .footer { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .stat-divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/index.html">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons-en →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero fade-in">
+  <div class="section-label"><span class="dot"></span> Guide pratique · Dirigeants de PME</div>
+  <h1 class="page-title">
+    Analyse de données RH :<br>
+    ce que vos chiffres disent<br>
+    de <em>votre entreprise</em>
+  </h1>
+  <p class="page-sub">
+    Vous gérez 30, 50, 80 personnes. Vous sentez que quelque chose ne va pas — turnover en hausse, ambiance tendue, recrutements qui traînent — mais vous n'avez pas les chiffres pour mettre le doigt dessus. L'analyse de données RH n'est pas réservée aux grands groupes. C'est un levier accessible, même sans compétence technique.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">67%</span>
+      <span class="stat-label">des dirigeants de PME pilotent<br>sans indicateurs formalisés</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">3×</span>
+      <span class="stat-label">le coût d'un recrutement raté<br>vs piloté par les données</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">48h</span>
+      <span class="stat-label">pour un premier tableau<br>de bord RH opérationnel</span>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Absentéisme</span><span class="sep">·</span>
+    <span>Turnover</span><span class="sep">·</span>
+    <span>Masse salariale</span><span class="sep">·</span>
+    <span>Tableau de bord RH</span><span class="sep">·</span>
+    <span>Reporting dirigeant</span><span class="sep">·</span>
+    <span>Indicateurs sociaux</span><span class="sep">·</span>
+    <span>SIRH & Data</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+    <span>Décision RH</span><span class="sep">·</span>
+    <span>Pilotage PME</span><span class="sep">·</span>
+    <span>Absentéisme</span><span class="sep">·</span>
+    <span>Turnover</span><span class="sep">·</span>
+    <span>Masse salariale</span><span class="sep">·</span>
+    <span>Tableau de bord RH</span><span class="sep">·</span>
+    <span>Reporting dirigeant</span><span class="sep">·</span>
+    <span>Indicateurs sociaux</span><span class="sep">·</span>
+    <span>SIRH & Data</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+    <span>Décision RH</span><span class="sep">·</span>
+    <span>Pilotage PME</span><span class="sep">·</span>
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Vos données RH existent déjà —<br><em>vous ne les lisez pas encore</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h2>La donnée dort dans vos outils</h2>
+        <p>Tout dirigeant de PME dispose de données RH. Elles dorment dans votre logiciel de paie, vos fichiers Excel, votre outil de gestion des absences. Le problème n'est pas l'absence de données — c'est l'absence de lecture structurée.</p>
+        <ul class="service-tags">
+          <li>Logiciel de paie</li><li>SIRH</li><li>Excel RH</li><li>Données sociales</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h2>Les 6 indicateurs à surveiller</h2>
+        <p>Un bulletin de salaire contient des informations sur la masse salariale. Un tableau de congés révèle des patterns d'absentéisme. Un historique de recrutement cache un délai moyen qui vous coûte de l'argent chaque mois.</p>
+        <ul class="service-tags">
+          <li>Taux d'absentéisme</li><li>Turnover</li><li>Masse salariale</li><li>Délai de recrutement</li><li>Coût par embauche</li><li>Ancienneté moyenne</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS -->
+<div style="max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem 6rem; position: relative; z-index:1;" class="fade-in">
+  <div class="cards">
+    <div class="card"><div class="card-icon">↗</div><h3>Taux d'absentéisme</h3><p>Révèle le niveau d'engagement et les tensions internes avant qu'elles deviennent visibles en surface.</p></div>
+    <div class="card"><div class="card-icon">⟳</div><h3>Turnover</h3><p>Un turnover élevé coûte entre 50% et 200% du salaire annuel du poste à remplacer. Mesurez-le.</p></div>
+    <div class="card"><div class="card-icon">∑</div><h3>Masse salariale</h3><p>En % du chiffre d'affaires, c'est votre premier levier de rentabilité opérationnelle.</p></div>
+    <div class="card"><div class="card-icon">⧖</div><h3>Délai de recrutement</h3><p>Chaque jour de poste vacant a un coût direct. Le mesurer permet de l'anticiper et de l'optimiser.</p></div>
+    <div class="card"><div class="card-icon">€</div><h3>Coût par embauche</h3><p>Agrège les coûts cachés : annonces, temps RH mobilisé, onboarding, formation initiale.</p></div>
+    <div class="card"><div class="card-icon">◎</div><h3>Ancienneté moyenne</h3><p>Signal de fidélisation et d'attractivité employeur sur votre bassin de recrutement.</p></div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Ce qu'un tableau de bord RH<br><em>change dans vos décisions</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 0.5rem;">La différence entre un dirigeant qui pilote ses RH à l'intuition et un dirigeant qui pilote par les données n'est pas une question de taille d'entreprise. C'est une question de visibilité.</p>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Sans reporting RH</div>
+      <div class="compare-item">Vous découvrez le turnover quand il est trop tard</div>
+      <div class="compare-item">Vous recrutez en urgence, donc mal</div>
+      <div class="compare-item">Vous augmentez sans vision globale masse salariale</div>
+      <div class="compare-item">Vous gérez les absences au cas par cas</div>
+      <div class="compare-item">Vous réagissez aux problèmes RH</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Avec un tableau de bord RH</div>
+      <div class="compare-item">Vous détectez les signaux faibles 3 mois avant</div>
+      <div class="compare-item">Vous anticipez les besoins de recrutement</div>
+      <div class="compare-item">Vous pilotez la masse salariale comme un levier</div>
+      <div class="compare-item">Vous identifiez les services à risque</div>
+      <div class="compare-item">Vous anticipez les problèmes RH</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">Analyse de données RH :<br><em>faut-il être développeur ?</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">03.01</div>
+      <div class="service-body">
+        <h2>Non. Les outils ont évolué.</h2>
+        <p>C'est l'objection que j'entends le plus souvent chez les dirigeants de PME. Un tableau de bord RH opérationnel peut être construit avec Excel bien structuré, Power BI connecté à votre SIRH, ou Python pour aller plus loin dans l'automatisation. Dans les trois cas, aucune ligne de code n'est nécessaire pour commencer.</p>
+        <p>Ce qui compte, c'est la logique de structuration des données — pas la maîtrise technique. C'est précisément là que se situe mon accompagnement.</p>
+        <ul class="service-tags">
+          <li>Excel structuré</li><li>Power BI</li><li>Python + Pandas</li><li>SQL</li><li>Google Sheets</li><li>Votre SIRH existant</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">Les erreurs qui faussent<br><em>votre lecture des données RH</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Confondre indicateur et explication</h3>
+      <p>Un taux d'absentéisme de 8% est un constat, pas une cause. Trop de dirigeants s'arrêtent au chiffre sans chercher ce qui se passe derrière : un service en tension, un manager, une période de l'année.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Travailler sur des données incomplètes</h3>
+      <p>Un tableau de bord alimenté par des données partielles produit des conclusions fausses. La qualité de saisie dans votre SIRH conditionne directement la qualité de votre analyse RH.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Mesurer sans décider</h3>
+      <p>Le reporting RH n'a de valeur que s'il débouche sur une action. Beaucoup de PME construisent des tableaux de bord consultés une fois par trimestre sans jamais en tirer de décision concrète.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">De la donnée brute<br>à la <em>décision</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h2>Comment j'accompagne les PME</h2>
+        <p>Je suis responsable RH de formation, avec une expertise en data analyse. J'accompagne les dirigeants de PME qui veulent exploiter leurs données RH sans recruter une équipe technique, et sans se perdre dans des outils complexes.</p>
+        <p>Ma méthode : partir de vos données existantes, identifier les indicateurs qui comptent pour votre situation spécifique, construire un tableau de bord que vous pilotez seul ensuite. L'analyse de données RH n'est pas un projet IT. C'est un projet de direction.</p>
+        <ul class="service-tags">
+          <li>Python</li><li>SQL</li><li>Pandas</li><li>Power BI</li><li>AWS</li><li>RAG / IA</li><li>People Analytics</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Vos données RH sont déjà là.<br><em>Il reste à les lire.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Parlons-en →</a>
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
+    L'analyse de données RH est le levier<br>le plus <em>sous-utilisé</em> des PME françaises.
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Pas par manque de données — par manque de méthode. C'est exactement ce que je construis avec vous, depuis votre première donnée jusqu'à votre premier tableau de bord actionnable.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer un diagnostic →</a>
+    <a href="https://competencesrh.fr/services.html" class="btn-ghost">Voir les services</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/index.html">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
