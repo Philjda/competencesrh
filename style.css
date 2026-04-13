@@ -61,7 +61,7 @@ body {
   color: var(--text-muted);
   line-height: 1.9;
 }
-}
+
 
 /* ── GRID BACKGROUND ── */
 body::before {
