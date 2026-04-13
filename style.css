@@ -33,6 +33,34 @@ body {
   font-family: var(--font-display);
   line-height: 1.6;
   overflow-x: hidden;
+
+/* ── BLOG ARTICLE ── */
+.blog-article { max-width: 720px; }
+.article-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.article-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.08em;
+}
+.article-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 2rem 0 0.8rem;
+}
+.article-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
 }
 
 /* ── GRID BACKGROUND ── */
