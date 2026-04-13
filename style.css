@@ -652,3 +652,16 @@ body::before {
   .process-steps { flex-direction: column; }
   .process-arrow { transform: rotate(90deg); }
 }
+
+/* — Lien blanc et souligné — */
+.link-white-underline {
+  color: var(--white);          /* blanc pur */
+  text-decoration: underline;   /* souligné */
+  text-decoration-thickness: 2px; /* plus épais si tu veux, optionnel */
+  text-decoration-color: var(--white); /* couleur du souligné */
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.link-white-underline:hover {
+  opacity: 0.85;
+}
