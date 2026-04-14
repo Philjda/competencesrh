@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="content="Absentéisme en 2026 : 4,8% de taux record, 18 milliards de coût. Analyse des enjeux RH, managériaux et juridiques pour les DRH."/>
+  <title>Blog — DataRH</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+<li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="services.html" >Services</a></li>
+      <li><a href="analyse-donnees-rh.html">Analyse Donnees</a></li>
+      <li><a href="https://competencesrh.fr/data-ia-rh.html ">Data&IA</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Parlons-en →</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="section-label">// Data-RH</div>
+    <h1 class="page-title">La Data-RH</h1>
+    <p class="page-sub">Arrêtons nous sur cette question en 2026...</p>
+  </section>
+  <!-- ARTICLE -->
+  <section class="section">
+    <article class="blog-article">
+    
+      <h2 class="article-title">La Data-RH — CompetencesRH</h2>
+      <p class="article-meta">// Publié le 14 avril 2026 · 5 min de lecture</p>
+
+      <h3 class="article-subtitle">Qu'est ce que la data en RH?</h3>
+      <p class="article-text"> 
+La Data RH (ou “data RH”) désigne l’ensemble des données concernant les collaborateurs (recrutement, absence, performance, formation, satisfaction, turnover, etc.) et leur utilisation pour mieux piloter les Ressources Humaines.
+Elle permet de passer de l’intuition RH à des décisions appuyées par des données (statistiques, tableaux de bord, analyses prédictives, IA).
+</p>
+
+      <h3 class="article-subtitle">Quels enjeux?</h3>
+      <p class="article-text"> D'abord, permettre des décisions plus précises : Les données aident à comprendre les dynamiques réelles (turnover, absentéisme, efficacité des formations) au lieu de se fier à l’intuition.
+L'autre enjeu, c'est le Pilotage stratégique : La Data RH sert à aligner les politiques RH (recrutement, rétention, formation, mobilité) avec les objectifs de l’entreprise (productivité, compétitivité, transformation digitale).
+Troisième enjeu : Éthique, RGPD et transparence : Les données RH sont sensibles : il faut respecter le RGPD, protéger la vie privée, et interpréter les chiffres sans biais ni simplification excessive.
+Pour tout cela, il faut une montée en compétences des RH : Les RH doivent apprendre à lire les données, à distinguer corrélation / causalité, et à travailler avec des outils de base (Python, Jupyter, dashboards).
+</p>
+
+      <p class="article-text">Ce que vous mesurez sans le formaliser.
+Votre SIRH contient des données : entrées, sorties, absences, formations suivies, évaluations. La plupart des PME ont ces informations quelque part — dans un logiciel, dans des fichiers Excel, dans des mails. Le problème n'est pas l'absence de données, c'est qu'elles ne sont pas lues ensemble.
+Quelques indicateurs RH de base suffisent pour commencer à voir des choses utiles :
+Votre taux de turnover — et surtout quand et où les gens partent
+L'absentéisme — par équipe, par période, par profil
+Le délai moyen de recrutement — et ce qu'il coûte réellement
+Le lien entre satisfaction au travail et performance
+Ces statistiques RH ne nécessitent pas un data scientist. Un tableau Excel bien construit ou un tableau de bord RH simple suffisent pour commencer.
+Le people analytics — l'analyse avancée des données collaborateurs — fait peur parce qu'il évoque des algorithmes et des équipes de data scientists. En PME, c'est plus modeste : il s'agit de croiser vos données pour répondre à des questions concrètes.
+Est-ce que les collaborateurs qui partent dans les 18 mois ont des points communs ? Est-ce que les équipes avec le meilleur niveau de qualité de vie au travail ont aussi une meilleure performance ? Est-ce que vos formations ont un effet mesurable sur la montée en compétences ?
+Ce sont des questions auxquelles des données simples, bien lues, permettent de répondre. Pas avec certitude — mais avec bien plus de rigueur qu'une impression.
+L'IA pour les ressources humaines et le machine learning RH commencent à entrer dans les outils que vous utilisez probablement déjà — dans votre ATS, votre SIRH, vos outils d'engagement. Ils peuvent aider à repérer des signaux faibles : un collaborateur à risque de départ, une équipe en tension.
+Mais attention à ne pas confondre corrélation et causalité. Si les données montrent une corrélation satisfaction / performance, ça ne veut pas dire que l'une cause l'autre automatiquement. Les chiffres posent les bonnes questions. Ils ne remplacent pas le jugement humain.
+
+
+</p>
+      <p class="article-text">Alors, quoi faire?
+Pas besoin d'une équipe data science RH dédiée. Il faut trois choses :
+Des données propres. Un SIRH à jour, des données saisies de façon cohérente. C'est le prérequis. Sans ça, rien ne fonctionne.
+Des RH capables de lire les chiffres. Pas de coder, pas de faire du big data RH — mais de comprendre un graphique, d'interpréter un écart, de ne pas prendre une moyenne pour une vérité. C'est ce qu'on appelle les compétences data RH, et ça s'apprend.
+Des dirigeants qui acceptent que les données contredisent parfois leur intuition. C'est souvent le vrai frein.
+Si vous partez de zéro, commencez petit : choisissez trois indicateurs qui ont du sens pour votre activité, construisez un tableau de bord lisible, et prenez l'habitude de le consulter en CODIR. C'est plus utile que de vouloir tout mesurer d'un coup.
+La formation data RH existe pour ça : rendre les RH autonomes sur les bases — lire des données, comprendre une corrélation, utiliser des outils simples comme Python pour les RH ou des outils de visualisation — sans transformer tout le monde en data analyst.
+La donnée RH n'est pas une révolution. C'est une discipline de gestion, comme le contrôle de gestion l'est pour la finance. Plus tôt vous l'intégrez à votre fonctionnement, mieux vous pilotez.
+
+</p>
+    
+
+    </article>
+  </section>
+
+ 
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 DataRH. Tous droits réservés.</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
