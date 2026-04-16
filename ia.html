@@ -111,7 +111,7 @@
           const data = await res.json();
           addMessage(data.response || "Erreur.", false);
         } catch (err) {
-          addConditionMessage("Erreur de connexion au serveur.", false);
+         addMessage("Erreur de connexion au serveur.", false);
         }
       }
 
