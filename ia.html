@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chatbot IA RH - compétencesrh.fr</title>
+    <title>Chatbot IA RH — compétencesrh.fr</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -91,8 +91,8 @@
         chat.scrollTop = chat.scrollHeight;
       }
 
-      // Remplace par l’URL de ton backend Render
-     const API_URL = "https://chatbotia-0qcm.onrender.com/chat";
+      // URL de ton backend Render
+      const API_URL = "https://chatbotia-0qcm.onrender.com/chat";
 
       async function sendMessage() {
         const text = input.value.trim();
@@ -109,9 +109,9 @@
           });
 
           const data = await res.json();
-          addMessage(data.response || "Erreur.", false);
+          addMessage(data.response || "Erreur de réponse.", false);
         } catch (err) {
-         addMessage("Erreur de connexion au serveur.", false);
+          addMessage("Erreur de connexion au serveur.", false);
         }
       }
 
