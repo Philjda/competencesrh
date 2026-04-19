@@ -13,42 +13,31 @@
 fetch('https://blog-api-a3v9.onrender.com/api/articles')
   .then(r => r.json())
   .then(articles => {
-    // Si l'API renvoie des données, les afficher dynamiquement
-    if (articles && articles.length > 0) {
-      document.getElementById('blog').innerHTML = articles.map(a => `
-        <article class="blog-article">
-          <h2 class="article-title">${a.title}</h2>
-          <p class="article-meta">// ${a.date} · ${a.readTime}</p>
-          <p class="article-text">${a.excerpt}</p>
-          <a href="${a.url}" class="btn-primary">Lire →</a>
-        </article>
-      `).join('');
-    } else {
-      // API répond mais vide → fallback statique
-      afficherFallback();
-    }
+    document.getElementById('blog').innerHTML = articles.map(a => `
+      <article class="blog-article">
+        <h2 class="article-title">${a.title}</h2>
+        <p class="article-meta">// ${a.date} · ${a.readingTime} min de lecture</p>
+        <p class="article-text">${a.excerpt}</p>
+        <a href="/blog/${a.slug}.html" class="btn-primary">Lire →</a>
+      </article>
+    `).join('');
   })
   .catch(() => {
-    // API down → fallback statique
-    afficherFallback();
+    document.getElementById('blog').innerHTML = `
+      <article class="blog-article">
+        <h2 class="article-title">Réguler la charge de travail</h2>
+        <p class="article-meta">// 2026-04-15 · 5 min de lecture</p>
+        <p class="article-text">IA, surcharge cognitive, télétravail, forfait jours...</p>
+        <a href="/blog/reguler-charge-travail.html" class="btn-primary">Lire →</a>
+      </article>
+      <article class="blog-article">
+        <h2 class="article-title">Absentéisme 2026 : chiffres et enjeux RH</h2>
+        <p class="article-meta">// 2026-04-13 · 3 min de lecture</p>
+        <p class="article-text">Absentéisme record à 4,8% en 2025, soit 18 milliards d'euros.</p>
+        <a href="/blog/absenteeisme2026.html" class="btn-primary">Lire →</a>
+      </article>
+    `;
   });
-
-function afficherFallback() {
-  document.getElementById('blog').innerHTML = `
-    <article class="blog-article">
-      <h2 class="article-title">Réguler la charge de travail</h2>
-      <p class="article-meta">// 2026-04-15 · 5 min</p>
-      <p class="article-text">IA, surcharge cognitive, télétravail, forfait jours...</p>
-      <a href="https://www.competencesrh.fr/blog/reguler-charge-travail.html" class="btn-primary">Lire →</a>
-    </article>
-    <article class="blog-article">
-      <h2 class="article-title">Absentéisme 2026</h2>
-      <p class="article-meta">// 2026-04-13 · 3 min</p>
-      <p class="article-text">Absentéisme record 4,8% en 2025 (18Mds€)...</p>
-      <a href="https://www.competencesrh.fr/blog/absenteeisme2026.html" class="btn-primary">Lire →</a>
-    </article>
-  `;
-}
 </script>
   
 </head>
