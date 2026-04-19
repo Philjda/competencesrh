@@ -11,10 +11,19 @@
 
 <script>
 fetch('https://blog-api-a3v9.onrender.com/api/articles')
-.then(r=>r.json()).then(articles=>{
-  document.getElementById('blog').innerHTML = 
-    articles.map(a=>`<h2>${a.title}</h2><p>${a.excerpt}</p>`).join('');
-});
+  .then(r=>r.json())
+  .then(articles=>{
+    document.getElementById('blog').innerHTML = 
+      articles.map(a=>`
+        <article class="blog-article">
+          <h2 class="article-title">${a.title}</h2>
+          <p class="article-meta">// ${a.date} · ${a.readtime}</p>
+          <p class="article-text">${a.excerpt}</p>
+          <a href="/blog/${a.slug}.html" class="btn-primary">Lire</a>
+        </article>
+      `).join('');
+  })
+  .catch(()=>console.log('API fallback → articles statiques'));
 </script>
   
 </head>
