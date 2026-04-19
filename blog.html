@@ -17,17 +17,22 @@ fetch('https://blog-api-a3v9.onrender.com/api/articles')
       <article class="blog-article">
         <h2 class="article-title">Réguler la charge de travail</h2>
         <p class="article-meta">// 2026-04-15 · 5 min</p>
-        <p class="article-text">Charge prescrite vs réelle vs ressentie...</p>
+        <p class="article-text">IA surcharge cognitive, télétravail, forfait jours...</p>
         <a href="/blog/reguler-charge-travail.html" class="btn-primary">Lire →</a>
       </article>
       <article class="blog-article">
         <h2 class="article-title">Absentéisme 2026</h2>
         <p class="article-meta">// 2026-04-13 · 3 min</p>
-        <p class="article-text">Absentéisme record 4,8% en 2025...</p>
-        <a href="/blog/absenteisme2026.html" class="btn-primary">Lire →</a>
+        <p class="article-text">Absentéisme record 4,8% en 2025 (18Mds€)...</p>
+        <a href="/blog/absenteeisme2026.html" class="btn-primary">Lire →</a>
       </article>
     `;
+    // Cache articles statiques
     document.querySelectorAll('.blog-article').forEach(article=>article.style.display='none');
+  })
+  .catch(()=>{
+    // Fallback statique si API down
+    document.getElementById('blog').innerHTML = '<p style="color:var(--text-muted)">Chargement articles...</p>';
   });
 </script>
   
