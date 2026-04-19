@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<script>
+fetch('https://competencesrh-blog-xxx.onrender.com/api/articles')
+.then(r=>r.json()).then(articles=>{
+  document.getElementById('blog').innerHTML = 
+    articles.map(a=>`<h2>${a.title}</h2><p>${a.excerpt}</p>`).join('');
+});
+</script>
+  
 </head>
 <body>
 
