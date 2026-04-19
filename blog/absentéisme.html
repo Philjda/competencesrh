@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Blog DataRH : actualités IA RH, people analytics, tableaux de bord RH, prédiction turnover et tendances compétences pour DRH." />
+  <title>Blog — DataRH</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
+<script>
+fetch('https://blog-api-a3v9.onrender.com/api/articles')
+  .then(r=>r.json())
+  .then(articles=>{
+    // Remplit la liste dynamique
+    document.getElementById('blog').innerHTML = 
+      articles.map(a=>`
+        <article class="blog-article">
+          <h2 class="article-title">${a.title}</h2>
+          <p class="article-meta">// ${a.date} · ${a.readtime || '3 min'}</p>
+          <p class="article-text">${a.excerpt}</p>
+          <a href="/blog/${a.slug}.html" class="btn-primary">Lire →</a>
+        </article>
+      `).join('');
+    
+    // CACHE les articles statiques en dessous
+    document.querySelectorAll('.blog-article').forEach((article, i)=>{
+      if(i >= articles.length) article.style.display = 'none';
+    });
+  })
+  .catch(e=>{
+    console.log('API down → garde statiques');
+  });
+</script>
+  
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+<li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="services.html" >Services</a></li>
+      <li><a href="analyse-donnees-rh.html">Analyse Donnees</a></li>
+      <li><a href="https://competencesrh.fr/data-ia-rh.html ">Data&IA</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Parlons-en →</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="section-label">// Le Blog</div>
+    <h1 class="page-title">LE BLOG </h1>
+    <p class="page-sub">Suivez nos billets sur la donnée RH en 2026...</p>
+  </section>
+  <!-- ← DYNAMIC LIST API (NOUVEAU) -->
+  <div id="blog" class="section"></div>
+ 
+  
+  <!-- ARTICLE -->
+  <section class="section">
+    <article class="blog-article">
+    
+      <h2 class="article-title">Absentéisme 2026 : chiffres et enjeux RH — CompetencesRH</h2>
+      <p class="article-meta">// Publié le 13 avril 2026 · 3 min de lecture</p>
+
+      <h3 class="article-subtitle">Petit retour historique et quelques chiffres</h3>
+      <p class="article-text">L’absentéisme progresse depuis déja quelques années. Et pas qu’en France mais en Europe. 
+Petit retour historique et quelques chiffres: 
+Un phénomène ancré qui semble durable depuis le covid.  En 2024, il se trouvait à un niveau  déja élévé touchant 42 % des salariés du secteur privé. Un taux passé de 4,27 % en 2023 à 4,41 % en 2024. Les jeunes actifs (18-34 ans) étaient déjà très touchés avec 47 % de salariés arrêtés, soit un point de plus que l'année précédente. 
+En 2025, l’absentéisme, on assiste à une année de tous les records : une rupture avec l'atteinte d'un nouveau pic. Un nouveau record ou l’on atteint 4,8%. Un absentéisme de 50% supérieur à son niveau de 2019. Une augmentation particulièrement forte chez les cadres (+ 8 % entre 2024 et 2025) et les salariés de moins de 30 ans (+ 10 %).
+.</p>
+
+      <h3 class="article-subtitle">Quels enjeux?</h3>
+      <p class="article-text">1. La soutenabilité financière et la régulation publique
+Le coût des arrêts de travail est devenu un défi critique pour les finances publiques, atteignant 18 milliards d'euros en 2025. Le gouvernement s'interroge sur la manière de freiner cette "dérive préoccupante" sans dégrader la protection des salariés, en utilisant des leviers comme le plafonnement des indemnités journalières (passant de 1,8 à 1,4 Smic) et le renforcement massif des contrôles (740 000 prévus en 2026). Il est intéressant d’observer que si les arrêts de plus de six mois ne représentent que 7 % du volume total, ils pèsent pour 45 % des dépenses de l'Assurance maladie. C'est précisément ce constat qui pousse le gouvernement à vouloir "repenser la prise en charge" de ces arrêts.
+</p>
+
+      <p class="article-text">2. L'urgence de la santé mentale et des risques psychosociaux
+Les sources soulignent un basculement historique : les troubles psychologiques (épuisement, stress chronique) sont devenus la première cause des arrêts de longue durée, devant les troubles musculosquelettiques. Une question centrale traverse les documents : comment adapter l'environnement de travail à une population de plus en plus touchée par la fatigue psychique, notamment les jeunes de moins de 30 ans et les cadres.
+Des mesures fortes sur le plan gouvernemental :
+La limite de prescription : Depuis le 1er janvier 2026, la durée d'une première prescription est désormais limitée à un mois (deux mois en cas d'hospitalisation).
+La lutte contre le "nomadisme médical" : Le gouvernement va sanctionner les assurés qui multiplient les consultations chez différents médecins pour obtenir des arrêts (13 000 cas détectés en 2024).
+La régulation de la téléconsultation : L'encadrement strict de ce mode de prescription a déjà permis de réduire de 40 % le nombre d'assurés concernés.
+</p>
+      
+      <p class="article-text">3. La transformation managériale et organisationnelle
+L'absentéisme est désormais analysé non plus comme un simple problème médical individuel, mais comme un signal d'alerte sur l'état de l'organisation. L'enjeu pour les entreprises est de passer d'une gestion administrative de l'absence à une prévention stratégique centrée sur la Qualité de Vie et des Conditions de Travail (QVCT), incluant la charge mentale, l'autonomie et le sens du travail. Il faut ajouter le risque de l’effet miroir : le présentéisme (travailler en étant malade). Les sources alertent sur le fait que des politiques de gestion trop rigides ou des incitations financières à la présence peuvent encourager ce phénomène, entraînant une baisse de qualité, des erreurs graves et, à terme, une aggravation de l'état de santé du salarié.
+</p>
+      <p class="article-text">4. Le dialogue social et l'équilibre des NAO 2026
+Les Négociations Annuelles Obligatoires (NAO) de 2026 se déroulent dans un contexte de forte tension entre les contraintes économiques des entreprises (ralentissement de l'activité, hausse des charges) et les attentes sociales élevées (pouvoir d'achat, partage de la valeur). La question posée est celle de la réussite d'un "exercice d'équilibre" capable de maintenir un dialogue constructif malgré des budgets d'augmentation salariale en repli.
+La sinistralité n’est pas homogène :  La santé (53 % de salariés arrêtés) et le BTP (48 %) sont les secteurs les plus lourdement touchés par la pénibilité et la charge émotionnelle.
+et il existe une fracture du genre: Les femmes sont plus absentes que les hommes (5,19 % contre 3,60 %), un écart qui s'explique par une plus forte exposition aux contraintes professionnelles et des rôles sociaux assignés favorisant l'attention portée à la santé.
+</p>
+      <p class="article-text">5. La sécurité juridique et la lutte contre les abus
+Un enjeu de "frontière" apparaît entre la protection nécessaire du salarié malade et la nécessité pour l'employeur de contrôler les dérives. on constate une évolution de la jurisprudence (comme la reconnaissance de l'accident du travail pour "choc émotionnel") et l'efficacité des nouveaux outils de lutte contre la fraude, tels que le formulaire Cerfa sécurisé ou le ciblage du nomadisme médical. Enfin, il existe des enjeux RH et juridiques moins présents presque oubliés : 
+Les salariés aidants : C'est un point pivot des NAO 2026 ; l'accompagnement des salariés s'occupant d'un proche est désormais vu comme un levier majeur de performance et de lutte contre l'absentéisme.
+L'aptitude avec réserves : Un véritable casse-tête juridique pour les employeurs, où un salarié est déclaré "apte" mais avec des restrictions telles qu'il ne peut plus exercer ses missions essentielles.
+La crise de la médecine du travail : Le plan de prévention se heurte à une réalité de terrain : la pénurie de médecins du travail, qui augmente la charge de travail et dégrade le suivi des salariés.
+</p>
+      
+
+    </article>
+  </section>
+
+ 
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 DataRH. Tous droits réservés.</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
