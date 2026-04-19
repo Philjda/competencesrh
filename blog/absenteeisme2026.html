@@ -8,32 +8,31 @@
   <link rel="stylesheet" href="style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
 <script>
 fetch('https://blog-api-a3v9.onrender.com/api/articles')
   .then(r=>r.json())
   .then(articles=>{
-    // Remplit la liste dynamique
-    document.getElementById('blog').innerHTML = 
-      articles.map(a=>`
-        <article class="blog-article">
-          <h2 class="article-title">${a.title}</h2>
-          <p class="article-meta">// ${a.date} · ${a.readtime || '3 min'}</p>
-          <p class="article-text">${a.excerpt}</p>
-          <a href="/blog/${a.slug}.html" class="btn-primary">Lire →</a>
-        </article>
-      `).join('');
-    
-    // CACHE les articles statiques en dessous
-    document.querySelectorAll('.blog-article').forEach((article, i)=>{
-      if(i >= articles.length) article.style.display = 'none';
-    });
+    document.getElementById('blog').innerHTML = `
+      <article class="blog-article">
+        <h2 class="article-title">Réguler la charge de travail</h2>
+        <p class="article-meta">// 2026-04-15 · 5 min</p>
+        <p class="article-text">IA, télétravail, surcharge cognitive...</p>
+        <a href="/blog/reguler-charge-travail.html" class="btn-primary">Lire →</a>
+      </article>
+      <article class="blog-article">
+        <h2 class="article-title">Absentéisme 2026</h2>
+        <p class="article-meta">// 2026-04-13 · 3 min</p>
+        <p class="article-text">4,8% record, 18Mds€, santé mentale...</p>
+        <a href="/blog/absenteeisme2026.html" class="btn-primary">Lire →</a>
+      </article>
+    `;
+    document.querySelectorAll('section.section article.blog-article').forEach(article=>article.style.display='none');
   })
-  .catch(e=>{
-    console.log('API down → garde statiques');
+  .catch(()=>{
+    document.getElementById('blog').innerHTML = '<p>Blog chargé !</p>';
   });
 </script>
-  
+
 </head>
 <body>
 
