@@ -667,45 +667,43 @@ body::before {
 }
 
 
-/* ── CTA SIMPLE ── */
+/* ── CTA SIMPLE HAUT ── */
 .cta-simple {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius);
-  padding: 3rem 2.5rem;
+  padding: 2rem 2rem;  /* Plus compact */
   text-align: center;
-  margin: 4rem auto;
+  margin: 2rem auto 3rem;  /* Position haut */
   max-width: 720px;
 }
 
 .cta-simple h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;  /* Plus petit pour haut */
   font-weight: 700;
   color: var(--accent);
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
 }
 
 .cta-simple p {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
-  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
 }
 
 .cta-main {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text);
   text-decoration: none;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.6rem;  /* Compact */
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   letter-spacing: 0.04em;
   transition: all 0.2s;
-  margin-bottom: 1rem;
 }
 
 .cta-main:hover {
