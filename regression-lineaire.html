@@ -44,23 +44,33 @@
  </p>
 
       <h3 class="article-subtitle">Qu'est-ce que c'est exactement ?</h3>
-      <p class="article-text">La régression linéaire est le fondement de l'apprentissage automatique. Elle consiste à tracer la meilleure ligne droite possible à travers vos données pour modéliser une relation. Vous fournissez des Caractéristiques (X), comme l'ancienneté ou le budget formation, pour prédire une Cible (y), comme la performance ou le salaire. C’est l'étape indispensable avant de s'attaquer à des modèles plus complexes comme les réseaux de neurones, car les principes restent les mêmes : trouver des modèles et minimiser l'erreur
-</p>
+      <p class="article-text">La régression linéaire est le fondement de l'apprentissage automatique. Elle consiste à tracer la meilleure ligne droite possible à travers vos données pour modéliser une relation. Vous fournissez des Caractéristiques (X), comme l'ancienneté ou le budget formation, pour prédire une Cible (y), comme la performance ou le salaire. C’est l'étape indispensable avant de s'attaquer à des modèles plus complexes comme les réseaux de neurones, car les principes restent les mêmes : trouver des modèles et minimiser l'erreur.
+      Imaginez que vous tracez une droite à travers un nuage de points sur un graphique. Sur l'axe horizontal : l'ancienneté. Sur l'axe vertical : le salaire. La droite passe "au mieux" entre tous les points — ni trop haute, ni trop basse.
+C'est exactement ça, la régression linéaire. Elle trouve la droite qui colle le mieux à vos données. Et cette droite devient une formule que vous pouvez utiliser pour prédire.
+augmentation = 0.47 × ancienneté + 1.2
+Traduction : chaque année d'ancienneté est associée à 470 € d'augmentation supplémentaire, en partant d'une base de 1 200 €.
+C'est le premier algorithme enseigné en machine learning — pas parce qu'il est simple, mais parce que tous les modèles plus complexes (réseaux de neurones, forêts aléatoires) reposent sur les mêmes principes fondamentaux.
+      </p>
 
-      <h3 class="article-subtitle">Décoder les résultats : Poids et Intercepte</h3>
+      <h3 class="article-subtitle">Ce que le modèle vous dit concrètement</h3>
       <p class="article-text">
-        Le modèle s'exprime à travers des Coefficients (ou poids). Un coefficient représente l'importance d'un levier : par exemple, il peut vous dire de combien le salaire augmente pour chaque année d'études supplémentaire. L'Intercepte est votre point de départ, la valeur de base de la cible lorsque tous vos leviers sont à zéro. Contrairement aux IA « boîtes noires », la régression est pleinement interprétable ; vous pouvez expliquer chaque prédiction par la magnitude et la direction de ses poids
-</p>
+        La formule produit deux types de résultats : les coefficients et la constante.
+Un coefficient, c'est le poids d'un levier. Il vous dit deux choses :
+Dans quel sens — un coefficient négatif sur la satisfaction signifie que plus un collaborateur est satisfait, moins il risque de partir. Un coefficient positif sur les heures supplémentaires signifierait l'inverse.
+De combien — un coefficient de -0.098 sur la satisfaction signifie que chaque point de satisfaction en plus réduit le risque de départ de 9,8 points. Si ce coefficient est cinq fois plus grand que celui de l'ancienneté, alors la satisfaction est cinq fois plus puissante comme levier de rétention.
+La constante, elle, est le point de départ théorique — la valeur de base si toutes vos variables étaient à zéro. Elle est rarement interprétable seule, mais elle est indispensable au calcul.
+Ce qui rend la régression linéaire précieuse pour un manager, c'est précisément cette transparence : vous pouvez expliquer chaque prédiction, variable par variable. C'est l'opposé de la boîte noire.
+       </p>
       <h3 class="article-subtitle">Est-ce fiable ? Le "Terrain" et le "Bulletin de Notes"</h3>
       <p class="article-text">
 Pour savoir si votre modèle est « bon », regardez le R-carré (R2). C'est votre score de variance expliquée : un R2 de 0,65 signifie que votre modèle explique 65 % de la réalité observée. La p-value, elle, vous assure que vos résultats ne sont pas dus au hasard ; une valeur inférieure à 0,05 confirme la solidité statistique du lien.
 Cependant, la fiabilité dépend du respect de cinq hypothèses clés, comme la linéarité ou l'absence de multicolinéarité. Ignorer ces vérifications revient à suivre un GPS sans regarder la route : vous pourriez finir dans un lac avec une totale confiance.
 </p>
-      <h3 class="article-subtitle">Applications en RH</h3>
+      <h3 class="article-subtitle">Trois cas RH où ça change tout</h3>
       <p class="article-text">
- En RH, cet outil permet de transformer vos données (SIRH, enquêtes) en actions stratégiques.
-Performance et Absentéisme : Prédisez ces valeurs en identifiant quels facteurs (formation, distance domicile-travail) ont les coefficients les plus forts.
-Inférence Causale : Estimez, par exemple, si l'obtention d'un doctorat cause réellement une hausse de salaire de 29 000 €, en isolant l'effet de l'âge ou de l'expérience.
+Prédire le risque de départ. Vous alimentez le modèle avec les données de vos anciens collaborateurs (satisfaction, ancienneté, nombre d'entretiens annuels manqués, évolution salariale). Il apprend les patterns des départs passés et les applique à vos collaborateurs actuels. Résultat : une liste triée par niveau de risque, à croiser avec votre budget de rétention.
+Identifier les vrais leviers de performance. Un manager intuitif dit "la formation améliore la performance". La régression vous dit lequel : formation technique (+0.8 point de performance) ou formation managériale (+0.3 point) ? Et elle isole cet effet en neutralisant l'ancienneté, le poste, et l'équipe — toutes choses égales par ailleurs.
+Objectiver la politique salariale. En modélisant le salaire en fonction de l'ancienneté, du niveau de diplôme et du poste, vous obtenez une grille de référence chiffrée. Tout collaborateur significativement en dessous de la droite est objectivement sous-payé par rapport à ses pairs. C'est un argument factuel pour une révision — sans avoir à négocier à l'instinct.
 </p>
       <h3 class="article-subtitle">Limites et Vigilance Étique</h3>
       <p class="article-text">
