@@ -48,7 +48,7 @@
   <section class="section">
     <article class="blog-article">
       
-      <h2 class="article-title">Prédiction Turnover : Satisfaction + Ancienneté</h2>
+      <h2 class="article-title">Le Turnover à l'Heure de l'IA Prédictive : Entre Performance Économique et Pilotage Humain</h2>
       <p class="article-meta">// 21 avril 2026 · 8 min de lecture</p>
 
       <h3 class="article-subtitle">Le problème : turnover invisible</h3>
@@ -67,78 +67,28 @@
         <strong>Total = 60k€ par départ</strong>
       </p>
 
-      <h3 class="article-subtitle">La formule magique</h3>
+
+<h3 class="article-subtitle">La réalité invisible du turnover : un gouffre financier</h3>
       <p class="article-text">
-        <strong>Sur 150 collaborateurs réels :</strong><br>
-        <code>risque_départ = 1.073 - (0.098 × satisfaction) - (0.021 × ancienneté)</code><br><br>
-        Satisfaction ↑ 1 point = risque ↓ 10%<br>
-        Ancienneté ↑ 1 an = risque ↓ 2%
+        Le turnover n'est pas seulement un mouvement naturel de renouvellement des effectifs ; c'est un miroir du climat social et de la santé économique d'une organisation. Pourtant, le constat est alarmant : 81 % des décideurs RH sous-estiment le coût réel de cette rotation. Si le calcul théorique du turnover est simple — le ratio entre la moyenne des départs et des arrivées sur l'effectif initial — son impact financier reste souvent invisible dans les budgets.
+Chaque départ engendre des coûts directs et indirects considérables : frais de recrutement, temps de formation, perte de savoir-faire et désorganisation des équipes. En France, seules 43 % des entreprises font de la fidélisation une priorité concrète, et une sur trois seulement dispose d’une démarche structurée pour l’expérience collaborateur. Ce décalage freine des investissements pourtant vitaux pour la profitabilité à long terme.
       </p>
 
-      <h3 class="article-subtitle">Exemples concrets</h3>
-      <table style="width:100%; border-collapse:collapse; margin:2rem 0; font-family:var(--font-mono);">
-        <tr style="border-bottom:1px solid var(--border);"><th style="padding:1rem;color:var(--accent);">Satisfaction</th><th>Ancienneté</th><th>Risque</th><th>Alerte</th></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:1rem;">3/10</td><td>1 an</td><td><strong>80%</strong></td><td>🔴 URGENT</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:1rem;">7/10</td><td>8 ans</td><td>22%</td><td>🟢 OK</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:1rem;">5/10</td><td>2 ans</td><td>65%</td><td>🟠 Surveiller</td></tr>
-      </table>
-
-      <h3 class="article-subtitle">Code Python complet</h3>
+<h3 class="article-subtitle">L'IA prédictive : une sentinelle pour les Ressources Humaines</h3>
       <p class="article-text">
-        Copie-colle direct Colab :
-      </p>
-      <pre style="background:var(--bg-card);padding:1.5rem;border-radius:var(--radius);overflow-x:auto;margin:1rem 0;font-family:var(--font-mono);font-size:0.85rem;">
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-import ipywidgets as widgets
-
-data = {'satisfaction': [8,3,7,2,9,4,6,1],
-        'ancienneté': [5,1,8,2,10,3,6,1],
-        'risque_départ':[0.1,0.8,0.2,0.9,0.05,0.7,0.3,0.95]}
-
-df = pd.DataFrame(data)
-X = df[['satisfaction','ancienneté']]
-y = df['risque_départ']
-modele = LinearRegression().fit(X,y)
-
-widgets.interact(lambda s,a: print(f"Risque: {max(0,min(1,modele.predict([[s,a]])[0]):.0%}"), 
-                s=widgets.IntSlider(1,10,5), a=widgets.IntSlider(1,15,5))
-      </pre>
-
-      <h3 class="article-subtitle">Pourquoi parfait PME</h3>
-      <p class="article-text">
-        • <strong>Pas data scientist</strong> : Excel + 2 colonnes<br>
-        • <strong>Décision immédiate</strong> : 80% = entretien prioritaire<br>
-        • <strong>Conforme 2026</strong> : directive transparence salariale
+      Contrairement à l'IA générative (comme ChatGPT), qui crée du contenu, l'IA prédictive se concentre sur l'analyse de données historiques pour anticiper des événements futurs. Dans le domaine des RH, elle devient une véritable alliée stratégique pour identifier les « signaux faibles » précédant une démission.
+Les algorithmes de machine learning analysent une multitude de variables : variations de productivité, taux d'absentéisme, retards fréquents ou encore le niveau d'interaction sur les plateformes internes. En France, des solutions comme TOP permettent déjà aux managers de détecter les risques de départ et d'engager un dialogue avant qu'il ne soit trop tard.
+Au-delà de la simple rétention, cette technologie s'étend à la protection des salariés. Elle permet de :
+Prévenir le burn-out en surveillant les volumes de travail et les horaires décalés.
+Réduire les accidents du travail et les maladies professionnelles (TMS) via des capteurs IoT et l'analyse des postures en temps réel.
+Optimiser l'allocation des ressources humaines en fonction des besoins futurs des projets.
       </p>
 
-      <h3 class="article-subtitle">Cas réel PME 35 salariés</h3>
-      <p class="article-text">
-        Mois 1 : 8 collaborateurs >60% risque<br>
-        Action : entretiens + plan mobilité<br>
-        Mois 3 : turnover réel -12%<br>
-        <strong>Coût évité : 180k€</strong>
-      </p>
-
-      <h3 class="article-subtitle">Directive 2026 : URGENT</h3>
-      <p class="article-text">
-        Juillet 2026 : transparence salariale obligatoire<br>
-        Turnover élevé = signal alarme public<br>
-        <strong>Ta preuve data te protège</strong>
-      </p>
-
-    </article>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="cta-simple" style="margin:4rem auto;">
-    <h3>🚀 15min aujourd'hui</h3>
-    <p>1. Ouvre Colab → 2. Teste 5 collaborateurs → 3. Planifie entretiens</p>
-    <a href="https://colab.research.google.com/drive/1HqW2ZmMSpLrXPwqA6RIi3bbalVRPZC3Y" class="cta-main" target="_blank">
-      → Tester MAINTENANT
-    </a>
-    <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1rem;">Ou <a href="contact.html" style="color:var(--accent);">dashboard personnalisé</a></p>
-  </section>
+      <h3 class="article-subtitle">Le défi des compétences : anticiper pour ne pas subir</h3>
+      <p class="article-text"> Le turnover est aussi le symptôme d'une inadéquation entre les aspirations des salariés et les besoins de l'entreprise. En France, 45 % des entreprises n'ont aucune vision claire des compétences dont elles auront besoin dans les deux à trois prochaines années.
+Parallèlement, 54 % des salariés estiment que leur potentiel n'est pas pleinement exploité, et une large majorité (69 %) considère que leur employeur ne facilite pas l'exploration d'opportunités internes. La gestion stratégique du turnover ne consiste donc pas seulement à retenir les gens, mais à proposer des parcours de formation adaptés et à valoriser les réussites pour renforcer le sentiment d'appartenance
+</p>
+      
 
   <!-- FOOTER -->
   <footer class="footer">
