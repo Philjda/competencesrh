@@ -1,1 +1,70 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <meta name="description" content="DataRH et IA pour DRH : tableaux de bord intelligents, analyse compétences, turnover prédictif, automatisation RH par la donnée." />
+  <title>Data et IA</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/semantic-search.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://www.competencesrh.fr/index.html">Accueil</a></li>
+<li><a href="https://www.competencesrh.fr/blog.html" >Blog</a></li>
+      <li><a href="https://www.competencesrh.fr/services.html" >Services</a></li>
+      <li><a href="https://www.competencesrh.fr/competences.html" >Competences</a></li>
+      <li><a href="https://www.competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+      <li><a href="https://www.competencesrh.fr/data-ia-rh.html" class="active">Data&IA</a></li>
+      <li><a href="https://www.competencesrh.fr/contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+
+ <!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="section-label">// Outils</div>
+  <h1 class="page-title">Outils IA</h1>
+  <p class="page-sub">Découvrez la donnée RH avec Python…
+<a href="https://https://semantic-search-aifnsgug5hnkzterkefg6s.streamlit.app" target="_blank">
+           Et testez notre outil de recherche semantique 🔍 Essayer la démo
+      </a> 
+  </p>
+</section>
+
+<!-- ARTICLE -->
+<section class="section">
+  <article class="blog-article">
+    <h2 class="article-title"</h2>
+   
+
+    <h3 class="article-subtitle"></h3>
+    <p class="article-text"></p>
+
+    
+
+
+ 
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 DataRH. Tous droits réservés.</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
