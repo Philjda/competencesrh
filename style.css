@@ -711,3 +711,28 @@ body::before {
   color: var(--bg);
   border-color: var(--accent);
 }
+
+
+   .code-example {
+    background: #1a1a1a;
+    color: #00ffcc; /* Une couleur "code" qui rappelle ton identité visuelle */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 2rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    border-left: 4px solid #00ffcc;
+}
+
+.code-label {
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto; /* Pour mobile */
+}
