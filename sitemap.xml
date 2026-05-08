@@ -103,8 +103,28 @@
   <url>
     <loc>https://www.competencesrh.fr/ia/fondamentaux.html</loc>
     <lastmod>2026-05-07</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+
+ <url>
+    <loc>https://www.competencesrh.fr/ia/machine-learning.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+
+   <url>
+    <loc>https://www.competencesrh.fr/ia/python-rh.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+   <url>
+    <loc>https://www.competencesrh.fr/ia/recrutement-predictif.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  
 
 <url>
     <loc>https://www.competencesrh.fr/chatbot-rh.html</loc>
