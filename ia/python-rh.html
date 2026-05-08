@@ -133,6 +133,18 @@
       <li>Matplotlib / Seaborn (visualisation)</li>
     </ul>
 
+    <div class="code-example">
+    <div class="code-label">Exemple : Calcul du turnover en 3 lignes</div>
+    <pre><code>
+# Chargement des données et calcul instantané
+import pandas as pd
+df = pd.read_csv("donnees_rh.csv")
+taux_turnover = (df['departs'].sum() / df['effectif_moyen'].mean()) * 100
+
+print(f"Taux de turnover : {taux_turnover:.2f}%")
+    </code></pre>
+</div>
+
     <h2>Python RH vs Excel</h2>
 
     <p class="article-text">
