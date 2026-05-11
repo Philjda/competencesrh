@@ -1,200 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.competencesrh.fr/index.html</loc>
+    <loc>https://competencesrh.fr/</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://www.competencesrh.fr/mission-data-rh.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
 
   <url>
-    <loc>https://www.competencesrh.fr/services.html</loc>
+    <loc>https://competencesrh.fr/services.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
-
- <url>
-    <loc>https://www.competencesrh.fr/competences.html</loc>
+  <url>
+    <loc>https://competencesrh.fr/competences.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.competencesrh.fr/competences/competences-rh-ia-2026.html</loc>
+    <loc>https://competencesrh.fr/analyse-donnees-rh.html</loc>
     <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.competencesrh.fr/competences/referentiel-competences-ia.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.competencesrh.fr/competences/metiers.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
-<url>
-    <loc>https://www.competencesrh.fr/turnover.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.competencesrh.fr/blog.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-<url>
-    <loc>https://www.competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.competencesrh.fr/blog/reguler-charge-travail-transformation-rh.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.competencesrh.fr/blog/transparence-salariale.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-<url>
-    <loc>https://www.competencesrh.fr/blog/transparence-salariale-conseils.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.competencesrh.fr/blog/revolution-transparence.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  
-<url>
-    <loc>https://www.competencesrh.fr/data-rh.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.competencesrh.fr/analyse-donnees-rh.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.competencesrh.fr/data-ia-rh.html</loc>
+    <loc>https://competencesrh.fr/data-ia-rh.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.competencesrh.fr/ia/fondamentaux.html</loc>
+    <loc>https://competencesrh.fr/blog.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
-
- <url>
-    <loc>https://www.competencesrh.fr/ia/machine-learning.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-
-   <url>
-    <loc>https://www.competencesrh.fr/ia/python-rh.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-   <url>
-    <loc>https://www.competencesrh.fr/ia/recrutement-predictif.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
-
-<url>
-    <loc>https://www.competencesrh.fr/automatisation/chatbot-rh-ia.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
   <url>
-    <loc>https://www.competencesrh.fr/semantic-search.html</loc>
+    <loc>https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
-
-<url>
-    <loc>https://www.competencesrh.fr/regression-lineaire.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
-   <url>
-    <loc>https://www.competencesrh.fr/ia.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.8</priority>
-  </url>
-
   <url>
-    <loc>https://www.competencesrh.fr/automatisation.html</loc>
+    <loc>https://competencesrh.fr/blog/transparence-salariale.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://competencesrh.fr/blog/revolution-transparence.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.competencesrh.fr/automatisation/avantages-automatisation.html</loc>
+    <loc>https://competencesrh.fr/ia.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://www.competencesrh.fr/automatisation/experience-collaborateur.html</loc>
+    <loc>https://competencesrh.fr/automatisation.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://www.competencesrh.fr/automatisation/outils-automatisation.html</loc>
+    <loc>https://competencesrh.fr/lexique.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
-
-<url>
-    <loc>https://www.competencesrh.fr/automatisation/recrutement-automatise.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-<url>
-    <loc>https://www.competencesrh.fr/automatisation/cas-pratiques-pme.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-
   <url>
-    <loc>https://www.competencesrh.fr/lexique.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.competencesrh.fr/contact.html</loc>
+    <loc>https://competencesrh.fr/contact.html</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.6</priority>
   </url>
