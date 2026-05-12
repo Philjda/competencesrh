@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="canonical" href="https://competencesrh.fr/ia.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Assistant IA RH : analyse de documents, gestion des compétences et droit du travail." />
+    <title>Assistant IA RH — CompetencesRH</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #0b0b0b; /* Noir très profond */
+        color: #eee;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .wrapper { width: 100%; max-width: 850px; }
+
+      h1 { color: #fff; font-weight: 300; margin-bottom: 5px; }
+      .subtitle { color: #888; margin-bottom: 25px; font-size: 0.9em; }
+
+      /* --- Sélecteur de Documents --- */
+      .config-panel {
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      select {
+        flex: 1;
+        padding: 10px;
+        background: #000;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      /* --- Fenêtre de Chat --- */
+      #chat {
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 8px;
+        padding: 20px;
+        height: 55vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .message {
+        padding: 10px 15px;
+        border-radius: 8px;
+        max-width: 80%;
+        font-size: 0.95em;
+        line-height: 1.4;
+      }
+
+      .user {
+        background: #333; /* Gris anthracite clair */
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 2px;
+      }
+
+      .bot {
+        background: #1a1a1a; /* Gris anthracite très sombre */
+        color: #ccc;
+        align-self: flex-start;
+        border: 1px solid #333;
+        border-bottom-left-radius: 2px;
+      }
+
+      /* --- Zone de saisie --- */
+      #input-container {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+      }
+
+      #message {
+        flex: 1;
+        padding: 12px;
+        border-radius: 4px;
+        border: 1px solid #333;
+        background: #111;
+        color: #fff;
+        outline: none;
+      }
+
+      #message:focus { border-color: #555; }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: 1px solid #444;
+        background: #eee; /* Bouton contrasté clair */
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      button:hover { background: #fff; transform: translateY(-1px); }
+      button:disabled { background: #444; color: #888; cursor: not-allowed; }
+
+      .loader { font-size: 0.8em; color: #666; margin-top: 8px; text-align: center; height: 20px; }
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <h1>Assistant IA RH</h1>
+      <div class="subtitle">Sélectionnez un document pour commencer l'analyse.</div>
+
+      <div class="config-panel">
+        <select id="docPicker">
+          {% for file in files %}
+            <option value="{{ file }}">{{ file | replace('_', ' ') | replace('.md', '') }}</option>
+          {% endfor %}
+        </select>
+        <button id="loadBtn" onclick="loadDoc()">Charger</button>
+      </div>
+
+      <div id="chat">
+        <div class="message bot">Bonjour. Veuillez charger un document pour poser vos questions.</div>
+      </div>
+
+      <div id="status" class="loader"></div>
+
+      <div id="input-container">
+        <input type="text" id="message" placeholder="Posez votre question sur le document..." disabled />
+        <button id="sendBtn" onclick="sendMessage()" disabled>Envoyer</button>
+      </div>
+    </div>
+
+    <script>
+      const chat = document.getElementById("chat");
+      const input = document.getElementById("message");
+      const status = document.getElementById("status");
+      const sendBtn = document.getElementById("sendBtn");
+
+      function addMessage(text, isUser) {
+        const div = document.createElement("div");
+        div.classList.add("message", isUser ? "user" : "bot");
+        div.textContent = text;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+      }
+
+      // 1. Charger le document MD
+      async function loadDoc() {
+        const filename = document.getElementById('docPicker').value;
+        const loadBtn = document.getElementById('loadBtn');
+        
+        status.textContent = "Indexation du document en cours...";
+        loadBtn.disabled = true;
+
+        try {
+          const res = await fetch("/select_doc", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ filename: filename }),
+          });
+          const data = await res.json();
+          
+          addMessage("Système : " + data.message, false);
+          input.disabled = false;
+          sendBtn.disabled = false;
+        } catch (err) {
+          addMessage("Erreur lors du chargement.", false);
+        } finally {
+          status.textContent = "";
+          loadBtn.disabled = false;
+        }
+      }
+
+      // 2. Envoyer la question au RAG
+      async function sendMessage() {
+        const text = input.value.trim();
+        if (!text) return;
+
+        addMessage(text, true);
+        input.value = "";
+        status.textContent = "L'IA analyse le document...";
+
+        try {
+          const res = await fetch("/ask", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ question: text }),
+          });
+          const data = await res.json();
+          addMessage(data.answer, false);
+        } catch (err) {
+          addMessage("Erreur de connexion.", false);
+        } finally {
+          status.textContent = "";
+        }
+      }
+
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
+      });
+    </script>
+  </body>
+</html>
