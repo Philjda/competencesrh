@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Prédire le turnover avec Python et l’IA RH — cas concret PME | CompetencesRH</title>
+
+  <meta name="description" content="Découvrez un cas concret de prédiction du turnover en PME avec Python, Random Forest et People Analytics. Consultant IA RH, machine learning et dashboard RH prédictif." />
+
+  <link rel="canonical" href="https://competencesrh.fr/regression-lineaire.html" />
+
+  <link rel="stylesheet" href="../style.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse données</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+    </ul>
+
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">
+      Parlons Data RH →
+    </a>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="page-hero">
+
+    <div class="section-label">People analytics & IA RH</div>
+
+    <h1 class="page-title">
+      Prédire le turnover avec Python et l’IA RH
+    </h1>
+
+    <p class="page-sub">
+      Cas concret de machine learning RH dans une PME industrielle :
+      données RH, Random Forest, prédiction des départs et dashboard RH prédictif.
+    </p>
+
+  </section>
+
+  <!-- ARTICLE -->
+
+  <section class="section">
+
+    <article class="blog-article">
+
+      <h2 class="article-title">
+        Cas concret : utiliser le machine learning pour réduire le turnover en entreprise
+      </h2>
+
+      <p class="article-meta">
+        // Publié le 20 mai 2026 · 12 min de lecture
+      </p>
+
+      <h3 class="article-subtitle">
+        Pourquoi les DRH utilisent désormais l’IA prédictive
+      </h3>
+
+      <p class="article-text">
+        Le turnover représente aujourd’hui un enjeu stratégique majeur pour les entreprises.
+        La perte de profils techniques, l’augmentation des coûts de recrutement et la difficulté à fidéliser les collaborateurs poussent de plus en plus de DRH à utiliser la data RH et l’intelligence artificielle.
+      </p>
+
+      <p class="article-text">
+        Grâce au People Analytics, il devient possible de détecter les signaux faibles avant les départs et d’agir de manière proactive.
+      </p>
+
+      <h3 class="article-subtitle">
+        Contexte de la PME
+      </h3>
+
+      <p class="article-text">
+        L’entreprise fictive TechFab Solutions évolue dans le secteur de l’industrie et de la digitalisation industrielle.
+      </p>
+
+      <ul class="article-text">
+        <li>180 salariés ;</li>
+        <li>forte tension sur les profils techniques ;</li>
+        <li>turnover passé de 9 % à 18 % en deux ans ;</li>
+        <li>difficultés de recrutement ;</li>
+        <li>augmentation des démissions.</li>
+      </ul>
+
+      <p class="article-text">
+        Le DRH pose alors une question simple :
+      </p>
+
+      <p class="article-text">
+        <strong>
+          “Peut-on prédire quels salariés risquent de quitter l’entreprise dans les prochains mois ?”
+        </strong>
+      </p>
+
+      <h3 class="article-subtitle">
+        Objectif du projet IA RH
+      </h3>
+
+      <p class="article-text">
+        L’objectif du projet est de construire un modèle prédictif capable de :
+      </p>
+
+      <ul class="article-text">
+        <li>détecter les salariés à risque ;</li>
+        <li>identifier les causes principales ;</li>
+        <li>aider les managers à agir avant les départs.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Étape 1 : compréhension métier RH
+      </h3>
+
+      <p class="article-text">
+        Avant de construire un modèle IA, le consultant RH commence toujours par une analyse métier.
+      </p>
+
+      <p class="article-text">
+        Plusieurs hypothèses émergent :
+      </p>
+
+      <ul class="article-text">
+        <li>salaire insuffisant ;</li>
+        <li>surcharge de travail ;</li>
+        <li>faible reconnaissance ;</li>
+        <li>manque d’évolution ;</li>
+        <li>management défaillant ;</li>
+        <li>temps de trajet élevé ;</li>
+        <li>désengagement collaborateur.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Étape 2 : collecte des données RH
+      </h3>
+
+      <p class="article-text">
+        Les données sont récupérées depuis le SIRH et les enquêtes internes.
+      </p>
+
+      <table class="article-table">
+
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Age</td>
+            <td>Âge du salarié</td>
+          </tr>
+
+          <tr>
+            <td>Anciennete</td>
+            <td>Nombre d’années dans l’entreprise</td>
+          </tr>
+
+          <tr>
+            <td>Salaire</td>
+            <td>Rémunération annuelle</td>
+          </tr>
+
+          <tr>
+            <td>HeuresSup</td>
+            <td>Heures supplémentaires</td>
+          </tr>
+
+          <tr>
+            <td>Distance</td>
+            <td>Distance domicile-travail</td>
+          </tr>
+
+          <tr>
+            <td>Satisfaction</td>
+            <td>Score enquête interne</td>
+          </tr>
+
+          <tr>
+            <td>Formation</td>
+            <td>Heures de formation</td>
+          </tr>
+
+          <tr>
+            <td>Promotion</td>
+            <td>Promotion récente ou non</td>
+          </tr>
+
+          <tr>
+            <td>ManagerScore</td>
+            <td>Qualité du management</td>
+          </tr>
+
+          <tr>
+            <td>Depart</td>
+            <td>Variable cible : départ ou non</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <h3 class="article-subtitle">
+        Étape 3 : définition du problème IA
+      </h3>
+
+      <p class="article-text">
+        Le modèle doit prédire :
+      </p>
+
+      <p class="article-text">
+        <strong>Depart = Oui / Non</strong>
+      </p>
+
+      <p class="article-text">
+        Il s’agit donc d’un problème de classification binaire.
+      </p>
+
+      <p class="article-text">
+        Le consultant commence volontairement avec une approche simple :
+      </p>
+
+      <ul class="article-text">
+        <li>régression logistique ;</li>
+        <li>puis Random Forest.</li>
+      </ul>
+
+      <p class="article-text">
+        Dans les RH, l’explicabilité reste essentielle.
+        Les managers doivent comprendre les prédictions générées par l’algorithme.
+      </p>
+
+      <h3 class="article-subtitle">
+        Étape 4 : préparation des données
+      </h3>
+
+      <p class="article-text">
+        Les données RH doivent être nettoyées avant l’apprentissage machine.
+      </p>
+
+      <ul class="article-text">
+        <li>gestion des valeurs manquantes ;</li>
+        <li>encodage Oui / Non ;</li>
+        <li>normalisation des variables ;</li>
+        <li>contrôle qualité des données.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Étape 5 : analyse exploratoire RH
+      </h3>
+
+      <p class="article-text">
+        Avant de lancer les modèles prédictifs, une analyse exploratoire met en évidence plusieurs corrélations fortes.
+      </p>
+
+      <ul class="article-text">
+        <li>faible satisfaction ;</li>
+        <li>heures supplémentaires élevées ;</li>
+        <li>absence de promotion.</li>
+      </ul>
+
+      <p class="article-text">
+        Ces facteurs augmentent significativement le risque de départ.
+      </p>
+
+      <h3 class="article-subtitle">
+        Étape 6 : construction du modèle prédictif
+      </h3>
+
+      <p class="article-text">
+        La régression logistique permet de calculer une probabilité de turnover pour chaque collaborateur.
+      </p>
+
+      <ul class="article-text">
+        <li>Employé A : 82 % de risque ;</li>
+        <li>Employé B : 11 % ;</li>
+        <li>Employé C : 67 %.</li>
+      </ul>
+
+      <table class="article-table">
+
+        <thead>
+          <tr>
+            <th>Facteur</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Satisfaction faible</td>
+            <td>Très fort</td>
+          </tr>
+
+          <tr>
+            <td>Heures supplémentaires élevées</td>
+            <td>Fort</td>
+          </tr>
+
+          <tr>
+            <td>Salaire faible</td>
+            <td>Fort</td>
+          </tr>
+
+          <tr>
+            <td>Absence de promotion</td>
+            <td>Moyen</td>
+          </tr>
+
+          <tr>
+            <td>Formation faible</td>
+            <td>Modéré</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <h3 class="article-subtitle">
+        Étape 7 : amélioration avec Random Forest
+      </h3>
+
+      <p class="article-text">
+        Le consultant teste ensuite un modèle plus avancé : Random Forest.
+      </p>
+
+      <p class="article-text">
+        Cet algorithme détecte des interactions plus complexes entre les variables RH.
+      </p>
+
+      <p class="article-text">
+        Exemple :
+      </p>
+
+      <p class="article-text">
+        Un salaire faible seul n’explique pas toujours un départ.
+        Mais un salaire faible combiné à un mauvais management et une surcharge de travail augmente fortement le risque.
+      </p>
+
+      <h3 class="article-subtitle">
+        Résultats du modèle
+      </h3>
+
+      <table class="article-table">
+
+        <thead>
+          <tr>
+            <th>Modèle</th>
+            <th>Précision</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Régression logistique</td>
+            <td>74 %</td>
+          </tr>
+
+          <tr>
+            <td>Random Forest</td>
+            <td>86 %</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <p class="article-text">
+        Le cabinet recommande :
+      </p>
+
+      <ul class="article-text">
+        <li>Random Forest pour la prédiction ;</li>
+        <li>la régression logistique pour l’explication métier.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Traduction opérationnelle RH
+      </h3>
+
+      <p class="article-text">
+        L’objectif final est d’aider les équipes RH à agir avant les démissions.
+      </p>
+
+      <table class="article-table">
+
+        <thead>
+          <tr>
+            <th>Risque</th>
+            <th>Action RH</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>> 80 %</td>
+            <td>Entretien manager immédiat</td>
+          </tr>
+
+          <tr>
+            <td>60–80 %</td>
+            <td>Revue salariale</td>
+          </tr>
+
+          <tr>
+            <td>40–60 %</td>
+            <td>Suivi RH renforcé</td>
+          </tr>
+
+          <tr>
+            <td>< 40 %</td>
+            <td>Surveillance normale</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <h3 class="article-subtitle">
+        Exemple concret de salarié à risque
+      </h3>
+
+      <ul class="article-text">
+        <li>2 ans d’ancienneté ;</li>
+        <li>salaire sous le marché ;</li>
+        <li>14 heures supplémentaires par semaine ;</li>
+        <li>satisfaction : 4/10 ;</li>
+        <li>aucune promotion récente.</li>
+      </ul>
+
+      <p class="article-text">
+        Le modèle prédit :
+      </p>
+
+      <p class="article-text">
+        <strong>Probabilité de départ : 87 %</strong>
+      </p>
+
+      <p class="article-text">
+        Actions recommandées :
+      </p>
+
+      <ul class="article-text">
+        <li>entretien RH ;</li>
+        <li>réduction de charge ;</li>
+        <li>plan d’évolution ;</li>
+        <li>révision salariale.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Exemple Python simplifié
+      </h3>
+
+<pre><code>
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+X = data[["Salaire","Satisfaction","HeuresSup","Anciennete"]]
+y = data["Depart"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)
+</code></pre>
+
+      <h3 class="article-subtitle">
+        Dashboard RH prédictif
+      </h3>
+
+      <p class="article-text">
+        Le résultat final prend la forme d’un dashboard RH connecté au SIRH.
+      </p>
+
+      <ul class="article-text">
+        <li>équipes à risque ;</li>
+        <li>top facteurs de départ ;</li>
+        <li>salariés critiques ;</li>
+        <li>évolution mensuelle du turnover.</li>
+      </ul>
+
+      <p class="article-text">
+        Outils utilisés :
+      </p>
+
+      <ul class="article-text">
+        <li>Python ;</li>
+        <li>Power BI ;</li>
+        <li>SQL ;</li>
+        <li>Tableau.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Résultats obtenus après 8 mois
+      </h3>
+
+      <table class="article-table">
+
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>Avant</th>
+            <th>Après</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Turnover</td>
+            <td>18 %</td>
+            <td>11 %</td>
+          </tr>
+
+          <tr>
+            <td>Départs profils clés</td>
+            <td>Élevé</td>
+            <td>Réduit</td>
+          </tr>
+
+          <tr>
+            <td>Coût recrutement</td>
+            <td>Élevé</td>
+            <td>Réduit</td>
+          </tr>
+
+          <tr>
+            <td>Satisfaction</td>
+            <td>5.8/10</td>
+            <td>7.1/10</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <h3 class="article-subtitle">
+        Les limites de l’IA RH
+      </h3>
+
+      <p class="article-text">
+        L’intelligence artificielle aide à détecter les risques, mais elle ne remplace jamais le management humain.
+      </p>
+
+      <p class="article-text">
+        Un projet IA RH doit toujours :
+      </p>
+
+      <ul class="article-text">
+        <li>respecter le RGPD ;</li>
+        <li>éviter les biais algorithmiques ;</li>
+        <li>garder une validation humaine ;</li>
+        <li>expliquer les modèles ;</li>
+        <li>protéger les données collaborateurs.</li>
+      </ul>
+
+    </article>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 DataRH. Tous droits réservés.
+    </div>
+
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
