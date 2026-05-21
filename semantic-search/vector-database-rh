@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Comprendre les vector databases en RH : semantic search, embeddings, RAG, chatbot IA et recherche documentaire intelligente pour les DRH et PME." />
+  <title>Vector database RH : semantic search, RAG et IA documentaire | CompetencesRH</title>
+
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/vector-database-rh.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Vector database RH : semantic search, RAG et IA documentaire",
+  "description": "Découvrez comment les vector databases permettent de construire des moteurs de recherche intelligents, des assistants RH IA et des systèmes RAG.",
+  "author": {
+    "@type": "Organization",
+    "name": "CompetencesRH"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CompetencesRH"
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">DATA<span>RH</span></a>
+
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html" class="active">IA&RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+    </ul>
+
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">
+      Parlons Data RH →
+    </a>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="page-hero">
+    <div class="section-label">// Semantic search & vector database</div>
+
+    <h1 class="page-title">
+      Les <em>vector databases</em><br/>
+      au service des RH
+    </h1>
+
+    <p class="page-sub">
+      Les vector databases permettent aux systèmes IA de comprendre le sens des documents plutôt que de simples mots-clés. 
+      Elles constituent aujourd’hui la base technique des moteurs de recherche intelligents, du 
+      <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">semantic search</a>,
+      des systèmes 
+      <a href="https://competencesrh.fr/rag.html" class="link-white-underline">RAG</a>
+      et des 
+      <a href="https://competencesrh.fr/ia.html" class="link-white-underline">chatbots IA RH</a>.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://competencesrh.fr/semantic-search.html" class="btn-primary">
+        Comprendre le semantic search →
+      </a>
+
+      <a href="https://competencesrh.fr/rag.html" class="btn-primary">
+        Découvrir le RAG →
+      </a>
+
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">
+        Parler de votre projet →
+      </a>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+
+  <section class="section">
+    <article class="blog-article">
+
+      <h2 class="article-title">
+        Pourquoi les vector databases deviennent essentielles pour les entreprises
+      </h2>
+
+      <p class="article-meta">
+        // IA documentaire · semantic search · RAG · RH · 2026
+      </p>
+
+      <h3 class="article-subtitle">
+        Le problème des IA classiques
+      </h3>
+
+      <p class="article-text">
+        Les modèles d’intelligence artificielle modernes savent répondre à des questions générales, rédiger du texte ou résumer des informations. 
+        Mais ils possèdent une limite majeure : ils ne connaissent pas les documents internes de votre entreprise.
+      </p>
+
+      <p class="article-text">
+        Une IA conversationnelle standard ne connaît ni votre convention interne, ni vos procédures RH, ni vos fiches de poste, ni vos historiques de recrutement. 
+        Elle travaille avec des connaissances publiques apprises durant son entraînement.
+      </p>
+
+      <p class="article-text">
+        Pour rendre une IA réellement utile en entreprise, il faut donc lui donner accès à votre propre base documentaire. 
+        C’est précisément le rôle des vector databases.
+      </p>
+
+      <h3 class="article-subtitle">
+        Qu’est-ce qu’une vector database ?
+      </h3>
+
+      <p class="article-text">
+        Une vector database est une base de données spécialisée capable de stocker des représentations mathématiques du langage appelées embeddings.
+      </p>
+
+      <p class="article-text">
+        Au lieu de stocker uniquement du texte brut, le système transforme chaque phrase, document ou CV en vecteur numérique.
+        Ces vecteurs représentent le sens sémantique du contenu.
+      </p>
+
+      <p class="article-text">
+        Deux documents ayant des significations proches auront des vecteurs proches mathématiquement, même si les mots utilisés sont différents.
+      </p>
+
+      <p class="article-text">
+        Exemple :
+      </p>
+
+      <p class="article-text">
+        “Gestion de projet industriel” et “pilotage opérationnel d’équipes techniques” pourront être considérés comme proches, même sans mots identiques.
+      </p>
+
+      <h3 class="article-subtitle">
+        La différence avec une recherche classique
+      </h3>
+
+      <p class="article-text">
+        Une recherche traditionnelle fonctionne avec des mots-clés exacts.
+      </p>
+
+      <p class="article-text">
+        Si un recruteur tape :
+      </p>
+
+      <p class="article-text">
+        “Compétence en cybersécurité”
+      </p>
+
+      <p class="article-text">
+        le moteur peut ignorer un CV contenant :
+      </p>
+
+      <p class="article-text">
+        “protection des systèmes d’information”.
+      </p>
+
+      <p class="article-text">
+        Le semantic search fonctionne différemment.
+        Il cherche des idées proches et non des termes identiques.
+      </p>
+
+      <p class="article-text">
+        Cela améliore fortement :
+      </p>
+
+      <ul class="service-tags">
+        <li>la recherche documentaire</li>
+        <li>le matching de CV</li>
+        <li>la recherche de compétences</li>
+        <li>les assistants RH IA</li>
+        <li>la recherche interne</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Le rôle des embeddings
+      </h3>
+
+      <p class="article-text">
+        Les embeddings sont au cœur du système.
+      </p>
+
+      <p class="article-text">
+        Chaque phrase est convertie en centaines de coordonnées numériques.
+        Ces coordonnées permettent de représenter le sens du texte dans un espace mathématique.
+      </p>
+
+      <p class="article-text">
+        Plus deux vecteurs sont proches, plus leur signification est similaire.
+      </p>
+
+      <p class="article-text">
+        Les modèles modernes utilisent souvent :
+      </p>
+
+      <ul class="service-tags">
+        <li>OpenAI embeddings</li>
+        <li>Sentence Transformers</li>
+        <li>BGE embeddings</li>
+        <li>multilingual embeddings</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Comment fonctionne un système RAG
+      </h3>
+
+      <p class="article-text">
+        Les vector databases sont généralement utilisées avec une architecture appelée 
+        <a href="https://competencesrh.fr/rag.html" class="link-white-underline">RAG</a>
+        (Retrieval-Augmented Generation).
+      </p>
+
+      <p class="article-text">
+        Le fonctionnement est simple :
+      </p>
+
+      <ul class="service-tags">
+        <li>un collaborateur pose une question ;</li>
+        <li>la vector database cherche les passages pertinents ;</li>
+        <li>les documents sont injectés dans le contexte du modèle IA ;</li>
+        <li>le chatbot répond à partir des documents internes.</li>
+      </ul>
+
+      <p class="article-text">
+        Cela évite les hallucinations et améliore fortement la précision des réponses.
+      </p>
+
+      <h3 class="article-subtitle">
+        Différence entre semantic search et chatbot IA
+      </h3>
+
+      <p class="article-text">
+        Beaucoup d’entreprises confondent semantic search et chatbot IA.
+      </p>
+
+      <p class="article-text">
+        Pourtant, ce sont deux briques différentes.
+      </p>
+
+      <p class="article-text">
+        Le semantic search sert principalement à retrouver l’information pertinente.
+      </p>
+
+      <p class="article-text">
+        Le chatbot, lui, sert à générer une réponse conversationnelle.
+      </p>
+
+      <p class="article-text">
+        En pratique :
+      </p>
+
+      <ul class="service-tags">
+        <li>la vector database retrouve les documents ;</li>
+        <li>le chatbot reformule et explique ;</li>
+        <li>le système RAG connecte les deux.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Cas d’usage RH concrets
+      </h3>
+
+      <p class="article-text">
+        Les usages RH sont nombreux.
+      </p>
+
+      <h3 class="article-subtitle">
+        Assistant RH interne
+      </h3>
+
+      <p class="article-text">
+        Les collaborateurs posent des questions sur :
+      </p>
+
+      <ul class="service-tags">
+        <li>les congés ;</li>
+        <li>la mutuelle ;</li>
+        <li>les procédures ;</li>
+        <li>le télétravail ;</li>
+        <li>les accords d’entreprise.</li>
+      </ul>
+
+      <p class="article-text">
+        L’assistant recherche directement dans vos documents RH et fournit des réponses contextualisées.
+      </p>
+
+      <h3 class="article-subtitle">
+        Matching de CV intelligent
+      </h3>
+
+      <p class="article-text">
+        Une vector database permet d’identifier des profils similaires sans dépendre des mots-clés exacts.
+      </p>
+
+      <p class="article-text">
+        Cela améliore considérablement :
+      </p>
+
+      <ul class="service-tags">
+        <li>la recherche de talents ;</li>
+        <li>la mobilité interne ;</li>
+        <li>la cartographie des compétences ;</li>
+        <li>la détection de profils rares.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Préservation de la mémoire d’entreprise
+      </h3>
+
+      <p class="article-text">
+        Les PME perdent souvent de la connaissance lors des départs de collaborateurs.
+      </p>
+
+      <p class="article-text">
+        Une base vectorielle permet de centraliser :
+      </p>
+
+      <ul class="service-tags">
+        <li>les procédures ;</li>
+        <li>les comptes rendus ;</li>
+        <li>les documents techniques ;</li>
+        <li>les historiques projet ;</li>
+        <li>les analyses RH.</li>
+      </ul>
+
+      <p class="article-text">
+        Les nouveaux collaborateurs retrouvent rapidement l’information grâce au langage naturel.
+      </p>
+
+      <h3 class="article-subtitle">
+        Technologies utilisées
+      </h3>
+
+      <p class="article-text">
+        Les projets modernes utilisent souvent :
+      </p>
+
+      <ul class="service-tags">
+        <li>Pinecone</li>
+        <li>Qdrant</li>
+        <li>Weaviate</li>
+        <li>pgvector</li>
+        <li>LangChain</li>
+        <li>Python</li>
+      </ul>
+
+      <p class="article-text">
+        Les pipelines IA sont généralement développés avec Python afin de connecter :
+      </p>
+
+      <ul class="service-tags">
+        <li>les embeddings ;</li>
+        <li>la vector database ;</li>
+        <li>les modèles IA ;</li>
+        <li>les documents internes ;</li>
+        <li>les outils RH.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Les enjeux de sécurité
+      </h3>
+
+      <p class="article-text">
+        Les données RH étant sensibles, la sécurité est centrale.
+      </p>
+
+      <p class="article-text">
+        Les entreprises doivent :
+      </p>
+
+      <ul class="service-tags">
+        <li>contrôler les accès ;</li>
+        <li>gérer les droits utilisateurs ;</li>
+        <li>respecter le RGPD ;</li>
+        <li>anonymiser certaines données ;</li>
+        <li>sécuriser les documents internes.</li>
+      </ul>
+
+      <h3 class="article-subtitle">
+        Pourquoi cette technologie devient stratégique
+      </h3>
+
+      <p class="article-text">
+        Les vector databases constituent aujourd’hui l’infrastructure centrale de l’IA documentaire moderne.
+      </p>
+
+      <p class="article-text">
+        Elles permettent de transformer des milliers de documents passifs en système intelligent capable :
+      </p>
+
+      <ul class="service-tags">
+        <li>de rechercher ;</li>
+        <li>d’expliquer ;</li>
+        <li>de recommander ;</li>
+        <li>de répondre ;</li>
+        <li>d’assister les collaborateurs.</li>
+      </ul>
+
+      <p class="article-text">
+        Pour les RH, cela ouvre des usages très concrets :
+        recrutement intelligent, assistants internes, cartographie des compétences, recherche documentaire et automatisation des réponses RH.
+      </p>
+
+    </article>
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <p class="cta-band-text">
+        Vous souhaitez construire un moteur de recherche RH intelligent ?
+      </p>
+
+      <a href="contact.html" class="btn-primary">
+        Parlons de votre projet →
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/index.html">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 DataRH. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
