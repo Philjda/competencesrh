@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Comprendre les embeddings en RH : recherche sémantique, matching de CV, vector database, RAG et IA documentaire pour DRH et PME." />
+  <title>Embeddings RH : comprendre la recherche sémantique et l’IA RH — CompetencesRH</title>
+
+  <link rel="canonical" href="https://competencesrh.fr/embeddings-rh.html" />
+  <link rel="stylesheet" href="style.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html" class="active">IA&RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+
+  <a href="https://competencesrh.fr/contact.html" class="nav-cta">
+    Parlons Data RH →
+  </a>
+</nav>
+
+<!-- HERO -->
+
+<section class="page-hero">
+  <div class="section-label">// Embeddings RH</div>
+
+  <h1 class="page-title">
+    Les <em>embeddings</em><br/>
+    expliqués aux RH
+  </h1>
+
+  <p class="page-sub">
+    Les embeddings permettent à l’IA de comprendre le sens d’un texte plutôt que de simples mots-clés.
+    Cette technologie alimente aujourd’hui le
+    <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">semantic search</a>,
+    les systèmes
+    <a href="https://competencesrh.fr/rag.html" class="link-white-underline">RAG</a>,
+    les chatbots RH IA et les moteurs de matching de compétences.
+  </p>
+</section>
+
+<!-- ARTICLE -->
+
+<section class="section">
+  <article class="blog-article">
+
+    <h2 class="article-title">
+      Les embeddings : comment l’IA cartographie le sens de vos données RH
+    </h2>
+
+    <p class="article-meta">
+      // Publié le 21 mai 2026 · 10 min de lecture
+    </p>
+
+    <h3 class="article-subtitle">
+      Pourquoi les embeddings sont devenus essentiels en IA RH
+    </h3>
+
+    <p class="article-text">
+      L’intelligence artificielle moderne repose sur une technologie invisible mais fondamentale :
+      les embeddings. Sans eux, les outils IA ne pourraient ni comprendre les CV,
+      ni retrouver des documents RH pertinents,
+      ni alimenter un chatbot d’entreprise.
+    </p>
+
+    <p class="article-text">
+      Dans les logiciels traditionnels, les recherches fonctionnent principalement par mots-clés exacts.
+      Si un recruteur cherche “gestion de projet”, un CV mentionnant uniquement
+      “pilotage opérationnel” risque de ne jamais apparaître.
+    </p>
+
+    <p class="article-text">
+      Les embeddings changent totalement cette logique.
+      Ils permettent aux systèmes IA de comprendre le sens d’une phrase,
+      même lorsque les termes employés sont différents.
+      C’est cette technologie qui alimente aujourd’hui la
+      <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">recherche sémantique</a>,
+      les assistants documentaires et les outils de matching RH.
+    </p>
+
+    <h3 class="article-subtitle">
+      Qu’est-ce qu’un embedding ?
+    </h3>
+
+    <p class="article-text">
+      Un embedding est une représentation numérique d’un texte.
+      Une phrase, un CV ou un document RH est converti en une série de coordonnées mathématiques appelées vecteurs.
+    </p>
+
+    <p class="article-text">
+      Dans cet espace vectoriel, les textes proches par le sens possèdent des coordonnées proches.
+      À l’inverse, des concepts très différents se retrouvent éloignés.
+    </p>
+
+    <p class="article-text">
+      Par exemple :
+    </p>
+
+<pre>
+gestion de projet
+pilotage opérationnel
+coordination programme
+</pre>
+
+    <p class="article-text">
+      Ces expressions auront des vecteurs très similaires,
+      même si les mots employés sont différents.
+    </p>
+
+    <p class="article-text">
+      Cette logique permet à l’IA de dépasser les limites des moteurs de recherche classiques.
+      Elle ne cherche plus uniquement des mots identiques :
+      elle cherche des concepts similaires.
+    </p>
+
+    <h3 class="article-subtitle">
+      Comment fonctionne techniquement un embedding ?
+    </h3>
+
+    <p class="article-text">
+      Les embeddings sont générés grâce à des modèles de langage spécialisés comme :
+    </p>
+
+    <ul class="service-tags">
+      <li>BERT</li>
+      <li>Sentence Transformers</li>
+      <li>MiniLM</li>
+      <li>OpenAI Embeddings</li>
+    </ul>
+
+    <p class="article-text">
+      Ces modèles analysent des milliards de phrases afin d’apprendre les relations statistiques entre les mots.
+      Le système construit progressivement une carte mathématique du langage.
+    </p>
+
+    <p class="article-text">
+      Pour comparer deux textes,
+      l’IA mesure ensuite la distance entre leurs vecteurs grâce à des calculs comme la similarité cosine.
+    </p>
+
+    <p class="article-text">
+      Plus les vecteurs sont proches,
+      plus les textes sont considérés comme similaires.
+    </p>
+
+    <h3 class="article-subtitle">
+      Exemple concret dans un workflow RH
+    </h3>
+
+<pre>
+CV candidat
+↓
+Création embedding
+↓
+Vector database
+↓
+Recherche sémantique
+↓
+Classement des profils compatibles
+</pre>
+
+    <p class="article-text">
+      Cette architecture permet de détecter des candidats pertinents même lorsque les formulations diffèrent fortement d’un CV à l’autre.
+    </p>
+
+    <h3 class="article-subtitle">
+      Pourquoi les embeddings changent le recrutement
+    </h3>
+
+    <p class="article-text">
+      Le recrutement traditionnel dépend énormément des mots-clés.
+      Cela crée de nombreux faux négatifs :
+      des candidats compétents sont exclus simplement parce qu’ils n’ont pas utilisé le vocabulaire attendu.
+    </p>
+
+    <p class="article-text">
+      Avec les embeddings,
+      le système raisonne par proximité de compétences.
+      Un profil ayant travaillé sur des “plans de continuité d’activité”
+      pourra être rapproché d’une recherche liée à la “gestion de crise”.
+    </p>
+
+    <p class="article-text">
+      Cette logique améliore :
+    </p>
+
+    <ul class="service-tags">
+      <li>le matching de CV</li>
+      <li>la mobilité interne</li>
+      <li>la cartographie des compétences</li>
+      <li>la GPEC</li>
+      <li>l’analyse des métiers</li>
+    </ul>
+
+    <h3 class="article-subtitle">
+      Embeddings et semantic search RH
+    </h3>
+
+    <p class="article-text">
+      Les embeddings constituent la base technique du
+      <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">semantic search</a>.
+    </p>
+
+    <p class="article-text">
+      Dans une architecture classique :
+    </p>
+
+<pre>
+Question salarié
+↓
+Embedding de la question
+↓
+Recherche dans une vector database
+↓
+Extraction des documents proches
+↓
+Réponse IA
+</pre>
+
+    <p class="article-text">
+      Cette approche est largement utilisée dans les systèmes
+      <a href="https://competencesrh.fr/rag.html" class="link-white-underline">RAG</a>
+      afin d’alimenter des chatbots RH avec les documents internes de l’entreprise.
+    </p>
+
+    <h3 class="article-subtitle">
+      Embeddings et vector databases
+    </h3>
+
+    <p class="article-text">
+      Une fois les embeddings créés,
+      ils sont stockés dans des bases spécialisées appelées
+      vector databases.
+    </p>
+
+    <p class="article-text">
+      Ces bases permettent d’effectuer des recherches sémantiques extrêmement rapides,
+      même sur plusieurs millions de documents.
+    </p>
+
+    <p class="article-text">
+      Les technologies les plus connues sont :
+    </p>
+
+    <ul class="service-tags">
+      <li>Pinecone</li>
+      <li>Qdrant</li>
+      <li>Weaviate</li>
+      <li>pgvector</li>
+    </ul>
+
+    <p class="article-text">
+      Elles deviennent progressivement le socle technique des assistants IA d’entreprise.
+    </p>
+
+    <h3 class="article-subtitle">
+      Exemple Python simplifié
+    </h3>
+
+<pre>
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer(
+    'all-MiniLM-L6-v2'
+)
+
+texts = [
+    "gestion de projet",
+    "pilotage opérationnel"
+]
+
+embeddings = model.encode(texts)
+
+print(embeddings.shape)
+</pre>
+
+    <p class="article-text">
+      Ce code transforme des phrases en vecteurs numériques exploitables par un moteur de recherche sémantique.
+    </p>
+
+    <h3 class="article-subtitle">
+      Cas d’usage RH concrets
+    </h3>
+
+    <p class="article-text">
+      Les embeddings ouvrent plusieurs usages stratégiques pour les DRH :
+    </p>
+
+    <ul class="service-tags">
+      <li>matching intelligent de CV</li>
+      <li>chatbot RH documentaire</li>
+      <li>analyse des compétences</li>
+      <li>mobilité interne</li>
+      <li>cartographie des métiers</li>
+      <li>analyse du climat social</li>
+      <li>détection de signaux faibles</li>
+    </ul>
+
+    <p class="article-text">
+      Ils permettent notamment d’exploiter des données textuelles longtemps sous-utilisées :
+      comptes rendus,
+      entretiens annuels,
+      fiches de poste,
+      feedbacks collaborateurs ou documents RH.
+    </p>
+
+    <h3 class="article-subtitle">
+      Les limites des embeddings
+    </h3>
+
+    <p class="article-text">
+      Les embeddings ne “comprennent” pas réellement le langage humain.
+      Ils réalisent une approximation statistique du sens.
+    </p>
+
+    <p class="article-text">
+      Plusieurs limites existent :
+    </p>
+
+    <ul class="service-tags">
+      <li>perte de contexte</li>
+      <li>biais historiques</li>
+      <li>ambiguïtés métiers</li>
+      <li>dépendance au modèle utilisé</li>
+      <li>nécessité de données propres</li>
+    </ul>
+
+    <p class="article-text">
+      Un projet RH IA doit donc toujours inclure :
+    </p>
+
+    <ul class="service-tags">
+      <li>validation humaine</li>
+      <li>audit des biais</li>
+      <li>contrôle RGPD</li>
+      <li>explicabilité des résultats</li>
+    </ul>
+
+    <h3 class="article-subtitle">
+      Pourquoi cette technologie devient stratégique pour les PME
+    </h3>
+
+    <p class="article-text">
+      Les embeddings transforment progressivement les données RH en moteur décisionnel.
+      Ils permettent aux PME de construire :
+    </p>
+
+    <ul class="service-tags">
+      <li>des assistants RH IA</li>
+      <li>des moteurs documentaires internes</li>
+      <li>des outils de matching de compétences</li>
+      <li>des systèmes prédictifs RH</li>
+    </ul>
+
+    <p class="article-text">
+      Cette technologie constitue aujourd’hui le socle technique de nombreuses architectures IA modernes,
+      notamment dans les systèmes RAG et les outils de recherche documentaire intelligente.
+    </p>
+
+  </article>
+</section>
+
+<!-- CTA -->
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <p class="cta-band-text">
+      Besoin d’un moteur de recherche sémantique ou d’un chatbot RH IA ?
+    </p>
+
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">
+      Parlons de votre projet →
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <span class="nav-logo">DATA<span>RH</span></span>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/index.html">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+
+  <div class="footer-copy">
+    © 2026 DataRH. Tous droits réservés.
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>
