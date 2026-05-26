@@ -3,222 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Recrutement prédictif : IA, scoring candidat et matching CV | CompetencesRH</title>
-
-  <meta name="description" content="Comprendre le recrutement prédictif : comment l’IA et la data RH permettent de scorer les candidats, améliorer le matching CV et optimiser les recrutements." />
-
-  <link rel="canonical" href="https://competencesrh.fr/ia/recrutement-predictif.html" />
+  <meta name="description" content="Analyse du recrutement prédictif et de l'IA : fonctionnement technique (parsing, matching), cas d'usage RH, risques de biais et obligations IA Act / RGPD." />
+  <title>Recrutement prédictif et intelligence artificielle : promesses et limites | CompetencesRH</title>
   <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/ia/recrutement-predictif.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Recrutement prédictif et intelligence artificielle RH",
-    "description": "Guide complet sur le recrutement prédictif : IA, scoring candidat, matching CV et optimisation des recrutements.",
+    "@type": "TechArticle",
+    "headline": "Recrutement prédictif et intelligence artificielle : promesses, limites et vigilance",
+    "description": "Un guide complet sur le fonctionnement, les cas d'usage et le cadre réglementaire des algorithmes prédictifs appliqués au recrutement.",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://competencesrh.fr/cas-usages/recrutement-predictif.html",
+    "datePublished": "2026-05-26",
     "author": {
       "@type": "Organization",
-      "name": "CompetencesRH"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "CompetencesRH",
+      "name": "DataRH",
       "url": "https://competencesrh.fr"
     }
   }
   </script>
-
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="https://competencesrh.fr/index.html" class="nav-logo">DATA<span>RH</span></a>
-  <ul class="nav-links">
-    <li><a href="https://competencesrh.fr/index.html">Accueil</a></li>
-    <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
-    <li><a href="https://competencesrh.fr/ia/machine-learning-rh.html">Machine Learning RH</a></li>
-    <li><a href="https://competencesrh.fr/ia/python-rh.html">Python RH</a></li>
-    <li><a href="https://competencesrh.fr/ia/recrutement-predictif.html" class="active">Recrutement prédictif</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="page-hero">
-
-  <div class="section-label">// Recrutement prédictif & IA RH</div>
-
-  <h1 class="page-title">
-    Recrutement prédictif : utiliser la data et l’IA pour mieux recruter
-  </h1>
-
-  <p class="page-sub">
-    Le recrutement prédictif utilise les données RH et l’<a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">IA</a>, intelligence artificielle, pour identifier les candidats les plus susceptibles de réussir dans un poste, avant même leur embauche.
-  </p>
-
-</section>
-
-<!-- CONTENT -->
-<section class="section">
-  <article class="blog-article">
-
-    <h2>Qu’est-ce que le recrutement prédictif ?</h2>
-
-    <p class="article-text">
-      Le recrutement prédictif est une approche RH basée sur la data et le machine learning qui permet d’anticiper la performance et la réussite d’un candidat à partir de données historiques.
-    </p>
-
-    <p class="article-text">
-      Contrairement au recrutement traditionnel basé sur l’intuition ou le CV, il s’appuie sur des modèles statistiques et des données objectives.
-    </p>
-
-    <h2>Pourquoi utiliser le recrutement prédictif ?</h2>
-
-    <p class="article-text">
-      Les entreprises utilisent le recrutement prédictif pour améliorer la qualité de leurs embauches et réduire les erreurs de recrutement.
-    </p>
-
-    <ul>
-      <li>Réduire le turnover post-recrutement</li>
-      <li>Accélérer le processus de sélection</li>
-      <li>Améliorer la qualité des profils recrutés</li>
-      <li>Limiter les biais humains dans les décisions</li>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
     </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+ 
+  <section class="page-hero">
+    <div class="section-label">// Cas d'Usage Métier</div>
+    <div class="breadcrumb" style="font-family: 'DM Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem;">
+      <a href="https://competencesrh.fr/competences.html" style="color: #fff; text-decoration: underline;">Compétences Métiers</a> / Recrutement Prédictif
+    </div>
+    <h1 class="page-title">Recrutement prédictif et intelligence artificielle</h1>
+    <p class="page-sub">Promesses, limites et vigilance autour des modèles algorithmiques de sélection.</p>
+  </section>
+ 
+  <section class="section">
+    <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+      
+      <p class="article-text">
+        Le recrutement prédictif basé sur l’intelligence artificielle consiste à utiliser des modèles statistiques et des algorithmes de machine learning pour analyser des données de candidatures et estimer l’adéquation probable d’un profil à un poste. L’objectif n’est pas de “deviner” un futur candidat idéal, mais d’aider les équipes RH à mieux prioriser les profils, à gagner du temps et à structurer leur décision. Cette promesse est forte, mais elle ne vaut que si l’outil est correctement conçu, gouverné et contrôlé.
+      </p>
 
-    <h2>Comment fonctionne le recrutement prédictif ?</h2>
+      <h2 class="article-title" style="margin-top: 3rem;">Comment ça fonctionne techniquement</h2>
+      <p class="article-text">
+        Le recrutement prédictif repose sur le traitement de la donnée RH à plusieurs niveaux.
+      </p>
+      <p class="article-text">
+        Le premier niveau est le <strong>parsing</strong> du CV, de la lettre de motivation ou du profil candidat. Grâce au traitement automatique du langage naturel, l’IA identifie les compétences, les expériences, les diplômes, les responsabilités et les signaux contextuels. Elle ne se limite plus à repérer des mots-clés, mais tente d’interpréter le sens d’un parcours.
+      </p>
+      <p class="article-text">
+        Le deuxième niveau est le <strong>matching</strong>. L’algorithme compare les éléments extraits du profil avec les critères du poste : compétences techniques, niveau d’expérience, secteurs connus, mobilité géographique, langues, ou encore exposition à certains environnements de travail. Il produit ensuite un score d’adéquation ou une hiérarchisation des candidatures.
+      </p>
+      <p class="article-text">
+        Le troisième niveau est la <strong>modélisation prédictive</strong>. Ici, l’outil s’appuie sur des historiques internes : performances passées, trajectoires de collaborateurs, taux de rétention, réussite dans certaines fonctions, ou encore données issus de parcours similaires. Le système cherche alors des corrélations pour estimer l’adéquation probable d’un candidat à un poste donné.
+      </p>
+      <p class="article-text">
+        Il faut toutefois garder une idée simple en tête : l’outil produit une estimation, pas une vérité. Un score élevé ne garantit ni la réussite, ni l’engagement, ni la stabilité d’un futur collaborateur.
+      </p>
 
-    <p class="article-text">
-      Le recrutement prédictif repose sur trois étapes principales :
-    </p>
+      <h2 class="article-title" style="margin-top: 3rem;">Les principaux cas d’usage RH</h2>
+      <p class="article-text">
+        Le premier cas d’usage est la <strong>présélection assistée</strong>. Quand une entreprise reçoit un volume important de candidatures, l’IA peut aider à classer les profils et à réduire le temps consacré au tri initial. L’intérêt est réel, à condition que la présélection reste supervisée par un recruteur.
+      </p>
+      <p class="article-text">
+        Le deuxième usage concerne l’<strong>évaluation complémentaire</strong>. Certains outils intègrent des tests de logique, de raisonnement ou de mise en situation pour enrichir l’analyse. Cela peut aider à objectiver certains critères, mais il faut rester prudent sur les tests de personnalité ou les inférences comportementales, qui peuvent être très sensibles sur le plan éthique.
+      </p>
+      <p class="article-text">
+        Le troisième cas d’usage est la <strong>mobilité interne</strong>. L’IA peut analyser les compétences déclarées ou déduites à partir des parcours internes pour identifier des opportunités de promotion, de reconversion ou de passerelles métiers. Bien utilisée, cette approche peut soutenir la gestion des talents et révéler des compétences invisibles.
+      </p>
 
-    <ul>
-      <li>Analyse des données des collaborateurs performants</li>
-      <li>Identification des critères de succès</li>
-      <li>Application d’un modèle de scoring sur les nouveaux candidats</li>
-    </ul>
+      <h2 class="article-title" style="margin-top: 3rem;">Les risques à ne pas sous-estimer</h2>
+      <p class="article-text">
+        Le principal risque est celui du <a href="https://competencesrh.fr/conformite/audit-algorithmique-biais.html" class="link-white-underline">biais algorithmique</a>. Si le modèle apprend à partir de données historiques déséquilibrées, il peut reproduire, voire amplifier, des discriminations déjà présentes dans l’organisation. Par exemple, un historique de recrutement très masculin dans certaines fonctions techniques peut conduire le système à favoriser inconsciemment des profils similaires.
+      </p>
+      <p class="article-text">
+        Le deuxième risque est celui de la surconfiance dans le score. Un bon taux de matching ne signifie pas qu’un candidat sera performant dans le poste. Une corrélation statistique ne remplace ni l’échange humain, ni l’évaluation du contexte, ni le jugement métier.
+      </p>
+      <p class="article-text">
+        Le troisième risque est opérationnel : un système peut être performant en phase de test, mais moins robuste en production, surtout si les données changent, si les usages dérivent ou si le poste évolue. C’est pourquoi l’IA RH doit être revue régulièrement et non figée après son déploiement.
+      </p>
 
-    <h2>Le scoring candidat</h2>
+      <h2 class="article-title" style="margin-top: 3rem;">Ce que dit le cadre réglementaire</h2>
+      <p class="article-text">
+        Dans le cadre de l’IA Act, les systèmes d’IA utilisés pour le recrutement, la sélection ou l’évaluation de personnes dans un contexte professionnel relèvent des usages à haut risque. Cela signifie que l’entreprise ne peut pas se contenter d’un simple achat logiciel : elle doit mettre en place une gouvernance, une documentation et des contrôles adaptés au niveau de risque.
+      </p>
+      <p class="article-text">
+        Le point essentiel est la <a href="https://competencesrh.fr/conformite-ethique-rh.html" class="link-white-underline">supervision humaine effective</a>. L’IA ne doit pas décider seule d’un rejet, d’une sélection ou d’une orientation de carrière dès lors que la décision a un impact significatif sur la personne. L’humain doit garder un rôle réel, pas symbolique.
+      </p>
+      <p class="article-text">
+        Le RGPD s’applique en parallèle dès lors que des données personnelles sont utilisées. Cela implique de définir une finalité précise, de minimiser les données collectées, d’informer les candidats sur l’usage de l’IA, de sécuriser les traitements et de limiter les durées de conservation. Pour un candidat non retenu, la conservation au-delà du besoin opérationnel doit rester justifiée et encadrée.
+      </p>
 
-    <p class="article-text">
-      Le scoring candidat consiste à attribuer une note à chaque profil en fonction de critères objectifs issus des données RH.
-    </p>
+      <h2 class="article-title" style="margin-top: 3rem;">Les bonnes pratiques de gouvernance</h2>
+      <p class="article-text">
+        Un projet de recrutement prédictif doit commencer par une qualification du cas d’usage. Il faut répondre à des questions simples : que fait l’outil, sur quelles données, avec quelle autonomie, et avec quel impact sur la décision finale ?
+      </p>
+      <p class="article-text">
+        Il faut ensuite formaliser un cadre documentaire. Cela comprend au minimum la fiche du cas d’usage, l’analyse de risque, la documentation fournisseur, les règles de supervision humaine, les conditions d’accès aux données et la politique de conservation.
+      </p>
+      <p class="article-text">
+        La troisième brique est le contrôle des biais. Des tests réguliers doivent permettre de vérifier que les résultats ne défavorisent pas certains groupes de manière indirecte. Des approches de testing, de revue statistique et d’analyse d’écarts sont particulièrement utiles.
+      </p>
+      <p class="article-text">
+        Enfin, les utilisateurs doivent être formés. Un outil de recrutement prédictif ne doit jamais être utilisé comme une boîte noire. Les recruteurs doivent comprendre ce que mesure le système, ce qu’il ne mesure pas, et comment interpréter le score sans lui donner plus de valeur qu’il n’en a réellement.
+      </p>
 
-    <p class="article-text">
-      Ces critères peuvent inclure :
-    </p>
+      <div style="margin: 3rem 0; padding: 2.5rem; background: #ffffff; color: #1a1a1a; border: 1px solid #e0e0e0;">
+        <h3 style="font-family: 'Syne'; font-size: 1.3rem; margin-bottom: 1.5rem; color: #000; text-transform: uppercase; font-weight: bold;">Ce qu’il faut retenir</h3>
+        <p style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+          Le recrutement prédictif peut améliorer la fluidité du recrutement, mieux exploiter la donnée RH et soutenir certaines décisions. Mais il ne remplace ni le discernement humain, ni la responsabilité managériale, ni les obligations juridiques.
+        </p>
+        <p style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+          Son efficacité dépend de trois conditions : la qualité des données, la transparence du dispositif et la présence d’un contrôle humain réel. Sans ces trois piliers, l’outil peut vite devenir un accélérateur de biais plutôt qu’un aide à la décision. En résumé, le bon usage consiste à faire de l’IA un instrument d’aide à la décision, contrôlé, documenté et éthiquement maîtrisé.
+        </p>
+      </div>
 
-    <ul>
-      <li>Expérience professionnelle</li>
-      <li>Compétences techniques</li>
-      <li>Stabilité du parcours</li>
-      <li>Adéquation culturelle</li>
-    </ul>
+    </article>
+  </section>
 
-    <p class="article-text">
-      👉 Objectif : identifier les profils les plus susceptibles de réussir dans le poste.
-    </p>
-
-    <h2>Le matching CV intelligent (NLP)</h2>
-
-    <p class="article-text">
-      Le matching CV utilise le traitement du langage naturel (NLP) pour analyser le sens des expériences professionnelles, même si les mots utilisés diffèrent.
-    </p>
-
-    <p class="article-text">
-      👉 Exemple : “chef de projet agile” et “Scrum Master” peuvent être considérés comme similaires.
-    </p>
-
-    <h2>Exemple concret en entreprise</h2>
-
-    <p class="article-text">
-      Une entreprise analyse les profils de ses meilleurs commerciaux sur plusieurs années.
-    </p>
-
-    <p class="article-text">
-      Le modèle identifie que les profils les plus performants partagent des caractéristiques communes :
-    </p>
-
-    <ul>
-      <li>expérience terrain significative</li>
-      <li>autonomie élevée</li>
-      <li>forte capacité d’adaptation</li>
-    </ul>
-
-    <p class="article-text">
-      👉 Ces critères sont ensuite utilisés pour scorer les nouveaux candidats.
-    </p>
-
-    <h2>Recrutement prédictif vs recrutement traditionnel</h2>
-
-    <p class="article-text">
-      Le recrutement traditionnel repose sur l’intuition humaine et l’analyse du CV.
-      Le recrutement prédictif repose sur des données historiques et des modèles d’IA.
-    </p>
-
-    <h2>Outils utilisés</h2>
-
-    <ul>
-      <li>Python (Scikit-learn, Pandas)</li>
-      <li>ATS intelligents</li>
-      <li>Outils de matching CV basés sur l’IA</li>
-      <li>Solutions no-code de data RH</li>
-    </ul>
-
-    <h2>Limites et enjeux éthiques</h2>
-
-    <p class="article-text">
-      Le recrutement prédictif doit être utilisé avec prudence pour éviter les biais algorithmiques et garantir une utilisation responsable de l’IA RH.
-    </p>
-
-    <p class="article-text">
-      L’objectif n’est pas de remplacer les recruteurs, mais de les aider à prendre de meilleures décisions.
-    </p>
-
-    <section class="related-links">
-
-  <h2>Explorer la Data RH et l’IA</h2>
-
-  <ul>
-    <li><a href="/ia-rh.html">Data IA RH </a></li>
-    
-    <li><a href="https://competencesrh.fr/ia/machine-learning-rh.html">Machine Learning RH</a></li>
-    <li><a href="https://competencesrh.fr/ia/python-rh.html">Python RH</a></li>
-    <li><a href="https://competencesrh.fr/ia/recrutement-predictif.html">Recrutement prédictif</a></li>
-  </ul>
-
-</section>
-
-  </article>
-</section>
-
-<!-- CTA -->
-<section class="cta-band">
-  <div class="cta-band-inner">
-    <p class="cta-band-text">
-      Vous souhaitez améliorer vos recrutements grâce à la data et à l’IA ?
-    </p>
-    <a href="/contact.html" class="btn-primary">
-      Optimiser votre recrutement →
-    </a>
-  </div>
-</section>
-
-  <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="nav-logo">DATA<span>RH</span></div>
-    <p>L'intelligence RH par la donnée.</p>
-  </div>
-  <div class="footer-links">
-  <a href="https://competencesrh.fr/index.html">Accueil</a>
-    <a href="https://competencesrh.fr/services.html">Services</a>
-    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
-    <a href="https://competencesrh.fr/contact.html">Contact</a>
-  </div>
-  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
-</footer>
-
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/index.html">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+  </footer>
+ 
+  <script src="../main.js"></script>
 </body>
 </html>
