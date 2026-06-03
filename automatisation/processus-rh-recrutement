@@ -208,4 +208,155 @@ KPI de réussite de la phase d'entretien :
 </h2>
 
 <p class="article-text">
-La décision doit être rapide, document
+La décision doit être rapide, documentée et argumentée. Elle doit s’appuyer sur une grille commune et non sur une impression générale, surtout lorsque plusieurs candidats finaux sont proches en niveau.
+</p>
+
+<p class="article-text">
+L’IA peut comparer les profils sur une base homogène, générer la lettre d’offre et vérifier la cohérence avec la politique salariale. La supervision humaine reste indispensable pour respecter le cadre réglementaire et limiter les biais.
+</p>
+
+<h3 class="article-subtitle">
+KPI liés à l'offre et à la conclusion :
+</h3>
+<ul class="article-text">
+<li>Délai moyen de prise de décision post-entretiens.</li>
+<li>Taux d’acceptation des offres d'embauche émises.</li>
+<li>Taux de renégociation des clauses contractuelles.</li>
+<li>Nombre de candidats finalistes restés en concurrence.</li>
+</ul>
+
+<h2 class="article-title">
+6. Contractualisation et onboarding
+</h2>
+
+<p class="article-text">
+Une fois l’offre acceptée, l’objectif est de sécuriser l’embauche et de préparer une intégration fluide. L’onboarding doit démarrer avant l’arrivée avec un parcours clair sur les 30, 60 et 90 premiers jours.
+</p>
+
+<p class="article-text">
+L’IA peut automatiser les relances documentaires, les checklists managériales, les réponses aux questions récurrentes et l’accès aux procédures internes via un chatbot ou un RAG documentaire dédié à l'onboarding.
+</p>
+
+<h3 class="article-subtitle">
+KPI de l'intégration et de l'onboarding :
+</h3>
+<ul class="article-text">
+<li>Délai moyen de signature du contrat de travail.</li>
+<li>Taux de dossier administratif complet avant le jour J.</li>
+<li>Satisfaction du collaborateur à 30 jours.</li>
+<li>Temps d’accès à l'autonomie opérationnelle.</li>
+<li>Taux de validation de la période d’essai.</li>
+<li>Turnover précoce à 6 mois.</li>
+</ul>
+
+<h2 class="article-title">
+7. Conformité et vigilance
+</h2>
+
+<p class="article-text">
+Le recrutement automatisé doit être encadré par une gouvernance forte. Les risques principaux concernent les biais algorithmiques, l’information transparente des candidats, la durée de conservation des données, la qualité du référentiel et la supervision humaine effective.
+</p>
+
+<ul class="article-text">
+<li>Documenter systématiquement les critères et les décisions.</li>
+<li>Auditer régulièrement les résultats des algorithmes de tri.</li>
+<li>Limiter l’automatisation des décisions RH sensibles.</li>
+<li>Préserver une intervention et une relecture humaine réelle.</li>
+</ul>
+
+<h2 class="article-title">
+8. Bonnes pratiques
+</h2>
+
+<p class="article-text">
+Les organisations les plus efficaces standardisent les entretiens, répondent à tous les candidats, suivent leurs KPI par étape et testent l’IA sur un périmètre limité (POC) avant généralisation. Elles relient aussi le recrutement à l’onboarding dès le départ.
+</p>
+
+<p class="article-text">
+Les erreurs fréquentes sont l’automatisation d’un processus mal conçu, la multiplication d’outils sans cohérence d'architecture, l’usage d’un scoring opaque et l’oubli du suivi qualitatif post-embauche.
+</p>
+
+<h2 class="article-title">
+Exemple concret
+</h2>
+
+<p class="article-text">
+Pour recruter un Responsable ADV dans une ETI industrielle, la RH et le manager cadrent d’abord les missions, les interfaces, le niveau d’autonomie et les compétences ERP attendues. L’ATS diffuse l’offre, le chatbot répond aux candidats et le matching sémantique aide à classer les CV.
+</p>
+
+<p class="article-text">
+Les candidats présélectionnés passent ensuite un entretien RH structuré, puis une mise en situation avec le manager. La décision est tracée, l’offre est envoyée rapidement et l’onboarding démarre avant la prise de poste avec un plan 30/60/90 jours.
+</p>
+
+<h2 class="article-title">
+FAQ — Processus de recrutement
+</h2>
+
+<h3 class="article-subtitle">
+Quand l’IA intervient-elle le plus utilement ?
+</h3>
+
+<p class="article-text">
+Surtout au cadrage du besoin, à la préqualification, à l’assistance aux entretiens et à l’onboarding. Elle est aussi très performante pour le sourcing et la multidiffusion des annonces.
+</p>
+
+<h3 class="article-subtitle">
+Quels KPI suivre en priorité ?
+</h3>
+
+<p class="article-text">
+Les indicateurs les plus importants sont le délai de recrutement (Time-to-hire), le taux de conversion à chaque étape du funnel, le taux d’acceptation de l’offre, la satisfaction candidat et la validation de période d’essai.
+</p>
+
+<h3 class="article-subtitle">
+L’IA peut-elle décider seule ?
+</h3>
+
+<p class="article-text">
+Non. En recrutement, conformément aux directives de la CNIL et du RGPD, la décision finale doit rester sous contrôle humain exclusif, avec des critères documentés, une information claire des candidats et une supervision effective.
+</p>
+
+<div style="margin-top: 5rem; padding: 3rem; background: #f4f4f4; border: 1px solid #e0e0e0; text-align: center;">
+
+<h3 style="font-family: 'Syne'; font-size: 1.8rem; margin-bottom: 1rem; color: #000;">
+Découvrir d’autres cas concrets d’automatisation RH
+</h3>
+
+<p style="font-family: 'DM Mono'; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.8; color: #333;">
+Recrutement, onboarding, chatbot RH, IA documentaire et pilotage par la data : explorez les usages concrets de l’IA appliquée aux ressources humaines.
+</p>
+
+<a href="cas-pratiques-pme.html" class="nav-cta" style="display: inline-block;">
+Voir les cas pratiques →
+</a>
+
+</div>
+
+</article>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-left">
+  <span class="nav-logo">COMPETENCES<span>RH</span></span>
+  <p>L'intelligence RH par la donnée.</p>
+</div>
+
+<div class="footer-links">
+  <a href="https://competencesrh.fr/">Accueil</a>
+  <a href="https://competencesrh.fr/services.html">Services</a>
+  <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+  <a href="https://competencesrh.fr/contact.html">Contact</a>
+</div>
+
+<div class="footer-copy">
+© 2026 CompetencesRH. Tous droits réservés.
+</div>
+
+</footer>
+
+<script src="../main.js"></script>
+
+</body>
+</html>
