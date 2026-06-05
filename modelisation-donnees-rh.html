@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Comment appliquer le Machine Learning RH aux données du SIRH ? Découvrez notre guide complet sur la modélisation prédictive, les algorithmes et la gestion du turnover." />
+  <title>Machine learning RH : comment modéliser les données du SIRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/modelisation-donnees-rh.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"TechArticle",
+   "headline":"Machine learning RH : modéliser les données du SIRH",
+   "description":"Guide approfondi sur l'application du machine learning et des modèles prédictifs aux bases de données des ressources humaines.",
+   "author":{
+     "@type":"Organization",
+     "name":"DataRH"
+   },
+   "publisher":{
+     "@type":"Organization",
+     "name":"DataRH"
+   },
+   "datePublished":"2026-06-05",
+   "dateModified":"2026-06-05"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"FAQPage",
+   "mainEntity":[
+     {
+       "@type":"Question",
+       "name":"Qu'est-ce qu'un modèle prédictif RH ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"Un modèle prédictif RH est un outil statistique mathématique qui utilise l'historique des données sociales d'une entreprise pour évaluer la probabilité d'occurrence d'un événement futur, comme une démission ou un besoin en compétences."
+       }
+     },
+     {
+       "@type":"Question",
+       "name":"Quels algorithmes sont utilisés en RH ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"Les principaux algorithmes utilisés incluent la régression logistique, les forêts aléatoires (Random Forest) pour la classification, le clustering K-Means pour la segmentation, et les architectures de NLP pour l'analyse des textes."
+       }
+     },
+     {
+       "@type":"Question",
+       "name":"Comment éviter les biais algorithmiques ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"Pour éviter les biais, il est indispensable de retirer les variables discriminatoires directes et indirectes lors de la préparation des données, de diversifier les jeux de données d'entraînement et de soumettre les résultats à des audits de conformité éthique réguliers."
+       }
+     },
+     {
+       "@type":"Question",
+       "name":"Quelle différence entre analyse descriptive et prédictive ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"L'analyse descriptive observe le passé à travers des indicateurs fixes (ex: taux de turnover de l'année précédente). L'analyse prédictive utilise ces données historiques pour projeter des tendances futures et calculer des scores de risque en temps réel."
+       }
+     },
+     {
+       "@type":"Question",
+       "name":"Les PME peuvent-elles utiliser le machine learning RH ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"Oui. Dès lors qu'une PME dispose d'un historique de données fiables et centralisées sur quelques années, le déploiement de modèles de machine learning ciblés est tout à fait envisageable et rentable."
+       }
+     }
+   ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+ 
+  <header class="page-hero fade-in">
+    <div class="section-label">// Intelligence Artificielle & Algorithmes</div>
+    <h1 class="page-title">Machine learning RH : modéliser les données du SIRH</h1>
+    <p class="page-sub">
+      Découvrez comment structurer, entraîner et déployer des modèles algorithmiques performants pour transformer les bases de données de gestion de vos ressources humaines en leviers d'anticipation stratégique.
+    </p>
+  </header>
+
+  <main>
+    <section class="section intro-seo fade-in" style="max-width: 850px; margin: 0 auto; padding-bottom: 3rem;">
+      <p style="font-size: 1.2rem; line-height: 1.8; opacity: 0.9;">
+        L'extraction et la centralisation des données ne constituent que la première étape de la transformation numérique de la fonction RH. Pour exploiter la pleine valeur de votre capital informationnel, le déploiement de techniques de <strong>machine learning RH</strong> s'avère indispensable. Modéliser les données du Système d'Information des Ressources Humaines (SIRH) permet de dépasser les bilans statistiques passés pour identifier des structures invisibles à l'œil nu et anticiper les comportements organisationnels.
+      </p>
+    </section>
+
+    <section class="section fade-in" style="max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.7;">
+      
+      <div style="margin-bottom: 4rem;">
+        <h2>Le rôle de la modélisation dans l'écosystème Data IA RH</h2>
+        <p>Modéliser consiste à traduire des processus RH complexes en équations mathématiques exploitables par un système informatique. Dans le domaine des ressources humaines, cela implique de structurer les interactions entre les collaborateurs, leurs performances, leurs parcours et leurs environnements de travail. L'objectif ultime n'est pas de remplacer le jugement humain, mais de l'enrichir grâce à des indicateurs de probabilité rigoureux.</p>
+        <p>Trop souvent, les entreprises limitent leur gestion des données à l'analyse descriptive : calcul de l'absentéisme moyen, observation de l'évolution de la masse salariale ou reporting du bilan social. Le passage au machine learning permet d'entrer dans l'ère de l'analyse prédictive et prescriptive, où la donnée devient un guide d'aide à la décision opérationnelle.</p>
+      </div>
+
+      <div style="margin-bottom: 4rem; background: rgba(255,255,255,0.02); padding: 2.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+        <h2>Exemple concret de modélisation RH : la prédiction du turnover</h2>
+        <p>Pour illustrer la transition entre la donnée brute et l'action RH concrète, analysons la méthodologie de modélisation du risque d'attrition au sein d'une organisation.</p>
+        
+        <h3 style="margin-top: 1.5rem; color: #ffffff;">1. Collecte et préparation des données historiques</h3>
+        <p>Une entreprise extrait 5 années d'historique social anonymisé comprenant les variables suivantes :</p>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+          <li>L'ancienneté du collaborateur sur le poste actuel et dans l'entreprise.</li>
+          <li>Le positionnement du salaire par rapport aux grilles du marché sectoriel.</li>
+          <li>La récurrence et la date des dernières promotions ou évolutions transverses.</li>
+          <li>Le volume d'heures de formation suivies au cours des 24 derniers mois.</li>
+          <li>L'évolution des taux d'absentéisme de courte durée à l'échelle de l'équipe.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">2. Application de l'algorithme</h3>
+        <p>Ces données nettoyées alimentent un algorithme de classification. Le modèle étudie les corrélations historiques entre ces variables et l'événement cible ("démission"). Il apprend par exemple qu'une stagnation salariale supérieure à 3 ans, combinée à une absence de formation et une augmentation des absences de courte durée dans un service, multiplie le risque de départ par un facteur mesurable.</p>
+
+        <h3 style="color: #ffffff;">3. Génération du score</h3>
+        <p>Chaque trimestre, le modèle analyse les données des collaborateurs actifs et attribue à chacun un score de risque de départ (compris entre 0 et 100%).</p>
+
+        <h3 style="color: #ffffff;">4. L'action RH ciblée</h3>
+        <p>Les équipes des ressources humaines ne reçoivent pas une liste brute, mais des alertes agrégées par typologie de métiers ou par départements. Elles peuvent alors déclencher des entretiens de fidélisation ciblés, réajuster les politiques salariales locales ou planifier des actions de formation prioritaires avant que la rupture du contrat n'intervienne.</p>
+      </div>
+
+      <div style="margin-bottom: 4rem;">
+        <h2>Typologies d'algorithmes appliquées aux Ressources Humaines</h2>
+        <p>L'univers du <a href="https://competencesrh.fr/ia/machine-learning-rh.html">machine learning RH</a> s'appuie sur plusieurs familles d'algorithmes adaptés à la nature des données traitées.</p>
+        
+        <h3 style="color: #ffffff; margin-top: 1.5rem;">Les modèles supervisés et les scores prédictifs</h3>
+        <p>La classification et la régression constituent le cœur des modèles supervisés. Lorsqu'il s'agit de prédire une variable continue, comme l'évolution future de la masse salariale ou l'estimation fine d'une enveloppe budgétaire, l'utilisation de modèles de <a href="https://competencesrh.fr/regression-lineaire.html">régression linéaire</a> ou polynomiale permet d'obtenir des projections fiables fondées sur des critères historiques structurels. Pour les problématiques d'attrition, l'expert s'orientera vers une <a href="https://competencesrh.fr/turnover.html">analyse du turnover</a> par forêts aléatoires.</p>
+
+        <h3 style="color: #ffffff; margin-top: 1.5rem;">Le clustering non supervisé pour la GEPP</h3>
+        <p>Parfois, l'objectif n'est pas de prédire, mais de découvrir des structures cachées. Les algorithmes de clustering (comme K-Means) analysent l'ensemble de la cartographie des compétences des collaborateurs pour les regrouper de manière naturelle en clusters homogènes. Cela permet de révéler des viviers de talents internes ou des écarts de compétences jusqu'alors ignorés par le management.</p>
+
+        <h3 style="color: #ffffff; margin-top: 1.5rem;">Le NLP et le traitement des données textuelles</h3>
+        <p>Le SIRH regorge de données non structurées : commentaires d'entretiens annuels, fiches de postes, CV. Grâce au traitement du langage naturel (NLP) et à l'utilisation des <a href="https://competencesrh.fr/semantic-search/embeddings-rh.html">embeddings RH</a>, les mots sont convertis en vecteurs sémantiques. Le système devient capable de comprendre le contexte et la proximité entre deux profils, optimisant ainsi les processus de sourcing et de matching sémantique.</p>
+      </div>
+
+      <div style="margin-bottom: 4rem; border-left: 3px solid rgba(255,255,255,0.2); padding-left: 1.5rem;">
+        <h2>Gouvernance et éthique des modèles</h2>
+        <p>La modélisation mathématique appliquée aux relations humaines impose une responsabilité éthique stricte. Un modèle entraîné sur des données historiques biaisées tendra inévitablement à reproduire, voire à amplifier, ces mêmes discriminations. Il est donc fondamental de contrôler les variables d'entrée, d'exclure les critères non éthiques et de maintenir une supervision humaine constante sur chaque score généré.</p>
+        <p>Une fois le modèle validé et les scores calculés, la phase suivante consiste à restituer ces indicateurs sous une forme exploitable pour les directions opérationnelles. Pour explorer cette démarche, consultez notre guide méthodologique complet sur l'<a href="https://competencesrh.fr/analyse-donnees-rh.html">analyse de données RH</a>.</p>
+      </div>
+
+    </section>
+
+    <section class="section faq fade-in" style="max-width: 850px; margin: 0 auto; padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <h2 style="font-size: 2rem; margin-bottom: 2.5rem; font-family: 'Syne', sans-serif;">Questions fréquentes sur la modélisation des données RH</h2>
+
+      <div class="faq-item" style="margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Qu'est-ce qu'un modèle prédictif RH ?</h3>
+        <p style="opacity:0.8; line-height:1.6;">Un modèle prédictif RH est un outil statistique mathématique qui utilise l'historique des données sociales d'une entreprise pour évaluer la probabilité d'occurrence d'un événement futur, comme une démission ou un besoin en compétences.</p>
+      </div>
+
+      <div class="faq-item" style="margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Quels algorithmes sont utilisés en RH ?</h3>
+        <p style="opacity:0.8; line-height:1.6;">Les principaux algorithmes utilisés incluent la régression logistique, les forêts aléatoires (Random Forest) pour la classification, le clustering K-Means pour la segmentation, et les architectures de NLP pour l'analyse des textes.</p>
+      </div>
+
+      <div class="faq-item" style="margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Comment éviter les biais algorithmiques ?</h3>
+        <p style="opacity:0.8; line-height:1.6;">Pour éviter les biais, il est indispensable de retirer les variables discriminatoires directes et indirectes lors de la préparation des données, de diversifier les jeux de données d'entraînement et de soumettre les résultats à des audits de conformité éthique réguliers.</p>
+      </div>
+
+      <div class="faq-item" style="margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Quelle différence entre analyse descriptive et analyse prédictive ?</h3>
+        <p style="opacity:0.8; line-height:1.6;">L'analyse descriptive observe le passé à travers des indicateurs fixes (ex: taux de turnover de l'année précédente). L'analyse prédictive utilise ces données historiques pour projeter des tendances futures et calculer des scores de risque en temps réel.</p>
+      </div>
+
+      <div class="faq-item" style="margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Les PME peuvent-elles utiliser le machine learning RH ?</h3>
+        <p style="opacity:0.8; line-height:1.6;">Oui. Dès lors qu'une PME dispose d'un historique de données fiables et centralisées sur quelques années, le déploiement de modèles de machine learning ciblés est tout à fait envisageable et rentable.</p>
+      </div>
+    </section>
+
+    <section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; text-align: center;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2>Déployer des modèles adaptés à votre entreprise</h2>
+        <p style="margin: 1.5rem 0; opacity: 0.8;">
+          L'intégration de l'intelligence artificielle dans les processus RH nécessite une expertise technique et sectorielle fine. Découvrez notre accompagnement et nos <a href="https://competencesrh.fr/services.html" style="color: #ffffff; text-decoration: underline; font-weight: bold;">services Data RH et IA RH</a> pour structurer vos projets.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <p class="cta-band-text">Besoin d'auditer la maturité de vos données de gestion RH ?</p>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Contacter un expert →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
