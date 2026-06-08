@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Comment structurer les variables RH pour le machine learning ? Encodage, normalisation, traitement des valeurs manquantes et sélection des features du SIRH." />
+  <title>Variables RH et machine learning : transformer les données du SIRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/modelisation-donnees/variables-rh-machine-learning.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght=400;700;800&family=DM+Mono:wght=300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"TechArticle",
+   "headline":"Variables RH et machine learning : comprendre, transformer et exploiter les données",
+   "description":"Guide méthodologique complet sur le traitement, l'encodage et la préparation des variables issues des SIRH pour les algorithmes de machine learning.",
+   "author":{
+     "@type":"Organization",
+     "name":"DataRH"
+   },
+   "publisher":{
+     "@type":"Organization",
+     "name":"DataRH"
+   },
+   "datePublished":"2026-06-05",
+   "dateModified":"2026-06-05"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"FAQPage",
+   "mainEntity":[
+     {
+       "@type":"Question",
+       "name":"Qu'est-ce qu'une variable cible en RH ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"La variable cible est l'événement ou la valeur que le modèle cherche à estimer. Par exemple, dans un modèle d'attrition, la variable cible est le turnover (départ ou maintien du collaborateur)."
+       }
+     },
+     {
+       "@type":"Question",
+       "name":"Pourquoi faut-il encoder les variables catégorielles ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"Les algorithmes de machine learning s'appuient sur des calculs mathématiques et ne comprennent pas les chaînes de caractères (ex: 'CDI' ou 'Marketing'). L'encodage permet de les convertir en valeurs numériques."
+       }
+     },
+     {
+       "@type":"Question",
+       "name":"Quelle est la différence entre normalisation et standardisation ?",
+       "acceptedAnswer":{
+         "@type":"Answer",
+         "text":"La normalisation ramène les valeurs numériques dans un intervalle fixe, souvent entre 0 et 1. La standardisation centre les données autour d'une moyenne de 0 avec une variance de 1."
+       }
+     }
+   ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+ 
+  <header class="page-hero fade-in">
+    <div class="section-label">// Silo Modélisation — Étape 1 / 7</div>
+    <h1 class="page-title">Variables RH et machine learning</h1>
+    <h2>Comprendre, transformer et exploiter les données du SIRH</h2>
+    <p class="page-sub">
+      Dans un projet de machine learning appliqué aux ressources humaines, les variables sont le cœur du système. Découvrez comment convertir vos indicateurs métiers en signaux mathématiques exploitables.
+    </p>
+  </header>
+
+  <main class="section fade-in" style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
+    
+    <section>
+      <p>
+        Dans un projet de <strong>machine learning appliqué aux ressources humaines</strong>, les variables sont le cœur du système. Ce sont elles qui décrivent les collaborateurs, les postes, les parcours et les événements RH, et ce sont elles qui permettent au modèle d’apprendre des relations utiles. Sans variables bien définies, bien nettoyées et bien transformées, un algorithme ne produit qu’un résultat fragile, peu interprétable et souvent peu exploitable. La vraie qualité d’un modèle RH dépend donc moins de la sophistication de l’algorithme que de la structure des variables d’entrée.
+      </p>
+      <p>
+        En pratique, une variable RH peut être numérique, catégorielle, temporelle ou textuelle. Elle peut représenter l’ancienneté, le salaire, le type de contrat, le nombre d’absences, la date d’entrée, le service, le niveau de formation ou encore une appréciation issue d’un entretien annuel. Le rôle du travail de <em>data preparation</em> est de convertir ces informations métier en signaux exploitables par un modèle. C’est là que se joue une grande partie de la performance prédictive.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Ce qu’est une variable RH</h2>
+      <p>
+        En machine learning, une variable (ou <em>feature</em>) est une information observée sur une entité donnée. Dans un contexte RH, l’entité peut être un salarié, un candidat, une équipe ou un poste. On distingue généralement les variables explicatives, qui servent à prédire, et la variable cible, que le modèle cherche à estimer. Par exemple, si l’objectif est de prédire le départ volontaire, la variable cible sera le <a href="https://competencesrh.fr/turnover.html">turnover</a>, et les variables explicatives pourront être l’ancienneté, les absences, la rémunération, la mobilité interne ou le changement de manager.
+      </p>
+      <p>
+        Cette distinction est fondamentale. Une bonne variable n’est pas seulement une information disponible dans le SIRH, c’est une information pertinente par rapport à la cible. Une variable peut être très riche sur le plan descriptif mais inutile pour la prédiction. À l’inverse, une variable plus discrète peut se révéler fortement discriminante si elle capte un signal stable dans le temps.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Variables numériques, catégorielles et temporelles</h2>
+      <p>Les variables RH se répartissent le plus souvent en trois grandes familles distinctes :</p>
+      
+      <ul style="margin-bottom: 2rem;">
+        <li><strong>Les variables numériques</strong> sont les plus simples à utiliser : âge, salaire, ancienneté, nombre d’absences, nombre de formations, score d’évaluation. Elles peuvent être injectées directement dans certains modèles, à condition d’être cohérentes et bien mises à l’échelle.</li>
+        <li><strong>Les variables catégorielles</strong> représentent des classes ou des étiquettes : service, métier, niveau hiérarchique, type de contrat, site d’affectation, statut, manager. Ces variables ne sont pas utilisables telles quelles par la plupart des algorithmes, car un modèle de machine learning ne comprend pas une chaîne de caractères comme “CDI” ou “Finance”. Il faut donc les transformer en représentation numérique.</li>
+        <li><strong>Les variables temporelles</strong> jouent aussi un rôle important. Elles décrivent une durée, une date, une fréquence ou une évolution : date d’embauche, date de dernière promotion, délai depuis la dernière formation, fréquence des absences sur 12 mois, variation de salaire d’une année sur l'autre. En RH, ces variables sont souvent très informatives, car elles traduisent une dynamique plutôt qu’un état figé.</li>
+      </ul>
+
+      <table style="width:100%; border-collapse: collapse; margin: 2rem 0; text-align: left; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05);">
+        <thead>
+          <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02);">
+            <th style="padding: 12px;">Type de Variable</th>
+            <th style="padding: 12px;">Exemple SIRH</th>
+            <th style="padding: 12px;">Traitement Requis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px; font-weight: bold;">Numérique</td>
+            <td style="padding: 12px;">Rémunération, Taux d'absentéisme</td>
+            <td style="padding: 12px;">Standardisation / Normalisation</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px; font-weight: bold;">Catégorielle Nominale</td>
+            <td style="padding: 12px;">Département, Type de contrat</td>
+            <td style="padding: 12px;">One-Hot Encoding</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px; font-weight: bold;">Catégorielle Ordinale</td>
+            <td style="padding: 12px;">Niveau de séniorité, Grille ETAM/Cadre</td>
+            <td style="padding: 12px;">Ordinal Encoding</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; font-weight: bold;">Temporelle / Dynamique</td>
+            <td style="padding: 12px;">Délai depuis la dernière promotion</td>
+            <td style="padding: 12px;">Transformation en durée / Delta</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Encodage des variables catégorielles</h2>
+      <p>
+        L’encodage consiste à transformer une variable catégorielle en format numérique. La méthode la plus courante est le <strong>one-hot encoding</strong>. Elle crée une colonne par modalité. Si une variable “contrat” contient CDI, CDD et intérim, trois colonnes binaires sont générées. Cette méthode est simple et efficace, surtout pour les modèles linéaires ou les réseaux de neurones, mais elle peut faire exploser le nombre de variables si la cardinalité est élevée.
+      </p>
+      <p>
+        Quand les catégories ont un ordre naturel, on peut utiliser un <strong>ordinal encoding</strong>. C’est le cas pour un niveau hiérarchique, un niveau d’études ou une classification de séniorité. L’idée est d’assigner une valeur numérique croissante aux modalités. Cette approche n’est pertinente que si l’ordre a un sens métier réel, car sinon elle introduit une hiérarchie artificielle.
+      </p>
+      <p>
+        Pour les variables à forte cardinalité, comme le poste exact ou le libellé d’équipe, d’autres techniques peuvent être envisagées, notamment le <em>target encoding</em> ou des encodages plus compacts. Mais ces méthodes doivent être utilisées avec prudence, car elles peuvent introduire du data leakage (fuite de données) si elles sont mal calculées. En RH comme ailleurs, l’encodage doit toujours être décidé en fonction du type de modèle et de la structure des données.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Normalisation et standardisation</h2>
+      <p>
+        Les variables numériques n’ont pas toujours la même échelle. Un salaire peut aller de 25 000 à 120 000, alors qu’un nombre d’absences varie entre 0 et 20. Si on laisse ces variables telles quelles, certains modèles vont être influencés par les amplitudes les plus grandes. C’est pour cela qu’on utilise la normalisation ou la standardisation.
+      </p>
+      <p>
+        La normalisation transforme les valeurs pour les ramener dans un intervalle commun, souvent entre 0 et 1. La standardisation centre les données autour de 0 et les réduit à une variance de 1. Ces méthodes sont particulièrement utiles pour les modèles sensibles à l’échelle, comme la <a href="https://competencesrh.fr/regression-lineaire.html">régression linéaire</a> ou logistique, les k-plus proches voisins, les SVM ou les réseaux de neurones. Elles sont moins critiques pour les modèles à base d’arbres, qui gèrent mieux les différences d’échelle.
+      </p>
+      <p>
+        Dans un jeu de données RH, standardiser les variables d’ancienneté, de rémunération ou de charge de travail permet au modèle d’apprendre sur la structure des signaux plutôt que sur leurs unités de mesure. Cela améliore souvent la stabilité de l’entraînement et la comparabilité des coefficients dans les modèles interprétables.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Valeurs manquantes et valeurs aberrantes</h2>
+      <p>
+        Les données RH contiennent presque toujours des valeurs manquantes. Un salarié peut ne pas avoir de note d’entretien, un candidat peut n’avoir renseigné qu’une partie du questionnaire, une variable de mobilité peut être absente pour un nouveau collaborateur. Il faut alors décider si l’on supprime la ligne, si l’on impute une valeur, ou si l’absence elle-même a une signification métier.
+      </p>
+      <p>
+        L’imputation peut se faire par la moyenne, la médiane, une modalité spéciale comme “non renseigné”, ou via des méthodes plus avancées. Le bon choix dépend du sens de la variable et du volume de données manquantes. Dans certains cas, l’absence d'information est déjà une information utile. Par exemple, le fait qu’un score de performance soit absent peut refléter une situation particulière qu’il vaut mieux modéliser explicitement.
+      </p>
+      <p>
+        Les <em>outliers</em> ou valeurs aberrantes méritent aussi une attention spécifique. Un salaire extrême, une ancienneté très élevée ou un nombre d'absences anormalement fort peut fausser le modèle si la variable n'est pas traitée. Il faut alors vérifier si la valeur reflète une vraie situation métier ou une erreur de saisie. Le prétraitement et le <a href="https://competencesrh.fr/nettoyage-donnees-rh.html">nettoyage des données RH</a> sont donc indispensables avant toute modélisation sérieuse.
+      </p>
+    </section>
+
+    <section style="margin: 4rem 0; padding: 2rem; background: rgba(255,255,255,0.02); border-left: 3px solid #ffffff;">
+      <h3>Étape suivante de la modélisation</h3>
+      <p>
+        Une fois vos variables identifiées et nettoyées, l'étape suivante consiste à créer des indicateurs composites métiers (agrégations temporelles, ratios). Découvrez notre guide complet sur le <a href="https://competencesrh.fr/modelisation-donnees/feature-engineering-rh.html" style="color:#ffffff; font-weight:bold; text-decoration:underline;">Feature Engineering RH</a>.
+      </p>
+      <p style="margin-top: 1rem;">
+        Pour comprendre comment ces variables s'intègrent globalement au sein de l'intelligence artificielle, lisez notre étude sur le <a href="https://competencesrh.fr/ia/machine-learning-rh.html" style="color:#ffffff; text-decoration:underline;">Machine Learning RH</a>.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Sélection de variables et importance des features</h2>
+      <p>
+        Une fois les données préparées, toutes les variables ne doivent pas être conservées. La sélection de variables permet de garder les signaux les plus pertinents et de supprimer le bruit. Elle aide à réduire la dimension du problème, à éviter le surapprentissage (<em>overfitting</em>) et à rendre le modèle plus lisible. En RH, cette étape est essentielle car les données sont souvent nombreuses, corrélées et parfois redondantes.
+      </p>
+      <p>
+        Plusieurs approches existent. On peut utiliser des méthodes statistiques simples, des algorithmes de régularisation, des arbres de décision ou des méthodes d’importance des features. L’objectif est d’identifier les variables qui contribuent réellement à la prédiction. Dans un modèle de turnover, par exemple, l’ancienneté, la mobilité récente, la variation de salaire ou la fréquence des absences peuvent ressortir comme variables majeures, tandis que d’autres champs moins structurés auront un poids plus faible.
+      </p>
+      <p>
+        L’analyse d’importance des variables a aussi un intérêt métier. Elle permet de comprendre quels facteurs influencent le plus la cible et d’alimenter une lecture RH plus fine. Ce n’est pas seulement une question de performance, mais aussi de compréhension, de transparence et de gouvernance.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Exemples de variables RH utiles</h2>
+      <p>
+        Dans un cas d’usage orienté turnover, les variables les plus fréquentes sont l’ancienneté, la rémunération, le niveau de poste, le rythme des promotions, les absences, les changements de manager, les mobilités internes et l’historique de formation. Pour le recrutement, on peut utiliser le niveau de diplôme, les compétences déclarées, les expériences passées, le délai de candidature, le type de poste visé ou les scores d’entretien. Pour la mobilité interne, les variables de performance, d’appétence métier et de trajectoire de carrière sont souvent déterminantes.
+      </p>
+      <p>
+        La richesse d’un projet machine learning RH vient précisément de la combinaison de ces variables. Aucune information prise isolément n’explique tout. C’est l’assemblage des signaux, leur transformation correcte et leur interprétation cohérente qui permettent de construire un modèle utile. Vous pouvez observer l'application concrète de ces jeux de données dans nos <a href="https://competencesrh.fr/ia-rh-cas-pratiques.html">4 cas pratiques d'IA RH</a>.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem; margin-bottom: 4rem;">
+      <h2>Une logique data avant tout</h2>
+      <p>
+        Un bon projet sur les variables RH ne commence pas par l’algorithme, mais par la compréhension des données. Il faut savoir ce que représente chaque variable, comment elle est produite, à quel moment elle est mesurer et dans quel contexte elle est pertinente. C’est cette rigueur qui évite les modèles artificiels ou trompeurs.
+      </p>
+      <p>
+        Le machine learning apporte alors une vraie valeur : détecter des interactions invisibles à l’œil nu, hiérarchiser les variables, et produire des prédictions exploitables. Mais cette valeur n’existe que si les variables RH sont traitées comme de véritables objets techniques, et non comme de simples champs administratifs. C’est là que se construit une stratégie de <a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a> solide, crédible et durable.
+      </p>
+    </section>
+
+    <section style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem;">
+      <h2>Questions fréquentes sur les variables RH et le Machine Learning</h2>
+      
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.2rem; color: #ffffff;">Qu'est-ce qu'une variable cible en RH ?</h3>
+        <p style="opacity: 0.8;">La variable cible est l'événement ou la valeur que le modèle cherche à estimer. Par exemple, dans un modèle d'attrition, la variable cible est le turnover (départ ou maintien du collaborateur).</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.2rem; color: #ffffff;">Pourquoi faut-il encoder les variables catégorielles ?</h3>
+        <p style="opacity: 0.8;">Les algorithmes de machine learning s'appuient sur des calculs mathématiques et ne comprennent pas les chaînes de caractères (ex: 'CDI' ou 'Marketing'). L'encodage permet de les convertir en valeurs numériques.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.2rem; color: #ffffff;">Quelle différence entre normalisation et standardisation ?</h3>
+        <p style="opacity: 0.8;">La normalisation ramène les valeurs numériques dans un intervalle fixe, souvent entre 0 et 1. La standardisation centre les données autour d'une moyenne de 0 avec une variance de 1.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; text-align: center; background: rgba(0,0,0,0.2);">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+      <h2>Vous souhaitez structurer vos bases de données RH ?</h2>
+      <p style="margin: 1.5rem 0; opacity: 0.8;">
+        Nos experts vous aident à auditer votre SIRH, nettoyer vos variables et concevoir vos premiers modèles de Machine Learning.
+      </p>
+      <p style="margin-bottom: 2rem;">
+        Découvrez nos prestations de conseil en <a href="https://competencesrh.fr/services.html" style="color: #ffffff; text-decoration: underline; font-weight: bold;">services Data RH et IA RH</a>.
+      </p>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Discuter de votre projet →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>© 2026 DataRH. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
