@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Guide expert sur le Feature Engineering RH. Apprenez à transformer les données brutes du SIRH en variables composites métiers et indicateurs prédictifs." />
+  <title>Feature Engineering RH : Créer des Variables Prédictives Métiers | DataRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght=400;700;800&family=DM+Mono:wght=300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html"
+        },
+        "headline": "Feature Engineering RH : Création de variables composites et indicateurs prédictifs métiers",
+        "description": "Méthodologie avancée de Feature Engineering appliquée aux données issues des SIRH pour maximiser la performance des algorithmes de Machine Learning RH.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html",
+        "datePublished": "2026-06-10",
+        "dateModified": "2026-06-10",
+        "author": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://competencesrh.fr/assets/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que le Feature Engineering appliqué aux RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le Feature Engineering RH consiste à transformer, combiner et enrichir les variables brutes extraites du SIRH pour créer de nouvelles variables composites (ou features) qui reflètent des réalités métiers complexes et maximisent la précision des modèles prédictifs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi les données brutes d'un SIRH sont-elles insuffisantes pour le Machine Learning ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les SIRH sont conçus pour la gestion administrative et comptable, non pour l'analyse prédictive. Une donnée brute, comme un salaire isolé ou une date d'embauche, ne capture pas la dynamique de trajectoire ou les décalages par rapport au marché, qui sont les vrais déclencheurs des comportements RH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce qu'un ratio d'absentéisme glissant ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "C'est une variable composite calculée sur une fenêtre temporelle mobile (ex: 3 ou 6 mois) plutôt que sur l'année civile. Elle permet de détecter les accélérations ou les ruptures de comportement à court terme, agissant comme un puissant signal faible pour les modèles de turnover."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment mesurer mathématiquement le positionnement salarial d'un talent ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On utilise le delta de rémunération par rapport aux médianes internes de l'équipe ou du marché externe. Cette feature contextualise le salaire brut et traduit directement le sentiment d'équité ou de frustration financière du collaborateur."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'appelle-t-on la vitesse de progression interne ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il s'agit du ratio entre le nombre d'échelons ou de postes franchis et l'ancienneté totale du collaborateur. Une vitesse anormalement basse par rapport à la moyenne de l'entreprise signale un risque de stagnation professionnelle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est l'impact du Feature Engineering sur le surapprentissage (overfitting) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un Feature Engineering de qualité privilégie des variables composites hautement informatives, ce qui permet de réduire le nombre global de colonnes nécessaires dans le modèle. Cela simplifie l'apprentissage de l'algorithme et limite drastiquement les risques de surapprentissage."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+ 
+  <header class="page-hero fade-in">
+    <div class="section-label">// Silo Modélisation — Étape 2 / 7</div>
+    <div class="breadcrumb" style="font-family: 'DM Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem;">
+      <a href="https://competencesrh.fr/modelisation-donnees-rh/variables-rh-machine-learning.html" style="color: #fff; text-decoration: underline;">Étape 1 : Variables RH</a> / Étape 2 : Feature Engineering
+    </div>
+    <h1 class="page-title">Le Feature Engineering RH</h1>
+    <h2>Créer des variables composites pour enrichir les modèles prédictifs</h2>
+    <p class="page-sub">
+      Les données brutes de votre SIRH racontent une histoire administrative. Apprenez à concevoir les indicateurs mathématiques qui capturent la réalité des comportements humains.
+    </p>
+  </header>
+
+  <main class="section fade-in" style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
+    
+    <section id="introduction-cove" style="background: rgba(255,255,255,0.01); padding: 2rem; border-left: 3px solid var(--accent-color); margin-bottom: 3rem;">
+      <p>
+        <strong>Contexte :</strong> L'écrasante majorité des systèmes d'information des ressources humaines (SIRH) a été pensée pour répondre à des impératifs comptables, légaux et transactionnels. Ils stockent des états figés : un salaire brut, une date de d'embauche, un compteur de jours d'absence ou un intitulé de poste fixe. Ces tables de données, bien qu'indispensables, s'avèrent structurellement inadaptées lorsqu'elles sont injectées telles quelles dans un modèle d'intelligence artificielle.
+      </p>
+      <p>
+        <strong>Objectif :</strong> Le <em>Feature Engineering</em> (ou ingénierie des variables) est la discipline reine de la science des données qui consiste à nettoyer, combiner, croiser et transformer ces attributs bruts pour générer de nouvelles dimensions analytiques. L'objectif est de traduire des concepts vécus par les collaborateurs (le sentiment de stagnation, la charge de travail accumulée, le décrochage salarial) en signaux mathématiques limpides pour les algorithmes de Machine Learning.
+      </p>
+      <p>
+        <strong>Valeur :</strong> Un modèle de prédiction du turnover ou d'optimisation de la mobilité interne ne progresse pas grâce à la complexité de ses réseaux de neurones, mais grâce à la pertinence de ses variables d'entrée. En créant des indicateurs composites contextualisés, vous augmentez la précision de vos prévisions, réduisez le besoin de puissance de calcul et concevez des modèles transparents, immédiatement interprétables par vos directions métiers.
+      </p>
+    </section>
+
+    <section>
+      <h2>Pourquoi le SIRH brut est aveugle aux comportements</h2>
+      <p>
+        Prenons un exemple concret pour illustrer l'impérieuse nécessité du Feature Engineering. Supposons qu'un algorithme cherche à identifier les risques de démission au sein de vos équipes tech. Si vous fournissez au modèle la variable brute <code>salaire_mensuel = 4500€</code>, cette information ne possède aucun pouvoir prédictif intrinsèque. Elle est hors contexte. 
+      </p>
+      <p>
+        Pour l'ordinateur, 4500€ est simplement un chiffre supérieur à 4000 et inférieur à 5000. Le modèle ignore si ce montant est excellent ou dérisoire. C'est ici qu'intervient l'ingénierie des caractéristiques : en croisant ce salaire avec la moyenne de la même famille de métiers dans la région géographique concernée, ou en mesurant son évolution sur les 36 derniers mois, vous créez une <strong>variable métier composite</strong> dotée d'une réelle force prédictive.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Les 4 piliers du Feature Engineering appliqué aux RH</h2>
+      <p>
+        La modélisation de la donnée sociale s'appuie sur quatre grandes typologies de transformations sémantiques. Maîtriser ces quatre familles permet de couvrir la quasi-totalité des cas d'usage, du recrutement prédictif au pilotage de la performance.
+      </p>
+
+      <h3>1. Les agrégations et fenêtres temporelles glissantes</h3>
+      <p>
+        Les comportements humains s'analysent dans la durée. Un pic d'absences de 4 jours au mois de novembre n'a pas la même signification s'il s'agit d'un événement isolé ou s'il s'inscrit dans une dynamique d'accélération. 
+      </p>
+      <p>
+        Plutôt que d'utiliser le volume annuel d'absences (qui souffre d'un biais d'effet de seuil en fin d'année), les ingénieurs de données calculent des <strong>ratios d'absentéisme glissants</strong> sur des fenêtres mobiles de 3, 6 ou 9 mois. Ces agrégations temporelles permettent de mesurer des dérivées : le taux d'absence est-il stable, en croissance exponentielle ou en décélération ? C'est la trajectoire qui porte le signal prédictif, pas le cumul.
+      </p>
+
+      <h3>2. Les deltas et indicateurs de positionnement relatifs</h3>
+      <p>
+        La perception qu'un collaborateur a de sa situation au sein de l'entreprise est profondément comparative. Les variables brutes doivent donc être relativisées par rapport à des référentiels internes et externes.
+      </p>
+      <ul>
+        <li><strong>Delta de rémunération par rapport aux médianes de marché :</strong> Cette feature calcule l'écart en pourcentage entre le salaire réel de l'individu et le prix du marché pour des compétences similaires. Un score négatif persistant est un indicateur de risque de fuite de cerveau.</li>
+        <li><strong>Positionnement dans le quartile de l'équipe :</strong> Situer mathématiquement un collaborateur au sein de sa propre équipe (en matière de salaire, de charge de travail ou d'objectifs atteints) permet de modéliser les dynamiques de saine émulation... ou de frustration collective.</li>
+      </ul>
+
+      <h3>3. Les métriques de cinétique de carrière (Vitesse et Stagnation)</h3>
+      <p>
+        Le sentiment d'accomplissement professionnel est l'un des premiers leviers de rétention des talents. Le SIRH stocke l'historique des postes, mais pas la fluidité du mouvement.
+      </p>
+      <p>
+        En créant la variable composite <strong>vitesse de progression interne</strong> (calculée par le nombre de changements de coefficients ou d'intitulés de postes divisé par le nombre d'années d'ancienneté totale), vous offrez à votre modèle une mesure précise du dynamisme d'évolution d'un salarié. Une baisse brutale de cette vitesse de progression est souvent le précurseur d'un désengagement profond.
+      </p>
+
+      <h3>4. Les croisements d'interactions managériales</h3>
+      <p>
+        L'adage populaire dit que "l'on rejoint une entreprise, mais que l'on quitte un manager". L'ingénierie des données RH doit être capable de matérialiser ce lien managérial sous forme statistique. On conçoit pour cela des variables d'interaction : l'ancienneté du manager dans son poste, le taux de rotation historique de l'équipe managée, ou encore le décalage d'âge entre le manager et le collaborateur. Croiser ces données permet de détecter des patterns d'incompatibilité structurelle bien avant qu'un conflit ouvert n'éclate.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Tableau de correspondance : De la donnée brute à la Feature Métier</h2>
+      <p>
+        Voici comment s'opère la transition géométrique des données au sein de votre pipeline de modélisation :
+      </p>
+
+      <table style="width:100%; border-collapse: collapse; margin: 2rem 0; text-align: left; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05);">
+        <thead>
+          <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02);">
+            <th style="padding: 12px;">Donnée Brute (SIRH)</th>
+            <th style="padding: 12px;">Feature Composite Créée</th>
+            <th style="padding: 12px;">Concept RH Modélisé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px;">Date de dernière promotion</td>
+            <td style="padding: 12px; font-weight: bold; color: #fff;">Temps de rétention dans le coefficient actuel</td>
+            <td style="padding: 12px;">Risque d'usure professionnelle / Stagnation</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px;">Historique des heures supplémentaires</td>
+            <td style="padding: 12px; font-weight: bold; color: #fff;">Ratio de charge trimestrielle glissante / Moyenne équipe</td>
+            <td style="padding: 12px;">Alerte surcharge de travail et Burnout</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px;">Code Postal Salarié + Code Postal Site</td>
+            <td style="padding: 12px; font-weight: bold; color: #fff;">Distance théorique de navette (Isochrone en minutes)</td>
+            <td style="padding: 12px;">Pénibilité géographique du trajet quotidien</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px;">Compteur de formations suivies</td>
+            <td style="padding: 12px; font-weight: bold; color: #fff;">Indice d'obsolescence des compétences (Durée depuis la dernière session)</td>
+            <td style="padding: 12px;">Niveau d'employabilité et d'effort de montée en compétences</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>Mise en œuvre : Script de création de features temporelles</h2>
+      <p>
+        En pratique, ces transformations s'exécutent en amont de l'entraînement algorithmique à l'aide de frameworks de manipulation de données. Voici une illustration technique de la création d'un ratio de variabilité de charge de travail :
+      </p>
+
+      <div style="max-width: 100%; margin: 1.5rem auto; padding: 0;">
+        <div style="background: rgba(255,255,255,0.02); padding: 2rem; border-left: 3px solid var(--accent-color); font-family: 'DM Mono', monospace;">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">// Calcul automatisé du delta de charge glissant avec Pandas</p>
+          <pre style="font-size: 0.85rem; line-height: 1.6; color: #a9b7c6; background: #2b2b2b; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 0;">
+import pandas as pd
+
+# Chargement du flux d'heures du SIRH
+df_sirh = pd.DataFrame({'collaborateur_id': [101, 101, 101], 
+                        'heures_sup': [10, 25, 42],
+                        'mois': [1, 2, 3]})
+
+# Création d'une feature glissante mesurant l'accélération de la charge
+df_sirh['charge_glissante_3mois'] = df_sirh.groupby('collaborateur_id')['heures_sup'].transform(lambda x: x.rolling(3, min_periods=1).mean())
+print(df_sirh)
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin: 4rem 0; padding: 2rem; background: rgba(255,255,255,0.02); border-left: 3px solid #ffffff;">
+      <h3>Étape suivante de votre parcours de modélisation</h3>
+      <p>
+        Une fois vos variables composites calculées et alignées sur vos enjeux métiers, vous serez confronté à la réalité statistique des événements rares (très peu de démissions simultanées au sein d'un même service). L'étape suivante consiste à équilibrer mathématiquement vos jeux de données. Découvrez notre guide complet de l'<strong>Étape 3 : <a href="https://competencesrh.fr/modelisation-donnees-rh/desequilibre-classes-donnees-rh.html" style="color:#ffffff; font-weight:bold; text-decoration:underline;">La gestion du déséquilibre des classes dans les données RH</a></strong>.
+      </p>
+      <p style="margin-top: 1rem;">
+        Pour revoir les fondamentaux de la structuration initiale de vos tables, retournez à l'<strong>Étape 1 : <a href="https://competencesrh.fr/modelisation-donnees-rh/variables-rh-machine-learning.html" style="color:#ffffff; text-decoration:underline;">Variables RH et Machine Learning</a></strong>.
+      </p>
+    </section>
+
+    <section id="faq-section" style="margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+      <h2>Questions fréquentes sur le Feature Engineering RH</h2>
+
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Qu'est-ce que le Feature Engineering appliqué aux RH ?</h3>
+      <p>Le Feature Engineering RH consiste à transformer, combiner et enrichir les variables brutes extraites du SIRH pour créer de nouvelles variables composites (ou features) qui reflètent des réalités métiers complexes et maximisent la précision des modèles prédictifs.</p>
+
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Pourquoi les données brutes d'un SIRH sont-elles insuffisantes pour le Machine Learning ?</h3>
+      <p>Les SIRH sont conçus pour la gestion administrative et comptable, non pour l'analyse prédictive. Une donnée brute, comme un salaire isolé ou une date d'embauche, ne capture pas la dynamique de trajectoire ou les décalages par rapport au marché, qui sont les vrais déclencheurs des comportements RH.</p>
+
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Qu'est-ce qu'un ratio d'absentéisme glissant ?</h3>
+      <p>C'est une variable composite calculée sur une fenêtre temporelle mobile (ex: 3 ou 6 mois) plutôt que sur l'année civile. Elle permet de détecter les accélérations ou les ruptures de comportement à court terme, agissant comme un puissant signal faible pour les modèles de turnover.</p>
+
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Comment mesurer mathématiquement le positionnement salarial d'un talent ?</h3>
+      <p>On utilise le delta de rémunération par rapport aux médianes internes de l'équipe ou du marché externe. Cette feature contextualise le salaire brut et traduit directement le sentiment d'équité ou de frustration financière du collaborateur.</p>
+
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Qu'appelle-t-on la vitesse de progression interne ?</h3>
+      <p>Il s'agit du ratio entre le nombre d'échelons ou de postes franchis et l'ancienneté totale du collaborateur. Une vitesse anormalement basse par rapport à la moyenne de l'entreprise signale un risque de stagnation professionnelle.</p>
+
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Quel est l'impact du Feature Engineering sur le surapprentissage (overfitting) ?</h3>
+      <p>Un Feature Engineering de qualité privilégie des variables composites hautement informatives, ce qui permet de réduire le nombre global de colonnes nécessaires dans le modèle. Cela simplifie l'apprentissage de l'algorithme et limite drastiquement les risques de surapprentissage.</p>
+    </section>
+
+  </main>
+
+  <section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; text-align: center; background: rgba(0,0,0,0.2); margin-top: 4rem;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+      <h2>Besoin d'accélérer vos chantiers de Data Science RH ?</h2>
+      <p style="margin: 1.5rem 0; opacity: 0.8;">
+        Nos ingénieurs de données et consultants RH construisent vos pipelines de traitement et industrialisent vos modèles prédictifs métiers en parfaite conformité éthique.
+      </p>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Solliciter un audit de vos données SIRH →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>© 2026 DataRH. Tous droits réservés. L'architecture algorithmique au service du capital humain.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
