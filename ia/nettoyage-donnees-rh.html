@@ -3,33 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Nettoyage de données RH et traitement des données non structurées. Centralisez vos fichiers, emails et CV en bases exploitables pour votre PME."/>
-  <title>Nettoyage de données RH et Data Non Structurée | CompetencesRH</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="Nettoyage de données RH et traitement NLP des textes non structurés. Centralisez vos exports SIRH, fichiers de paie et CV en bases exploitables et conformes."/>
+  <title>Nettoyage de données RH et Data Non Structurée | DataRH</title>
+  <link rel="stylesheet" href="https://competencesrh.fr/style.css"/>
   <link rel="canonical" href="https://competencesrh.fr/nettoyage-donnees-rh.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght=400;700;800&family=DM+Mono:wght=300;400&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Nettoyage et Valorisation des Données RH",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "DataRH",
-      "image": "https://competencesrh.fr/assets/logo.png",
-      "url": "https://competencesrh.fr"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "France"
-    },
-    "description": "Transformation et nettoyage des fichiers RH et des données textuelles non structurées pour les PME : consolidation, audit de paie et parsing sémantique.",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://competencesrh.fr/nettoyage-donnees-rh.html"
-    }
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://competencesrh.fr/nettoyage-donnees-rh.html#service",
+        "serviceType": "Nettoyage et Valorisation des Données RH",
+        "provider": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://competencesrh.fr/assets/logo.png"
+          }
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "description": "Transformation, normalisation et nettoyage des bases SIRH et des données textuelles non structurées pour les PME. Audit de paie, de GEPP et parsing sémantique.",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/nettoyage-donnees-rh.html"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/nettoyage-donnees-rh.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi le nettoyage des données RH est-il indispensable avant un projet IA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un algorithme de Machine Learning ou un LLM alimenté par des données textuelles ou chiffrées erronées produira des hallucinations ou des prédictions biaisées (principe du 'Garbage In, Garbage Out'). Le nettoyage standardise l'information pour la rendre mathématiquement exploitable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'appelle-t-on données RH non structurées ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les données non structurées représentent environ 80 % de l'information RH d'une entreprise. Il s'agit des textes libres contenus dans les CV, les comptes-rendus d'entretiens annuels, les mails de motivation ou les synthèses managériales, inaccessibles aux requêtes SQL classiques."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment traitez-vous les formats de dates incohérents dans les exports SIRH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nous utilisons des scripts Python couplés à la librairie Pandas pour parser et standardiser tous les champs temporels sous un format normalisé unique (ISO 8601 : AAAA-MM-JJ), permettant le calcul automatisé exact de l'ancienneté."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment l'extraction sémantique isole-t-elle les compétences dans un texte ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Grâce aux techniques de Traitement Automatique du Langage Naturel (NLP) et de Reconnaissance d'Entités Nommées (NER), nos modèles analysent la syntaxe du texte brut pour y détecter et classifier les compétences réelles (hard et soft skills) d'après un référentiel normé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les données sensibles des salariés sont-elles sécurisées lors du traitement ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolument. Les phases de nettoyage, de dédoublonnage et d'anonymisation s'exécutent en local ou au sein d'environnements serveurs hautement sécurisés et souverains. Aucun flux de données personnelles identifiables n'est transféré vers des API tierces non conformes au RGPD."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est l'impact de données RH corrompues sur l'audit de paie ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Des matricules en doublon ou des anomalies de saisie sur les compteurs de temps de travail faussent directement les variables de rémunération. Nettoyer les bases permet d'identifier les écarts statistiques et d'éliminer les risques de redressement réglementaire."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -41,8 +103,8 @@
     <li><a href="https://competencesrh.fr/">Accueil</a></li>
     <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
     <li><a href="https://competencesrh.fr/services.html">Services</a></li>
-    <li><a href="https://competencesrh.fr/competences.html">Competences</a></li>
-    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Données</a></li>
     <li><a href="https://competencesrh.fr/ia-rh.html">IA&RH</a></li>
     <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
   </ul>
@@ -50,7 +112,7 @@
 </nav>
 
 <header class="page-hero fade-in">
-  <div class="section-label">// Qualité de la Donnée Sociales</div>
+  <div class="section-label">// Qualité de la Donnée Sociale</div>
   <div class="section-label"><span class="dot"></span> Structuration · Fiabilité PME</div>
   <h1 class="page-title">
     Nettoyage de données RH :<br>
@@ -58,7 +120,7 @@
     et des <em>textes non structurés</em>
   </h1>
   <p class="page-sub">
-    Vos fichiers de paie comportent des doublons, vos exports SIRH sont mal formater, et 80% de vos informations clés dorment dans des textes bruts (CV, comptes-rendus, emails). Avant de vouloir faire parler l'intelligence artificielle ou de bâtir un graphique, il faut nettoyer. C'est l'étape invisible qui conditionne toutes vos décisions.
+    Vos fichiers de paie comportent des doublons, vos exports SIRH manquent de standardisation, et 80 % de vos informations clés dorment dans des textes bruts (CV, comptes-rendus d'évaluation, emails). Avant d'intégrer un algorithme d'intelligence artificielle ou de concevoir des graphiques décisionnels, la fiabilisation de la donnée est obligatoire. C'est l'étape technique fondamentale qui valide l'exactitude de toutes vos décisions.
   </p>
   <div class="hero-stats">
     <div class="stat">
@@ -68,12 +130,12 @@
     <div class="stat-divider"></div>
     <div class="stat">
       <span class="stat-num">1 sur 4</span>
-      <span class="stat-label">ligne de pointage ou de paie<br>contient une anomalie de saisie</span>
+      <span class="stat-label">ligne de pointage ou d'export social<br>contient une anomalie de formatage</span>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
       <span class="stat-num">0%</span>
-      <span class="stat-label">de valeur ajoutée à piloter<br>sur des tableaux faussés</span>
+      <span class="stat-label">de valeur ajoutée à piloter<br>sur des indicateurs faussés</span>
     </div>
   </div>
 </header>
@@ -89,10 +151,6 @@
     <span>Dossiers Salariés</span><span class="sep">·</span>
     <span>Text Mining</span><span class="sep">·</span>
     <span>Fiabilisation SIRH</span><span class="sep">·</span>
-    <span>Données Non Structurées</span><span class="sep">·</span>
-    <span>Nettoyage Pandas</span><span class="sep">·</span>
-    <span>Parsing de CV</span><span class="sep">·</span>
-    <span>Qualité des données</span><span class="sep">·</span>
   </div>
 </div>
 
@@ -104,9 +162,10 @@
       <div class="service-num">01.01</div>
       <div class="service-body">
         <h2>La donnée structurée (La face visible)</h2>
-        <p>Ce sont vos lignes de tableaux bien alignées : grilles de salaires, dates d'entrée, soldes de CP. Même lorsqu'elle est propre en apparence, elle souffre fréquemment d'incohérences de saisie d'un service à l'autre, bloquant toute automatisation.</p>
+        <p><strong>Contexte & Problématique :</strong> Vos grilles de salaires, dates d'embauche et soldes de congés semblent organisés au sein d'un tableur. Pourtant, la coexistence de saisies manuelles hétérogènes génère des ruptures de chaînes applicatives.</p>
+        <p><strong>Valeur de la structuration :</strong> L'application de règles de validation strictes supprime les lignes vides, redresse les matricules corrompus et harmonise les structures chiffrées nécessaires à l'analyse de l'absentéisme.</p>
         <ul class="service-tags">
-          <li>Exports CSV</li><li>Champs obligatoires manquants</li><li>Doublons de matricules</li>
+          <li>Normalisation CSV / Excel</li><li>Nettoyage de matricules</li><li>Détection d'anomalies de paie</li>
         </ul>
       </div>
       <div class="service-accent">◈</div>
@@ -115,9 +174,10 @@
       <div class="service-num">01.02</div>
       <div class="service-body">
         <h2>La donnée non structurée (La mine d'or cachée)</h2>
-        <p>C'est tout le reste. Près de 80% du savoir de vos Ressources Humaines se trouve dans du texte libre : les motivations dans un e-mail, les compétences réelles dans un CV Word, les synthèses d'entretiens annuels. Sans méthode, cette matière est invisible pour vos statistiques.</p>
+        <p><strong>Contexte & Problématique :</strong> La quasi-totalité de l'intelligence RH réside dans du texte libre (évaluations annuelles, synthèses de managers, compétences de candidats). Ces informations sont invisibles pour les outils décisionnels classiques.</p>
+        <p><strong>Valeur de la structuration :</strong> En transformant ces documents en données exploitables via des algorithmes de NLP, l'entreprise accède à une visibilité immédiate sur les compétences réelles détenues en interne sans imposer de saisie supplémentaire aux équipes.</p>
         <ul class="service-tags">
-          <li>Comptes-rendus PDF</li><li>Emails candidats</li><li>Historiques de managers</li>
+          <li>Traitement NLP des PDF</li><li>Parsing de CV sémantique</li><li>Text Mining d'entretiens</li>
         </ul>
       </div>
       <div class="service-accent">◉</div>
@@ -128,21 +188,23 @@
 <section class="section fade-in">
   <div class="section-label">// 02</div>
   <h2 class="section-title">Pourquoi nettoyer vos fichiers<br><em>est votre priorité n°1</em></h2>
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 0.5rem;">Intégrer des données erronées ou fragmentées dans un tableau de bord produit des analyses dangereuses. Le nettoyage sépare l'intuition floue de la certitude juridique.</p>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 2rem;">
+    L'injection de données erronées au sein d'un modèle décisionnel produit inévitablement des analyses faussées. Notre démarche de nettoyage sépare les approximations comptables des certitudes opérationnelles.
+  </p>
   <div class="compare-grid">
     <div class="compare-col">
-      <div class="compare-head">Données Brutes / Sales</div>
-      <div class="compare-item">Format de dates incohérent empêchant le calcul d'ancienneté</div>
-      <div class="compare-item">Doublons de profils faussant le taux réel de turnover</div>
-      <div class="compare-item">Compétences textuelles impossibles à cartographier</div>
-      <div class="compare-item">Erreurs de saisie masquant des anomalies de paie</div>
+      <div class="compare-head">Données Brutes / Non Corrigées</div>
+      <div class="compare-item">Formats de dates hétérogènes interdisant le calcul automatisé d'ancienneté.</div>
+      <div class="compare-item">Doublons d'identifiants de salariés faussant les calculs de turnover.</div>
+      <div class="compare-item">Compétences clés bloquées au format texte brut au sein de bilans d'évaluation.</div>
+      <div class="compare-item">Écarts de saisie d'heures masquant des anomalies de conformité réglementaire.</div>
     </div>
     <div class="compare-col after">
       <div class="compare-head">Après Nettoyage & Structuration</div>
-      <div class="compare-item">Calcul automatisé et exact des préavis et de l'ancienneté</div>
-      <div class="compare-item">Taux de rotation fiable par équipe et par site</div>
-      <div class="compare-item">Extraction sémantique automatique des compétences clés</div>
-      <div class="compare-item">Données saines prêtes pour l'IA et l'audit de conformité</div>
+      <div class="compare-item">Calcul exact et standardisé des préavis, indemnités et droits conventionnels.</div>
+      <div class="compare-item">Indicateurs de rotation fiabilisés par département et par établissement.</div>
+      <div class="compare-item">Indexation sémantique automatique des compétences pour la GEPP.</div>
+      <div class="compare-item">Bases de données sociales saines prêtes pour les audits et modèles prédictifs.</div>
     </div>
   </div>
 </section>
@@ -154,33 +216,40 @@
     <div class="process-step">
       <span class="step-num">01</span>
       <h3>Audit & Standardisation</h3>
-      <p>Nous passons vos fichiers de paie et de gestion des temps au crible de nos scripts de détection. Les espaces en trop, les formats brisés et les incohérences de matricules sont corrigés à la racine.</p>
+      <p>Analyse systématique de vos bases via des scripts de détection d'anomalies. Les incohérences typographiques, les espaces inséparables et les masques de saisie brisés sont rectifiés.</p>
     </div>
     <div class="process-arrow">→</div>
     <div class="process-step">
       <span class="step-num">02</span>
       <h3>Extraction Sémantique</h3>
-      <p>Grâce à la <a href="https://competencesrh.fr/semantic-search.html" style="color: inherit; text-decoration: underline;">recherche sémantique</a> et au traitement de texte (NLP), nous analysons vos documents non structurés pour en extraire des entités exploitables (compétences, intitulés, durées).</p>
+      <p>Utilisation de la <a href="https://competencesrh.fr/semantic-search.html" style="color: inherit; text-decoration: underline;">recherche sémantique</a> pour identifier les entités métiers au cœur de vos textes non structurés, d'après les règles détaillées dans notre guide de la <a href="https://competencesrh.fr/ia-rh.html" style="color: inherit; text-decoration: underline;">Data IA RH</a>.</p>
     </div>
     <div class="process-arrow">→</div>
     <div class="process-step">
       <span class="step-num">03</span>
-      <h3>Consolidation Finale</h3>
-      <p>Toutes vos données, autrefois éparpillées entre le texte et les chiffres, sont unifiées. Elles alimentent enfin vos tableaux de bord ou vos modèles de <a href="https://competencesrh.fr/ia/recrutement-predictif.html" style="color: inherit; text-decoration: underline;">recrutement prédictif</a>.</p>
+      <h3>Consolidation Fine</h3>
+      <p>Unification des données structurées et textuelles au sein d'un référentiel unique, prêt à alimenter des analyses de performance ou des architectures de <a href="https://competencesrh.fr/ia/recrutement-predictif.html" style="color: inherit; text-decoration: underline;">recrutement prédictif</a>.</p>
     </div>
   </div>
 </section>
 
 <div style="max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem 4rem;" class="fade-in">
   <div style="background: rgba(255,255,255,0.02); padding: 2rem; border-left: 3px solid var(--accent-color); font-family: 'DM Mono', monospace;">
-    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">// Exemple technique : Nettoyage automatique des noms et formats de postes</p>
-    <p style="font-size: 0.85rem; line-height: 1.6; color: #a9b7c6; background: #2b2b2b; padding: 1rem; border-radius: 4px; overflow-x: auto;">
-      import pandas as pd<br>
-      df = pd.read_csv("sirh_brut.csv")<br>
-      # Supprime les lignes vides et uniformise la casse des postes<br>
-      df['poste'] = df['poste'].dropna().str.strip().str.lower()<br>
-      # Vos données sont prêtes à être analysées de manière standardisée
-    </p>
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">// Exemple d'ingénierie : Normalisation de champ textuel et gestion des valeurs manquantes</p>
+    <pre style="font-size: 0.85rem; line-height: 1.6; color: #a9b7c6; background: #2b2b2b; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 0;">
+import pandas as pd
+import numpy as np
+
+# Chargement de la base SIRH brute
+df = pd.read_csv("sirh_brut.csv")
+
+# Standardisation syntaxique de la colonne des intitulés de postes
+df['poste_nettoye'] = df['poste'].replace(np.nan, 'non_renseigne').astype(str)
+df['poste_nettoye'] = df['poste_nettoye'].str.strip().str.lower()
+
+# Conversion et validation du format de date ISO 8601
+df['date_entree_conforme'] = pd.to_datetime(df['date_embauche'], errors='coerce')
+    </pre>
   </div>
 </div>
 
@@ -191,16 +260,25 @@
     <div class="service-item">
       <div class="service-num">04.01</div>
       <div class="service-body">
-        <h2>Vos données ne quittent pas votre environnement</h2>
-        <p>Le nettoyage et la structuration textuelle touchent aux pans les plus sensibles de votre entreprise (RGPD, vie privée). En utilisant des outils maîtrisés en interne comme Python et des modèles d'extraction locaux, nous garantissons qu'aucun fichier ne transite par des solutions cloud opaques.</p>
-        <p>Vous obtenez une base nettoyée, documentée et parfaitement alignée avec les exigences de l'<strong>AI Act européen</strong> en termes de traçabilité des données d'entraînement.</p>
+        <h2>Conformité et étanchéité absolue de vos données RH</h2>
+        <p>Les fichiers de gestion du personnel concentrent des informations sensibles soumises à de strictes contraintes d'anonymisation. En s'appuyant exclusivement sur des outils ouverts développés en <a href="https://competencesrh.fr/ia/python-rh.html" style="color: inherit; text-decoration: underline;">Python RH</a> exécutés au sein de serveurs locaux ou souverains, notre démarche exclut l'usage d'API cloud tierces non auditables.</p>
+        <p>Cette approche garantit la conformité de vos bases de données avec le RGPD et anticipe les obligations de traçabilité édictées par l'<strong>EU AI Act</strong> concernant la gouvernance des données d'entraînement.</p>
         <ul class="service-tags">
-          <li>Conformité RGPD</li><li>Souveraineté des données</li><li> scripts Python Open-Source</li><li>Auditabilité</li>
+          <li>Gouvernance RGPD</li><li>Souveraineté des données</li><li>Modèles Open-Source locaux</li><li>Auditabilité algorithmique</li>
         </ul>
       </div>
       <div class="service-accent">◫</div>
     </div>
   </div>
+</section>
+
+<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; max-width: var(--max-w); margin: 0 auto;">
+  <p style="font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 1rem; color: #fff;">// Consolider votre architecture Data RH :</p>
+  <ul style="line-height: 2; font-size: 0.95rem;">
+    <li>Découvrez nos retours d'expérience : <a href="https://competencesrh.fr/ia/ia-rh-cas-pratiques.html" style="color: inherit; text-decoration: underline;">4 cas pratiques d'IA RH mis en œuvre en PME</a>.</li>
+    <li>Maîtrisez les indicateurs d'usure professionnelle : <a href="https://competencesrh.fr/turnover.html" style="color: inherit; text-decoration: underline;">Modélisation mathématique du turnover RH</a>.</li>
+    <li>Découvrez notre offre globale de conseil : <a href="https://competencesrh.fr/services.html" style="color: inherit; text-decoration: underline;">Prestations d'analyse de données et GEPP</a>.</li>
+  </ul>
 </section>
 
 <div class="cta-band">
@@ -220,7 +298,7 @@
     <a href="https://competencesrh.fr/services.html">Services</a>
     <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
     <a href="https://competencesrh.fr/contact.html">Contact</a>
-  </div>
+  </footer>
   <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
 </footer>
 
