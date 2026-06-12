@@ -74,7 +74,7 @@
             "name": "Comment fonctionne l'algorithme SMOTE pour les Ressources Humaines ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "SMOTE est une méthode de sur-échantillonnage qui ne se contente pas de copier-coller les données des démissionnaires. Elle crée mathématiquement des profils de 'clones virtuels' cohérents pour aider l'algorithme à s'entraîner sur un volume équilibré."
+              "text": "SMOTE is une méthode de sur-échantillonnage qui ne se contente pas de copier-coller les données des démissionnaires. Elle crée mathématiquement des profils de 'clones virtuels' cohérents pour aider l'algorithme à s'entraîner sur un volume équilibré."
             }
           },
           {
@@ -90,7 +90,7 @@
             "name": "Qu'est-ce que le F1-Score et pourquoi est-ce la métrique reine ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Le F1-Score est la moyenne mathématique équilibrée entre la Précision et le Rappel. C'est le seul indicateur fiable pour juger de la performance réelle d'une IA RH face à un problème de données déséquilibrées."
+              "text": "Le F1-Score est la moyenne mathématique équilibrée entre la Précision et le Rappel. C'est le seul indicator fiable pour juger de la performance réelle d'une IA RH face à un problème de données déséquilibrées."
             }
           }
         ]
@@ -112,189 +112,177 @@
     <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
   </nav>
  
-  <header class="page-hero fade-in">
+  <header class="page-hero fade-in visible">
     <div class="section-label">// Silo Modélisation — Étape 3 / 7</div>
-    <div class="breadcrumb" style="font-family: 'DM Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem;">
-      <a href="https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html" style="color: #fff; text-decoration: underline;">Étape 2 : Feature Engineering</a> / Étape 3 : Déséquilibre des données
+    <div class="breadcrumb">
+      <a href="https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html" class="link-white-underline">Étape 2 : Feature Engineering</a> / Étape 3 : Déséquilibre des données
     </div>
-    <h1 class="page-title">La Gestion du Déséquilibre des Classes</h1>
-    <h2>Comment modéliser avec succès les événements RH critiques et rares</h2>
+    <h1 class="page-title">Gestion du <em>Déséquilibre</em></h1>
     <p class="page-sub">
       En ressources humaines, les signaux qui comptent le plus sont souvent les plus discrets. Apprenez à paramétrer vos modèles pour qu'ils cessent d'ignorer la rareté.
     </p>
   </header>
 
-  <main class="section fade-in" style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
-    
-    <section id="introduction-cove" style="background: rgba(255,255,255,0.01); padding: 2rem; border-left: 3px solid #ffffff; margin-bottom: 3rem;">
-      <p>
-        <strong>Contexte :</strong> Dans le monde de la Data Science appliquée aux ressources humaines, la majorité des phénomènes que nous cherchons désespérément à anticiper sont, par nature, minoritaires. Qu'il s'agisse d'un départ de collaborateur (turnover), d'un cas d'absentéisme de très longue durée ou d'une demande spontanée de rupture conventionnelle, ces événements ne touchent chaque mois qu'une infime fraction de vos effectifs globaux. Statistiquement, votre base de données est submergée par la masse des collaborateurs "stables".
-      </p>
-      <p>
-        <strong>Objectif :</strong> Ce phénomène s'appelle le déséquilibre des classes (*Data Imbalance*). L'objectif de cette étape est d'ajuster, de corriger et de rééquilibrer artificiellement vos échantillons de données avant de les soumettre à l'intelligence artificielle. Sans cette correction, les modèles mathématiques souffrent d'une forme de paresse algorithmique : ils choisissent systématiquement la solution de facilité en prédisant l'état le plus fréquent, rendant vos outils d'aide à la décision totalement inefficaces.
-      </p>
-      <p>
-        <strong>Valeur :</strong> Maîtriser le traitement du déséquilibre des classes permet de passer d'un modèle "théoriquement parfait mais inutile" à un outil opérationnel à forte valeur ajoutée. Pour les directions RH, cela signifie des prévisions fiables capables de lever des alertes précoces sur les profils à risque, d'allouer vos budgets de rétention au bon endroit, et de nouer une relation de confiance entre les managers de terrain et vos analyses prédictives.
-      </p>
-    </section>
+  <main class="section fade-in visible">
+    <article class="blog-article">
+      
+      <section id="introduction-cove" class="card">
+        <p class="article-text">
+          <strong>Contexte :</strong> Dans le monde de la Data Science appliquée aux ressources humaines, la majorité des phénomènes que nous cherchons désespérément à anticiper sont, par nature, minoritaires. Qu'il s'agisse d'un départ de collaborateur (turnover), d'un cas d'absentéisme de très longue durée ou d'une demande spontanée de rupture conventionnelle, ces événements ne touchent chaque mois qu'une infime fraction de vos effectifs globaux. Statistiquement, votre base de données est submergée par la masse des collaborateurs "stables".
+        </p>
+        <br>
+        <p class="article-text">
+          <strong>Objectif :</strong> Ce phénomène s'appelle le déséquilibre des classes (<em>Data Imbalance</em>). L'objectif de cette étape est d'ajuster, de corriger et de rééquilibrer artificiellement vos échantillons de données avant de les soumettre à l'intelligence artificielle. Sans cette correction, les modèles mathématiques souffrent d'une forme de paresse algorithmique : ils choisissent systématiquement la solution de facilité en prédisant l'état le plus fréquent, rendant vos outils d'aide à la décision totalement inefficaces.
+        </p>
+        <br>
+        <p class="article-text">
+          <strong>Valeur :</strong> Maîtriser le traitement du déséquilibre des classes permet de passer d'un modèle "théoriquement parfait mais inutile" à un outil opérationnel à forte valeur ajoutée. Pour les directions RH, cela signifie des prévisions fiables capables de lever des alertes précoces sur les profils à risque, d'allouer vos budgets de rétention au bon endroit, et de nouer une relation de confiance entre les managers de terrain et vos analyses prédictives.
+        </p>
+      </section>
 
-    <section>
-      <h2>Le piège des 92% de précision : L'illusion mathématique</h2>
-      <p>
+      <h2 class="article-subtitle">Le piège des 92% de précision : L'illusion mathématique</h2>
+      <p class="article-text">
         Imaginons que votre entreprise affiche un taux de turnover annuel de 8%. C’est une excellente performance macroéconomique. Traduisons cela sous l'angle de la Data Science : dans votre fichier d'export SIRH, 92% des lignes correspondent à des collaborateurs fidèles (la classe majoritaire), et seulement 8% à des collaborateurs ayant démissionné (la classe minoritaire).
       </p>
-      <p>
+      <br>
+      <p class="article-text">
         Si vous donnez ce fichier brut à une intelligence artificielle sans consigne particulière, celle-ci va chercher à maximiser sa réussite globale. Elle va rapidement découvrir une astuce imparable : prédire que 100% des salariés vont rester dans l'entreprise. 
       </p>
-      <p>
+      <br>
+      <p class="article-text">
         En faisant cela, l'IA affiche fièrement un <strong>taux de précision de 92%</strong>. Sur le papier, les équipes non averties pourraient crier au génie. En réalité, ce modèle est une coquille vide : il a été incapable de détecter le moindre départ réel. Il n'a trouvé aucun des 8% de collaborateurs qui ont effectivement quitté la structure. C'est pour briser cette illusion optique qu'interviennent les techniques de rééchantillonnage.
       </p>
-      
-    </section>
 
-    <section style="margin-top: 3rem;">
-      <h2>Les deux stratégies pour rééquilibrer vos données</h2>
-      <p>
-        Pour forcer l'algorithme à prêter attention aux 8% de profils minoritaires, la Data Science dispose de deux leviers principaux. Voyons comment les vulgariser simplement pour vos équipes.
+      <h2 class="article-subtitle">Les deux stratégies pour rééquilibrer vos données</h2>
+      <p class="article-text">
+        Pour force l'algorithme à prêter attention aux 8% de profils minoritaires, la Data Science dispose de deux leviers principaux. Voyons comment les vulgariser simplement pour vos équipes.
       </p>
 
-      <h3>1. Le sous-échantillonnage (Undersampling) : Réduire la masse</h3>
-      <p>
+      <h3 class="article-subtitle" style="font-size: 1.1rem; color: var(--text);">1. Le sous-échantillonnage (Undersampling) : Réduire la masse</h3>
+      <p class="article-text">
         Cette méthode consiste à faire "maigrir" artificiellement la classe majoritaire. Dans notre exemple, on va conserver l'intégralité des profils des démissionnaires (les 8%), et on va tirer au sort un volume équivalent de profils parmi les collaborateurs stables.
       </p>
-      <p>
+      <br>
+      <p class="article-text">
         On se retrouve alors face à un nouveau jeu de données condensé composé à 50% de personnes stables et à 50% de personnes parties. L'IA est obligée d'étudier les caractéristiques des deux groupes à parts égales. 
         <br><em>Le bémol :</em> En jetant une grande partie de vos données de collaborateurs stables, vous risquez de priver le modèle d'informations précieuses sur ce qui fait la fidélité de vos équipes.
       </p>
 
-      <h3>2. Le sur-échantillonnage (Oversampling) et la magie de l'algorithme SMOTE</h3>
-      <p>
-        À l'inverse, cette approche consiste à multiplier le groupe minoritaire pour le mettre au niveau du grand groupe. Au lieu de faire un simple copier-coller des profils de démissionnaires (ce qui provoquerait des erreurs d'apprentissage), on utilise une méthode mathématique baptisée <strong>SMOTE</strong> (*Synthetic Minority Over-sampling Technique*).
+      <h3 class="article-subtitle" style="font-size: 1.1rem; color: var(--text);">2. Le sur-échantillonnage (Oversampling) et la magie de l'algorithme SMOTE</h3>
+      <p class="article-text">
+        À l'inverse, cette approche consiste à multiplier le groupe minoritaire pour le mettre au niveau du grand groupe. Au lieu de faire un simple copier-coller des profils de démissionnaires (ce qui provoquerait des erreurs d'apprentissage), on utilise une méthode mathématique baptisée <strong>SMOTE</strong> (<em>Synthetic Minority Over-sampling Technique</em>).
       </p>
-      <p>
+      <br>
+      <p class="article-text">
         SMOTE ne duplique pas les lignes : il analyse les points communs des collaborateurs partis (par exemple : une baisse de salaire relative associée à une forte charge de travail et une baisse des formations vécue à l'Étape 2) et crée de toutes pièces des <strong>"salariés virtuels"</strong> dotés de caractéristiques similaires mais légèrement nuancées. L'algorithme dispose alors d'une matière riche et abondante pour apprendre à repérer les signaux faibles du départ.
       </p>
-    </section>
 
-    <section style="margin-top: 3rem;">
-      <h2>Changer de lunettes : Délaisser la Précision pour le Rappel et le F1-Score</h2>
-      <p>
+      <h2 class="article-subtitle">Changer de lunettes : Délaisser la Précision pour le Rappel et le F1-Score</h2>
+      <p class="article-text">
         Lorsque vos données sont déséquilibrées, vous devez interdire à vos data scientists d'évaluer l'outil avec le "Taux de précision global". Vous devez imposer de nouvelles grilles de lecture RH, beaucoup plus concrètes :
       </p>
 
-      <ul>
-        <li><strong>Le Rappel (Recall) :</strong> C'est la capacité du modèle à lever la main sur TOUS les départs. Un rappel de 90% signifie que sur 100 démissions réelles à venir, l'IA a réussi à en intercepter 90. C'est l'indicateur à privilégier si votre priorité absolue est de ne perdre aucun talent.</li>
-        <li><strong>La Précision (Precision) :</strong> C'est la fiabilité de l'alerte. Si l'IA désigne 10 personnes comme "à risque de départ", et que 8 d'entre elles comptaient vraiment démissionner, votre précision est de 80%. Une bonne précision évite que vos Responsables RH ne perdent du temps à mener des entretiens de rétention auprès de salariés parfaitement heureux.</li>
-        <li><strong>Le F1-Score :</strong> C'est l'arbitre de paix. Le F1-score combine mathématiquement le Rappel et la Précision en une seule note. Plus il est proche de 100%, plus votre modèle a trouvé le parfait équilibre entre "détecter un maximum de cas" et "éviter les fausses alertes".</li>
-      </ul>
-    </section>
+      <div style="margin: 1.5rem 0;">
+        <p class="article-text" style="margin-bottom: 0.8rem;"><strong>• Le Rappel (Recall) :</strong> C'est la capacité du modèle à lever la main sur TOUS les départs. Un rappel de 90% signifie que sur 100 démissions réelles à venir, l'IA a réussi à en intercepter 90. C'est l'indicateur à privilégier si votre priorité absolue est de ne perdre aucun talent.</p>
+        <p class="article-text" style="margin-bottom: 0.8rem;"><strong>• La Précision (Precision) :</strong> C'est la fiabilité de l'alerte. Si l'IA désigne 10 personnes comme "à risque de départ", et que 8 d'entre elles comptaient vraiment démissionner, votre précision est de 80%. Une bonne précision évite que vos Responsables RH ne perdent du temps à mener des entretiens de rétention auprès de salariés parfaitement heureux.</p>
+        <p class="article-text"><strong>• Le F1-Score :</strong> C'est l'arbitre de paix. Le F1-score combine mathématiquement le Rappel et la Précision en une seule note. Plus il est proche de 100%, plus votre modèle a trouvé le parfait équilibre entre "détecter un maximum de cas" et "éviter les fausses alertes".</p>
+      </div>
 
-    <section style="margin-top: 3rem;">
-      <h2>Tableau de pilotage : Quelle métrique choisir selon votre enjeu RH ?</h2>
-      <p>
+      <h2 class="article-subtitle">Tableau de pilotage : Quelle métrique choisir selon votre enjeu RH ?</h2>
+      <p class="article-text">
         Le choix d'ajustement de l'algorithme dépend avant tout de votre stratégie d'entreprise :
       </p>
 
-      <table style="width:100%; border-collapse: collapse; margin: 2rem 0; text-align: left; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05);">
-        <thead>
-          <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02);">
-            <th style="padding: 12px;">Votre Enjeu Métier RH</th>
-            <th style="padding: 12px;">Métrique à Maximiser</th>
-            <th style="padding: 12px;">Conséquence Pratique sur le Terrain</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 12px;">Pénurie extrême de talents (ex: Cybersécurité). Aucun départ n'est tolérable.</td>
-            <td style="padding: 12px; font-weight: bold; color: #fff;">Le Rappel (Recall)</td>
-            <td style="padding: 12px;">L'IA ratissera large. Vous capterez tous les départs, quitte à traiter quelques fausses alertes.</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 12px;">Temps RH très limité. Les équipes ne peuvent mener que 3 entretiens par semaine.</td>
-            <td style="padding: 12px; font-weight: bold; color: #fff;">La Précision</td>
-            <td style="padding: 12px;">Chaque alerte déclenchée est une certitude. Aucun rendez-vous n'est programmé pour rien.</td>
-          </tr>
-          <tr>
-            <td style="padding: 12px;">Pilotage global du plan de transformation RH à l'échelle du Groupe.</td>
-            <td style="padding: 12px; font-weight: bold; color: #fff;">Le F1-Score</td>
-            <td style="padding: 12px;">L'équilibre parfait pour des prévisions budgétaires et humaines saines et stables.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <div style="overflow-x: auto; margin: 2rem 0;">
+        <table style="width:100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.8rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--bg-card);">
+              <th style="padding: 1rem; color: var(--accent);">Votre Enjeu Métier RH</th>
+              <th style="padding: 1rem;">Métrique à Maximiser</th>
+              <th style="padding: 1rem;">Conséquence Pratique sur le Terrain</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 1rem; font-weight: bold;">Pénurie extrême de talents (ex: Cybersécurité). Aucun départ n'est tolérable.</td>
+              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">Le Rappel (Recall)</td>
+              <td style="padding: 1rem;">L'IA ratissera large. Vous capterez tous les départs, quitte à traiter quelques fausses alertes.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 1rem; font-weight: bold;">Temps RH très limité. Les équipes ne peuvent mener que 3 entretiens par semaine.</td>
+              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">La Précision</td>
+              <td style="padding: 1rem;">Chaque alerte déclenchée est une certitude. Aucun rendez-vous n'est programmé pour rien.</td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; font-weight: bold;">Pilotage global du plan de transformation RH à l'échelle du Groupe.</td>
+              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">Le F1-Score</td>
+              <td style="padding: 1rem;">L'équilibre parfait pour des prévisions budgétaires et humaines saines et stables.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <section style="margin-top: 3rem;">
-      <h2>Aperçu logique : L'application de SMOTE sur un index RH</h2>
-      <p>
+      <h2 class="article-subtitle">Aperçu logique : L'application de SMOTE sur un index RH</h2>
+      <p class="article-text">
         Pour vos équipes techniques, l'intégration de ce filtre d'équilibrage intervient juste après l'ingénierie des variables développée à l'étape précédente :
       </p>
 
-      <div style="max-width: 100%; margin: 1.5rem auto; padding: 0;">
-        <div style="background: rgba(255,255,255,0.02); padding: 2rem; border-left: 3px solid var(--accent-color); font-family: 'DM Mono', monospace;">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">// Rééquilibrage d'un échantillon de turnover via la librairie Imbalanced-Learn</p>
-          <pre style="font-size: 0.85rem; line-height: 1.6; color: #a9b7c6; background: #2b2b2b; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 0;">
-from imblearn.over_sampling import SMOTE
+      <div class="code-example">
+        <div class="code-label">// Rééquilibrage d'un échantillon de turnover via la librairie Imbalanced-Learn</div>
+        <pre><code>from imblearn.over_sampling import SMOTE
 
 # X contient nos variables RH composites, y contient l'indicateur "Départ (0 ou 1)"
 smote_rh = SMOTE(random_state=42)
 X_equilibre, y_equilibre = smote_rh.fit_resample(X_features_rh, y_cible_turnover)
 
-# Notre jeu de données contient désormais strictement autant de 'Départs' que de 'Présences'
-          </pre>
-        </div>
+# Notre jeu de données contient désormais strictement autant de 'Départs' que de 'Présences'</code></pre>
       </div>
-    </section>
 
-    <section style="margin: 4rem 0; padding: 2rem; background: rgba(255,255,255,0.02); border-left: 3px solid #ffffff;">
-      <h3>Poursuivre la construction de votre modèle RH</h3>
-      <p>
-        Maintenant que vos données sont enrichies et parfaitement équilibrées pour ne plus masquer les comportements rares, une question éthique et légale majeure se pose : comment entraîner votre modèle prédictif tout en garantissant le secret absolu des données personnelles de vos collaborateurs ? 
-      </p>
-      <p style="margin-top: 1rem;">
-        C'est tout l'enjeu de notre guide de l'<strong>Étape 4 : <a href="https://competencesrh.fr/modelisation-donnees-rh/anonymisation-donnees-rh-machine-learning.html" style="color:#ffffff; font-weight:bold; text-decoration:underline;">Anonymisation et protection de la vie privée dans l'IA RH (RGPD)</a></strong>.
-      </p>
-      <p style="margin-top: 0.5rem;">
-        Pour revoir la création de vos indicateurs métiers en amont, consultez l'<strong>Étape 2 : <a href="https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html" style="color:#ffffff; text-decoration:underline;">Le Feature Engineering RH</a></strong>.
-      </p>
-    </section>
+      <div class="cta-simple">
+        <h3>Poursuivre la construction de votre modèle RH</h3>
+        <p>
+          Maintenant que vos données sont enrichies et parfaitement équilibrées pour ne plus masquer les comportements rares, une question éthique et légale majeure se pose : comment entraîner votre modèle prédictif tout en garantissant le secret absolu des données personnelles de vos collaborateurs ?
+        </p>
+        <a href="https://competencesrh.fr/modelisation-donnees-rh/anonymisation-donnees-rh-machine-learning.html" class="cta-main">Étape 4 : Anonymisation et protection de la vie privée (RGPD) →</a>
+      </div>
 
-    <section id="faq-section" style="margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-      <h2>Questions fréquentes sur le déséquilibre des données RH</h2>
+      <div id="faq-section" style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+        <h2 class="article-subtitle" style="font-size: 1.4rem;">Questions fréquentes sur le déséquilibre des données RH</h2>
 
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Qu'est-ce que le déséquilibre des classes en Data RH ?</h3>
-      <p>Le déséquilibre des classes (ou Data Imbalance) survient lorsque l'événement que l'on souhaite prédire (ex: une démission) est mathématiquement rare par rapport à la situation globale (les collaborateurs qui restent). L'IA a alors tendance à ignorer le signal minoritaire.</p>
+        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Qu'est-ce que le déséquilibre des classes en Data RH ?</h4>
+        <p class="article-text" style="margin-bottom: 1.5rem;">Le déséquilibre des classes (ou Data Imbalance) survient lorsque l'événement que l'on souhaite prédire (ex: une démission) est mathématiquement rare par rapport à la situation globale (les collaborateurs qui restent). L'IA a alors tendance à ignorer le signal minoritaire.</p>
 
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Pourquoi un taux de précision de 92% peut-il cacher un modèle inutile ?</h3>
-      <p>Si votre entreprise a un turnover de 8%, un modèle d'IA paresseux qui prédit que "personne ne s'en va" aura raison dans 92% des cas. Le taux de précision global est excellent, mais le modèle est totalement incapable de détecter les 8% de démissions réelles.</p>
+        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Pourquoi un taux de précision de 92% peut-il cacher un modèle inutile ?</h4>
+        <p class="article-text" style="margin-bottom: 1.5rem;">Si votre entreprise a un turnover de 8%, un modèle d'IA paresseux qui prédit que "personne ne s'en va" aura raison dans 92% des cas. Le taux de précision global est excellent, mais le modèle est totalement incapable de détecter les 8% de démissions réelles.</p>
 
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Quelle est la différence entre le Rappel et la Précision en RH ?</h3>
-      <p>Le Rappel mesure la capacité du modèle à capter tous les départs réels (ne rater aucun signal). La Précision mesure la certitude que les alertes déclenchées sont vraies (éviter les fausses alertes qui fatiguent les managers).</p>
+        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Quelle est la différence entre le Rappel et la Précision en RH ?</h4>
+        <p class="article-text" style="margin-bottom: 1.5rem;">Le Rappel mesure la capacité du modèle à capter tous les départs réels (ne rater aucun signal). La Précision mesure la certitude que les alertes déclenchées sont vraies (éviter les fausses alertes qui fatiguent les managers).</p>
 
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Comment fonctionne l'algorithme SMOTE pour les Ressources Humaines ?</h3>
-      <p>SMOTE est une méthode de sur-échantillonnage qui ne se contente pas de copier-coller les données des démissionnaires. Elle crée mathématiquement des profils de "clones virtuels" cohérents pour aider l'algorithme à s'entraîner sur un volume équilibré.</p>
+        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Comment fonctionne l'algorithme SMOTE pour les Ressources Humaines ?</h4>
+        <p class="article-text" style="margin-bottom: 1.5rem;">SMOTE est une méthode de sur-échantillonnage qui ne se contente pas de copier-coller les données des démissionnaires. Elle crée mathématiquement des profils de "clones virtuels" cohérents pour aider l'algorithme à s'entraîner sur un volume équilibré.</p>
 
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Qu'est-ce que le sous-échantillonnage (undersampling) ?</h3>
-      <p>Cette technique consiste à retirer aléatoirement des données de la majorité stable (les collaborateurs fidèles) pour présenter à l'IA un jeu de données à parts égales (50% de stables, 50% de départs). Elle s'utilise principalement sur de très grands effectifs.</p>
+        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Qu'est-ce que le sous-échantillonnage (undersampling) ?</h4>
+        <p class="article-text" style="margin-bottom: 1.5rem;">Cette technique consiste à retirer aléatoirement des données de la majorité stable (les collaborateurs fidèles) pour présenter à l'IA un jeu de données à parts égales (50% de stables, 50% de départs). Elle s'utilise principalement sur de très grands effectifs.</p>
 
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-top: 1.5rem;">Qu'est-ce que le F1-Score et pourquoi est-ce la métrique reine ?</h3>
-      <p>Le F1-Score est la moyenne mathématique équilibrée entre la Précision et le Rappel. C'est le seul indicateur fiable pour juger de la performance réelle d'une IA RH face à un problème de données déséquilibrées.</p>
-    </section>
+        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Qu'est-ce que le F1-Score et pourquoi est-ce la métrique reine ?</h4>
+        <p class="article-text">Le F1-Score est la moyenne mathématique équilibrée entre la Précision et le Rappel. C'est le seul indicateur fiable pour juger de la performance réelle d'une IA RH face à un problème de données déséquilibrées.</p>
+      </div>
 
+    </article>
   </main>
 
-  <section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; text-align: center; background: rgba(0,0,0,0.2); margin-top: 4rem;">
-    <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
-      <h2>Vos modèles d'IA RH manquent-ils de fiabilité ?</h2>
-      <p style="margin: 1.5rem 0; opacity: 0.8;">
-        Nos experts vous accompagnent dans le paramétrage de vos modèles prédictifs sociaux pour transformer vos données brutes en un système d'alerte RH performant et éthique.
-      </p>
-      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Prendre rendez-vous avec un consultant Data RH →</a>
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div class="cta-band-text">
+        Vos modèles d'IA RH manquent-ils de fiabilité ?
+      </div>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Prendre rendez-vous avec un consultant</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-left">
-      <span class="nav-logo">DATA<span>RH</span></span>
+      <a href="#" class="nav-logo">DATA<span>RH</span></a>
       <p>© 2026 DataRH. Tous droits réservés. L'architecture algorithmique au service du capital humain.</p>
     </div>
   </footer>
