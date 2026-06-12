@@ -132,11 +132,11 @@
         </p>
         <br>
         <p class="article-text">
-          <strong>Objectif :</strong> Le <em>Feature Engineering</em> (ou ingénierie des variables) est la discipline reine de la science des données qui consiste à nettoyer, combiner, croiser et transformer ces attributs bruts pour générer de nouvelles dimensions analytiques. L'objectif est de traduire des concepts vécus par les collaborateurs (le sentiment de stagnation, la charge de travail accumulée, le décrochage salarial) en signaux mathématiques limpides pour les algorithmes de Machine Learning.
+          <strong>Objectif :</strong> Le <em>Feature Engineering</em> (ou ingénierie des variables) is la discipline reine de la science des données qui consiste à nettoyer, combiner, croiser et transformer ces attributs bruts pour générer de nouvelles dimensions analytiques. L'objectif est de traduire des concepts vécus par les collaborateurs (le sentiment de stagnation, la charge de travail accumulée, le décrochage salarial) en signaux mathématiques limpides pour les algorithmes de Machine Learning.
         </p>
         <br>
         <p class="article-text">
-          <strong>Valeur :</strong> Un modèle de prédiction du turnover ou d'optimisation de la mobility interne ne progresse pas grâce à la complexité de ses réseaux de neurones, mais grâce à la pertinence de ses variables d'entrée. En créant des indicateurs composites contextualisés, vous augmentez la précision de vos prévisions, réduisez le besoin de puissance de calcul et concevez des modèles transparents, immédiatement interprétables par vos directions métiers.
+          <strong>Valeur :</strong> Un modèle de prédiction du turnover ou d'optimisation de la mobilité interne ne progresse pas grâce à la complexité de ses réseaux de neurones, mais grâce à la pertinence de ses variables d'entrée. En créant des indicateurs composites contextualisés, vous augmentez la précision de vos prévisions, réduisez le besoin de puissance de calcul et concevez des modèles transparents, immédiatement interprétables par vos directions métiers.
         </p>
       </section>
 
@@ -154,7 +154,7 @@
         La modélisation de la donnée sociale s'appuie sur quatre grandes typologies de transformations sémantiques. Maîtriser ces quatre familles permet de couvrir la quasi-totalité des cas d'usage, du recrutement prédictif au pilotage de la performance.
       </p>
 
-      <h3 class="article-subtitle" style="font-size: 1.1rem; color: var(--text);">1. Les agrégations et fenêtres temporelles glissantes</h3>
+      <h3 class="article-subtitle">1. Les agrégations et fenêtres temporelles glissantes</h3>
       <p class="article-text">
         Les comportements humains s'analysent dans la durée. Un pic d'absences de 4 jours au mois de novembre n'a pas la même signification s'il s'agit d'un événement isolé ou s'il s'inscrit dans une dynamique d'accélération. 
       </p>
@@ -163,17 +163,17 @@
         Plutôt que d'utiliser le volume annuel d'absences (qui souffre d'un biais d'effet de seuil en fin d'année), les ingénieurs de données calculent des <strong>ratios d'absentéisme glissants</strong> sur des fenêtres mobiles de 3, 6 ou 9 mois. Ces agrégations temporelles permettent de mesurer des dérivées : le taux d'absence est-il stable, en croissance exponentielle ou en décélération ? C'est la trajectoire qui porte le signal prédictif, pas le cumul.
       </p>
 
-      <h3 class="article-subtitle" style="font-size: 1.1rem; color: var(--text);">2. Les deltas et indicateurs de positionnement relatifs</h3>
+      <h3 class="article-subtitle">2. Les deltas et indicateurs de positionnement relatifs</h3>
       <p class="article-text">
         La perception qu'un collaborateur a de sa situation au sein de l'entreprise est profondément comparative. Les variables brutes doivent donc être relativisées par rapport à des référentiels internes et externes.
       </p>
-      
-      <div style="margin: 1.5rem 0;">
-        <p class="article-text" style="margin-bottom: 0.8rem;"><strong>• Delta de rémunération par rapport aux médianes de marché :</strong> Cette feature calcule l'écart en pourcentage entre le salaire réel de l'individu et le prix du marché pour des compétences similaires. Un score négatif persistant est un indicateur de risque de fuite de cerveau.</p>
+     
+      <div class="article-list-container">
+        <p class="article-text"><strong>• Delta de rémunération par rapport aux médianes de marché :</strong> Cette feature calcule l'écart en pourcentage entre le salaire réel de l'individu et le prix du marché pour des compétences similaires. Un score négatif persistant est un indicateur de risque de fuite de cerveau.</p>
         <p class="article-text"><strong>• Positionnement dans le quartile de l'équipe :</strong> Situer mathématiquement un collaborateur au sein de sa propre équipe (en matière de salaire, de charge de travail ou d'objectifs atteints) permet de modéliser les dynamiques de saine émulation... ou de frustration collective.</p>
       </div>
 
-      <h3 class="article-subtitle" style="font-size: 1.1rem; color: var(--text);">3. Les métriques de cinétique de carrière (Vitesse et Stagnation)</h3>
+      <h3 class="article-subtitle">3. Les métriques de cinétique de carrière (Vitesse et Stagnation)</h3>
       <p class="article-text">
         Le sentiment d'accomplissement professionnel est l'un des premiers leviers de rétention des talents. Le SIRH stocke l'historique des postes, mais pas la fluidité du mouvement.
       </p>
@@ -182,7 +182,7 @@
         En créant la variable composite <strong>vitesse de progression interne</strong> (calculée par le nombre de changements de coefficients ou d'intitulés de postes divisé par le nombre d'années d'ancienneté totale), vous offrez à votre modèle une mesure précise du dynamisme d'évolution d'un salarié. Une baisse brutale de cette vitesse de progression est souvent le précurseur d'un désengagement profond.
       </p>
 
-      <h3 class="article-subtitle" style="font-size: 1.1rem; color: var(--text);">4. Les croisements d'interactions managériales</h3>
+      <h3 class="article-subtitle">4. Les croisements d'interactions managériales</h3>
       <p class="article-text">
         L'adage populaire dit que "l'on rejoint une entreprise, mais que l'on quitte un manager". L'ingénierie des données RH doit être capable de matérialiser ce lien managérial sous forme statistique. On conçoit pour cela des variables d'interaction : l'ancienneté du manager dans son poste, le taux de rotation historique de l'équipe managée, ou encore le décalage d'âge entre le manager et le collaborateur. Croiser ces données permet de détecter des patterns d'incompatibilité structurelle bien avant qu'un conflit ouvert n'éclate.
       </p>
@@ -192,35 +192,35 @@
         Voici comment s'opère la transition géométrique des données au sein de votre pipeline de modélisation :
       </p>
 
-      <div style="overflow-x: auto; margin: 2rem 0;">
-        <table style="width:100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.8rem; text-align: left;">
+      <div class="table-container">
+        <table>
           <thead>
-            <tr style="border-bottom: 1px solid var(--border); background: var(--bg-card);">
-              <th style="padding: 1rem; color: var(--accent);">Donnée Brute (SIRH)</th>
-              <th style="padding: 1rem;">Feature Composite Créée</th>
-              <th style="padding: 1rem;">Concept RH Modélisé</th>
+            <tr>
+              <th>Donnée Brute (SIRH)</th>
+              <th>Feature Composite Créée</th>
+              <th>Concept RH Modélisé</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid var(--border);">
-              <td style="padding: 1rem; font-weight: bold;">Date de dernière promotion</td>
-              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">Temps de rétention dans le coefficient actuel</td>
-              <td style="padding: 1rem;">Risque d'usure professionnelle / Stagnation</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border);">
-              <td style="padding: 1rem; font-weight: bold;">Historique des heures supplémentaires</td>
-              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">Ratio de charge trimestrielle glissante / Moyenne équipe</td>
-              <td style="padding: 1rem;">Alerte surcharge de travail et Burnout</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border);">
-              <td style="padding: 1rem; font-weight: bold;">Code Postal Salarié + Code Postal Site</td>
-              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">Distance théorique de navette (Isochrone en minutes)</td>
-              <td style="padding: 1rem;">Pénibilité géographique du trajet quotidien</td>
+            <tr>
+              <td>Date de dernière promotion</td>
+              <td>Temps de rétention dans le coefficient actuel</td>
+              <td>Risque d'usure professionnelle / Stagnation</td>
             </tr>
             <tr>
-              <td style="padding: 1rem; font-weight: bold;">Compteur de formations suivies</td>
-              <td style="padding: 1rem; color: var(--accent); font-weight: bold;">Indice d'obsolescence des compétences (Durée depuis la dernière session)</td>
-              <td style="padding: 1rem;">Niveau d'employabilité et d'effort de montée en compétences</td>
+              <td>Historique des heures supplémentaires</td>
+              <td>Ratio de charge trimestrielle glissante / Moyenne équipe</td>
+              <td>Alerte surcharge de travail et Burnout</td>
+            </tr>
+            <tr>
+              <td>Code Postal Salarié + Code Postal Site</td>
+              <td>Distance théorique de navette (Isochrone en minutes)</td>
+              <td>Pénibilité géographique du trajet quotidien</td>
+            </tr>
+            <tr>
+              <td>Compteur de formations suivies</td>
+              <td>Indice d'obsolescence des compétences (Durée depuis la dernière session)</td>
+              <td>Niveau d'employabilité et d'effort de montée en compétences</td>
             </tr>
           </tbody>
         </table>
@@ -253,25 +253,25 @@ print(df_sirh)</code></pre>
         <a href="https://competencesrh.fr/modelisation-donnees-rh/desequilibre-classes-donnees-rh.html" class="cta-main">Étape 3 : La gestion du déséquilibre des classes →</a>
       </div>
 
-      <div id="faq-section" style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-        <h2 class="article-subtitle" style="font-size: 1.4rem;">Questions fréquentes sur le Feature Engineering RH</h2>
+      <div id="faq-section">
+        <h2 class="article-subtitle">Questions fréquentes sur le Feature Engineering RH</h2>
 
-        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Qu'est-ce que le Feature Engineering appliqué aux RH ?</h4>
-        <p class="article-text" style="margin-bottom: 1.5rem;">Le Feature Engineering RH consiste à transformer, combiner et enrichir les variables brutes extraites du SIRH pour créer de nouvelles variables composites (ou features) qui reflètent des réalités métiers complexes et maximisent la précision des modèles prédictifs.</p>
+        <h4>Qu'est-ce que le Feature Engineering appliqué aux RH ?</h4>
+        <p class="article-text">Le Feature Engineering RH consiste à transformer, combiner et enrichir les variables brutes extraites du SIRH pour créer de nouvelles variables composites (ou features) qui reflètent des réalités métiers complexes et maximisent la précision des modèles prédictifs.</p>
 
-        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Pourquoi les données brutes d'un SIRH sont-elles insuffisantes pour le Machine Learning ?</h4>
-        <p class="article-text" style="margin-bottom: 1.5rem;">Les SIRH sont conçus pour la gestion administrative et comptable, non pour l'analyse prédictive. Une donnée brute, comme un salaire isolé ou une date d'embauche, ne capture pas la dynamique de trajectoire ou les décalages par rapport au marché, qui sont les vrais déclencheurs des comportements RH.</p>
+        <h4>Pourquoi les données brutes d'un SIRH sont-elles insuffisantes pour le Machine Learning ?</h4>
+        <p class="article-text">Les SIRH sont conçus pour la gestion administrative et comptable, non pour l'analyse prédictive. Une donnée brute, comme un salaire isolé ou une date d'embauche, ne capture pas la dynamique de trajectoire ou les décalages par rapport au marché, qui sont les vrais déclencheurs des comportements RH.</p>
 
-        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Qu'est-ce qu'un ratio d'absentéisme glissant ?</h4>
-        <p class="article-text" style="margin-bottom: 1.5rem;">C'est une variable composite calculée sur une fenêtre temporelle mobile (ex: 3 ou 6 mois) plutôt que sur l'année civile. Elle permet de détecter les accélérations ou les ruptures de comportement à court terme, agissant comme un puissant signal faible pour les modèles de turnover.</p>
+        <h4>Qu'est-ce qu'un ratio d'absentéisme glissant ?</h4>
+        <p class="article-text">C'est une variable composite calculée sur une fenêtre temporelle mobile (ex: 3 ou 6 mois) plutôt que sur l'année civile. Elle permet de détecter les accélérations ou les ruptures de comportement à court terme, agissant comme un puissant signal faible pour les modèles de turnover.</p>
 
-        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Comment mesurer mathématiquement le positionnement salarial d'un talent ?</h4>
-        <p class="article-text" style="margin-bottom: 1.5rem;">On utilise le delta de rémunération par rapport aux médianes internes de l'équipe ou du marché externe. Cette feature contextualise le salaire brut et traduit directement le sentiment d'équité ou de frustration financière du collaborateur.</p>
+        <h4>Comment mesurer mathématiquement le positionnement salarial d'un talent ?</h4>
+        <p class="article-text">On utilise le delta de rémunération par rapport aux médianes internes de l'équipe ou du marché externe. Cette feature contextualise le salaire brut et traduit directement le sentiment d'équité ou de frustration financière du collaborateur.</p>
 
-        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Qu'appelle-t-on la vitesse de progression interne ?</h4>
-        <p class="article-text" style="margin-bottom: 1.5rem;">Il s'agit du ratio entre le nombre d'échelons ou de postes franchis et l'ancienneté totale du collaborateur. Une vitesse anormalement basse par rapport à la moyenne de l'entreprise signale un risque de stagnation professionnelle.</p>
+        <h4>Qu'appelle-t-on la vitesse de progression interne ?</h4>
+        <p class="article-text">Il s'agit du ratio entre le nombre d'échelons ou de postes franchis et l'ancienneté totale du collaborateur. Une vitesse anormalement basse par rapport à la moyenne de l'entreprise signale un risque de stagnation professionnelle.</p>
 
-        <h4 style="margin: 1.5rem 0 0.5rem; font-weight: 700;">Quel est l'impact du Feature Engineering sur le surapprentissage (overfitting) ?</h4>
+        <h4>Quel est l'impact du Feature Engineering sur le surapprentissage (overfitting) ?</h4>
         <p class="article-text">Un Feature Engineering de qualité privilégie des variables composites hautement informatives, ce qui permet de réduire le nombre global de colonnes nécessaires dans le modèle. Cela simplifie l'apprentissage de l'algorithme et limite drastiquement les risques de surapprentissage.</p>
       </div>
 
