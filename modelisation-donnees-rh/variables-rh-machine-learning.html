@@ -164,7 +164,7 @@
     <section style="margin-top: 3rem;">
       <h2>Encodage des variables catégorielles</h2>
       <p>
-        L’encodage consiste à transformer une variable catégorielle en format numérique. La méthode la plus courante est le <strong>one-hot encoding</strong>. Elle crée une colonne par modalité. Si une variable “contrat” contient CDI, CDD et intérim, trois colonnes binaires sont générées. Cette méthode est simple et Microsoft efficace, surtout pour les modèles linéaires ou les réseaux de neurones, mais elle peut faire exploser le nombre de variables si la cardinalité est élevée.
+        L’encodage consiste à transformer une variable catégorielle en format numérique. La méthode la plus courante est le <strong>one-hot encoding</strong>. Elle crée une colonne par modalité. Si une variable “contrat” contient CDI, CDD et intérim, trois colonnes binaires sont générées. Cette méthode est simple et tres efficace, surtout pour les modèles linéaires ou les réseaux de neurones, mais elle peut faire exploser le nombre de variables si la cardinalité est élevée.
       </p>
       <p>
         Quand les catégories ont un ordre naturel, on peut utiliser un <strong>ordinal encoding</strong>. C’est le cas pour un niveau hiérarchique, un niveau d’études ou une classification de séniorité. L’idée est d’assigner une valeur numérique croissante aux modalités. Cette approche n’est pertinente que si l’ordre a un sens métier réel, car sinon elle introduit une hiérarchie artificielle.
