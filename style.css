@@ -33,6 +33,7 @@ body {
   font-family: var(--font-display);
   line-height: 1.6;
   overflow-x: hidden;
+}
 
 /* ── BLOG ARTICLE ── */
 .blog-article { max-width: 720px; margin-bottom: 5rem;}
