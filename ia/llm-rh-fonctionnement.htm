@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Découvrez le fonctionnement réel des LLM en RH : transformers, tokens, fenêtre de contexte, température, hallucinations et architecture RAG." />
+  <title>LLM en RH : comment ils fonctionnent réellement et pourquoi ils changent la donne | CompétencesRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/ia/llm-rh-fonctionnement.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght=400;700;800&family=DM+Mono:wght=300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html"
+        },
+        "headline": "LLM en RH : comment ils fonctionnent réellement et pourquoi ils changent la donne",
+        "description": "Analyse technique et opérationnelle des grands modèles de langage (LLM) appliqués aux ressources humaines. Comprendre les probabilités, le contexte et le RAG.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html",
+        "datePublished": "2026-06-17",
+        "dateModified": "2026-06-17",
+        "author": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce qu'un token pour un LLM et quel est son impact en RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un token est l'unité de texte minimale (un morceau de mot ou de ponctuation) manipulée par le LLM. Le modèle calcule des probabilités de succession de ces tokens. En RH, cela implique que le modèle ne comprend pas le sens intrinsèque d'une fiche de poste, mais assemble les fragments les plus statistiquement probables."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi un LLM peut-il halluciner lors du traitement de données RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'hallucination n'est pas un bug, c'est une propriété fondamentale des systèmes probabilistes. Le LLM cherche à tout prix à générer un texte fluide et syntaxiquement correct. Face à un manque d'informations vérifiées ou un contexte flou, il comble les vides en privilégiant la cohérence linguistique sur la vérité factuelle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre le Fine-Tuning et une architecture RAG pour adapter un LLM ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le fine-tuning modifie les poids internes du modèle en le réentraînant sur des données ciblées, ce qui est complexe et coûteux. Le RAG (Retrieval-Augmented Generation) laisse le modèle intact mais enrichit son contexte en allant chercher dynamiquement des informations fiables dans une base vectorielle interne."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que le paramètre de température pour un modèle de langage ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La température contrôle le degré de créativité ou de rigueur algorithmique des réponses. Une température basse pousse le modèle à choisir les tokens les plus probables (réponses stables et prévisibles, idéales pour le droit social), tandis qu'une température élevée favorise la diversité des termes (idéal pour la rédaction de fiches de poste)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand faut-il absolument éviter d'utiliser un LLM seul au sein de la fonction RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il faut éviter le LLM seul lorsque la décision nécessite une traçabilité mathématique stricte, lorsque la précision des données chiffrées est critique, ou lorsque les informations manipulées touchent au secret médical ou à de hauts niveaux de confidentialité sans infrastructure souveraine."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/competences.html">Compétences</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Data RH</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA &amp; RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+ 
+  <header class="page-hero">
+    <div class="section-label">// Traitement du Langage Naturel, Transformers &amp; Probabilités</div>
+    <h1 class="page-title">LLM en RH : comment ils fonctionnent réellement<br/>et pourquoi ils changent la donne</h1>
+    <p class="page-sub">
+      Un LLM en RH ne “comprend” pas les ressources humaines. Il prédit. Mot après mot. Phrase après phrase. Et cette mécanique, souvent invisible, explique à la fois sa puissance… et ses limites.
+    </p>
+    <div class="hero-actions">
+      <a href="https://competencesrh.fr/ia-rh.html" class="btn-primary">Analyse IA Générative</a>
+      <a href="https://competencesrh.fr/semantic-search/rag.html" class="btn-primary">Architecture RAG</a>
+    </div>
+  </header>
+ 
+  <main>
+    <section class="section">
+      <div class="blog-article" style="max-width: 800px; margin: 0 auto;">
+        
+        <p class="article-text">
+          Beaucoup d’entreprises utilisent déjà des LLM sans vraiment savoir comment ils fonctionnent. Elles les perçoivent comme des assistants conversationnels capables de répondre à tout. En réalité, il s’agit de systèmes probabilistes extrêmement sensibles au contexte, aux données et à la manière dont on les sollicite. Comprendre cette logique change complètement la manière de les intégrer dans les ressources humaines.
+        </p>
+        <p class="article-text">
+          Si vous cherchez une vision plus orientée usages, gouvernance et déploiement, vous pouvez consulter notre analyse dédiée à l’ <a href="https://competencesrh.fr/ia-rh.html" class="link-underline">IA générative en RH</a>.
+        </p>
+
+        <h2>Qu’est-ce qu’un LLM ?</h2>
+        <p class="article-text">
+          Un LLM (Large Language Model) est un modèle d’intelligence artificielle entraîné sur d’immenses volumes de texte pour prédire la suite la plus probable d’une séquence de mots. Dit autrement : il ne “sait” pas, il anticipe. 
+        </p>
+        <p class="article-text">
+          Lorsqu’un utilisateur pose une question, le modèle ne recherche pas une réponse dans une base documentaire comme un moteur classique. Il génère une réponse en fonction de probabilités statistiques. Ces mécanismes sont issus des modèles dits <em>transformers</em>, au cœur des systèmes modernes d’intelligence artificielle. Notre guide sur les fondamentaux de l’ <a href="https://competencesrh.fr/ia.html" class="link-underline">IA appliquée aux RH</a> permet de mieux comprendre ces briques algorithmiques.
+        </p>
+
+        <h2>Comment un LLM apprend-il le langage ?</h2>
+        <p class="article-text">
+          L’apprentissage repose sur une mécanique simple en apparence : le modèle lit des milliards de phrases et apprend à prédire le mot suivant. C’est là qu’intervient la notion fondamentale de <strong>token</strong>.
+        </p>
+        <p class="article-text">
+          Un token est une unité de texte élémentaire (un fragment de mot ou de ponctuation). Le LLM ne manipule pas des concepts ou des phrases complètes, mais des séquences de tokens qu’il assemble et génère progressivement. Au fil de son entraînement massif, il assimile :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Les structures complexes du langage,</li>
+          <li>Les associations sémantiques entre différents concepts,</li>
+          <li>Les enchaînements syntaxiques les plus plausibles.</li>
+        </ul>
+        <p class="article-text">
+          Mais cette logique purement mathématique ne produit pas une compréhension métier des problématiques humaines. Elle produit une cohérence linguistique de surface.
+        </p>
+
+        <h2>Contexte, fenêtre de contexte et prompt</h2>
+        <p class="article-text">
+          Un LLM ne dispose pas d'une vue d'ensemble omnisciente : il travaille exclusivement au sein d'une <strong>fenêtre de contexte</strong>. Il s'agit de la quantité maximale limitée d’informations (mesurée en tokens) qu’il peut traiter et analyser à un instant T. Tout ce qui sort ou dépasse de cette fenêtre s'efface et disparaît de sa mémoire de calcul.
+        </p>
+        <p class="article-text">
+          Cela engendre des conséquences opérationnelles très concrètes en RH. Un modèle peut disposer d’un contexte technique généraliste suffisant, mais produire une réponse totalement hors-sol s’il ne dispose pas du contexte métier spécifique à l'organisation : accords d'entreprise, politiques RH internes, référentiels de compétences propres. C’est précisément à cet endroit que se crée le décalage sur le terrain.
+        </p>
+        <p class="article-text">
+          Le <strong>prompt</strong> devient alors central. Il ne sert pas uniquement à poser une question de formulation simple. Il sert à définir, structurer et cadrer les variables d'une situation de gestion.
+        </p>
+
+        <h2>Température et variabilité des réponses</h2>
+        <p class="article-text">
+          Un LLM interrogé deux fois de suite peut produire des réponses différentes selon un paramètre technique appelé la <strong>température</strong>. 
+        </p>
+        <p class="article-text">
+          Une température proche de zéro rend le modèle déterministe, stable et hautement prévisible (il choisit systématiquement le token le plus probable). À l'inverse, une température élevée stimule sa « créativité » algorithmique en autorisant des choix de tokens moins évidents, augmentant de fait l'incertitude du résultat. Dans un environnement de gestion RH, ce réglage a un impact direct sur la fiabilité juridique ou opérationnelle : une réponse trop créative peut introduire des approximations dangereuses, tandis qu'une rigidité excessive peut manquer de la finesse indispensable aux relations humaines.
+        </p>
+
+        <h2>LLM, moteur de recherche, machine learning : des logiques différentes</h2>
+        <p class="article-text">
+          La confusion est fréquente au sein des directions digitales. Pourtant, ces systèmes répondent à des besoins techniques distincts :
+        </p>
+
+        <div style="overflow-x: auto; margin: 2rem 0;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 10.5pt;">
+            <thead>
+              <tr style="background-color: #111; color: #fff;">
+                <th style="padding: 12px; border: 1px solid #dee2e6;">Fonctionnalité attendue</th>
+                <th style="padding: 12px; border: 1px solid #dee2e6;">Large Language Model (LLM)</th>
+                <th style="padding: 12px; border: 1px solid #dee2e6;">Moteur de recherche traditionnel</th>
+                <th style="padding: 12px; border: 1px solid #dee2e6;">Machine Learning classique</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #dee2e6; font-weight: bold;">Génère du texte inédit</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: green; font-weight: bold;">Oui</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: red;">Non</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: red;">Non</td>
+              </tr>
+              <tr style="background-color: #f8f9fa;">
+                <td style="padding: 10px; border: 1px solid #dee2e6; font-weight: bold;">Retrouve des documents sources</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: red;">Non</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: green; font-weight: bold;">Oui</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: red;">Non</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid #dee2e6; font-weight: bold;">Analyse des variables structurées</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: red;">Non</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: red;">Non</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: green; font-weight: bold;">Oui</td>
+              </tr>
+              <tr style="background-color: #f8f9fa;">
+                <td style="padding: 10px; border: 1px solid #dee2e6; font-weight: bold;">Comprend le langage naturel</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6; color: green; font-weight: bold;">Oui</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6;">Partiellement</td>
+                <td style="padding: 10px; border: 1px solid #dee2e6;">Parfois</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="article-text">
+          Le <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="link-underline">machine learning en RH</a>, basé sur l'exploitation de tables de données et de variables quantitatives structurées, répond à une logique prédictive formalisée. À l'opposé, le LLM concentre ses capacités sur la manipulation et la fluidité des structures textuelles.
+        </p>
+
+        <h2>Pourquoi un LLM hallucine-t-il ?</h2>
+        <p class="article-text">
+          L’hallucination n’est pas un bug technique ou une rupture du système. C’est un comportement intrinsèque normal. Le modèle cherche structurellement à produire la suite textuelle la plus fluide et cohérente possible, y compris lorsqu’il ne dispose d’aucune information vérifiée ou fiable dans son corpus d'apprentissage.
+        </p>
+        <p class="article-text">
+          Il comble statistiquement les vides. Ce phénomène s’explique mécaniquement par un contexte incomplet, une absence de sources rattachées et vérifiées ou une formulation trop imprécise dans le prompt. Le LLM priorise en toutes circonstances la fluidité formelle du langage, jamais la véracité factuelle du fond.
+        </p>
+
+        <h2>LLM ou RAG : générer ou s’appuyer sur des sources</h2>
+        <p class="article-text">
+          Un LLM brut fonctionne en pure génération probabiliste isolée. Par définition, il ignore tout de la structure de votre entreprise. 
+        </p>
+        <p class="article-text">
+          La mise en place d'une architecture de génération augmentée par récupération, ou <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-underline">RAG</a>, permet de connecter le modèle linguistique à un référentiel documentaire interne sécurisé. Ces architectures s'appuient sur la création d' <a href="https://competencesrh.fr/semantic-search/embeddings-rh.html" class="link-underline">embeddings RH</a> et l'indexation au sein de <a href="https://competencesrh.fr/semantic-search/vector-database-rh.html" class="link-underline">bases de données vectorielles RH</a> afin d'extraire la bonne information au moment opportun. Le modèle n'invente plus : il synthétise un cadre de connaissances contrôlé. Cependant, si votre documentation d'origine est obsolète ou contradictoire, le livrable final le sera tout autant.
+        </p>
+
+        <h2>Modèles open source et modèles propriétaires</h2>
+        <p class="article-text">
+          Les choix d'infrastructure orientent la pérennité des projets. Certaines organisations font le choix de solutions propriétaires prêtes à l'emploi (Microsoft Copilot, OpenAI ChatGPT, Google Gemini). D’autres s'orientent vers le déploiement de modèles open source (Mistral AI, Meta LLaMA) hébergés sur des serveurs privatifs ou des clouds souverains. L'enjeu dépasse les simples métriques de performance : il touche directement au contrôle souverain de la donnée RH, à la cybersécurité et au respect des cadres réglementaires.
+        </p>
+
+        <h2>Fine-tuning, RAG : deux logiques d’adaptation</h2>
+        <p class="article-text">
+          L'alignement d'un LLM sur des besoins spécifiques suit deux approches distinctes. Le <em>fine-tuning</em> consiste à modifier la structure même des poids mathématiques du réseau de neurones en l'entraînant sur un corpus spécialisé. Le RAG, lui, se contente d'enrichir dynamiquement le contexte fourni au prompt sans altérer le modèle d'origine. Dans les écosystèmes ressources humaines, l’approche RAG est massivement privilégiée car elle permet d'intégrer les changements organisationnels quotidiens sans nécessiter de lourdes campagnes techniques de réentraînement.
+        </p>
+
+        <h2>Comment connecter un LLM aux données RH</h2>
+        <p class="article-text">
+          La question revient systématiquement lors des comités de pilotage, et sa réponse est rarement d'ordre informatique. Beaucoup d’organisations injectent massivement leurs documents RH non triés dans l'espoir que la machine y mette de l'ordre. Les fichiers s’empilent sans hiérarchie claire. Le modèle accède à tout, sans distinction de valeur.
+        </p>
+        <p class="article-text">
+          Le nœud du problème n’est pas l’accès brut à la donnée, mais sa qualification. Les chantiers préalables de standardisation et de <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-underline">nettoyage des données RH</a> conditionnent de manière absolue la pertinence des réponses du modèle.
+        </p>
+
+        <h2>Les limites des LLM en RH</h2>
+        <p class="article-text">
+          Si la puissance des LLM est indéniable, le système reste dépendant du contexte d'accueil, de la qualité du patrimoine informationnel injecté et de la maturité des utilisateurs qui le sollicitent. Il ne garantit aucune fiabilité juridique par défaut, ne se substitue pas à l'arbitrage managérial et ignore les règles implicites ou la culture politique de l'entreprise. L'ensemble de ces freins systémiques est analysé au sein de notre dossier consacré aux <a href="https://competencesrh.fr/ia/fondations-ia-rh.html" class="link-underline">limites de l'IA en RH</a>.
+        </p>
+
+        <h2>Quand utiliser un LLM en RH… et quand éviter</h2>
+        <p class="article-text">
+          Le recours aux LLM s'avère pertinent dès lors que la tâche est centrée sur l'analyse, la mise en forme ou la synthèse de données textuelles (reformulation de fiches de poste, résumé de comptes rendus volumineux). 
+        </p>
+        <p class="article-text">
+          En revanche, l'usage devient critique et hautement risqué dès lors que le processus exige une traçabilité mathématique stricte, que la précision chiffrée est un impératif absolu (tableaux de bord sociaux, calculs de masse salariale), ou que les données touchent à la confidentialité réglementée. Dans ces scénarios, les architectures de machine learning traditionnel doivent être privilégiées.
+        </p>
+
+        <h2>LLM en RH : un outil qui oblige à changer de posture</h2>
+        <p class="article-text" style="margin-bottom: 2rem;">
+          Un LLM offre une illusion de simplicité déconcertante : une simple question en langage naturel produit une réponse fluide en quelques secondes. Mais derrière cette interface épurée, la mécanique sous-jacente s'avère particulièrement exigeante. Tokens, fenêtres de contexte, embeddings, matrices de probabilités : ignorer ces composantes condamne à un usage superficiel et approximatif de la technologie. Les appréhender avec rigueur permet aux directions de ressources humaines de changer de posture. On ne se contente plus de dialoguer avec une interface automatisée : on structure une interaction sémantique contrôlée, transformant un gadget technologique en un puissant levier d'aide à la décision.
+        </p>
+      </div>
+    </section>
+  </main>
+ 
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <p class="cta-band-text">Vous souhaitez structurer vos interactions sémantiques et sécuriser l'intégration de LLM au sein de vos architectures RH ?</p>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Prendre contact avec notre équipe Data RH →</a>
+    </div>
+  </section>
+ 
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+  </footer>
+ 
+  <script src="../main.js"></script>
+</body>
+</html>
