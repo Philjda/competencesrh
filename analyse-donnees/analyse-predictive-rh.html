@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Analyse prédictive RH : définition, méthodes, modèles et exemples. Découvrez comment anticiper le turnover, l'absentéisme et les besoins RH grâce au machine learning."/>
+  <title>Analyse prédictive RH : définition, méthodes, modèles et exemples | CompetencesRH</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees/analyse-predictive-rh.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Analyse prédictive RH et People Analytics",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "DataRH",
+      "image": "https://competencesrh.fr/assets/logo.png",
+      "url": "https://competencesrh.fr"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "France"
+    },
+    "description": "Analyse prédictive RH : définition, méthodes, modèles, interprétabilité, biais, validation et cas d'usage pour anticiper les risques RH et préparer les décisions.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services Data RH",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Audit et Nettoyage de données RH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Construction de Tableaux de bord RH (Power BI, Excel, Python)"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Analyse prédictive et modélisation RH"
+          }
+        }
+      ]
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://competencesrh.fr/analyse-predictive-rh.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html" class="active">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Analyse prédictive RH</div>
+  <div class="section-label"><span class="dot"></span> Anticiper les évolutions · Du constat à la prévision</div>
+  <h1 class="page-title">
+    Analyse prédictive RH :<br>
+    définition, méthodes,<br>
+    modèles et exemples
+  </h1>
+  <p class="page-sub">
+    Comment anticiper un départ, prévoir un besoin de recrutement ou détecter un risque d'absentéisme avant qu'il ne se matérialise ? L'analyse prédictive RH transforme les données historiques en probabilités utiles pour éclairer la décision et préparer l'action.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">82%</span>
+      <span class="stat-label">Une probabilité de départ<br>n'est jamais une certitude</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">4<sup>e</sup></span>
+      <span class="stat-label">Palier de maturité du<br>People Analytics</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">0%</span>
+      <span class="stat-label">De hasard dans la méthode<br>quand le modèle est robuste</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Analyse prédictive RH</span><span class="sep">·</span>
+    <span>Machine Learning RH</span><span class="sep">·</span>
+    <span>Modèle prédictif</span><span class="sep">·</span>
+    <span>Probabilité de départ</span><span class="sep">·</span>
+    <span>Accuracy</span><span class="sep">·</span>
+    <span>Recall</span><span class="sep">·</span>
+    <span>Precision</span><span class="sep">·</span>
+    <span>F1-score</span><span class="sep">·</span>
+    <span>AUC</span><span class="sep">·</span>
+    <span>SHAP</span><span class="sep">·</span>
+    <span>Model Drift</span><span class="sep">·</span>
+    <span>Analyse prédictive RH</span><span class="sep">·</span>
+    <span>Machine Learning RH</span><span class="sep">·</span>
+    <span>Modèle prédictif</span><span class="sep">·</span>
+    <span>Probabilité de départ</span><span class="sep">·</span>
+    <span>Accuracy</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Qu'est-ce que l'analyse prédictive RH ?<br><em>Définition et enjeux</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h2>Anticiper les évolutions futures</h2>
+        <p>L'analyse prédictive RH consiste à utiliser des modèles statistiques et des algorithmes de machine learning pour anticiper les événements à venir : départs volontaires, absentéisme, besoins de recrutement, performance future ou réussite d'une formation. Elle répond à une question simple mais décisive : que risque-t-il de se produire ?</p>
+        <ul class="service-tags">
+          <li>Prédiction</li><li>Probabilités</li><li>Machine Learning</li><li>Modélisation RH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h2>Le lien entre analyse et action</h2>
+        <p>Elle s'appuie sur les acquis de l'<a href="https://competencesrh.fr/analyse-descriptive-rh.html">analyse descriptive RH</a>, de l'<a href="https://competencesrh.fr/analyse-diagnostique-rh.html">analyse diagnostique RH</a> et de l'<a href="https://competencesrh.fr/analyse-inferentielle-rh.html">analyse inférentielle RH</a>. Avant de déployer un modèle, il faut vérifier que les relations observées sont robustes, interprétables et exploitables par les équipes RH.</p>
+        <ul class="service-tags">
+          <li>Analyse descriptive RH</li><li>Analyse diagnostique RH</li><li>Analyse inférentielle RH</li><li>Décision RH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in" style="padding-top: 0;">
+  <div class="section-label">// 02 · Comment fonctionne un modèle prédictif ?</div>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Collecte des données</h3>
+      <p>Extraction des données RH depuis le SIRH, la paie, les enquêtes collaborateurs ou les outils de recrutement.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Nettoyage</h3>
+      <p>Suppression des doublons, correction des incohérences et traitement des valeurs manquantes pour fiabiliser les données RH.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Feature engineering</h3>
+      <p>Création et sélection des variables RH les plus pertinentes pour améliorer la qualité du modèle.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Train / Test</h3>
+      <p>Séparation des données en ensemble d'entraînement et ensemble de test pour valider la robustesse du modèle.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Apprentissage</h3>
+      <p>Le modèle apprend les relations entre les variables explicatives et la variable cible.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">06</span>
+      <h3>Validation</h3>
+      <p>Évaluation de la performance sur des données inédites avec accuracy, precision, recall, F1-score et AUC.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">07</span>
+      <h3>Prédiction</h3>
+      <p>Le modèle attribue une probabilité à chaque situation, par exemple un risque de départ de 82 %.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">08</span>
+      <h3>Décision RH</h3>
+      <p>Les résultats servent à prioriser les actions : fidélisation, recrutement, prévention de l'absentéisme ou mobilité interne.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">La notion de probabilité<br><em>Une prédiction n'est jamais une certitude</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">03.01</div>
+      <div class="service-body">
+        <h2>Lire une probabilité avec prudence</h2>
+        <p>Le modèle ne dit pas qu'un collaborateur quittera l'entreprise avec certitude. Il attribue une probabilité de départ, par exemple 82 %. Cette mesure aide les équipes RH à hiérarchiser leurs actions, mais elle ne constitue jamais une certitude. Un collaborateur à 82 % peut rester, et un collaborateur à 35 % peut partir.</p>
+        <ul class="service-tags">
+          <li>Probabilité</li><li>Seuil de décision</li><li>Priorisation</li><li>Prévention</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">Comment mesurer la qualité d'un modèle ?<br><em>Au-delà de la seule accuracy</em></h2>
+  <div class="cards">
+    <div class="card"><div class="card-icon">A</div><h3>Accuracy</h3><p>Utile pour une vision globale, mais trompeuse en cas de déséquilibre des classes. Un modèle qui prédit toujours "personne ne part" peut avoir 95 % d'accuracy sans détecter un seul départ.</p></div>
+    <div class="card"><div class="card-icon">R</div><h3>Recall</h3><p>Mesure la capacité à détecter les vrais risques. En RH, c'est souvent une métrique prioritaire pour repérer les départs, les absences ou les baisses de performance.</p></div>
+    <div class="card"><div class="card-icon">P</div><h3>Precision</h3><p>Mesure la part de vrais positifs parmi les alertes générées. Elle permet d'éviter de cibler trop de faux positifs et de saturer les équipes RH.</p></div>
+    <div class="card"><div class="card-icon">F1</div><h3>F1-score</h3><p>Combine precision et recall pour offrir une vision équilibrée de la performance du modèle.</p></div>
+    <div class="card"><div class="card-icon">A</div><h3>AUC</h3><p>Évalue la capacité globale du modèle à distinguer les cas positifs des cas négatifs, particulièrement utile sur des données déséquilibrées.</p></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Interpréter un modèle prédictif<br><em>Explicabilité, RGPD et AI Act</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h2>Tous les modèles ne se valent pas</h2>
+        <p>La régression logistique est très interprétable, l'arbre de décision est facile à expliquer, tandis que Random Forest, XGBoost ou le deep learning sont plus complexes à justifier. En RH, l'interprétabilité est souvent aussi importante que la performance, notamment pour respecter le RGPD, documenter les décisions et répondre aux exigences de l'AI Act.</p>
+        <ul class="service-tags">
+          <li>Régression logistique</li><li>Arbre de décision</li><li>Interprétabilité</li><li>AI Act</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in" style="padding-top: 0;">
+  <div class="section-label">// 06 · Comprendre les variables importantes avec SHAP</div>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>SHAP</h3>
+      <p>SHAP mesure la contribution de chaque variable à une prédiction et améliore la transparence des modèles RH.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Exemple de lecture</h3>
+      <p>Ancienneté : +18 %, engagement : +24 %, mobilité : +12 %, rémunération : -15 %, performance : -8 %.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Valeur RH</h3>
+      <p>Les explications locales facilitent le dialogue avec les managers et renforcent la confiance dans les modèles d'IA RH.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 07</div>
+  <h2 class="section-title">Les principales méthodes<br><em>Modèles statistiques et machine learning</em></h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Méthode</div>
+      <div class="compare-item"><strong>Régression logistique :</strong> prédire une probabilité binaire comme un risque de départ.</div>
+      <div class="compare-item"><strong>Arbre de décision :</strong> produire des règles simples et lisibles pour l'action RH.</div>
+      <div class="compare-item"><strong>Random Forest :</strong> améliorer la robustesse en combinant plusieurs arbres.</div>
+      <div class="compare-item"><strong>XGBoost :</strong> rechercher une forte performance sur des jeux de données complexes.</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Exemple RH</div>
+      <div class="compare-item">Départ volontaire dans les 6 prochains mois.</div>
+      <div class="compare-item">Repérage des profils à risque.</div>
+      <div class="compare-item">Prévision du turnover avec meilleure stabilité.</div>
+      <div class="compare-item">Score de risque plus précis sur des populations nombreuses.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 08</div>
+  <h2 class="section-title">Cycle de vie d'un modèle<br><em>Un modèle vieillit et doit être réentraîné</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Collecte</h3>
+      <p>Réunir les données historiques utiles à l'apprentissage.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Préparation</h3>
+      <p>Nettoyer, standardiser et enrichir les données.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Apprentissage</h3>
+      <p>Entraîner le modèle sur des données passées.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Validation</h3>
+      <p>Contrôler la performance sur des données nouvelles.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Déploiement</h3>
+      <p>Intégrer le modèle dans les outils RH.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">06</span>
+      <h3>Surveillance</h3>
+      <p>Détecter la dérive de performance, appelée Model Drift.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">07</span>
+      <h3>Réentraînement</h3>
+      <p>Mettre à jour le modèle pour conserver sa pertinence.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 09</div>
+  <h2 class="section-title">Les biais à surveiller<br><em>Une vigilance indispensable</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">09.01</div>
+      <div class="service-body">
+        <h2>Les principaux biais en analyse prédictive RH</h2>
+        <table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+          <tr>
+            <th style="text-align:left; padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.15);">Biais</th>
+            <th style="text-align:left; padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.15);">Exemple</th>
+          </tr>
+          <tr>
+            <td style="padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.08);">Biais historique</td>
+            <td style="padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.08);">L'entreprise recrutait surtout des hommes.</td>
+          </tr>
+          <tr>
+            <td style="padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.08);">Biais de sélection</td>
+            <td style="padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.08);">Certaines populations sont sous-représentées.</td>
+          </tr>
+          <tr>
+            <td style="padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.08);">Biais algorithmique</td>
+            <td style="padding: .75rem; border-bottom: 1px solid rgba(255,255,255,.08);">Le modèle favorise certains profils.</td>
+          </tr>
+          <tr>
+            <td style="padding: .75rem;">Biais de mesure</td>
+            <td style="padding: .75rem;">Les données sont incomplètes ou erronées.</td>
+          </tr>
+        </table>
+        <ul class="service-tags">
+          <li>Audit algorithmique</li><li>RGPD données salariés</li><li>AI Act</li><li>Équité</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 10</div>
+  <h2 class="section-title">Cas pratiques RH<br><em>Turnover, absentéisme, recrutement, performance</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">10.01</div>
+      <div class="service-body">
+        <h2>Prédire pour agir</h2>
+        <p><strong>Turnover :</strong> identifier les collaborateurs à risque de départ dans les 6 prochains mois pour lancer des actions de fidélisation.</p>
+        <p><strong>Absentéisme :</strong> détecter les services susceptibles de voir leur taux d'absence augmenter et ajuster la charge de travail.</p>
+        <p><strong>Recrutement :</strong> estimer les volumes d'embauche à prévoir selon les départs, les retraites et la croissance prévue.</p>
+        <p><strong>Performance :</strong> repérer les collaborateurs à fort potentiel pour orienter les formations et les mobilités.</p>
+        <ul class="service-tags">
+          <li><a href="https://competencesrh.fr/turnover.html">Turnover</a></li>
+          <li><a href="https://competencesrh.fr/analyse-descriptive-rh.html">Analyse descriptive RH</a></li>
+          <li><a href="https://competencesrh.fr/analyse-diagnostique-rh.html">Analyse diagnostique RH</a></li>
+          <li><a href="https://competencesrh.fr/analyse-inferentielle-rh.html">Analyse inférentielle RH</a></li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 11</div>
+  <h2 class="section-title">Outils, bonnes pratiques et conformité<br><em>Construire des modèles fiables et responsables</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">11.01</div>
+      <div class="service-body">
+        <h2>Les outils utilisés</h2>
+        <p>Python, R, SQL, Power BI, Tableau, SAS, SPSS, Google Colab, Azure ML et AWS ML sont couramment mobilisés pour l'analyse prédictive RH. SQL sert à extraire et préparer les données, Python et R à modéliser, Power BI à visualiser les résultats.</p>
+        <ul class="service-tags">
+          <li>Python</li><li>R</li><li>SQL</li><li>Power BI</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">11.02</div>
+      <div class="service-body">
+        <h2>Les bonnes pratiques</h2>
+        <p>Définir une problématique claire, contrôler la qualité des données, documenter le modèle, surveiller le Model Drift, réentraîner régulièrement et respecter le <a href="https://competencesrh.fr/conformite.html">RGPD données salariés</a>. L'analyse prédictive RH doit s'intégrer dans une gouvernance rigoureuse, avec une attention particulière à l'<a href="https://competencesrh.fr/audit-algorithmique.html">audit algorithmique</a> et à l'<a href="https://competencesrh.fr/ia/ia-predictive-rh.html">IA prédictive RH</a>.</p>
+        <ul class="service-tags">
+          <li>Nettoyage des données RH</li><li>Validation des données RH</li><li>Feature engineering RH</li><li>Réentraînement</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 12</div>
+  <h2 class="section-title">Maillage interne et approfondissements<br><em>Construire un cocon sémantique solide</em></h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Pages à relier</div>
+      <div class="compare-item"><a href="https://competencesrh.fr/analyse-descriptive-rh.html">Analyse descriptive RH</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/analyse-diagnostique-rh.html">Analyse diagnostique RH</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/analyse-inferentielle-rh.html">Analyse inférentielle RH</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/modelisation-donnees-rh.html">Modélisation des données RH</a></div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Thématiques associées</div>
+      <div class="compare-item"><a href="https://competencesrh.fr/ia/machine-learning-rh.html">Variables RH en machine learning</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/ia/machine-learning-rh.html">Feature engineering RH</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/ia/machine-learning-rh.html">Réduction de dimensionnalité</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/ia/machine-learning-rh.html">Déséquilibre des classes</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/conformite.html">Nettoyage et validation des données RH</a></div>
+      <div class="compare-item"><a href="https://competencesrh.fr/ia/ia-predictive-rh.html">IA prédictive RH</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Anticipez les risques RH avec des modèles fiables.<br><em>De la donnée à la décision, avec méthode et transparence.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Lancer un projet prédictif →</a>
+  </div>
+</div>
+
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 760px; margin: 0 auto 1.5rem;">
+    Dans les organisations les plus avancées,<br>l'analyse prédictive ne constitue plus une finalité mais une <em>étape intermédiaire</em>.
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Les prédictions alimentent ensuite des systèmes d'aide à la décision, des moteurs de recommandation et des solutions d'intelligence artificielle capables de proposer des actions adaptées. L'analyse prédictive fait ainsi le lien entre la compréhension des phénomènes RH et leur optimisation continue.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Initier une étude prédictive →</a>
+    <a href="https://competencesrh.fr/services.html" class="btn-ghost">Découvrir les services</a>
+  </div>
+</section>
+
+<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem;">
+  <div class="section-label">// 13 · FAQ – Analyse prédictive RH</div>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Qu'est-ce que l'analyse prédictive RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">C'est une méthode qui utilise des modèles statistiques et d'intelligence artificielle pour anticiper les évolutions futures des ressources humaines.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle différence entre analyse diagnostique et prédictive ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">L'analyse diagnostique explique pourquoi un phénomène s'est produit, tandis que l'analyse prédictive anticipe ce qui risque de se produire.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">L'analyse prédictive est-elle une certitude ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non. Un modèle attribue une probabilité, pas une certitude. C'est cette logique probabiliste qui guide les actions RH.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quels sont les meilleurs indicateurs pour évaluer un modèle ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">En RH, on regarde souvent recall, precision, F1-score et AUC plutôt que la seule accuracy, surtout lorsque les classes sont déséquilibrées.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Pourquoi l'interprétabilité est-elle importante ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Parce qu'un modèle RH doit être compréhensible, explicable et compatible avec le RGPD et l'AI Act.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
