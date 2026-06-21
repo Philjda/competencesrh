@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Statistiques descriptives RH : définition, indicateurs clés (moyenne, médiane, dispersion) et cas pratiques pour résumer et piloter vos données ressources humaines."/>
+  <title>Statistiques descriptives RH : comprendre et résumer les données des ressources humaines | CompetencesRH</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees/statistiques-descriptives-rh.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Analyse de Données et Statistiques RH",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "DataRH",
+        "image": "https://competencesrh.fr/assets/logo.png",
+        "url": "https://competencesrh.fr"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "description": "Comprendre, organiser et interpréter les informations issues des ressources humaines grâce aux statistiques descriptives et au People Analytics.",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://competencesrh.fr/analyse-donnees/statistiques-descriptives-rh.html"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre statistiques descriptives et analyse descriptive ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les statistiques descriptives regroupent les méthodes statistiques permettant de résumer les données, tandis que l'analyse descriptive englobe leur interprétation et leur visualisation pour faciliter la prise de décision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels logiciels permettent de réaliser des statistiques descriptives RH ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les analyses peuvent être réalisées avec Excel, Power BI RH, des outils de Business Intelligence ou directement dans un SIRH."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi calculer une médiane plutôt qu'une moyenne ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La médiane est moins sensible aux valeurs extrêmes et représente souvent mieux la réalité des rémunérations ou de l'ancienneté."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les statistiques descriptives permettent-elles de faire des prédictions ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Elles décrivent les données existantes mais ne prédisent pas les événements futurs."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse Données</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Business Intelligence</div>
+  <div class="section-label"><span class="dot"></span> People Analytics · Synthétiser l'information</div>
+  <h1 class="page-title">
+    Statistiques descriptives RH :<br>
+    comprendre et résumer les données<br>
+    des ressources humaines
+  </h1>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Statistiques Descriptives</span><span class="sep">·</span>
+    <span>Moyenne & Médiane</span><span class="sep">·</span>
+    <span>Data RH</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+    <span>Indicateurs de Dispersion</span><span class="sep">·</span>
+    <span>Visualisation de Données</span><span class="sep">·</span>
+    <span>KPI Sociaux</span><span class="sep">·</span>
+    <span>Statistiques Descriptives</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01 · Introduction</div>
+  <div class="services-list">
+    <div class="service-item" style="display: block; padding-bottom: 0;">
+      <div class="service-body" style="max-width: 100%;">
+        <p>Les services RH produisent chaque jour une quantité importante de données : effectifs, recrutements, absentéisme, turnover, rémunération ou encore formation. Avant de rechercher les causes d'un phénomène ou de construire un modèle prédictif, il est indispensable de comprendre ce que révèlent ces données.</p>
+        <p>Les statistiques descriptives RH permettent justement de résumer, organiser et interpréter les informations issues des ressources humaines. Elles constituent le socle de l'<strong><a href="https://competencesrh.fr/analyse-donnees-rh.html">analyse descriptive RH</a></strong> et facilitent la création de <strong><a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html">tableaux de bord RH</a></strong>, le suivi des indicateurs RH et la prise de décision.</p>
+        <p>Dans cet article, découvrez ce que sont les statistiques descriptives RH, les principaux indicateurs utilisés, leurs applications concrètes et les bonnes pratiques pour exploiter efficacement les données RH.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 02 · Définition et Enjeux</div>
+  <h2 class="section-title">Qu'est-ce que les statistiques descriptives RH ?</h2>
+  
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">02.01</div>
+      <div class="service-body">
+        <h2>Définition</h2>
+        <p>Les statistiques descriptives RH regroupent l'ensemble des méthodes permettant de résumer, organiser et présenter les données relatives aux ressources humaines sans chercher à expliquer leurs causes ou à prédire leur évolution.</p>
+        <p>Elles répondent notamment aux questions fondamentales suivantes :</p>
+        <ul style="margin: 1rem 0; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.7;">
+          <li>Combien de salariés compte l'entreprise ?</li>
+          <li>Quel est l'âge moyen des collaborateurs ?</li>
+          <li>Quel est le taux d'absentéisme ?</li>
+          <li>Quelle est la répartition des effectifs par service ?</li>
+          <li>Comment évolue le <strong><a href="https://competencesrh.fr/turnover.html">turnover</a></strong> depuis un an ?</li>
+        </ul>
+        
+        <div style="margin: 2rem 0 1rem; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+          <strong>À retenir :</strong> Les statistiques descriptives RH constituent la première étape de toute démarche de <strong><a href="https://competencesrh.fr/data-rh.html">Data RH</a></strong>. Elles permettent de résumer et de comprendre les données avant d'expliquer leurs causes ou d'anticiper leur évolution.
+        </div>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02.02</div>
+      <div class="service-body">
+        <h2>Pourquoi utiliser des statistiques descriptives en RH ?</h2>
+        <p>L'intégration de ces méthodes offre une base factuelle saine pour l'ensemble des chantiers de la fonction RH :</p>
+        <ul class="service-tags" style="margin-top: 1rem;">
+          <li>Vision synthétique</li><li>Suivi des indicateurs</li><li>Détection de tendances</li><li>Identification d'anomalies</li><li>Alimentation des dashboards</li><li>Préparation au prédictif</li>
+        </ul>
+      </div>
+      <div class="service-accent">✓</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03 · Avantages Méthodologiques</div>
+  <h2 class="section-title">Quels sont les avantages des statistiques descriptives RH ?</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">👁</div>
+      <h3>Vision synthétique</h3>
+      <p>Offrent une lecture claire de la structure de l'organisation (taille de l'entreprise, répartition par service ou métier, évolutions macro).</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Suivi structuré</h3>
+      <p>Les indicateurs (KPI) deviennent plus lisibles et s'appuient sur des calculs standardisés, comparables et fiables.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Détection des tendances</h3>
+      <p>Permettent d'identifier des dynamiques durables, comme une hausse progressive des départs ou une baisse d'accès à la formation.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Ciblage des anomalies</h3>
+      <p>Mettent en lumière les valeurs inhabituelles ou extrêmes, utiles pour détecter des dysfonctionnements ou des écarts de rémunération.</p>
+    </div>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">
+    > <strong>Note :</strong> Ces analyses constituent le socle nécessaire avant de recourir à l'analyse diagnostique RH, à l'<strong><a href="https://competencesrh.fr/analyse-donnees/analyse-predictive-rh.html">analyse prédictive RH</a></strong> ou à l'<strong><a href="https://competencesrh.fr/analyse-donnees/analyse-inferentielle-rh.html">analyse inférentielle RH</a></strong>.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04 · Typologie des Données</div>
+  <h2 class="section-title">Quels types de données analyser en RH ?</h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Données quantitatives (Mesurables)</div>
+      <div class="compare-item"><strong>Âge et Ancienneté :</strong> Variables continues idéales pour les pyramides des âges.</div>
+      <div class="compare-item"><strong>Salaire :</strong> Données financières nécessitant l'analyse de dispersion.</div>
+      <div class="compare-item"><strong>Temps & Volumes :</strong> Heures de formation, jours d'absence, volumes de recrutement.</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Données qualitatives (Catégorielles)</div>
+      <div class="compare-item"><strong>Structure :</strong> Service d'appartenance, métier, site géographique.</div>
+      <div class="compare-item"><strong>Statut juridique :</strong> Type de contrat (CDI, CDD), statut (cadre, non-cadre).</div>
+      <div class="compare-item"><strong>Démographie :</strong> Sexe, niveau de qualification, typologie de poste.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05 · Les Outils Mathématiques</div>
+  <h2 class="section-title">Quels sont les principaux indicateurs statistiques en RH ?</h2>
+  
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h2>Les mesures de tendance centrale</h2>
+        <p>Ces indicateurs représentent une valeur "typique" de la distribution pour comprendre la situation générale d'une population.</p>
+        <p><strong>Moyenne :</strong> Représente la valeur centrale théorique (somme des valeurs divisée par l'effectif). Exemple : salaire moyen, âge moyen, ancienneté moyenne.</p>
+        <p><strong>Médiane :</strong> Point central qui sépare la population en deux groupes égaux (50% au-dessus, 50% en dessous). Elle est indispensable pour la rémunération car elle n'est pas faussée par quelques très hauts salaires extrêmes.</p>
+        <p><strong>Mode :</strong> La valeur la plus fréquente dans la distribution (ex: le niveau de classification ou le métier le plus représenté).</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">05.02</div>
+      <div class="service-body">
+        <h2>Les mesures de dispersion et de structure</h2>
+        <p><strong>Dispersion :</strong> Mesure la variabilité des données (Minimum, Maximum, Étendue, Variance et Écart-type). Un écart-type élevé indique que les situations individuelles sont très hétérogènes.</p>
+        <p><strong>Répartitions et Fréquences :</strong> Étude des proportions par groupes (ex: 40% des salariés travaillent dans la production, 28% des recrutements concernent des cadres).</p>
+        <p><strong>Percentiles :</strong> Permettent de situer un collaborateur par rapport au reste du groupe (ex: le 90e percentile des salaires indique le seuil au-dessus duquel se situent les 10% de rémunérations les plus élevées).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 06 · Cas Pratique</div>
+  <h2 class="section-title">Cas concret : analyser le turnover dans une entreprise de 350 salariés</h2>
+  
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Effectif global</h3>
+      <p>350 salariés répartis au sein de 5 services distincts.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Volume de départs</h3>
+      <p>42 collaborateurs ont quitté l'organisation sur l'année.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Calcul du KPI</h3>
+      <p>Taux de turnover global = (42 / 350) × 100 = <strong>12%</strong>.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Segmentation</h3>
+      <p>Commercial : 43% (18)<br>Production : 29% (12)<br>Admin : 14% (6)<br>IT : 10% (4)<br>Marketing : 5% (2)</p>
+    </div>
+  </div>
+
+  <div style="max-width: var(--max-w); margin: 3rem auto 0; padding: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+    <h3 style="font-family: var(--font-syne); color: #fff; margin-bottom: 1rem;">Interprétation et décision RH</h3>
+    <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.9rem;">
+      L'analyse descriptive montre que bien que le turnover global soit modéré (12%), le <strong>service commercial présente un taux propre de 21%</strong>, largement supérieur à la moyenne de l'entreprise. 
+    </p>
+    <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.9rem; margin-top: 1rem;">
+      <strong>Action immédiate :</strong> La direction RH cible ses efforts en lançant une enquête sur le climat social spécifique au pôle commercial et déploie un plan d'action adapté (ajustement de la part variable, révision des objectifs, formation des managers).
+    </p>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 07 · Domaines d'application</div>
+  <h2 class="section-title">Exemples d'utilisation des statistiques descriptives RH</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Analyse des effectifs</h3>
+      <p>Suivi du nombre total de salariés, répartition par métier, site géographique et évolution mensuelle des effectifs inscrits.</p>
+    </div>
+    <div class="card">
+      <h3>Suivi de l'absentéisme</h3>
+      <p>Calcul du taux global, de la durée moyenne des arrêts, répartition par motifs légaux et observation des variations saisonnières.</p>
+    </div>
+    <div class="card">
+      <h3>Suivi de la formation</h3>
+      <p>Comptabilisation des heures réalisées, suivi du budget consommé, calcul du taux de participation et de l'accès par CSP.</p>
+    </div>
+    <div class="card">
+      <h3>Audit de rémunération</h3>
+      <p>Calcul des moyennes et médianes de salaires, cartographie des rémunérations et mise en évidence des écarts femmes-hommes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 08 · Restitution visuelle</div>
+  <h2 class="section-title">Comment présenter les statistiques descriptives RH ?</h2>
+  <p style="color: var(--text-muted); max-width: 700px; margin-bottom: 2rem;">
+    La data visualisation RH donne du sens aux chiffres bruts. Chaque format de restitution graphique répond à un besoin précis de communication.
+  </p>
+  
+  <div class="compare-grid" style="margin-bottom: 3rem;">
+    <div class="compare-col">
+      <div class="compare-head">Format de rendu</div>
+      <div class="compare-item"><strong>Tableaux :</strong> Utiles pour afficher les données brutes détaillées.</div>
+      <div class="compare-item"><strong>Histogrammes :</strong> Parfaits pour observer les distributions (âges, salaires).</div>
+      <div class="compare-item"><strong>Diagrammes circulaires :</strong> Adaptés pour imager des proportions à faible nombre de catégories.</div>
+      <div class="compare-item"><strong>Courbes de tendances :</strong> Idéales pour le suivi des évolutions chronologiques.</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Application concrète</div>
+      <div class="compare-item">Consultation précise lors des audits de paie ou de conformité.</div>
+      <div class="compare-item">Analyse des structures de la pyramide des âges.</div>
+      <div class="compare-item">Visualisation de la répartition hommes-femmes ou CDI-CDD.</div>
+      <div class="compare-item">Pilotage du taux d'absentéisme mois par mois sur trois ans.</div>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; align-items: center; padding: 2rem 0; background: rgba(255,255,255,0.01); border: 1px dashed rgba(255,255,255,0.1);">
+    <svg viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 700px; height: auto;">
+      <style>
+        .st-text { font-family: 'DM Mono', monospace; font-size: 11px; fill: #888; text-anchor: middle; }
+        .st-bold { font-weight: bold; fill: #fff; }
+        .st-line { stroke: rgba(255,255,255,0.15); stroke-width: 1.5; stroke-dasharray: 4; }
+      </style>
+      <text x="80" y="40" class="st-text st-bold">Données Brutes</text>
+      <text x="80" y="60" class="st-text">(SIRH / Paie)</text>
+      <line x1="150" y1="50" x2="210" y2="50" class="st-line" />
+      
+      <text x="270" y="40" class="st-text st-bold">Nettoyage</text>
+      <text x="270" y="60" class="st-text">(Gouvernance Data)</text>
+      <line x1="330" y1="50" x2="390" y2="50" class="st-line" />
+      
+      <text x="460" y="40" class="st-text st-bold">Stats Descriptives</text>
+      <text x="460" y="60" class="st-text">(Calcul des KPI)</text>
+      <line x1="530" y1="50" x2="590" y2="50" class="st-line" />
+      
+      <text x="660" y="40" class="st-text st-bold">Dashboard</text>
+      <text x="660" y="60" class="st-text">(Prise de décision)</text>
+    </svg>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 09 · Bonnes Pratiques & Limites</div>
+  <h2 class="section-title">Méthodologie : bonnes pratiques et limites</h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">09.01</div>
+      <div class="service-body">
+        <h2>Les règles d'or de la Data RH</h2>
+        <p><strong>Garantir la fiabilité :</strong> La qualité des données sources conditionne l'exactitude des calculs. Sans gouvernance stricte, les analyses induisent des erreurs stratégiques.</p>
+        <p><strong>Sélectionner les KPI utiles :</strong> Multiplier les métriques complexifie la lecture. Mieux vaut isoler 15 indicateurs clés alignés avec vos enjeux opérationnels.</p>
+        <p><strong>Automatiser les flux :</strong> Des données obsolètes perdent leur valeur d'usage. Utilisez des outils connectés comme <strong>Power BI RH</strong> pour actualiser vos rapports en continu.</p>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">09.02</div>
+      <div class="service-body">
+        <h2>Comprendre les limites du descriptif</h2>
+        <p>Les statistiques descriptives se limitent à dresser un constat factuel historique (<em>« Que s'est-il passé ? »</em>). Elles n'expliquent pas les dynamiques psychologiques ou organisationnelles sous-jacentes.</p>
+        <p>Pour comprendre le <strong>Pourquoi</strong>, la fonction RH doit basculer vers une démarche d'analyse diagnostique, puis vers le prédictif pour anticiper les risques futurs de départs ou d'absences.</p>
+      </div>
+      <div class="service-accent">✕</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 10 · Matrice de Maturité Analytics</div>
+  <h2 class="section-title">Tableau comparatif des types d'analyse RH</h2>
+  <div class="services-list" style="padding-top: 1rem;">
+    <div class="service-item" style="display:block; padding: 1rem 0;">
+      <table style="width:100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.85rem;">
+        <thead>
+          <tr style="border-bottom: 2px solid rgba(255,255,255,.15);">
+            <th style="text-align:left; padding: .75rem; color: #fff;">Type d'Analyse</th>
+            <th style="text-align:left; padding: .75rem; color: #fff;">Question Centrale</th>
+            <th style="text-align:left; padding: .75rem; color: #fff;">Exemple d'application</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+            <td style="padding: .75rem; font-weight: bold; color: #fff;">Analyse descriptive RH</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Que se passe-t-il ?</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Le taux de turnover global de notre entreprise atteint 12%.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+            <td style="padding: .75rem; font-weight: bold; color: #fff;">Analyse diagnostique RH</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Pourquoi cela se produit-il ?</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Les départs se concentrent chez les commerciaux à cause des objectifs.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+            <td style="padding: .75rem; font-weight: bold; color: #fff;">Analyse inférentielle RH</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Peut-on généraliser ce constat ?</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Validation statistique d'un lien entre niveau de rémunération et départs.</td>
+          </tr>
+          <tr>
+            <td style="padding: .75rem; font-weight: bold; color: #fff;">Analyse prédictive RH</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Que va-t-il se passer ?</td>
+            <td style="padding: .75rem; color: var(--text-muted);">Identification des profils clés ayant un risque de démission sous 6 mois.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Structurez vos rapports sociaux sur des fondations statistiques rigoureuses.<br><em>Donnez une trajectoire claire à vos indicateurs de capital humain.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Échanger avec un expert Data RH →</a>
+  </div>
+</div>
+
+<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem;">
+  <div class="section-label">// 11 · Foire aux questions</div>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle est la différence entre statistiques descriptives et analyse descriptive ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Les statistiques descriptives regroupent les formules et méthodes mathématiques permettant de synthétiser les données brutes, tandis que l'analyse descriptive englobe l'interprétation métier, la contextualisation et la scénarisation visuelle de ces indicateurs.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quels logiciels permettent de réaliser des statistiques descriptives RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Les calculs peuvent être initiés sur Excel, mais s'industrialisent plus efficacement sur des solutions de Business Intelligence modernes (Power BI, Tableau) ou directement via les requêtes intégrées de votre SIRH.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Pourquoi calculer une médiane plutôt qu'une moyenne ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">La moyenne est très sensible aux valeurs extrêmes (les salaires très élevés ou très bas par exemple). La médiane divise parfaitement la population en deux parts égales, offrant un reflet plus fidèle de la réalité pour la majorité des salariés.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Les statistiques descriptives permettent-elles de faire des prédictions ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non. Elles qualifient et résument fidèlement les événements passés et présents de l'entreprise, mais ne modélisent pas les comportements à venir.</p>
+  </div>
+</section>
+
+<section class="section fade-in" style="text-align: center; padding-top: 2rem; padding-bottom: 4rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 760px; margin: 0 auto 1.5rem;">
+    Faire parler vos données pour objectiver les décisions de la fonction RH.
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Les statistiques descriptives RH constituent le point de départ incontournable de toute stratégie d'analyse de données en ressources humaines. En condensant l'information, elles permettent de valider la qualité de vos bases de données, de suivre vos KPI réglementaires et d'alimenter vos outils de pilotage stratégique avec impartialité.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer un audit de données</a>
+    <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="btn-ghost">Voir nos modèles de tableaux de bord</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
