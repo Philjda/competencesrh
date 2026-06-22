@@ -3,61 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Analyse diagnostique RH : identifiez les causes profondes du turnover, de l'absentéisme et des écarts de performance. Passez du simple constat à l'action corrective."/>
-  <title>Analyse diagnostique RH : méthode, corrélations et facteurs explicatifs | CompetencesRH</title>
+  <meta name="description" content="Analyse diagnostique RH : identifiez les causes du turnover, de l'absentéisme et des écarts de performance. Méthode, corrélations et variables explicatives pour PME."/>
+  <title>Analyse diagnostique RH : identifier les causes du turnover et de l'absentéisme — DataRH</title>
   <link rel="stylesheet" href="../style.css"/>
   <link rel="canonical" href="https://competencesrh.fr/analyse-donnees/analyse-diagnostique-rh.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Analyse de données RH et People Analytics",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "DataRH",
-      "image": "https://competencesrh.fr/assets/logo.png",
-      "url": "https://competencesrh.fr"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Analyse diagnostique RH : identifier les causes du turnover et de l'absentéisme",
+      "description": "Guide pratique sur l'analyse diagnostique RH : méthode, variables explicatives, corrélations et outils pour passer du constat à l'action corrective ciblée.",
+      "author": {
+        "@type": "Person",
+        "name": "DataRH",
+        "url": "https://competencesrh.fr",
+        "sameAs": ["https://x.com/competencerh2"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DataRH",
+        "url": "https://competencesrh.fr",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://competencesrh.fr/assets/logo.png"
+        }
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Analyse diagnostique RH",
+        "description": "Démarche analytique visant à identifier les facteurs explicatifs d'un phénomène RH observé — turnover, absentéisme, écarts de performance — en répondant à la question : pourquoi cela s'est-il produit ?"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://competencesrh.fr/analyse-donnees/analyse-diagnostique-rh.html"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Analyse de données RH", "item": "https://competencesrh.fr/analyse-donnees-rh.html" },
+          { "@type": "ListItem", "position": 3, "name": "Analyse diagnostique RH", "item": "https://competencesrh.fr/analyse-donnees/analyse-diagnostique-rh.html" }
+        ]
+      }
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "France"
-    },
-    "description": "Accompagnement des dirigeants et DRH dans le diagnostic approfondi de leurs données sociales : identification des facteurs explicatifs du turnover, de l'absentéisme et optimisation RH.",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services Data RH",
-      "itemListElement": [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Audit et Nettoyage de données RH"
+          "@type": "Question",
+          "name": "Qu'est-ce que l'analyse diagnostique RH ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est la démarche analytique qui identifie les facteurs précis susceptibles d'expliquer un phénomène observé dans les données RH — turnover élevé, absentéisme en hausse, écarts de performance. Elle répond à la question : pourquoi cela s'est-il produit ? C'est le deuxième niveau du People Analytics, après l'analyse descriptive."
           }
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Construction de Tableaux de bord RH (Power BI, Excel, Python)"
+          "@type": "Question",
+          "name": "Quelle est la différence entre analyse descriptive et analyse diagnostique RH ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'analyse descriptive dresse un bilan factuel : le turnover est à 15%. L'analyse diagnostique en cherche les causes : le turnover est élevé parce que les collaborateurs de moins de 18 mois quittent massivement, dans un service précis, sous un management spécifique. L'une constate, l'autre explique."
           }
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Analyse diagnostique et inférentielle des données sociales"
+          "@type": "Question",
+          "name": "Quelle est la différence entre corrélation et causalité en RH ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une corrélation indique une relation statistique entre deux variables — par exemple, les salariés les moins bien payés partent davantage. Mais elle ne prouve pas que le salaire est la cause directe du départ : d'autres facteurs peuvent expliquer les deux simultanément. La causalité nécessite une validation via des modèles inférentiels ou des enquêtes terrain complémentaires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils utiliser pour une analyse diagnostique RH ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Excel et Power BI suffisent pour les segmentations et croisements d'indicateurs courants. Pour des matrices de corrélation avancées ou des modèles multivariés, SQL, Python (Pandas, Scikit-learn) et R sont les standards. Le choix de l'outil dépend du volume de données et du niveau de sophistication analytique visé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment identifier les causes du turnover par l'analyse de données ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La démarche en 4 étapes : 1) Partir du constat descriptif (taux de turnover global). 2) Segmenter l'effectif par métier, ancienneté, tranche d'âge, manager, service. 3) Calculer les corrélations entre le départ et les variables disponibles dans le SIRH. 4) Construire un arbre de décision pour hiérarchiser les facteurs explicatifs et identifier le levier d'action prioritaire."
           }
         }
       ]
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://competencesrh.fr/analyse-donnees/analyse-diagnostique-rh.html"
     }
-  }
+  ]
   </script>
 </head>
 <body>
@@ -76,17 +115,31 @@
   <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
 </nav>
 
+<!-- BREADCRUMB -->
+<nav aria-label="Fil d'Ariane" style="max-width: var(--max-w); margin: 0 auto; padding: 1rem 2.5rem 0; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); opacity: 0.7;">
+  <a href="https://competencesrh.fr/" style="color: inherit;">Accueil</a>
+  <span style="margin: 0 0.5rem;">›</span>
+  <a href="https://competencesrh.fr/analyse-donnees-rh.html" style="color: inherit;">Analyse de données RH</a>
+  <span style="margin: 0 0.5rem;">›</span>
+  <span>Analyse diagnostique RH</span>
+</nav>
+
+<!-- PAGE HERO -->
 <header class="page-hero fade-in">
   <div class="section-label">// Analyse diagnostique RH</div>
   <div class="section-label"><span class="dot"></span> Comprendre les causes · Passer du constat à l'action</div>
+
+  <!-- H1 corrigé : mots-clés réels, cas d'usage concrets -->
   <h1 class="page-title">
     Analyse diagnostique RH :<br>
     identifier les causes<br>
     du <em>turnover et de l'absentéisme</em>
   </h1>
+
   <p class="page-sub">
-    Vos indicateurs signalent des évolutions clés : hausse du turnover, absentéisme en progression ou baisses de performance. Mais ces chiffres ne disent pas <em>pourquoi</em> cela se produit. L'analyse diagnostique constitue le pont indispensable entre la constatation factuelle et l'action corrective ciblée.
+    Vos indicateurs signalent quelque chose — un <a href="https://competencesrh.fr/turnover.html">turnover</a> en hausse, un absentéisme qui progresse, des écarts de performance entre services. Mais un chiffre ne dit jamais <em>pourquoi</em>. L'<a href="https://competencesrh.fr/analyse-donnees-rh.html">analyse diagnostique RH</a> est le pont entre le constat factuel et l'action corrective ciblée : elle isole les vraies variables explicatives dans vos données SIRH.
   </p>
+
   <div class="hero-stats">
     <div class="stat">
       <span class="stat-num">Pourquoi</span>
@@ -95,32 +148,33 @@
     <div class="stat-divider"></div>
     <div class="stat">
       <span class="stat-num">2<sup>e</sup></span>
-      <span class="stat-label">Palier essentiel d'une<br>démarche People Analytics</span>
+      <span class="stat-label">Niveau du People Analytics<br>après la description</span>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
-      <span class="stat-num">Cible</span>
-      <span class="stat-label">Isoler les vraies variables<br>explicatives du SIRH</span>
+      <span class="stat-num">→</span>
+      <span class="stat-label">Du constat chiffré<br>à l'action ciblée</span>
     </div>
   </div>
 </header>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span>Variables explicatives</span><span class="sep">·</span>
     <span>Facteurs de turnover</span><span class="sep">·</span>
     <span>Analyse de corrélation</span><span class="sep">·</span>
-    <span>Segmentation de population</span><span class="sep">·</span>
+    <span>Segmentation RH</span><span class="sep">·</span>
     <span>Analyse multivariée</span><span class="sep">·</span>
     <span>Signaux faibles</span><span class="sep">·</span>
     <span>Data RH</span><span class="sep">·</span>
     <span>People Analytics</span><span class="sep">·</span>
     <span>Arbres de décision</span><span class="sep">·</span>
-    <span>Gouvernance sociale</span><span class="sep">·</span>
+    <span>Causes absentéisme</span><span class="sep">·</span>
     <span>Variables explicatives</span><span class="sep">·</span>
     <span>Facteurs de turnover</span><span class="sep">·</span>
     <span>Analyse de corrélation</span><span class="sep">·</span>
-    <span>Segmentation de population</span><span class="sep">·</span>
+    <span>Segmentation RH</span><span class="sep">·</span>
     <span>Analyse multivariée</span><span class="sep">·</span>
     <span>Signaux faibles</span><span class="sep">·</span>
     <span>Data RH</span><span class="sep">·</span>
@@ -128,28 +182,32 @@
   </div>
 </div>
 
+<!-- SECTION 1 : DÉFINITION -->
 <section class="section fade-in">
   <div class="section-label">// 01</div>
-  <h2 class="section-title">Qu'est-ce que l'analyse diagnostique RH ?<br><em>L'art de l'explication par la donnée</em></h2>
+  <h2 class="section-title">Définition : qu'est-ce que<br><em>l'analyse diagnostique RH ?</em></h2>
+
   <div class="services-list">
     <div class="service-item">
       <div class="service-num">01.01</div>
       <div class="service-body">
-        <h2>Passer de la description à l'explication</h2>
-        <p>L'analyse diagnostique RH consiste à rechercher les facteurs précis susceptibles d'expliquer un phénomène observé dans les <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="link-white-underline">données</a> RH. Contrairement à l'analyse descriptive qui se contente de dresser le bilan de « ce qui s'est passé », l'approche diagnostique décortique les mécanismes sous-jacents pour formuler, tester et hiérarchiser des hypothèses concrètes.</p>
+        <!-- H3 corrigé : était <h2> dans la version originale -->
+        <h3>Passer de la description à l'explication</h3>
+        <p>L'analyse diagnostique RH consiste à rechercher les facteurs précis susceptibles d'expliquer un phénomène observé dans les <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="link-white-underline">données RH</a>. Contrairement à l'<a href="https://competencesrh.fr/analyse-donnees/analyse-descriptive-rh.html">analyse descriptive</a> qui constate — "le turnover est à 15%" — l'approche diagnostique décortique les mécanismes sous-jacents : <strong>qui part, quand, sous quel manager, avec quelle ancienneté ?</strong></p>
         <ul class="service-tags">
           <li>Pourquoi cela s'est-il produit ?</li><li>Facteurs explicatifs</li><li>Hypothèses RH</li><li>Data RH</li>
         </ul>
       </div>
       <div class="service-accent">◈</div>
     </div>
+
     <div class="service-item">
       <div class="service-num">01.02</div>
       <div class="service-body">
-        <h2>Un pivot crucial pour le People Analytics</h2>
-        <p>Dans une stratégie de gestion axée sur la donnée, cette analyse transforme de simples constats passifs en outils de compréhension active. Elle permet d'agir sur les leviers véritables au sein des équipes, évite les décisions managériales basées sur l'émotion et renforce visiblement la crédibilité des équipes RH auprès de la direction générale.</p>
+        <h3>Pourquoi c'est le levier le plus sous-exploité des PME</h3>
+        <p>La plupart des PME s'arrêtent au tableau de bord descriptif. Elles savent que leur turnover est élevé. Elles ne savent pas <em>pourquoi</em>. Cette analyse transforme de simples constats passifs en outils de compréhension active — et évite les décisions managériales prises sur l'émotion plutôt que sur les faits.</p>
         <ul class="service-tags">
-          <li>Leviers d'action</li><li>Décisions factuelles</li><li>Crédibilité DRH</li><li>Rigueur scientifique</li>
+          <li>Leviers d'action</li><li>Décisions factuelles</li><li>Crédibilité DRH</li><li>Rigueur analytique</li>
         </ul>
       </div>
       <div class="service-accent">◉</div>
@@ -157,115 +215,156 @@
   </div>
 </section>
 
+<!-- SECTION 2 : EXEMPLE CONCRET -->
 <section class="section fade-in" style="padding-top: 0;">
-  <div class="section-label">// 02 · Exemple d'une démarche diagnostique</div>
+  <div class="section-label">// 02 · Exemple : d'un taux de turnover à une décision RH</div>
   <div class="process-steps">
     <div class="process-step">
       <span class="step-num">Constat</span>
       <h3>Analyse descriptive</h3>
-      <p>Le tableau de bord indique un taux de turnover global anormalement élevé de 18%.</p>
+      <p>Le tableau de bord indique un taux de turnover global de 18% — anormalement élevé pour le secteur.</p>
     </div>
     <div class="process-arrow">→</div>
     <div class="process-step">
       <span class="step-num">Diagnostic</span>
-      <h3>Hypothèses & Data</h3>
-      <p>Formulation d'hypothèses (management, salaire, évolution) testées par segmentation et corrélations statistiques.</p>
+      <h3>Hypothèses et données</h3>
+      <p>Segmentation par ancienneté, métier, manager. Corrélations calculées entre départ et salaire, délai de promotion, charge de travail.</p>
     </div>
     <div class="process-arrow">→</div>
     <div class="process-step">
       <span class="step-num">Action</span>
-      <h3>Décision RH</h3>
-      <p>Identification des causes : rémunération sous le marché + management défaillant. Alignement de la grille et coaching ciblé.</p>
+      <h3>Décision RH ciblée</h3>
+      <p>Résultat : 80% des départs concernent des collaborateurs de moins de 12 mois sous deux managers identifiés. Plan d'onboarding renforcé + coaching ciblé.</p>
     </div>
   </div>
 </section>
 
+<!-- SECTION 3 : DESCRIPTIF VS DIAGNOSTIQUE -->
 <section class="section fade-in">
   <div class="section-label">// 03</div>
-  <h2 class="section-title">Différence entre décrire et expliquer<br><em>L'analyse descriptive vs diagnostique</em></h2>
+  <h2 class="section-title">Analyse descriptive vs diagnostique :<br><em>ce qui change concrètement</em></h2>
   <div class="compare-grid">
     <div class="compare-col">
       <div class="compare-head">Analyse descriptive</div>
       <div class="compare-item"><strong>Question :</strong> Que s'est-il passé ?</div>
-      <div class="compare-item"><strong>Objectif :</strong> Décrire précisément la situation actuelle.</div>
-      <div class="compare-item"><strong>Exemple :</strong> « Le taux de turnover global est de 15%. »</div>
-      <div class="compare-item"><strong>Niveau :</strong> Premier palier de la maturité Data.</div>
+      <div class="compare-item"><strong>Objectif :</strong> Décrire précisément la situation.</div>
+      <div class="compare-item"><strong>Exemple :</strong> "Le taux de turnover est de 15%."</div>
+      <div class="compare-item"><strong>Résultat :</strong> Un chiffre. Utile, mais insuffisant pour agir.</div>
     </div>
     <div class="compare-col after">
       <div class="compare-head">Analyse diagnostique</div>
       <div class="compare-item"><strong>Question :</strong> Pourquoi cela s'est-il produit ?</div>
-      <div class="compare-item"><strong>Objectif :</strong> Mettre en évidence les facteurs explicatifs réels.</div>
-      <div class="compare-item"><strong>Exemple :</strong> « Le turnover est élevé car les nouveaux collaborateurs quittent au cours des 6 premiers mois. »</div>
-      <div class="compare-item"><strong>Niveau :</strong> Deuxième palier de la maturité Data.</div>
+      <div class="compare-item"><strong>Objectif :</strong> Mettre en évidence les facteurs explicatifs.</div>
+      <div class="compare-item"><strong>Exemple :</strong> "Le turnover est concentré chez les moins de 18 mois d'ancienneté, dans le service commercial, sous un manager précis."</div>
+      <div class="compare-item"><strong>Résultat :</strong> Un levier d'action identifié et priorisé.</div>
     </div>
   </div>
 </section>
 
-<div style="max-width: var(--max-w); margin: 0 auto; padding: 4rem 2.5rem 2rem; position: relative; z-index:1;" class="fade-in">
-  <div class="section-label">// 04 · Domaines d'application concrets du diagnostic</div>
+<!-- SECTION 4 : DOMAINES D'APPLICATION -->
+<section class="section fade-in">
+  <div class="section-label">// 04 · Domaines d'application concrets</div>
+  <h2 class="section-title">Ce que le diagnostic RH<br><em>permet d'expliquer</em></h2>
   <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 2rem;">
-    L'analyse diagnostique répond à des besoins de terrain en identifiant les facteurs clés qui influencent la vie de votre entreprise.
+    Six cas d'usage terrain où l'analyse diagnostique produit des décisions actionnables en moins de 48h.
   </p>
   <div class="cards">
-    <div class="card"><div class="card-icon">⟳</div><h3>Facteurs du turnover</h3><p>Déterminer si les départs ciblent un métier, une tranche d'âge ou s'ils sont corrélés à la charge de travail et au management.</p></div>
-    <div class="card"><div class="card-icon">↗</div><h3>Causes d'absentéisme</h3><p>Ventiler les absences pour comprendre si elles résultent d'une surcharge ponctuelle ou de conditions de travail difficiles.</p></div>
-    <div class="card"><div class="card-icon">⧖</div><h3>Freins au recrutement</h3><p>Isoler l'impact de salaires déphasés par rapport au marché, de critères restrictifs ou d'un processus d'embauche trop long.</p></div>
-    <div class="card"><div class="card-icon">∑</div><h3>Écarts de performance</h3><p>Comprendre si les écarts entre services proviennent des compétences disponibles, de l'ancienneté ou des outils mis à disposition.</p></div>
-    <div class="card"><div class="card-icon">◎</div><h3>Leviers d'engagement</h3><p>Analyser si une baisse de motivation provient d'un manque de reconnaissance ou d'opportunités de mobilité limitées.</p></div>
-    <div class="card"><div class="card-icon">€</div><h3>Origines des écarts salariaux</h3><p>Mettre en lumière les biais cachés dans les grilles de salaire ou les politiques de promotion (H/F, générations).</p></div>
+    <div class="card">
+      <div class="card-icon">⟳</div>
+      <h3>Facteurs du turnover</h3>
+      <p>Déterminer si les départs ciblent un métier, une tranche d'âge ou s'ils sont corrélés à la charge de travail et au style de management.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">↗</div>
+      <h3>Causes de l'absentéisme</h3>
+      <p>Ventiler les absences pour distinguer surcharge ponctuelle, conditions de travail dégradées ou signaux de désengagement profond.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⧖</div>
+      <h3>Freins au recrutement</h3>
+      <p>Isoler l'impact de salaires déphasés, de critères trop restrictifs ou d'un processus d'embauche trop long sur le taux de conversion candidat.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">∑</div>
+      <h3>Écarts de performance</h3>
+      <p>Comprendre si les écarts entre services viennent des compétences disponibles, de l'ancienneté, des outils ou du management intermédiaire.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◎</div>
+      <h3>Leviers d'engagement</h3>
+      <p>Analyser si une baisse de motivation provient d'un manque de reconnaissance, d'opportunités de mobilité limitées ou d'une surcharge structurelle.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">€</div>
+      <h3>Écarts salariaux</h3>
+      <p>Mettre en lumière les biais cachés dans les grilles de salaire ou les politiques de promotion — par genre, génération ou ancienneté.</p>
+    </div>
   </div>
-</div>
+</section>
 
-<section class="section fade-in" style="padding-top: 2rem;">
+<!-- SECTION 5 : VARIABLES -->
+<section class="section fade-in">
   <div class="section-label">// 05</div>
-  <h2 class="section-title">Variables cibles et variables explicatives<br><em>La structure mathématique du diagnostic</em></h2>
+  <h2 class="section-title">Variables cibles et variables explicatives :<br><em>la structure du diagnostic</em></h2>
   <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 2.5rem;">
-    En analyse de données RH, on sépare le phénomène à expliquer (la variable cible) des causes potentielles issues de vos bases de données (les variables explicatives). C'est le fondement du feature engineering pour le machine learning RH.
+    En analyse diagnostique, on sépare le phénomène à expliquer (la variable cible) des causes potentielles issues du SIRH (les variables explicatives). C'est aussi le fondement du <a href="https://competencesrh.fr/modelisation-donnees-rh/feature-engineering-rh.html" class="link-white-underline">feature engineering</a> pour le machine learning RH.
   </p>
   <div class="compare-grid">
     <div class="compare-col">
-      <div class="compare-head">Variables Cibles (Le Phénomène)</div>
-      <div class="compare-item"><strong>Turnover</strong></div>
-      <div class="compare-item"><strong>Absentéisme</strong></div>
-      <div class="compare-item"><strong>Engagement</strong></div>
-      <div class="compare-item"><strong>Performance</strong></div>
+      <div class="compare-head">Variables cibles — le phénomène</div>
+      <div class="compare-item"><strong>Turnover</strong> — départ volontaire ou involontaire</div>
+      <div class="compare-item"><strong>Absentéisme</strong> — jours d'absence par service ou période</div>
+      <div class="compare-item"><strong>Engagement</strong> — score d'enquête interne ou proxy comportemental</div>
+      <div class="compare-item"><strong>Performance</strong> — note d'entretien ou atteinte d'objectifs</div>
     </div>
     <div class="compare-col after">
-      <div class="compare-head">Variables Explicatives (Les Facteurs)</div>
+      <div class="compare-head">Variables explicatives — les facteurs</div>
       <div class="compare-item">Âge, ancienneté, salaire, métier, manager, distance domicile-travail</div>
-      <div class="compare-item">Charge de travail, management, pénibilité, type d'équipe</div>
-      <div class="compare-item">Niveau de rémunération, rythme des entretiens, perspectives de mobilité</div>
-      <div class="compare-item">Formations suivies, adéquation des compétences, outils fournis</div>
+      <div class="compare-item">Charge de travail, style de management, pénibilité, taille d'équipe</div>
+      <div class="compare-item">Niveau de rémunération, fréquence des entretiens, perspectives de mobilité</div>
+      <div class="compare-item">Formations suivies, adéquation compétences/poste, outils disponibles</div>
     </div>
   </div>
 </section>
 
+<!-- SECTION 6 : MÉTHODES -->
 <section class="section fade-in">
   <div class="section-label">// 06</div>
-  <h2 class="section-title">Les méthodes clés de l'investigation<br><em>Comment faire parler vos données</em></h2>
+  <h2 class="section-title">Les méthodes du diagnostic RH :<br><em>comment faire parler vos données</em></h2>
+
   <div class="services-list">
     <div class="service-item">
       <div class="service-num">06.01</div>
       <div class="service-body">
-        <h2>Un arsenal méthodologique diversifié</h2>
-        <p>Pour mener à bien ce diagnostic, plusieurs approches statistiques et analytiques sont appliquées sur vos extractions SIRH :</p>
-        <p><strong>L'analyse par segmentation :</strong> Diviser l'effectif en sous-groupes homogènes pour révéler des disparités masquées dans la masse globale.<br>
-           <strong>L'analyse de corrélation :</strong> Mesurer la force de la relation statistique entre deux variables (ex: salaire et niveau d'engagement). <em>Attention : corrélation ne signifie pas automatiquement causalité.</em><br>
-           <strong>L'analyse multivariée et arbres de décision :</strong> Étudier l'impact conjoint et hiérarchisé de plusieurs critères simultanés (âge, manager et ancienneté) sur un risque de départ volontaire.<br>
-           <strong>L'analyse de cohortes :</strong> Suivre des groupes partageant un repère commun (ex: les embauchés de l'année 2023) pour observer leur courbe de fidélisation.</p>
+        <h3>Quatre approches complémentaires</h3>
+
+        <p><strong>Analyse par segmentation</strong><br>
+        Diviser l'effectif en sous-groupes homogènes pour révéler des disparités masquées dans la moyenne globale. Un turnover de 15% peut cacher un service à 35% et un autre à 4%.</p>
+
+        <p><strong>Analyse de corrélation</strong><br>
+        Mesurer la force de la relation statistique entre deux variables — salaire et engagement, ancienneté et absentéisme. <em>Attention : corrélation ne signifie pas causalité.</em> Une corrélation élevée est une piste, pas une preuve.</p>
+
+        <p><strong>Analyse multivariée et arbres de décision</strong><br>
+        Étudier l'impact conjoint et hiérarchisé de plusieurs variables simultanées sur un phénomène. Exemple : le risque de départ est-il davantage expliqué par le salaire, le manager ou l'ancienneté — et dans quel ordre ?</p>
+
+        <p><strong>Analyse de cohortes</strong><br>
+        Suivre des groupes partageant un repère commun dans le temps. Exemple : les embauchés de 2023 ont-ils un taux de départ à 12 mois supérieur à ceux de 2022 ? C'est la méthode la plus efficace pour évaluer l'impact d'un changement managérial ou d'une nouvelle politique RH.</p>
+
         <ul class="service-tags">
-          <li>Segmentation</li><li>Corrélation vs Causalité</li><li>Analyse de cohortes</li><li>Datavisualisation</li>
+          <li>Segmentation</li><li>Corrélation</li><li>Analyse de cohortes</li><li>Arbres de décision</li>
         </ul>
       </div>
       <div class="service-accent">◫</div>
     </div>
+
     <div class="service-item">
       <div class="service-num">06.02</div>
       <div class="service-body">
-        <h2>Les outils du diagnostic RH</h2>
-        <p>Pour les analyses courantes et le croisement d'indicateurs par filtres interactifs, Excel RH et Power BI RH s'imposent comme des environnements d'entrée de jeu hautement efficaces. Dès lors qu'il s'agit d'automatiser des matrices de corrélation avancées ou des modèles multivariés complexes, le recours aux langages SQL, Python (avec Pandas et Scikit-Learn) ou R s'avère indispensable.</p>
+        <h3>Les outils selon le niveau d'analyse</h3>
+        <p>Pour les segmentations et croisements d'indicateurs courants, Excel et Power BI s'imposent comme points d'entrée efficaces — accessibles sans compétence technique avancée. Pour des matrices de corrélation ou des modèles multivariés, SQL, Python (Pandas, Scikit-learn) et R deviennent nécessaires.</p>
+        <p>Le choix de l'outil dépend d'une question simple : est-ce que je veux <em>voir</em> mes données (Power BI) ou <em>modéliser</em> mes données (Python) ?</p>
         <ul class="service-tags">
-          <li>Excel avancé</li><li>Power BI RH</li><li>SQL Extraction</li><li>Python & R</li>
+          <li>Excel avancé</li><li>Power BI</li><li>SQL</li><li>Python & Pandas</li><li>R</li>
         </ul>
       </div>
       <div class="service-accent">⬡</div>
@@ -273,89 +372,138 @@
   </div>
 </section>
 
+<!-- SECTION 7 : VIGILANCE -->
 <section class="section fade-in">
   <div class="section-label">// 07</div>
-  <h2 class="section-title">Les points de vigilance du diagnostic<br><em>Limites et exigences méthodologiques</em></h2>
+  <h2 class="section-title">Les limites du diagnostic :<br><em>ce qu'il ne peut pas faire</em></h2>
   <div class="process-steps">
     <div class="process-step">
       <span class="step-num">01</span>
-      <h3>Les limites du quantitatif</h3>
-      <p>Certaines causes profondes restent non observables dans les chiffres (climat informel, ressentis individuels, facteurs culturels). L'expertise métier et l'analyse qualitative sont complémentaires.</p>
+      <h3>Le quantitatif ne capte pas tout</h3>
+      <p>Certaines causes profondes restent invisibles dans les chiffres — le climat informel, les tensions interpersonnelles, les ressentis individuels. L'analyse diagnostique doit être complétée par une approche qualitative : entretiens de départ, enquêtes engagement, retours managers.</p>
     </div>
     <div class="process-arrow">→</div>
     <div class="process-step">
       <span class="step-num">02</span>
-      <h3>La qualité comme préalable</h3>
-      <p>Des données erronées, incomplètes ou non standardisées induisent des diagnostics biaisés et de mauvaises décisions. Veillez toujours à auditer vos bases de données et à maintenir la <a href="https://competencesrh.fr/conformite-ethique-rh.html">conformité RGPD</a>.</p>
+      <h3>La qualité des données est un préalable</h3>
+      <p>Des données mal saisies dans le SIRH, incomplètes ou non standardisées produisent des diagnostics biaisés — et des décisions dangereuses. Auditez vos bases avant d'analyser. Consultez également notre page sur la <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">conformité RGPD des données salariés</a>.</p>
     </div>
     <div class="process-arrow">→</div>
     <div class="process-step">
       <span class="step-num">03</span>
-      <h3>Le pont vers l'inférence</h3>
-      <p>L'analyse diagnostique formule de fortes présomptions. L'étape suivante — l'analyse inférentielle — validera scientifiquement si ces relations observées sont statistiquement significatives ou nées du hasard.</p>
+      <h3>La corrélation n'est pas une preuve</h3>
+      <p>L'analyse diagnostique formule de fortes présomptions. L'<a href="https://competencesrh.fr/analyse-donnees/analyse-inferentielle-rh.html">analyse inférentielle</a> valide ensuite si les relations observées sont statistiquement significatives ou nées du hasard — avant de décider d'un plan d'action.</p>
     </div>
   </div>
 </section>
 
-<section class="section fade-in" style="padding-top: 2rem;">
-  <div class="section-label">// 08 · La place du diagnostic dans le People Analytics</div>
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; line-height: 1.9; margin-bottom: 2.5rem;">
-    L'analyse diagnostique s'insère au cœur d'une courbe de maturité logique. Elle s'alimente de la description pour poser les fondations indispensables des logiques prédictives futures.
-  </p>
+<!-- SECTION 8 : 5 NIVEAUX -->
+<section class="section fade-in">
+  <div class="section-label">// 08</div>
+  <h2 class="section-title">Le diagnostic dans les 5 niveaux<br><em>du People Analytics</em></h2>
   <div class="compare-grid">
     <div class="compare-col">
-      <div class="compare-head">Niveaux Initiaux</div>
-      <div class="compare-item"><strong>1. Analyse descriptive :</strong> Constate l'existant. <em>« Le turnover est à 15%. »</em></div>
-      <div class="compare-item"><strong>2. Analyse diagnostique :</strong> Explique les facteurs. <em>« Le turnover culmine chez les nouveaux commerciaux. »</em></div>
-      <div class="compare-item"><strong>3. Analyse inférentielle :</strong> Valide la pertinence. <em>« L'écart mesuré est-il statistiquement significatif ? »</em></div>
+      <div class="compare-head">Niveaux fondamentaux</div>
+      <div class="compare-item">
+        <strong>1. <a href="https://competencesrh.fr/analyse-donnees/analyse-descriptive-rh.html" class="link-white-underline">Analyse descriptive</a></strong> — Constate l'existant.
+        <em style="display:block; margin-top:0.3rem; font-size:0.8rem; opacity:0.7;">"Le turnover est à 15%."</em>
+      </div>
+      <div class="compare-item">
+        <strong>2. Analyse diagnostique</strong> — Explique les facteurs.
+        <em style="display:block; margin-top:0.3rem; font-size:0.8rem; opacity:0.7;">"Le turnover culmine chez les nouveaux commerciaux sous 12 mois d'ancienneté."</em>
+      </div>
+      <div class="compare-item">
+        <strong>3. <a href="https://competencesrh.fr/analyse-donnees/analyse-inferentielle-rh.html" class="link-white-underline">Analyse inférentielle</a></strong> — Valide la significativité.
+        <em style="display:block; margin-top:0.3rem; font-size:0.8rem; opacity:0.7;">"L'écart observé est-il statistiquement significatif ?"</em>
+      </div>
     </div>
     <div class="compare-col after">
-      <div class="compare-head">Niveaux Avancés</div>
-      <div class="compare-item"><strong>4. Analyse prédictive :</strong> Anticipe l'avenir. <em>« Quels profils risquent de démissionner sous 6 mois ? »</em></div>
-      <div class="compare-item"><strong>5. Analyse prescriptive :</strong> Recommande l'action. <em>« Déployer tel plan de fidélisation ciblé. »</em></div>
-      <div class="compare-item">Pour approfondir cette transition vers le futur de vos données, découvrez notre guide complet sur la <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-white-underline">modélisation des données RH</a>.</div>
+      <div class="compare-head">Niveaux avancés</div>
+      <div class="compare-item">
+        <strong>4. <a href="https://competencesrh.fr/analyse-donnees/analyse-predictive-rh.html" class="link-white-underline">Analyse prédictive</a></strong> — Anticipe l'avenir.
+        <em style="display:block; margin-top:0.3rem; font-size:0.8rem; opacity:0.7;">"Quels profils risquent de démissionner dans les 6 prochains mois ?"</em>
+      </div>
+      <div class="compare-item">
+        <strong>5. Analyse prescriptive</strong> — Recommande l'action.
+        <em style="display:block; margin-top:0.3rem; font-size:0.8rem; opacity:0.7;">"Déployer ce plan de fidélisation sur ces 12 profils identifiés."</em>
+      </div>
+      <div class="compare-item">
+        Pour aller vers les niveaux avancés : <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-white-underline">modélisation des données RH</a>.
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section fade-in">
+  <div class="section-label">// FAQ</div>
+  <h2 class="section-title">Questions fréquentes sur<br><em>l'analyse diagnostique RH</em></h2>
+
+  <div class="services-list">
+
+    <div class="service-item">
+      <div class="service-num">Q.01</div>
+      <div class="service-body">
+        <h3>Qu'est-ce que l'analyse diagnostique RH ?</h3>
+        <p>C'est la démarche qui identifie les facteurs précis susceptibles d'expliquer un phénomène RH observé. Elle répond à <strong>"pourquoi cela s'est-il produit ?"</strong> — là où l'<a href="https://competencesrh.fr/analyse-donnees/analyse-descriptive-rh.html">analyse descriptive</a> s'arrête au constat. C'est le deuxième niveau du People Analytics.</p>
+      </div>
+      <div class="service-accent">?</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">Q.02</div>
+      <div class="service-body">
+        <h3>Quelle est la différence entre corrélation et causalité en RH ?</h3>
+        <p>Une corrélation indique une relation statistique entre deux variables — les salariés moins bien payés partent davantage. Mais elle ne prouve pas que le salaire est la <em>cause directe</em> du départ : d'autres facteurs peuvent expliquer les deux simultanément. La causalité requiert une validation via des modèles inférentiels ou des enquêtes terrain complémentaires.</p>
+      </div>
+      <div class="service-accent">?</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">Q.03</div>
+      <div class="service-body">
+        <h3>Comment identifier les causes du turnover par les données ?</h3>
+        <p>En quatre étapes : <strong>1)</strong> Partir du taux global (descriptif). <strong>2)</strong> Segmenter par métier, ancienneté, tranche d'âge, manager, service. <strong>3)</strong> Calculer les corrélations entre le départ et les variables SIRH disponibles. <strong>4)</strong> Construire un arbre de décision pour hiérarchiser les facteurs et identifier le levier prioritaire.</p>
+      </div>
+      <div class="service-accent">?</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">Q.04</div>
+      <div class="service-body">
+        <h3>Faut-il des données parfaites pour commencer un diagnostic ?</h3>
+        <p>Non — mais il faut des données fiables sur les variables clés : date d'entrée, date de sortie, motif de départ, service, manager, salaire. Ces champs sont présents dans tout SIRH. L'audit de qualité des données prend généralement une demi-journée et conditionne la validité de toute l'analyse qui suit.</p>
+      </div>
+      <div class="service-accent">?</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
 <div class="cta-band">
   <div class="cta-band-inner">
-    <div class="cta-band-text">Ne vous contentez plus de constater.<br><em>Découvrez les causes réelles de vos mouvements RH.</em></div>
-    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Lancer un diagnostic de vos données →</a>
+    <div class="cta-band-text">Ne vous contentez plus de constater.<br><em>Identifiez les vraies causes de vos mouvements RH.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Lancer un diagnostic →</a>
   </div>
 </div>
 
+<!-- CONCLUSION -->
 <section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
   <div class="section-label" style="justify-content: center;">// Conclusion</div>
   <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
-    L'analyse diagnostique est le pont indispensable<br>entre <em>le constat chiffré et l'action ciblée</em>.
+    L'analyse diagnostique est le pont<br>entre <em>le chiffre et la décision</em>.
   </h2>
   <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.9;">
-    En connectant intelligemment vos variables cibles à des facteurs explicatifs mesurables, vous quittez définitivement le pilotage à l'instinct pour déployer des plans correcteurs à haute valeur ajoutée.
+    En connectant vos variables cibles à des facteurs explicatifs mesurables, vous quittez le pilotage à l'instinct pour déployer des plans correcteurs précis — sur les bons leviers, au bon moment.
   </p>
   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
     <a href="https://competencesrh.fr/contact.html" class="btn-primary">Échanger avec un expert →</a>
-    <a href="https://competencesrh.fr/services.html" class="btn-ghost">Voir nos services Data</a>
+    <a href="https://competencesrh.fr/services.html" class="btn-ghost">Voir les services Data RH</a>
   </div>
 </section>
 
-<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem;">
-  <div class="section-label">// 09 · FAQ – Analyse diagnostique RH</div>
-  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
-    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Qu'est-ce que l'analyse diagnostique RH ?</h4>
-    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">C'est la démarche analytique qui vise à identifier les facteurs précis susceptibles d'expliquer un phénomène observé dans les données RH. Elle répond à la question essentielle : pourquoi cela s'est-il produit ?</p>
-
-    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle différence entre analyse descriptive et diagnostique ?</h4>
-    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">L'analyse descriptive dresse un bilan de « ce qui s'est passé » (ex : un turnover de 15%), tandis que l'analyse diagnostique met en évidence les facteurs explicatifs et les corrélations de « pourquoi cela s'est produit ».</p>
-
-    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle est la différence entre corrélation et causalité ?</h4>
-    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Une corrélation indique une relation mathématique simultanée entre deux variables (ex: salaire et engagement), mais ne prouve pas qu'une variable engendre directement l'autre. La causalité requiert une validation approfondie via des modélisations inférentielles ou des enquêtes de terrain.</p>
-
-    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quels outils sont préconisés pour mener ce type de diagnostic ?</h4>
-    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Excel RH et Power BI RH conviennent parfaitement aux segmentations et croisements d'indicateurs interactifs au quotidien. Pour des analyses de corrélation avancées ou de l'analyse multivariée, SQL, Python (Pandas) et R restent les standards incontournables.</p>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-left">
     <div class="nav-logo">DATA<span>RH</span></div>
@@ -364,7 +512,7 @@
   <div class="footer-links">
     <a href="https://competencesrh.fr/">Accueil</a>
     <a href="https://competencesrh.fr/services.html">Services</a>
-    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
     <a href="https://competencesrh.fr/contact.html">Contact</a>
   </div>
   <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
