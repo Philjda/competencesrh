@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tableau de bord RH Python : guide complet pour construire des TDB interactifs avec Pandas, Streamlit et Plotly. Analyse prédictive, NLP et visualisations avancées."/>
+  <title>Tableau de bord RH Python : analyses avancées et prédictives | CompetencesRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html#article",
+    "isPartOf": {
+      "@type": "WebPage",
+      "@id": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html"
+    },
+    "headline": "Tableau de bord RH Python : analyses avancées et prédictives",
+    "description": "Méthodologie complète pour construire un tableau de bord RH avec Python : Pandas, Streamlit, Plotly, analyse prédictive du turnover et NLP sur données RH non structurées.",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://competencesrh.fr/assets/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Python est-il adapté pour créer des tableaux de bord RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, mais Python n'est pas un outil de tableau de bord classique comme Excel ou Power BI. C'est un langage de programmation qui permet de construire des tableaux de bord sur-mesure avec des bibliothèques comme Streamlit ou Dash. L'avantage : flexibilité totale, intégration native de l'analyse prédictive et du NLP. L'inconvénient : courbe d'apprentissage plus raide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il être développeur pour utiliser Python en RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non, mais il faut être à l'aise avec la logique de programmation. Un responsable RH qui a déjà manipulé des formules Excel complexes peut apprendre Python en 2 à 3 semaines pour des usages courants. En revanche, construire un tableau de bord complet avec analyse prédictive nécessite 2 à 3 mois de montée en compétence, ou l'accompagnement d'un expert."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre Streamlit et Dash ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Streamlit est plus simple et rapide à prendre en main, idéal pour des prototypes et des tableaux de bord interactifs légers. Dash (créé par Plotly) est plus puissant et flexible, adapté aux applications complexes avec des besoins de personnalisation avancés. Pour 80% des projets RH, Streamlit suffit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Python peut-il faire de l'analyse prédictive RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument. C'est même son avantage concurrentiel majeur. Avec des bibliothèques comme scikit-learn, vous pouvez construire des modèles de prédiction du turnover, d'analyse de performance, ou de détection de biais. Python permet d'intégrer nativement le <a href='https://competencesrh.fr/ia/machine-learning-rh.html'>machine learning</a> dans vos tableaux de bord RH."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien coûte une solution Python pour les RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Python est open-source et gratuit. Les bibliothèques (Pandas, Streamlit, Plotly) sont également gratuites. Le coût principal est le temps de développement et de maintenance. Pour une PME, comptez 1 à 2 semaines de développement pour un premier tableau de bord simple, 3 à 4 semaines pour un TDB avec analyse prédictive. L'hébergement peut se faire sur Streamlit Cloud (gratuit pour les projets publics) ou sur un serveur interne."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active" aria-current="page">Analyse Données</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Outils & Méthodologie</div>
+  <div class="section-label"><span class="dot"></span> Guide pratique · Data Analysts RH & Équipes Techniques</div>
+  <h1 class="page-title">
+    Tableau de bord RH<br>
+    avec Python :<br>
+    <em>analyses avancées et prédictives</em>
+  </h1>
+  <p class="page-sub">
+    Excel et Power BI ont leurs limites quand vous voulez intégrer de l'<a href="https://competencesrh.fr/analyse-donnees/analyse-predictive-rh.html" style="color:inherit; text-decoration:underline;">analyse prédictive</a>, du traitement de langage naturel sur les entretiens annuels, ou des visualisations sur-mesure. Python est l'outil roi pour passer du reporting classique à l'analyse avancée. Voici comment construire un tableau de bord RH qui anticipe au lieu de constater.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">0€</span>
+      <span class="stat-label">de licence<br>Python et ses bibliothèques sont open-source</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">de flexibilité<br>pour des analyses sur-mesure</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">4 sem.</span>
+      <span class="stat-label">pour un TDB RH complet<br>avec analyse prédictive</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Python RH</span><span class="sep">·</span>
+    <span>Pandas</span><span class="sep">·</span>
+    <span>Streamlit</span><span class="sep">·</span>
+    <span>Plotly</span><span class="sep">·</span>
+    <span>Analyse prédictive</span><span class="sep">·</span>
+    <span>Machine Learning</span><span class="sep">·</span>
+    <span>NLP RH</span><span class="sep">·</span>
+    <span>Visualisations avancées</span><span class="sep">·</span>
+    <span>Python RH</span><span class="sep">·</span>
+    <span>Pandas</span><span class="sep">·</span>
+    <span>Streamlit</span><span class="sep">·</span>
+    <span>Plotly</span><span class="sep">·</span>
+    <span>Analyse prédictive</span><span class="sep">·</span>
+    <span>Machine Learning</span><span class="sep">·</span>
+    <span>NLP RH</span><span class="sep">·</span>
+    <span>Visualisations avancées</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Pourquoi Python pour les RH ?<br><em>quand Excel et Power BI ne suffisent plus</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h3>Vous voulez faire de l'analyse prédictive</h3>
+        <p>Power BI permet de constater. Python permet d'anticiper. Vous voulez prédire quels salariés ont un risque élevé de turnover dans les 6 prochains mois ? Identifier les facteurs cachés qui influencent l'absentéisme ? Détecter les biais dans vos processus de recrutement ? Python intègre nativement le <a href="https://competencesrh.fr/ia/machine-learning-rh.html" style="color:inherit; text-decoration:underline;">machine learning</a> dans vos analyses.</p>
+        <ul class="service-tags">
+          <li>Prédiction turnover</li><li>Détection de biais</li><li>Facteurs cachés</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h3>Vous avez des données non structurées</h3>
+        <p>Comment analyser 500 commentaires d'entretiens annuels ? 1000 réponses à une enquête climat social ? Excel ne sait pas faire. Power BI non plus. Python, avec ses bibliothèques de <a href="https://competencesrh.fr/ia/nlp-donnees-non-structurees.html" style="color:inherit; text-decoration:underline;">traitement du langage naturel (NLP)</a>, peut extraire les thématiques récurrentes, détecter les sentiments, et quantifier l'engagement à partir de texte libre.</p>
+        <ul class="service-tags">
+          <li>NLP</li><li>Analyse de texte</li><li>Sentiment analysis</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.03</div>
+      <div class="service-body">
+        <h3>Vous voulez des visualisations sur-mesure</h3>
+        <p>Power BI propose des visuels standards. Python vous permet de créer exactement la visualisation dont vous avez besoin : courbes de survie pour analyser la rétention, heatmaps de corrélation entre variables RH, graphiques interactifs avec zoom et filtrage dynamique. Bibliothèques comme Plotly, Seaborn ou Altair offrent une flexibilité totale.</p>
+        <ul class="service-tags">
+          <li>Plotly</li><li>Seaborn</li><li>Visualisations custom</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.04</div>
+      <div class="service-body">
+        <h3>Vous avez besoin d'automatiser des traitements complexes</h3>
+        <p>Nettoyer 50 fichiers Excel avec des formats incohérents ? Fusionner des données de 10 sources hétérogènes ? Appliquer des règles de gestion complexes avant analyse ? Python excelle dans l'<a href="https://competencesrh.fr/automatisation.html" style="color:inherit; text-decoration:underline;">automatisation</a> de ces tâches. Un script de 100 lignes peut remplacer des heures de travail manuel.</p>
+        <ul class="service-tags">
+          <li>Automatisation</li><li>ETL avancé</li><li>Scripts réutilisables</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Les bibliothèques Python<br><em>indispensables pour les RH</em></h2>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🐼</div><h3>Pandas</h3><p>La base de tout. Manipulation de données tabulaires, filtrage, agrégation, fusion. L'équivalent Python d'Excel en beaucoup plus puissant.</p></div>
+    <div class="card"><div class="card-icon">🔢</div><h3>NumPy</h3><p>Calcul numérique et matriciel. Indispensable pour les calculs statistiques avancés et les opérations sur de gros volumes.</p></div>
+    <div class="card"><div class="card-icon">📊</div><h3>Matplotlib</h3><p>La bibliothèque de visualisation historique. Courbes, histogrammes, nuages de points. Simple mais limitée en interactivité.</p></div>
+    <div class="card"><div class="card-icon">🎨</div><h3>Seaborn</h3><p>Visualisations statistiques élégantes avec moins de code. Heatmaps, boxplots, pairplots. Idéal pour l'exploration de données.</p></div>
+    <div class="card"><div class="card-icon">🎯</div><h3>Plotly</h3><p>Visualisations interactives pour le web. Zoom, filtrage, survol. Parfait pour les tableaux de bord Streamlit.</p></div>
+    <div class="card"><div class="card-icon">🚀</div><h3>Streamlit</h3><p>Créer des applications web interactives en Python pur. Pas besoin de connaître HTML/CSS/JavaScript. Le game changer pour les TDB.</p></div>
+    <div class="card"><div class="card-icon">🤖</div><h3>scikit-learn</h3><p>Machine learning accessible. Régression, classification, clustering. Pour intégrer de l'analyse prédictive dans vos TDB.</p></div>
+    <div class="card"><div class="card-icon">💬</div><h3>NLTK / spaCy</h3><p>Traitement du langage naturel. Analyse de texte, extraction de mots-clés, détection de thématiques dans les entretiens.</p></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">Streamlit : créer un TDB interactif<br><em>sans compétences front-end</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">03.01</div>
+      <div class="service-body">
+        <h3>Pourquoi Streamlit change la donne</h3>
+        <p>Avant Streamlit, créer un tableau de bord web avec Python nécessitait de maîtriser Flask ou Django, plus HTML, CSS, JavaScript. Streamlit supprime cette complexité. Vous écrivez du Python, Streamlit génère automatiquement l'interface web. En 50 lignes de code, vous avez un TDB interactif avec filtres, graphiques et mise en page professionnelle.</p>
+        <ul class="service-tags">
+          <li>Python pur</li><li>Zéro HTML/CSS</li><li>Déploiement rapide</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03.02</div>
+      <div class="service-body">
+        <h3>Structure type d'un TDB Streamlit RH</h3>
+        <p>Un TDB Streamlit RH typique comprend : une barre latérale avec les filtres (période, service, site), une page d'accueil avec les KPI clés (effectif, turnover, absentéisme), des pages dédiées par thématique (recrutement, formation, climat social), et des graphiques interactifs Plotly. Le tout s'actualise en temps réel quand l'utilisateur modifie les filtres.</p>
+        <ul class="service-tags">
+          <li>Filtres dynamiques</li><li>Multi-pages</li><li>Temps réel</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03.03</div>
+      <div class="service-body">
+        <h3>Exemple de code : page d'accueil</h3>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 4px; overflow-x: auto;">
+<code>import streamlit as st<br>
+import pandas as pd<br>
+import plotly.express as px<br>
+<br>
+st.title("Tableau de bord RH")<br>
+<br>
+# Chargement des données<br>
+df = pd.read_csv("salaries.csv")<br>
+<br>
+# Filtres<br>
+service = st.sidebar.selectbox("Service", df['service'].unique())<br>
+df_filtered = df[df['service'] == service]<br>
+<br>
+# KPIs<br>
+col1, col2, col3 = st.columns(3)<br>
+col1.metric("Effectif", len(df_filtered))<br>
+col2.metric("Turnover", "8.2%", "-1.3%")<br>
+col3.metric("Absentéisme", "4.5%", "+0.5%")<br>
+<br>
+# Graphique<br>
+fig = px.bar(df_filtered, x='service', y='effectif')<br>
+st.plotly_chart(fig)</code>
+        </p>
+        <ul class="service-tags">
+          <li>30 lignes de code</li><li>TDB interactif</li><li>Prêt à déployer</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">Cas d'usage RH avancés<br><em>ce que Python permet de faire</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">04.01</div>
+      <div class="service-body">
+        <h3>Prédiction du turnover avec scikit-learn</h3>
+        <p>Construisez un modèle de classification qui identifie les salariés à risque de départ dans les 6 prochains mois. Variables prédictives : ancienneté, dernier entretien, distance domicile-travail, évolution de salaire, nombre de formations. Le modèle affiche un score de risque pour chaque salarié, que vous pouvez visualiser dans votre TDB Streamlit.</p>
+        <p>C'est exactement la logique de l'<a href="https://competencesrh.fr/ia/ia-predictive-rh.html" style="color:inherit; text-decoration:underline;">IA prédictive RH</a> appliquée concrètement.</p>
+        <ul class="service-tags">
+          <li>Classification</li><li>Score de risque</li><li>Variables prédictives</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04.02</div>
+      <div class="service-body">
+        <h3>Analyse de sentiment sur les entretiens annuels</h3>
+        <p>Utilisez NLTK ou spaCy pour analyser 500 commentaires d'entretiens. Le modèle détecte automatiquement les thématiques récurrentes (management, salaire, charge de travail, perspectives) et le sentiment associé (positif, neutre, négatif). Résultat : une heatmap des zones de tension dans l'entreprise, bien plus riche qu'un simple taux de satisfaction.</p>
+        <ul class="service-tags">
+          <li>NLP</li><li>Sentiment analysis</li><li>Heatmap thématique</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04.03</div>
+      <div class="service-body">
+        <h3>Détection de biais dans le recrutement</h3>
+        <p>Analysez statistiquement vos processus de recrutement pour détecter des biais involontaires. Taux de conversion par genre, par âge, par origine géographique ? Python permet de croiser ces variables et de tester la significativité statistique des écarts. C'est un levier majeur de <a href="https://competencesrh.fr/conformite/audit-algorithmique-biais.html" style="color:inherit; text-decoration:underline;">conformité AI Act</a>.</p>
+        <ul class="service-tags">
+          <li>Détection de biais</li><li>Tests statistiques</li><li>Équité recrutement</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04.04</div>
+      <div class="service-body">
+        <h3>Clustering des profils salariés</h3>
+        <p>Utilisez l'algorithme K-means pour segmenter vos salariés en groupes homogènes selon leurs caractéristiques (ancienneté, performance, formation, mobilité). Résultat : des personas salariés qui vous permettent d'adapter vos politiques RH (rétention, développement, communication) à chaque segment.</p>
+        <ul class="service-tags">
+          <li>K-means</li><li>Segmentation</li><li>Personas salariés</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Python + Power BI :<br><em>l'architecture hybride gagnante</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h3>Pourquoi combiner les deux ?</h3>
+        <p>Python excelle dans le traitement et l'analyse avancée. Power BI excelle dans la restitution visuelle et le partage sécurisé. L'architecture idéale : Python pour le <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" style="color:inherit; text-decoration:underline;">nettoyage des données</a>, l'analyse prédictive et le NLP. Power BI pour la visualisation finale et le partage avec les décideurs.</p>
+        <ul class="service-tags">
+          <li>Complémentarité</li><li>Best of both worlds</li><li>Architecture mature</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05.02</div>
+      <div class="service-body">
+        <h3>Comment connecter Python à Power BI</h3>
+        <p>Power BI Desktop permet d'exécuter des scripts Python directement dans Power Query. Vous pouvez donc utiliser Pandas pour nettoyer vos données avant de les charger dans Power BI. Vous pouvez aussi créer des visuels Python natifs dans Power BI (graphiques Matplotlib ou Seaborn). L'intégration est native et fluide.</p>
+        <ul class="service-tags">
+          <li>Power Query + Python</li><li>Visuels Python natifs</li><li>Intégration directe</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05.03</div>
+      <div class="service-body">
+        <h3>Quand choisir l'un ou l'autre ?</h3>
+        <p><strong>Python seul :</strong> si vous avez besoin d'analyse prédictive, de NLP, ou si vos utilisateurs sont techniques.<br>
+        <strong>Power BI seul :</strong> si vos besoins sont descriptifs et si vous devez partager avec des non-techniques.<br>
+        <strong>Python + Power BI :</strong> si vous voulez le meilleur des deux mondes. C'est l'architecture que je recommande pour les PME matures.</p>
+        <ul class="service-tags">
+          <li>Choix stratégique</li><li>Maturité RH</li><li>Besoins spécifiques</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">Cas pratique : TDB prédictif<br><em>pour une PME de 300 salariés</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Objectif</h3>
+      <p>La PME veut anticiper le turnover dans les services techniques (40% de turnover annuel). Construire un modèle prédictif et un TDB pour visualiser les risques.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Collecte des données</h3>
+      <p>Export SIRH (3 ans d'historique) : effectifs, mouvements, ancienneté, salaire, formation, distance domicile-travail, derniers entretiens. 1200 salariés, 480 départs sur 3 ans.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3><a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" style="color:inherit; text-decoration:underline;">Nettoyage des données</a> avec Pandas</h3>
+      <p>Script Python de 200 lignes : suppression des doublons, harmonisation des formats, gestion des valeurs manquantes, création de variables dérivées (ancienneté en mois, évolution de salaire).</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Entraînement du modèle</h3>
+      <p>Modèle de classification Random Forest avec scikit-learn. Variables : ancienneté, distance, évolution salaire, nombre formations, dernier entretien. Précision : 78% sur les données de test.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Construction du TDB Streamlit</h3>
+      <p>Application web avec 4 pages : synthèse (KPIs + alertes), détail par service, analyse des facteurs de risque, simulation "what-if" (impact d'une augmentation de 5% sur le risque de départ).</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">06</span>
+      <h3>Déploiement et résultats</h3>
+      <p>Déploiement sur serveur interne. Accès DRH + 3 managers techniques. Résultats après 6 mois : turnover réduit de 12 points dans les services ciblés grâce aux actions préventives.</p>
+    </div>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+    <strong>⏱️ Temps total :</strong> 4 semaines de développement. Coût : 0€ de licence, 80 heures de travail Data Analyst. ROI : réduction de 12 points de turnover = économie estimée de 180 000€/an sur les coûts de recrutement. C'est exactement la puissance de l'<a href="https://competencesrh.fr/ia-rh.html" style="color:inherit; text-decoration:underline;">IA appliquée aux RH</a>.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 07</div>
+  <h2 class="section-title">Les limites de Python<br><em>et les prérequis techniques</em></h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Avantages de Python</div>
+      <div class="compare-item">Flexibilité totale</div>
+      <div class="compare-item">Analyse prédictive native</div>
+      <div class="compare-item">NLP et traitement de texte</div>
+      <div class="compare-item">Visualisations sur-mesure</div>
+      <div class="compare-item">Open-source et gratuit</div>
+      <div class="compare-item">Communauté massive</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Limites de Python</div>
+      <div class="compare-item">Courbe d'apprentissage raide</div>
+      <div class="compare-item">Nécessite des compétences techniques</div>
+      <div class="compare-item">Maintenance plus complexe</div>
+      <div class="compare-item">Pas de RLS natif (à coder)</div>
+      <div class="compare-item">Déploiement à gérer soi-même</div>
+      <div class="compare-item">Moins adapté aux non-techniques</div>
+    </div>
+  </div>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; max-width: 750px; line-height: 1.6;">
+    &gt; <strong>Mon conseil :</strong> Python n'est pas pour tout le monde. Si votre équipe RH n'a aucune compétence technique, commencez par <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html" style="color:inherit; text-decoration:underline;">Power BI</a>. Si vous avez un data analyst ou un profil technique dans l'équipe, Python ouvre des possibilités infinies. La question n'est pas "quel est le meilleur outil ?" mais "quel est le bon outil pour votre contexte ?"
+  </p>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Python peut transformer votre pilotage RH.<br><em>De l'analyse descriptive à l'analyse prédictive.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Lancer mon projet Python →</a>
+  </div>
+</div>
+
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 760px; margin: 0 auto 1.5rem;">
+    Python : l'outil de maturité<br>pour les équipes Data RH.
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Ne commencez pas par Python si vous débutez en Data RH. Maîtrisez d'abord <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html" style="color:inherit; text-decoration:underline;">Excel</a>, puis <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html" style="color:inherit; text-decoration:underline;">Power BI</a>. Quand vous aurez besoin d'analyse prédictive, de NLP ou de visualisations avancées, Python sera là. C'est le sommet de la pyramide de maturité Data RH.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer mon projet →</a>
+    <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="btn-ghost">Revoir les fondamentaux du TDB RH</a>
+  </div>
+</section>
+
+<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem;">
+  <div class="section-label">// 08 · FAQ – Python pour les tableaux de bord RH</div>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Python est-il adapté pour créer des tableaux de bord RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Oui, mais Python n'est pas un outil de tableau de bord classique comme Excel ou Power BI. C'est un langage de programmation qui permet de construire des tableaux de bord sur-mesure avec des bibliothèques comme Streamlit ou Dash. L'avantage : flexibilité totale, intégration native de l'analyse prédictive et du NLP. L'inconvénient : courbe d'apprentissage plus raide.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Faut-il être développeur pour utiliser Python en RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non, mais il faut être à l'aise avec la logique de programmation. Un responsable RH qui a déjà manipulé des formules Excel complexes peut apprendre Python en 2 à 3 semaines pour des usages courants. En revanche, construire un tableau de bord complet avec analyse prédictive nécessite 2 à 3 mois de montée en compétence, ou l'accompagnement d'un expert.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle est la différence entre Streamlit et Dash ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Streamlit est plus simple et rapide à prendre en main, idéal pour des prototypes et des tableaux de bord interactifs légers. Dash (créé par Plotly) est plus puissant et flexible, adapté aux applications complexes avec des besoins de personnalisation avancés. Pour 80% des projets RH, Streamlit suffit.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Python peut-il faire de l'analyse prédictive RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Absolument. C'est même son avantage concurrentiel majeur. Avec des bibliothèques comme scikit-learn, vous pouvez construire des modèles de prédiction du turnover, d'analyse de performance, ou de détection de biais. Python permet d'intégrer nativement le <a href="https://competencesrh.fr/ia/machine-learning-rh.html" style="color:inherit; text-decoration:underline;">machine learning</a> dans vos tableaux de bord RH.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Combien coûte une solution Python pour les RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Python est open-source et gratuit. Les bibliothèques (Pandas, Streamlit, Plotly) sont également gratuites. Le coût principal est le temps de développement et de maintenance. Pour une PME, comptez 1 à 2 semaines de développement pour un premier tableau de bord simple, 3 à 4 semaines pour un TDB avec analyse prédictive. L'hébergement peut se faire sur Streamlit Cloud (gratuit pour les projets publics) ou sur un serveur interne.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
