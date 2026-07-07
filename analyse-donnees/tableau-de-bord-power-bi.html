@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tableau de bord RH Power BI : guide complet pour industrialiser votre pilotage RH. Modélisation des données, formules DAX, partage sécurisé et cas pratiques PME."/>
+  <title>Tableau de bord RH Power BI : industrialiser le pilotage | CompetencesRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html#article",
+    "isPartOf": {
+      "@type": "WebPage",
+      "@id": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html"
+    },
+    "headline": "Tableau de bord RH Power BI : industrialiser le pilotage RH en PME",
+    "description": "Méthodologie complète pour construire un tableau de bord RH professionnel avec Power BI : modélisation des données, formules DAX RH, partage sécurisé et gouvernance.",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://competencesrh.fr/assets/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Power BI est-il adapté aux PME ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, Power BI est particulièrement adapté aux PME de 50 à 500 salariés qui ont dépassé les limites d'Excel. La licence Power BI Pro coûte environ 10€ par utilisateur/mois, ce qui reste accessible. La vraie question n'est pas la taille de l'entreprise, mais la maturité des besoins : multi-utilisateurs, multi-sources, partage sécurisé."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il savoir coder pour utiliser Power BI ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non pour les visuels de base, oui pour aller plus loin. Construire un tableau de bord RH opérationnel ne nécessite pas de code. En revanche, maîtriser le langage DAX (Data Analysis Expressions) devient indispensable pour créer des KPI avancés comme un turnover glissant ou une masse salariale annualisée."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Power BI est-il compatible avec le RGPD ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, à condition de configurer correctement la gouvernance. Power BI permet de définir des rôles (RLS - Row Level Security) pour restreindre l'accès aux données sensibles selon le profil utilisateur. Les données peuvent être hébergées en Europe. La conformité RGPD dépend de votre paramétrage, pas de l'outil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre Power BI Desktop et Power BI Service ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Power BI Desktop est l'outil gratuit de création, installé sur votre poste. Power BI Service est la plateforme cloud (payante) qui permet de publier, partager et planifier les actualisations des rapports. Pour un usage professionnel en équipe, les deux sont nécessaires."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps pour construire un premier tableau de bord RH sur Power BI ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Comptez 2 à 3 semaines pour un premier TDB RH opérationnel incluant la modélisation des données, les 5 à 8 KPI prioritaires, et la mise en place du partage sécurisé. Ce délai suppose que vos sources de données sont déjà identifiées et accessibles. Si un <a href='https://competencesrh.fr/ia/nettoyage-donnees-rh.html'>nettoyage des données</a> est nécessaire, ajoutez 1 à 2 semaines."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active" aria-current="page">Analyse Données</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Outils & Méthodologie</div>
+  <div class="section-label"><span class="dot"></span> Guide pratique · DRH & Responsables Data</div>
+  <h1 class="page-title">
+    Tableau de bord RH<br>
+    avec Power BI :<br>
+    <em>industrialiser le pilotage</em>
+  </h1>
+  <p class="page-sub">
+    Votre <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html" style="color:inherit; text-decoration:underline;">tableau de bord Excel</a> atteint ses limites : trop de sources, trop d'utilisateurs, trop de maintenance. Power BI est l'étape naturelle pour passer d'un pilotage individuel à une véritable Business Intelligence RH partagée, sécurisée et automatisée.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">10€</span>
+      <span class="stat-label">par utilisateur/mois<br>pour la licence Power BI Pro</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">100+</span>
+      <span class="stat-label">connecteurs natifs<br>(SIRH, paie, ATS, Excel)</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">3 sem.</span>
+      <span class="stat-label">pour un premier TDB RH<br>professionnel et partagé</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Power BI RH</span><span class="sep">·</span>
+    <span>DAX</span><span class="sep">·</span>
+    <span>Modélisation des données</span><span class="sep">·</span>
+    <span>Power Query</span><span class="sep">·</span>
+    <span>Row Level Security</span><span class="sep">·</span>
+    <span>Partage sécurisé</span><span class="sep">·</span>
+    <span>KPI RH</span><span class="sep">·</span>
+    <span>Business Intelligence</span><span class="sep">·</span>
+    <span>Power BI RH</span><span class="sep">·</span>
+    <span>DAX</span><span class="sep">·</span>
+    <span>Modélisation des données</span><span class="sep">·</span>
+    <span>Power Query</span><span class="sep">·</span>
+    <span>Row Level Security</span><span class="sep">·</span>
+    <span>Partage sécurisé</span><span class="sep">·</span>
+    <span>KPI RH</span><span class="sep">·</span>
+    <span>Business Intelligence</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Quand passer d'Excel à Power BI<br><em>les 5 signaux qui ne trompent pas</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h3>Le fichier Excel devient lent</h3>
+        <p>Vous commencez à ressentir des ralentissements dès que votre fichier dépasse 50 000 lignes. Les actualisations prennent plusieurs minutes. Les tableaux croisés dynamiques figent l'application. C'est le premier signal technique : Excel a atteint son plafond de verre pour votre volumétrie.</p>
+        <ul class="service-tags">
+          <li>Seuil : 50 000 lignes</li><li>Ralentissements</li><li>Figeages</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h3>Vous multipliez les versions du fichier</h3>
+        <p>"TDB_RH_v3_FINAL_v2_bis.xlsx". Vous connaissez cette situation : plusieurs personnes travaillent sur le même fichier, chacun a sa version, personne ne sait laquelle fait foi. Le versioning manuel devient ingérable. Power BI résout ce problème avec un espace cloud unique et versionné.</p>
+        <ul class="service-tags">
+          <li>Versioning</li><li>Collaboration</li><li>Source unique</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.03</div>
+      <div class="service-body">
+        <h3>Vous avez plus de 5 sources de données</h3>
+        <p>SIRH, logiciel de paie, ATS de recrutement, outil de formation, enquête climat social, fichier Excel des entretiens... Multiplier les connexions dans un seul fichier Excel devient fragile. Power BI gère nativement plus de 100 connecteurs et permet de modéliser les relations entre sources.</p>
+        <ul class="service-tags">
+          <li>Multi-sources</li><li>Connecteurs natifs</li><li>Relations</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.04</div>
+      <div class="service-body">
+        <h3>Vous devez partager avec plus de 3 utilisateurs</h3>
+        <p>Envoyer un fichier Excel par email à 10 managers, c'est la porte ouverte aux mauvaises interprétations, aux données obsolètes, aux erreurs de manipulation. Power BI Service permet de publier un rapport interactif, accessible via un lien, actualisé automatiquement.</p>
+        <ul class="service-tags">
+          <li>Partage sécurisé</li><li>Actualisation auto</li><li>Accès web</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.05</div>
+      <div class="service-body">
+        <h3>Vous avez besoin de restreindre les accès</h3>
+        <p>Un manager ne doit voir que les données de son équipe. Un dirigeant veut une vue consolidée. Excel ne permet pas cette granularité. Power BI intègre le Row Level Security (RLS) : le même rapport affiche des données différentes selon l'utilisateur connecté.</p>
+        <ul class="service-tags">
+          <li>Row Level Security</li><li>Vues personnalisées</li><li>Confidentialité</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+    <strong>💡 Mon conseil :</strong> Si vous reconnaissez 2 ou plus de ces signaux dans votre situation, la migration vers Power BI n'est plus une option. C'est une question de mois avant qu'elle s'impose d'elle-même.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Architecture Power BI pour les RH<br><em>la modélisation, clé de tout</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">02.01</div>
+      <div class="service-body">
+        <h3>Le modèle en étoile (Star Schema)</h3>
+        <p>La force de Power BI repose sur sa modélisation. Pour les RH, le modèle en étoile est quasi-obligatoire : une table de faits centrale (ex: mouvements de personnel) entourée de tables de dimensions (salariés, services, dates, sites). Cette structure permet des calculs rapides et des relations claires.</p>
+        <p>C'est exactement la même logique que pour construire un <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" style="color:inherit; text-decoration:underline;">tableau de bord RH</a> pertinent : sans structure, pas d'analyse fiable.</p>
+        <ul class="service-tags">
+          <li>Star Schema</li><li>Tables de faits</li><li>Tables de dimensions</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02.02</div>
+      <div class="service-body">
+        <h3>Les 6 tables RH indispensables</h3>
+        <p>Dans 90% de mes projets Power BI RH, je retrouve ces 6 tables de base : <strong>Salariés</strong> (matricule, nom, date d'entrée, contrat), <strong>Services</strong> (hiérarchie, rattachement), <strong>Dates</strong> (calendrier continu), <strong>Mouvements</strong> (entrées, sorties, mutations), <strong>Paie</strong> (brut, net, variables), <strong>Absences</strong> (type, durée, motif). À partir de ces 6 tables, vous construisez tous les <a href="https://competencesrh.fr/analyse-donnees/indicateurs-rh.html" style="color:inherit; text-decoration:underline;">indicateurs RH</a> essentiels.</p>
+        <ul class="service-tags">
+          <li>Salariés</li><li>Services</li><li>Dates</li><li>Mouvements</li><li>Paie</li><li>Absences</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02.03</div>
+      <div class="service-body">
+        <h3>Power Query : le pont avec vos sources</h3>
+        <p>Power BI utilise le même moteur Power Query qu'Excel. Si vous avez déjà construit des flux sur <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html" style="color:inherit; text-decoration:underline;">Excel avec Power Query</a>, 80% du travail est déjà fait. La différence : Power Query dans Power BI peut se connecter directement à des bases SQL, des APIs SIRH, ou SharePoint, sans passer par des fichiers intermédiaires.</p>
+        <ul class="service-tags">
+          <li>Réutilisation Power Query</li><li>Connexions directes</li><li>API SIRH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">10 formules DAX RH<br><em>indispensables</em></h2>
+  <div class="services-list" style="display:block; padding: 2rem 0;">
+    <table style="width:100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.85rem;">
+      <thead>
+        <tr style="border-bottom: 2px solid rgba(255,255,255,.15);">
+          <th scope="col" style="text-align:left; padding: .75rem; color: #fff;">KPI</th>
+          <th scope="col" style="text-align:left; padding: .75rem; color: #fff;">Formule DAX</th>
+          <th scope="col" style="text-align:left; padding: .75rem; color: #fff;">Usage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Effectif présent</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>CALCULATE(COUNTROWS(Salariés), FILTER(Salariés, Salariés[Date sortie] = BLANK() || Salariés[Date sortie] > MAX(Dates[Date])))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Effectif à une date donnée, filtrable par service.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Effectif moyen</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>AVERAGEX(VALUES(Dates[Mois]), [Effectif présent])</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Base de calcul du turnover et de l'absentéisme.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Turnover</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>DIVIDE(CALCULATE(COUNTROWS(Mouvements), Mouvements[Type]="Sortie"), [Effectif moyen])</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Taux de turnover sur la période filtrée.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Turnover glissant 12 mois</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>CALCULATE([Turnover], DATESINPERIOD(Dates[Date], MAX(Dates[Date]), -12, MONTH))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Lisser les variations saisonnières.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Taux d'absentéisme</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>DIVIDE(SUM(Absences[Nombre jours]), [Effectif moyen] * NETWORKDAYS(MIN(Dates[Date]), MAX(Dates[Date])))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Jours d'absence rapportés aux jours ouvrés.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Masse salariale</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>SUM(Paie[Brut])</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Total brut, filtrable par service, mois, catégorie.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Masse salariale annualisée</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>[Masse salariale] / DISTINCTCOUNT(Dates[Mois]) * 12</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Projection annuelle à partir des mois écoulés.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Ancienneté moyenne</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>AVERAGEX(Salariés, DATEDIF(Salariés[Date entrée], MAX(Dates[Date]), YEAR))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Ancienneté en années à la date filtrée.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Délai de recrutement</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>AVERAGEX(FILTER(Candidatures, Candidatures[Statut]="Embauché"), DATEDIF(Candidatures[Date candidature], Candidatures[Date embauche], DAY))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Délai moyen en jours, par type de poste.</td>
+        </tr>
+        <tr>
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Variation effectif</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>[Effectif présent] - CALCULATE([Effectif présent], DATEADD(Dates[Date], -1, MONTH))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Évolution mensuelle de l'effectif.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+    <strong>💡 Conseil de consultant :</strong> Ne copiez-collez pas ces formules sans les comprendre. Le DAX est puissant mais piégeux. Commencez par les 3 premières (effectif, turnover, masse salariale), maîtrisez-les, puis enrichissez progressivement.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">Les 8 visuels Power BI<br><em>indispensables en RH</em></h2>
+  <div class="cards">
+    <div class="card"><div class="card-icon">📊</div><h3>Carte KPI</h3><p>Effectif total, turnover, absentéisme en un chiffre. La synthèse exécutives par excellence.</p></div>
+    <div class="card"><div class="card-icon">📈</div><h3>Courbe d'évolution</h3><p>Évolution mensuelle de la masse salariale ou de l'effectif sur 24 mois glissants.</p></div>
+    <div class="card"><div class="card-icon">🥧</div><h3>Camembert / Donut</h3><p>Répartition par type de contrat, par site, par tranche d'ancienneté. À utiliser avec parcimonie.</p></div>
+    <div class="card"><div class="card-icon">📋</div><h3>Matrice</h3><p>Croisement service × mois pour le turnover ou l'absentéisme. L'équivalent Power BI du tableau croisé.</p></div>
+    <div class="card"><div class="card-icon">🌳</div><h3>Graphique en entonnoir</h3><p>Pyramide des âges ou funnel de recrutement. Visuel impactant pour les comités de direction.</p></div>
+    <div class="card"><div class="card-icon">🗺️</div><h3>Carte géographique</h3><p>Répartition des effectifs par site ou par région. Utile pour les entreprises multi-sites.</p></div>
+    <div class="card"><div class="card-icon">🎯</div><h3>Jauge</h3><p>Taux d'absentéisme vs objectif. Visualisation rapide de l'atteinte des cibles.</p></div>
+    <div class="card"><div class="card-icon">🔍</div><h3>Segment (filtre)</h3><p>Filtres interactifs par service, par site, par période. La force du tableau de bord dynamique.</p></div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Partage et gouvernance<br><em>Power BI Service</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h3>Publier un rapport</h3>
+        <p>Depuis Power BI Desktop, un clic sur "Publier" envoie votre rapport dans un espace de travail Power BI Service. Vous pouvez alors le partager via un lien, l'intégrer dans Teams, ou l'exporter en PDF/PowerPoint pour vos comités.</p>
+        <ul class="service-tags">
+          <li>Espaces de travail</li><li>Partage par lien</li><li>Intégration Teams</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05.02</div>
+      <div class="service-body">
+        <h3>Configurer le Row Level Security (RLS)</h3>
+        <p>Le RLS permet de restreindre l'affichage des données selon le profil utilisateur. Un manager du service commercial ne verra que les données commerciales. Un DRH voit tout. Cette configuration se fait en créant des rôles dans Power BI Desktop et en affectant des utilisateurs dans Power BI Service.</p>
+        <p>C'est un levier essentiel de <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" style="color:inherit; text-decoration:underline;">conformité RGPD</a> : vous garantissez que chaque utilisateur n'accède qu'aux données le concernant.</p>
+        <ul class="service-tags">
+          <li>Row Level Security</li><li>Rôles</li><li>Conformité RGPD</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05.03</div>
+      <div class="service-body">
+        <h3>Planifier les actualisations</h3>
+        <p>Power BI Service permet de planifier des actualisations automatiques (jusqu'à 8 par jour en licence Pro). Vos rapports sont à jour sans intervention manuelle. La passerelle de données (On-premises Data Gateway) permet de se connecter à vos sources internes (SIRH, base SQL) de manière sécurisée.</p>
+        <ul class="service-tags">
+          <li>Actualisation planifiée</li><li>Passerelle de données</li><li>Zéro intervention</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">Cas pratique : TDB multisource<br><em>pour une PME de 200 salariés</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Identifier les sources</h3>
+      <p>La PME utilise un SIRH (Lucca), un logiciel de paie (Sage), un ATS (Welcome to the Jungle), et un fichier Excel pour les entretiens annuels. 4 sources à consolider.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Connecter Power BI</h3>
+      <p>Connexion directe au SIRH via API, export planifié de Sage vers SharePoint, connexion au fichier Excel hébergé. Power Query harmonise les formats.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Modéliser les données</h3>
+      <p>Construction du modèle en étoile : table Salariés centrale, reliée aux tables Services, Dates, Mouvements, Paie, Absences, Entretiens. Relations activées.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Créer les mesures DAX</h3>
+      <p>12 mesures clés : effectif, turnover, absentéisme, masse salariale, délai de recrutement, ancienneté, etc. Toutes testées sur 24 mois d'historique.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Construire 3 pages de rapport</h3>
+      <p>Page 1 : Synthèse dirigeant (8 KPI clés). Page 2 : Détail par service (matrices, courbes). Page 3 : Focus recrutement (funnel, délais, coûts).</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">06</span>
+      <h3>Configurer le RLS et publier</h3>
+      <p>3 rôles créés : Direction (vue complète), Managers (vue de leur service), RH (vue complète + édition). Publication dans Power BI Service, actualisation quotidienne à 7h.</p>
+    </div>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+    <strong>⏱️ Résultat :</strong> 3 semaines de mise en place. 10€ par utilisateur/mois (6 utilisateurs = 60€/mois). Le DRH et les 5 managers disposent d'un TDB RH professionnel, actualisé automatiquement, sécurisé. C'est exactement la logique d'<a href="https://competencesrh.fr/automatisation.html" style="color:inherit; text-decoration:underline;">automatisation RH</a> appliquée au pilotage.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 07</div>
+  <h2 class="section-title">Les limites de Power BI<br><em>et quand passer à Python</em></h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Restez sur Power BI si...</div>
+      <div class="compare-item">Vous avez besoin de rapports interactifs partagés</div>
+      <div class="compare-item">Vos utilisateurs veulent explorer les données</div>
+      <div class="compare-item">Vous avez < 10 sources de données</div>
+      <div class="compare-item">Vous voulez une solution "out of the box"</div>
+      <div class="compare-item">Votre équipe n'a pas de compétences techniques</div>
+      <div class="compare-item">Vous avez besoin de RLS natif</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Passez à Python si...</div>
+      <div class="compare-item">Vous voulez de l'<a href="https://competencesrh.fr/analyse-donnees/analyse-predictive-rh.html" style="color:inherit; text-decoration:underline;">analyse prédictive</a></div>
+      <div class="compare-item">Vous avez besoin de traitements complexes (NLP, ML)</div>
+      <div class="compare-item">Vous avez > 10 sources hétérogènes</div>
+      <div class="compare-item">Vous voulez des visualisations sur-mesure</div>
+      <div class="compare-item">Vous avez des compétences techniques internes</div>
+      <div class="compare-item">Vous voulez une solution open-source</div>
+    </div>
+  </div>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; max-width: 750px; line-height: 1.6;">
+    &gt; <strong>Mon conseil :</strong> Power BI et Python ne s'opposent pas. Ils se complètent. Vous pouvez très bien utiliser Python pour les traitements avancés (nettoyage complexe, <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" style="color:inherit; text-decoration:underline;">nettoyage de données</a>, modélisation prédictive) et Power BI pour la restitution visuelle et le partage. C'est souvent l'architecture que je recommande.
+  </p>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Votre tableau de bord RH Power BI peut être opérationnel en 3 semaines.<br><em>De la modélisation au partage sécurisé.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Lancer mon projet Power BI →</a>
+  </div>
+</div>
+
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 760px; margin: 0 auto 1.5rem;">
+    Power BI : l'étape de maturité<br>entre Excel et Python.
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Ne brûlez pas les étapes. Si Excel ne suffit plus mais que Python vous semble trop technique, Power BI est le compromis idéal. Il industrialise votre pilotage RH sans exiger de compétences de développement. Une fois la logique maîtrisée, vous pourrez envisager des analyses plus poussées avec <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html" style="color:inherit; text-decoration:underline;">Python</a> ou de l'<a href="https://competencesrh.fr/ia-rh.html" style="color:inherit; text-decoration:underline;">IA prédictive</a>.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer mon projet →</a>
+    <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="btn-ghost">Revoir les fondamentaux du TDB RH</a>
+  </div>
+</section>
+
+<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem;">
+  <div class="section-label">// 08 · FAQ – Power BI pour les RH</div>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Power BI est-il adapté aux PME ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Oui, Power BI est particulièrement adapté aux PME de 50 à 500 salariés qui ont dépassé les limites d'Excel. La licence Power BI Pro coûte environ 10€ par utilisateur/mois, ce qui reste accessible. La vraie question n'est pas la taille de l'entreprise, mais la maturité des besoins : multi-utilisateurs, multi-sources, partage sécurisé.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Faut-il savoir coder pour utiliser Power BI ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non pour les visuels de base, oui pour aller plus loin. Construire un tableau de bord RH opérationnel ne nécessite pas de code. En revanche, maîtriser le langage DAX (Data Analysis Expressions) devient indispensable pour créer des KPI avancés comme un turnover glissant ou une masse salariale annualisée.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Power BI est-il compatible avec le RGPD ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Oui, à condition de configurer correctement la gouvernance. Power BI permet de définir des rôles (RLS - Row Level Security) pour restreindre l'accès aux données sensibles selon le profil utilisateur. Les données peuvent être hébergées en Europe. La conformité RGPD dépend de votre paramétrage, pas de l'outil.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle est la différence entre Power BI Desktop et Power BI Service ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Power BI Desktop est l'outil gratuit de création, installé sur votre poste. Power BI Service est la plateforme cloud (payante) qui permet de publier, partager et planifier les actualisations des rapports. Pour un usage professionnel en équipe, les deux sont nécessaires.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Combien de temps pour construire un premier tableau de bord RH sur Power BI ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Comptez 2 à 3 semaines pour un premier TDB RH opérationnel incluant la modélisation des données, les 5 à 8 KPI prioritaires, et la mise en place du partage sécurisé. Ce délai suppose que vos sources de données sont déjà identifiées et accessibles. Si un <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" style="color:inherit; text-decoration:underline;">nettoyage des données</a> est nécessaire, ajoutez 1 à 2 semaines.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
