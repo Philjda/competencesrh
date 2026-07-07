@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Construire un tableau de bord RH avec Excel et Power Query : guide complet pour automatiser la collecte, nettoyer vos données SIRH et piloter vos KPI sociaux sans code."/>
+  <title>Tableau de bord RH Excel + Power Query : guide pratique | CompetencesRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html#article",
+    "isPartOf": {
+      "@type": "WebPage",
+      "@id": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html"
+    },
+    "headline": "Tableau de bord RH avec Excel et Power Query : guide pratique pour PME",
+    "description": "Méthodologie complète pour construire un tableau de bord RH opérationnel avec Excel et Power Query : collecte automatisée, nettoyage des données, formules essentielles et cas pratique de pilotage du turnover.",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://competencesrh.fr/assets/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Power Query est-il vraiment utile pour les RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, Power Query est l'outil le plus sous-estimé en RH. Il permet d'automatiser la collecte et le nettoyage des données issues du SIRH, de la paie ou de fichiers Excel dispersés. Concrètement, une tâche de consolidation qui prenait 2h chaque mois peut être réduite à un simple clic d'actualisation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il savoir coder pour utiliser Power Query ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. Power Query fonctionne avec une interface graphique en langage M. 95% des transformations RH courantes (fusionner des fichiers, filtrer des lignes, remplacer des valeurs, créer des colonnes conditionnelles) se font sans écrire une seule ligne de code."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Excel reste-t-il pertinent face à Power BI ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour une PME de moins de 150 salariés avec des volumes limités, Excel + Power Query reste parfaitement pertinent. Power BI devient nécessaire quand vous devez partager des rapports interactifs à plusieurs utilisateurs, connecter plus de 5 sources différentes, ou traiter plus de 100 000 lignes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fiabiliser les données avant de les intégrer dans un tableau de bord ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La fiabilisation passe par 3 étapes : 1) Un nettoyage initial via Power Query (suppression des doublons, standardisation des formats, gestion des valeurs manquantes). 2) La documentation des règles de calcul de chaque KPI. 3) La mise en place de contrôles automatiques (alertes si un indicateur sort d'une plage cohérente)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la limite d'Excel pour un tableau de bord RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Excel montre ses limites à partir de 3 seuils : 50 000 lignes traitées (ralentissements), 5 utilisateurs simultanés (problèmes de versioning), ou 10 sources de données différentes (maintenance complexe). Au-delà, une migration vers Power BI ou une solution SIRH dédiée devient nécessaire."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active" aria-current="page">Analyse Données</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Outils & Méthodologie</div>
+  <div class="section-label"><span class="dot"></span> Guide pratique · Responsable RH en PME</div>
+  <h1 class="page-title">
+    Tableau de bord RH<br>
+    avec Excel & Power Query :<br>
+    <em>le guide opérationnel</em>
+  </h1>
+  <p class="page-sub">
+    Avant de parler de Power BI, de Python ou d'IA prédictive, il faut maîtriser les fondamentaux. Excel, couplé à Power Query, reste l'outil le plus accessible pour construire un premier <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" style="color:inherit; text-decoration:underline;">tableau de bord RH</a> fiable. Voici la méthode complète, issue de 120 projets livrés en PME.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">2h</span>
+      <span class="stat-label">de consolidation mensuelle<br>réduites à 1 clic avec Power Query</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">0</span>
+      <span class="stat-label">ligne de code nécessaire<br>pour 95% des transformations RH</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">150</span>
+      <span class="stat-label">salariés : seuil où Excel<br>atteint ses limites techniques</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Excel RH</span><span class="sep">·</span>
+    <span>Power Query</span><span class="sep">·</span>
+    <span>Tableaux croisés dynamiques</span><span class="sep">·</span>
+    <span>Nettoyage de données</span><span class="sep">·</span>
+    <span>Formules RH</span><span class="sep">·</span>
+    <span>Consolidation SIRH</span><span class="sep">·</span>
+    <span>KPI automatisés</span><span class="sep">·</span>
+    <span>Reporting PME</span><span class="sep">·</span>
+    <span>Excel RH</span><span class="sep">·</span>
+    <span>Power Query</span><span class="sep">·</span>
+    <span>Tableaux croisés dynamiques</span><span class="sep">·</span>
+    <span>Nettoyage de données</span><span class="sep">·</span>
+    <span>Formules RH</span><span class="sep">·</span>
+    <span>Consolidation SIRH</span><span class="sep">·</span>
+    <span>KPI automatisés</span><span class="sep">·</span>
+    <span>Reporting PME</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Pourquoi Excel reste pertinent<br><em>en 2026 pour les RH</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h3>La réalité du terrain en PME</h3>
+        <p>Dans 80% des PME de moins de 150 salariés que j'accompagne, le "SIRH" se résume à un logiciel de paie et quelques fichiers Excel dispersés. Avant de parler de Power BI, de Tableau ou de solutions cloud à 500€/mois, il faut partir de ce qui existe : Excel est déjà là, installé sur tous les postes, et connu de vos équipes.</p>
+        <p>La question n'est pas "Excel est-il l'outil parfait ?". La question est : "Est-ce que j'ai besoin de quelque chose de plus complexe pour piloter mes 50-150 collaborateurs ?". Dans la majorité des cas, la réponse est non.</p>
+        <ul class="service-tags">
+          <li>Accessibilité</li><li>Coût zéro</li><li>Prise en main rapide</li><li>Existant</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h3>Les 3 forces d'Excel pour la Data RH</h3>
+        <p><strong>1. La flexibilité.</strong> Contrairement à un SIRH rigide, Excel vous permet de construire un tableau de bord sur-mesure, adapté à vos KPI spécifiques. Vous n'êtes pas enfermé dans des rapports prédéfinis.</p>
+        <p><strong>2. La rapidité de mise en œuvre.</strong> Un premier <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" style="color:inherit; text-decoration:underline;">tableau de bord RH</a> opérationnel peut être construit en 48h avec Excel. Avec Power BI ou une solution SIRH, comptez 3 à 6 semaines.</p>
+        <p><strong>3. La montée en compétence progressive.</strong> Excel vous permet de valider vos besoins avant d'investir dans un outil plus lourd. Vous apprenez quels KPI sont réellement utiles avant de les automatiser dans un système plus complexe.</p>
+        <ul class="service-tags">
+          <li>Sur-mesure</li><li>48h pour démarrer</li><li>Validation des besoins</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Power Query : le game changer<br><em>pour les données RH</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">02.01</div>
+      <div class="service-body">
+        <h3>Ce qu'est vraiment Power Query</h3>
+        <p>Power Query est un moteur d'ETL (Extract-Transform-Load) intégré à Excel depuis la version 2016. Il permet de se connecter à des sources de données multiples (fichiers Excel, CSV, dossiers, bases SQL, web), d'appliquer des transformations, et de charger le résultat dans une feuille de calcul ou un tableau croisé dynamique.</p>
+        <p>La magie ? Chaque transformation est enregistrée. Le mois suivant, vous n'avez qu'à cliquer sur "Actualiser" : Power Query rejoue toutes les étapes sur les nouvelles données. Fini les copier-coller manuels et les erreurs de saisie.</p>
+        <ul class="service-tags">
+          <li>ETL intégré</li><li>Multi-sources</li><li>Reproductible</li><li>Automatique</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02.02</div>
+      <div class="service-body">
+        <h3>Pourquoi c'est révolutionnaire pour les RH</h3>
+        <p>Dans la plupart des PME, les données RH sont dispersées : le logiciel de paie exporte un Excel, l'ATS de recrutement en produit un autre, les fichiers de suivi de formation sont en CSV, les entretiens annuels dans un troisième fichier. Chaque mois, le responsable RH passe 2 à 4 heures à consolider tout ça manuellement.</p>
+        <p>Avec Power Query, vous créez une fois le processus de consolidation. Le mois suivant, vous déposez les nouveaux fichiers dans un dossier, vous cliquez sur "Actualiser", et votre tableau de bord est à jour. Le gain de temps est immédiat et mesurable.</p>
+        <p>C'est exactement la logique d'<a href="https://competencesrh.fr/automatisation.html" style="color:inherit; text-decoration:underline;">automatisation RH</a> appliquée à la donnée : éliminer les tâches répétitives à faible valeur ajoutée.</p>
+        <ul class="service-tags">
+          <li>Consolidation automatique</li><li>Gain de temps</li><li>Zéro erreur de saisie</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">10 transformations Power Query<br><em>essentielles pour les RH</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Importer depuis un dossier</h3>
+      <p>Connectez Power Query à un dossier contenant vos exports mensuels du SIRH. Il fusionne automatiquement tous les fichiers en une seule table.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Promouvoir les en-têtes</h3>
+      <p>Les exports SIRH ont souvent des lignes d'en-tête parasites. Power Query permet de définir la première ligne utile comme en-tête de colonnes.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Changer le type des données</h3>
+      <p>Forcez les dates en format date, les montants en décimales, les effectifs en entiers. Évitez les erreurs de calcul liées aux formats incohérents.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Supprimer les doublons</h3>
+      <p>Identifiez et éliminez les salariés en double (même nom, même prénom, même date de naissance) avant toute consolidation.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Fusionner des tables</h3>
+      <p>Reliez votre fichier de paie avec votre fichier d'entretiens annuels via une clé commune (matricule salarié). Power Query gère les jointures comme une base de données.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">06</span>
+      <h3>Dépivoter des colonnes</h3>
+      <p>Transformez un tableau large (12 colonnes "Janvier" à "Décembre") en tableau long (1 colonne "Mois", 1 colonne "Valeur"). Indispensable pour les tableaux croisés dynamiques.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">07</span>
+      <h3>Colonnes conditionnelles</h3>
+      <p>Créez des catégories automatiques : "Ancienneté < 1 an", "1-3 ans", "3-5 ans", "> 5 ans". Ou "Turnover volontaire/involontaire" selon le motif de départ.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">08</span>
+      <h3>Remplacer des valeurs</h3>
+      <p>Harmonisez les libellés : "CDI", "Cdi", "cdi" deviennent "CDI". "M", "Homme", "H" deviennent "Homme". Éliminez les incohérences de saisie.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">09</span>
+      <h3>Extraire des sous-chaînes</h3>
+      <p>Isollez le domaine d'une adresse email, le code postal d'une ville, ou le mois d'une date. Utile pour segmenter vos analyses.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">10</span>
+      <h3>Grouper et agrégér</h3>
+      <p>Calculez des totaux, moyennes, comptes par catégorie : masse salariale par service, effectif moyen par mois, taux de turnover par département.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">15 formules Excel RH<br><em>indispensables</em></h2>
+  <div class="services-list" style="display:block; padding: 2rem 0;">
+    <table style="width:100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.85rem;">
+      <thead>
+        <tr style="border-bottom: 2px solid rgba(255,255,255,.15);">
+          <th scope="col" style="text-align:left; padding: .75rem; color: #fff;">Catégorie</th>
+          <th scope="col" style="text-align:left; padding: .75rem; color: #fff;">Formule</th>
+          <th scope="col" style="text-align:left; padding: .75rem; color: #fff;">Usage RH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Effectifs</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=NB.SI(plage;critère)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Compter les salariés par service, par contrat, par site.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Effectifs</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=NB.SI.ENS(plage1;critère1;plage2;critère2)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Compter avec plusieurs critères (ex : CDI + service commercial).</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Masse salariale</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=SOMME.SI.ENS(plage_somme;plage_critère1;critère1;...)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Calculer la masse salariale par service, par mois, par catégorie.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Turnover</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=NB.SI(plage_départs;"Volontaire")/MOYENNE(effectifs_début;effectifs_fin)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Calculer le taux de turnover volontaire sur une période.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Absentéisme</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=SOMME(jours_absence)/NB.JOURS.OUVRES(début;fin)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Calculer le taux d'absentéisme hors week-ends et jours fériés.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Ancienneté</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=DATEDIF(date_embauche;AUJOURDHUI();"Y")</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Calculer l'ancienneté en années révolues.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Recrutement</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=MOYENNE.SI.ENS(plage_délais;plage_statut;"Embauché")</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Calculer le délai moyen de recrutement par type de poste.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Formation</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=SOMME.SI(plage_heures;plage_service;service)/NB.SI(plage_effectifs;service)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Calculer le nombre d'heures de formation par salarié et par service.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Recherche</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=RECHERCHEV(valeur;table;colonne;FAUX)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Récupérer une information depuis une autre table (ex : matricule → nom).</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Recherche</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=INDEX(plage;EQUIV(valeur;plage_recherche;0))</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Alternative plus flexible à RECHERCHEV, fonctionne dans toutes les directions.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Conditionnel</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=SI(condition;valeur_si_vrai;valeur_si_faux)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Créer des alertes (ex : SI turnover > 15% ; "Alerte" ; "OK").</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Conditionnel</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=SI.CONDITIONS(cond1;val1;cond2;val2;...)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Gérer plusieurs conditions (catégories d'ancienneté, tranches de salaire).</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Texte</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=GAUCHE(texte;nb_caractères)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Extraire le code postal d'une ville, le domaine d'un email.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255,255,255,.08);">
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Texte</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=SUPPRESPACE(texte)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Nettoyer les espaces parasites après import SIRH.</td>
+        </tr>
+        <tr>
+          <td style="padding: .75rem; font-weight: bold; color: #fff;">Date</td>
+          <td style="padding: .75rem; color: var(--text-muted);"><code>=MOIS(date)</code> / <code>=ANNEE(date)</code></td>
+          <td style="padding: .75rem; color: var(--text-muted);">Segmenter les analyses par mois ou par année (saisonnalité des départs).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+    <strong>💡 Conseil de consultant :</strong> Ne cherchez pas à maîtriser les 15 formules d'un coup. Commencez par <code>NB.SI</code>, <code>SOMME.SI.ENS</code> et <code>RECHERCHEV</code>. Ces 3 formules couvrent 70% des besoins courants en PME.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Tableaux croisés dynamiques :<br><em>l'arme fatale du responsable RH</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h3>Pourquoi les TCD sont indispensables</h3>
+        <p>Un tableau croisé dynamique (TCD) permet de synthétiser des milliers de lignes en quelques clics. En RH, c'est l'outil roi pour analyser des populations : répartition par service, évolution des effectifs par mois, turnover par catégorie de personnel.</p>
+        <p>La force du TCD ? Il est interactif. Vous pouvez glisser-déposer les champs pour changer la perspective en une seconde. Pas besoin de refaire vos formules.</p>
+        <ul class="service-tags">
+          <li>Synthèse rapide</li><li>Interactif</li><li>Pas de formules</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05.02</div>
+      <div class="service-body">
+        <h3>Les 5 TCD RH à construire en priorité</h3>
+        <p><strong>1. Effectif par service et par type de contrat.</strong> Lignes : service. Colonnes : type de contrat (CDI, CDD, alternance). Valeurs : compte de matricules.</p>
+        <p><strong>2. Évolution mensuelle de la masse salariale.</strong> Lignes : mois. Valeurs : somme du brut. Filtre : service.</p>
+        <p><strong>3. Turnover par département sur 12 mois glissants.</strong> Lignes : département. Colonnes : mois. Valeurs : taux de turnover.</p>
+        <p><strong>4. Répartition des anciennetés par tranche.</strong> Lignes : tranche d'ancienneté (0-1 an, 1-3 ans, 3-5 ans, > 5 ans). Valeurs : compte de salariés.</p>
+        <p><strong>5. Absentéisme par service et par motif.</strong> Lignes : service. Colonnes : motif (maladie, accident, famille). Valeurs : somme des jours.</p>
+        <ul class="service-tags">
+          <li>Effectifs</li><li>Masse salariale</li><li>Turnover</li><li>Ancienneté</li><li>Absentéisme</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">Cas pratique : construire un TDB<br><em>turnover mensuel en 30 min</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Préparer les sources</h3>
+      <p>Créez un dossier "Sources" contenant : un export mensuel du SIRH (effectifs), un fichier des entrées/sorties, un fichier des motifs de départ. Nommez chaque fichier avec le mois (ex : "effectifs_juillet_2026.xlsx").</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Connecter Power Query</h3>
+      <p>Dans Excel : Données → Obtenir des données → À partir d'un fichier → À partir d'un dossier. Pointez vers votre dossier "Sources". Power Query liste tous les fichiers.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Transformer les données</h3>
+      <p>Appliquez les transformations : supprimer les lignes d'en-tête parasites, promouvoir la première ligne, changer les types de données, supprimer les doublons. Ajoutez une colonne "Mois" extraite du nom du fichier.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Charger dans un TCD</h3>
+      <p>Chargez le résultat dans un tableau croisé dynamique. Lignes : mois. Valeurs : compte de départs, compte d'effectifs moyens. Créez un champ calculé "Taux de turnover = départs / effectif moyen".</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Automatiser le rafraîchissement</h3>
+      <p>Le mois suivant, déposez le nouveau fichier dans le dossier "Sources". Dans Excel : Données → Actualiser tout. Votre tableau de bord est à jour en 5 secondes.</p>
+    </div>
+  </div>
+  <div style="max-width: var(--max-w); margin: 2rem auto 0; padding: 1.5rem; border-left: 3px solid #fff; background: rgba(255,255,255,0.02); font-family: var(--font-mono); font-size: 0.85rem;">
+    <strong>⏱️ Temps total :</strong> 30 minutes pour la mise en place initiale. 5 secondes par mois ensuite. C'est exactement la logique du <a href="https://competencesrh.fr/analyse-donnees/indicateurs-rh.html" style="color:inherit; text-decoration:underline;">pilotage par les indicateurs</a> : une fois le système en place, le suivi devient quasi-instantané.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 07</div>
+  <h2 class="section-title">Les limites d'Excel<br><em>et quand migrer vers Power BI</em></h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Restez sur Excel si...</div>
+      <div class="compare-item">Vous avez moins de 150 salariés</div>
+      <div class="compare-item">Vos volumes sont < 50 000 lignes</div>
+      <div class="compare-item">Vous avez < 5 sources de données</div>
+      <div class="compare-item">1 à 2 utilisateurs du tableau de bord</div>
+      <div class="compare-item">Pas de besoin de partage temps réel</div>
+      <div class="compare-item">Budget formation limité</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Passez à Power BI si...</div>
+      <div class="compare-item">Vous avez plus de 150 salariés</div>
+      <div class="compare-item">Vos volumes dépassent 100 000 lignes</div>
+      <div class="compare-item">Vous avez > 5 sources de données</div>
+      <div class="compare-item">Plus de 3 utilisateurs réguliers</div>
+      <div class="compare-item">Besoin de partage sécurisé et temps réel</div>
+      <div class="compare-item">Vous voulez des rapports interactifs web</div>
+    </div>
+  </div>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; max-width: 750px; line-height: 1.6;">
+    &gt; <strong>Mon conseil :</strong> Ne migrez pas vers Power BI "au cas où". Migrez quand vous rencontrez concrètement une limite d'Excel. En attendant, <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" style="color:inherit; text-decoration:underline;">fiabilisez vos données</a> : la qualité de la donnée est le vrai enjeu, pas l'outil.
+  </p>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Votre premier tableau de bord RH peut être opérationnel en 48h.<br><em>Excel + Power Query, c'est tout ce qu'il vous faut pour démarrer.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Construire mon TDB avec un expert →</a>
+  </div>
+</div>
+
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 760px; margin: 0 auto 1.5rem;">
+    Excel + Power Query : la porte d'entrée<br>vers une culture Data RH mature.
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Ne cherchez pas à brûler les étapes. Maîtrisez d'abord Excel et Power Query pour valider vos KPI, comprendre vos besoins, et fiabiliser vos données. Une fois cette base solide, vous pourrez évoluer vers des outils plus puissants comme <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html" style="color:inherit; text-decoration:underline;">Power BI</a> ou <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html" style="color:inherit; text-decoration:underline;">Python</a>, ou même vers de l'<a href="https://competencesrh.fr/analyse-donnees/analyse-predictive-rh.html" style="color:inherit; text-decoration:underline;">analyse prédictive</a>.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer mon projet Excel →</a>
+    <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="btn-ghost">Revoir les fondamentaux du TDB RH</a>
+  </div>
+</section>
+
+<section class="section fade-in" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem;">
+  <div class="section-label">// 08 · FAQ – Excel & Power Query pour les RH</div>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Power Query est-il vraiment utile pour les RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Oui, Power Query est l'outil le plus sous-estimé en RH. Il permet d'automatiser la collecte et le <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" style="color:inherit; text-decoration:underline;">nettoyage des données</a> issues du SIRH, de la paie ou de fichiers Excel dispersés. Concrètement, une tâche de consolidation qui prenait 2h chaque mois peut être réduite à un simple clic d'actualisation.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Faut-il savoir coder pour utiliser Power Query ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non. Power Query fonctionne avec une interface graphique. 95% des transformations RH courantes (fusionner des fichiers, filtrer des lignes, remplacer des valeurs, créer des colonnes conditionnelles) se font sans écrire une seule ligne de code.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Excel reste-t-il pertinent face à Power BI ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Pour une PME de moins de 150 salariés avec des volumes limités, Excel + Power Query reste parfaitement pertinent. Power BI devient nécessaire quand vous devez partager des rapports interactifs à plusieurs utilisateurs, connecter plus de 5 sources différentes, ou traiter plus de 100 000 lignes.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Comment fiabiliser les données avant de les intégrer dans un tableau de bord ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">La fiabilisation passe par 3 étapes : 1) Un nettoyage initial via Power Query (suppression des doublons, standardisation des formats, gestion des valeurs manquantes). 2) La documentation des règles de calcul de chaque KPI. 3) La mise en place de contrôles automatiques (alertes si un indicateur sort d'une plage cohérente).</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quelle est la limite d'Excel pour un tableau de bord RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Excel montre ses limites à partir de 3 seuils : 50 000 lignes traitées (ralentissements), 5 utilisateurs simultanés (problèmes de versioning), ou 10 sources de données différentes (maintenance complexe). Au-delà, une migration vers Power BI ou une solution SIRH dédiée devient nécessaire.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
