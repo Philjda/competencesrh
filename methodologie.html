@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Méthodologie Data RH : RH de métier + Data Analyst Python. 15 ans en PME, ETI et cabinets comptables. Nettoyage, analyse exploratoire, Power BI, ML. Méthode en 4 étapes."/>
+  <title>Méthodologie Data RH — RH de métier + Data Analyst Python | CompetencesRH</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/methodologie.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://competencesrh.fr/methodologie.html#article",
+  "isPartOf": {
+    "@type": "WebPage",
+    "@id": "https://competencesrh.fr/methodologie.html"
+  },
+  "headline": "Méthodologie Data RH — RH de métier + Data Analyst Python",
+  "description": "15 ans en PME, ETI et cabinets comptables. Double compétence RH opérationnelle et Data Analyst Python/ML. Méthode en 4 étapes pour transformer vos données RH en décisions.",
+  "inLanguage": "fr",
+  "mainEntityOfPage": "https://competencesrh.fr/methodologie.html",
+  "datePublished": "2026-07-09",
+  "dateModified": "2026-07-09",
+  "author": {
+    "@type": "Person",
+    "name": "DataRH",
+    "url": "https://competencesrh.fr",
+    "jobTitle": "Consultant Data RH & People Analytics"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DataRH",
+    "url": "https://competencesrh.fr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://competencesrh.fr/assets/logo.png"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Êtes-vous RH ou data scientist ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les deux. RH de métier avec 15 ans d'expérience en PME, ETI et cabinets d'expertise comptable, et data analyst Python spécialisé en machine learning appliqué aux RH. Cette double compétence me permet de comprendre vos enjeux métier ET de construire les solutions techniques adaptées."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Connaissez-vous les spécificités des cabinets comptables ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, j'y ai travaillé plusieurs années. Je connais les enjeux spécifiques : suivi de la charge de travail par dossier, analyse de la rentabilité par mission, GPEC des collaborateurs (experts-comptables, collaborateurs, assistants), turnover spécifique à la profession, et obligations réglementaires de la profession."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Codez-vous vraiment ou utilisez-vous des outils no-code ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les deux, selon le besoin. Pour 80% des PME, Excel + Power Query suffit. Pour les besoins de partage et visualisation, Power BI ou Streamlit. Pour l'analyse prédictive, le NLP ou les chatbots RAG, j'utilise Python (Pandas, scikit-learn, LangChain). Je n'utilise Python que si c'est nécessaire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien coûte un projet type ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fourchettes indicatives : Audit Data RH (2 000 à 3 000€), TDB Power BI (5 000 à 8 000€), Automatisation process RH (3 000 à 6 000€), Projet IA/Chatbot (4 000 à 10 000€), Modèle prédictif Python (6 000 à 15 000€). Devis détaillé après diagnostic initial gratuit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il des compétences techniques en interne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Je livre des solutions clés en main avec documentation complète et formation de vos équipes. Mon objectif est votre autonomie : vous devez pouvoir utiliser et maintenir les outils après mon intervention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Travaillez-vous en remote ou en présentiel ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "90% des projets se déroulent en remote avec des réunions de cadrage en visio. Pour les phases clés (lancement, formation finale), j'interviens en présentiel dans vos locaux si nécessaire (déplacements en sus)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels SIRH supportez-vous ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je me connecte à tous les SIRH du marché via connecteurs natifs ou APIs : Lucca, Payfit, Workday, SAP SuccessFactors, Cegid, Silae, et bien d'autres. Je travaille aussi avec des exports Excel si votre SIRH est limité."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il après la livraison ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous bénéficiez d'un support pendant 1 mois après livraison. Vous disposez de la documentation complète, du code source (si applicable), et d'une formation de vos équipes. Vous êtes 100% autonomes."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/methodologie.html" class="active">Méthode</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero fade-in">
+  <div class="section-label">// Méthodologie</div>
+  <div class="section-label"><span class="dot"></span> RH de métier · Data Analyst Python · 15 ans d'expérience</div>
+  <h1 class="page-title">
+    RH de métier,<br>
+    data analyst Python :<br>
+    <em>la double compétence</em>
+  </h1>
+  <p class="page-sub">
+    15 ans en PME, ETI et cabinets d'expertise comptable. Je ne suis pas un technicien qui découvre les RH. Je suis un RH qui maîtrise la data. Voici exactement comment je transforme vos données RH en décisions actionnables.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">15</span>
+      <span class="stat-label">années en RH<br/>opérationnelles</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">secteurs maîtrisés<br/>PME · ETI · Cabinets</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">étapes claires<br/>de la donnée à la décision</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 01 : MON PARCOURS -->
+<section class="section fade-in">
+  <div class="section-label">// 01 · Mon parcours</div>
+  <h2 class="section-title">Pourquoi cette double compétence<br/><em>change tout pour vous</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">◈</div>
+      <h3>RH de métier</h3>
+      <p>J'ai géré des paies, fait des DPAE, mené des entretiens annuels, négocié des accords d'entreprise. Je connais VOS problèmes parce que je les ai vécus. Pas de jargon, pas de théorie : du concret.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◉</div>
+      <h3>PME, ETI, cabinets comptables</h3>
+      <p>J'ai travaillé dans les 3 environnements. Je sais qu'une PME de 80 salariés n'a pas les mêmes besoins qu'une ETI de 500 ou qu'un cabinet de 150 collaborateurs. J'adapte ma méthode à votre réalité.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◫</div>
+      <h3>Data analyst Python + ML</h3>
+      <p>Je code des modèles prédictifs (scikit-learn), je construis des TDB (Power BI, Streamlit), je déploie des chatbots RAG. Mais toujours au service d'un vrai besoin métier RH. La technique au service du business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02 : MÉTHODE EN 4 ÉTAPES -->
+<section class="section process">
+  <div class="section-label">// 02 · La méthode</div>
+  <h2 class="section-title">4 étapes, 0 jargon,<br/><em>100% de transparence</em></h2>
+  <div class="process-steps">
+    <div class="process-step fade-in">
+      <span class="step-num">1</span>
+      <h3>Écoute</h3>
+      <p>Appel de cadrage de 45 minutes, gratuit. Je comprends votre contexte spécifique (PME ? ETI ? Cabinet ?), vos enjeux RH, vos outils existants. Je parle votre langage, pas celui d'un technicien.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step fade-in">
+      <span class="step-num">2</span>
+      <h3>Diagnostic</h3>
+      <p>Audit croisé de votre maturité RH ET data. J'identifie les quick wins et les chantiers structurants. Livrable : note de cadrage + devis détaillé sous 5 jours. <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="link-white-underline">En savoir plus sur l'analyse data RH →</a></p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step fade-in">
+      <span class="step-num">3</span>
+      <h3>Construction</h3>
+      <p>Sprints d'1 semaine avec points d'étape hebdomadaires. Livraisons progressives, tests avec vos équipes à chaque étape. Pas de "big bang", pas de mauvaise surprise.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step fade-in">
+      <span class="step-num">4</span>
+      <h3>Autonomie</h3>
+      <p>Documentation technique + RH complète, formation de vos équipes (2-4h), support pendant 1 mois. Vous êtes 100% autonomes. Pas de boîte noire, pas de dépendance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03 : CE QUE JE COMPRENDS -->
+<section class="section fade-in">
+  <div class="section-label">// 03 · Ce que je comprends</div>
+  <h2 class="section-title">Parce que je l'ai vécu,<br/><em>je comprends vos problèmes</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">✓</div>
+      <div class="service-body">
+        <h3>Vous avez un SIRH mais personne ne l'utilise à 20%</h3>
+        <p>Je connais cette situation. Le SIRH est là, payé cher, mais les équipes RH continuent avec leurs fichiers Excel. Le problème n'est pas l'outil, c'est l'accompagnement au changement. Je vous aide à le déployer réellement.</p>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">✓</div>
+      <div class="service-body">
+        <h3>Votre cabinet comptable vous envoie des fichiers illisibles</h3>
+        <p>J'y ai travaillé. Je sais comment les cabinets fonctionnent, leurs contraintes, leurs outils (Silae, Cegid, Sage). Je fais le pont entre votre réalité RH et leur langage comptable.</p>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">✓</div>
+      <div class="service-body">
+        <h3>Vous devez négocier un accord et vous n'avez pas les chiffres</h3>
+        <p>Intéressement, participation, égalité salariale, GEPP : tous ces accords nécessitent des données fiables. Je construis les analyses qui vous donnent les arguments pour négocier.</p>
+        <p><a href="https://competencesrh.fr/blog/transparence-salariale.html" class="link-white-underline">Voir notre guide sur la transparence salariale →</a></p>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">✓</div>
+      <div class="service-body">
+        <h3>Vous avez 40% de <a href="https://competencesrh.fr/turnover.html" class="link-white-underline">turnover</a> et vous ne savez pas pourquoi</h3>
+        <p>C'est exactement le type de problème que je résous. Analyse exploratoire, identification des facteurs, modèle prédictif, plan d'action. Je vous accompagne de la donnée à la décision.</p>
+        <p><a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline">Voir notre analyse sur l'absentéisme 2026 →</a></p>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">✓</div>
+      <div class="service-body">
+        <h3>Vous devez répondre à l'AI Act et vous ne savez pas par où commencer</h3>
+        <p>L'<a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">AI Act entre en application en août 2026</a>. Je vous aide à auditer vos systèmes IA, documenter vos processus, et vous mettre en conformité avec le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD</a>.</p>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04 : APPROCHE TECHNIQUE EN 5 NIVEAUX -->
+<section class="section fade-in">
+  <div class="section-label">// 04 · Mon approche technique</div>
+  <h2 class="section-title">5 niveaux d'intervention<br/><em>du plus simple au plus avancé</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-muted); max-width: 700px; margin-bottom: 2rem; line-height: 1.7;">
+    Je n'utilise Python que si c'est nécessaire. Si Excel suffit, on reste sur Excel. Voici les 5 niveaux de mon approche technique, du plus simple au plus avancé.
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-body">
+        <h2>Nettoyage des données</h2>
+        <p><strong>La fondation de tout.</strong> En RH, 80% des données sont sales : doublons, formats incohérents, valeurs manquantes, erreurs de saisie. Sans nettoyage, aucun tableau de bord ne sera fiable.</p>
+        <p><strong>Ce que je fais :</strong> détection des doublons, standardisation des formats, gestion des valeurs manquantes, harmonisation des codes (services, sites, catégories), documentation des règles de qualité.</p>
+        <p><strong>Outils :</strong> Python (Pandas), Power Query, Excel avancé</p>
+        <p><a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">Découvrir ma méthodologie de nettoyage →</a></p>
+        <ul class="service-tags">
+          <li>Détection doublons</li><li>Harmonisation</li><li>Qualité data</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-body">
+        <h2>Analyse exploratoire</h2>
+        <p><strong>Comprendre avant d'agir.</strong> Avant de construire un tableau de bord ou un modèle prédictif, il faut comprendre vos données : distributions, corrélations, anomalies, patterns cachés.</p>
+        <p><strong>Ce que je fais :</strong> statistiques descriptives, visualisations exploratoires (histogrammes, boxplots, heatmaps), détection des valeurs aberrantes, analyse des corrélations (turnover vs ancienneté, absentéisme vs charge de travail).</p>
+        <p><strong>Outils :</strong> Python (Pandas, Matplotlib, Seaborn), Power BI</p>
+        <p><a href="https://competencesrh.fr/analyse-donnees/analyse-descriptive-rh.html" class="link-white-underline">Découvrir l'analyse descriptive RH →</a></p>
+        <ul class="service-tags">
+          <li>Statistiques</li><li>Visualisations</li><li>Corrélations</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-body">
+        <h2>Excel + Power Query</h2>
+        <p><strong>Pour 80% des PME, c'est suffisant.</strong> Si vous avez moins de 150 salariés et moins de 5 sources de données, Excel + Power Query fait 90% du travail. Pas besoin de Power BI ou Python.</p>
+        <p><strong>Ce que je fais :</strong> tableaux de bord Excel structurés, Power Query pour automatiser la collecte, formules RH (turnover, absentéisme, masse salariale), tableaux croisés dynamiques.</p>
+        <p><a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Voir le guide complet Excel + Power Query →</a></p>
+        <ul class="service-tags">
+          <li>Excel avancé</li><li>Power Query</li><li>TCD</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-body">
+        <h2>Power BI / Streamlit</h2>
+        <p><strong>Quand vous devez partager et visualiser.</strong> Pour partager avec plusieurs utilisateurs, connecter plus de 5 sources, ou créer des visuels interactifs.</p>
+        <p><strong>Ce que je fais :</strong> modélisation des données (star schema), mesures DAX, dashboards interactifs, partage sécurisé (Row Level Security), actualisation automatique.</p>
+        <p><a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-power-bi.html" class="link-white-underline">Guide Power BI →</a> · <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-python.html" class="link-white-underline">Guide Python/Streamlit →</a></p>
+        <ul class="service-tags">
+          <li>Power BI</li><li>Streamlit</li><li>Partage sécurisé</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <div class="service-body">
+        <h2>Python + Machine Learning</h2>
+        <p><strong>Quand vous voulez prédire et aller plus loin.</strong> Pour prédire le turnover, analyser des entretiens annuels (NLP), détecter des biais, ou construire des chatbots RAG.</p>
+        <p><strong>Ce que je fais :</strong> modèles prédictifs (scikit-learn : Random Forest, régression logistique), analyse de texte (NLTK, spaCy), chatbots RAG (LangChain, bases vectorielles), détection de biais algorithmiques.</p>
+        <p><a href="https://competencesrh.fr/ia/machine-learning-rh.html" class="link-white-underline">Guide Machine Learning RH →</a> · <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">Guide RAG →</a> · <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python pour les RH →</a></p>
+        <ul class="service-tags">
+          <li>scikit-learn</li><li>NLP</li><li>RAG</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05 : CAS PAR SECTEUR -->
+<section class="section fade-in">
+  <div class="section-label">// 05 · Cas d'usage par secteur</div>
+  <h2 class="section-title">Chaque secteur a ses spécificités<br/><em>je les connais toutes</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h3>PME (50-150 salariés)</h3>
+      <p><strong>Enjeux typiques :</strong> TDB Excel/Power BI, calcul du turnover, suivi de l'absentéisme, masse salariale, quick wins en 2 semaines.</p>
+      <p><strong>Résultat :</strong> pilotage RH structuré, décisions basées sur des données, gain de temps mesurable.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏭</div>
+      <h3>ETI (150-500 salariés)</h3>
+      <p><strong>Enjeux typiques :</strong> Power BI avancé, automatisation des workflows, analyse prédictive du turnover, <a href="https://competencesrh.fr/automatisation.html" class="link-white-underline">automatisation RH</a>, GEPP data-driven.</p>
+      <p><strong>Résultat :</strong> pilotage stratégique, anticipation des risques, optimisation des coûts.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Cabinets comptables</h3>
+      <p><strong>Enjeux typiques :</strong> suivi de la charge de travail par dossier, analyse de la rentabilité par mission, GPEC spécifique (experts-comptables, collaborateurs), turnover de la profession.</p>
+      <p><strong>Résultat :</strong> pilotage de la performance, fidélisation des talents, optimisation de la charge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06 : CE QUE JE NE FAIS PAS -->
+<section class="section fade-in">
+  <div class="section-label">// 06 · Transparence</div>
+  <h2 class="section-title">Ce que je ne fais pas<br/><em>(parce que ce serait mal vous servir)</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">✕</div>
+      <h3>Pas de projet sans engagement direction</h3>
+      <p>Si la direction n'est pas impliquée, le projet échouera. Je préfère vous le dire avant de commencer.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✕</div>
+      <h3>Pas de "solution magique" sans données</h3>
+      <p>L'IA ne crée pas la donnée. Si vos données sont inexistantes ou trop sales, on commence par les structurer.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✕</div>
+      <h3>Pas de migration SIRH</h3>
+      <p>Je valorise votre existant. Changer de SIRH est un projet en soi, ce n'est pas mon métier.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✕</div>
+      <h3>Pas de jargon technique inutile</h3>
+      <p>Je parle management, pas algorithmes. Vous devez comprendre ce que je fais et pourquoi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 07 : ENGAGEMENTS -->
+<section class="section fade-in">
+  <div class="section-label">// 07 · Mes engagements</div>
+  <h2 class="section-title">5 engagements concrets<br/><em>pour vous rassurer</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">✓</div>
+      <h3>Réponse sous 48h</h3>
+      <p>Toute demande fait l'objet d'une réponse argumentée sous 48h ouvrées.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✓</div>
+      <h3>Devis sous 5 jours</h3>
+      <p>Livrables, durée, budget, planning. Pas de devis générique.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✓</div>
+      <h3>Satisfait ou remboursé</h3>
+      <p>Sur la phase d'audit. Je prends le risque, pas vous.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✓</div>
+      <h3>Transfert inclus</h3>
+      <p>Documentation, formation, support 1 mois. Vous êtes autonomes.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✓</div>
+      <h3>Souveraineté des données</h3>
+      <p>Vos données restent chez vous. On-premise ou cloud européen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Un projet en tête ? Parlons-en.<br/><em>45 minutes pour comprendre vos enjeux, gratuitement.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Réserver mon appel de cadrage →</a>
+  </div>
+</div>
+
+<!-- SECTION 08 : FAQ -->
+<section class="section fade-in">
+  <div class="section-label">// 08 · FAQ</div>
+  <h2 class="section-title">Les questions qu'on me pose<br/><em>le plus souvent</em></h2>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Êtes-vous RH ou data scientist ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Les deux. RH de métier avec 15 ans d'expérience en PME, ETI et cabinets d'expertise comptable, et data analyst Python spécialisé en machine learning appliqué aux RH. Cette double compétence me permet de comprendre vos enjeux métier ET de construire les solutions techniques adaptées.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Connaissez-vous les spécificités des cabinets comptables ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Oui, j'y ai travaillé plusieurs années. Je connais les enjeux spécifiques : suivi de la charge de travail par dossier, analyse de la rentabilité par mission, GPEC des collaborateurs (experts-comptables, collaborateurs, assistants), turnover spécifique à la profession, et obligations réglementaires.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Codez-vous vraiment ou utilisez-vous des outils no-code ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Les deux, selon le besoin. Pour 80% des PME, Excel + Power Query suffit. Pour les besoins de partage et visualisation, Power BI ou Streamlit. Pour l'analyse prédictive, le NLP ou les chatbots RAG, j'utilise Python (Pandas, scikit-learn, LangChain). Je n'utilise Python que si c'est nécessaire.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Combien coûte un projet type ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Fourchettes indicatives : Audit Data RH (2 000 à 3 000€), TDB Power BI (5 000 à 8 000€), Automatisation process RH (3 000 à 6 000€), Projet IA/Chatbot (4 000 à 10 000€), Modèle prédictif Python (6 000 à 15 000€). Devis détaillé après diagnostic initial gratuit.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Faut-il des compétences techniques en interne ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non. Je livre des solutions clés en main avec documentation complète et formation de vos équipes. Mon objectif est votre autonomie : vous devez pouvoir utiliser et maintenir les outils après mon intervention.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Travaillez-vous en remote ou en présentiel ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">90% des projets se déroulent en remote avec des réunions de cadrage en visio. Pour les phases clés (lancement, formation finale), j'interviens en présentiel dans vos locaux si nécessaire (déplacements en sus).</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Quels SIRH supportez-vous ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Je me connecte à tous les SIRH du marché via connecteurs natifs ou APIs : Lucca, Payfit, Workday, SAP SuccessFactors, Cegid, Silae, et bien d'autres. Je travaille aussi avec des exports Excel si votre SIRH est limité.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Que se passe-t-il après la livraison ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Vous bénéficiez d'un support pendant 1 mois après livraison. Vous disposez de la documentation complète, du code source (si applicable), et d'une formation de vos équipes. Vous êtes 100% autonomes.</p>
+  </div>
+</section>
+
+<!-- SECTION FINALE : DÉCOUVRIR AUSSI -->
+<section class="section fade-in">
+  <div class="section-label">// Pour aller plus loin</div>
+  <h2 class="section-title">Explorez mes autres expertises</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Data RH</h3>
+      <p>Structuration, nettoyage et exploitation des données RH.</p>
+      <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">Découvrir →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>IA RH</h3>
+      <p>Machine learning, NLP, chatbots appliqués aux RH.</p>
+      <a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">Découvrir →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>Automatisation</h3>
+      <p>Workflows, chatbots, onboarding automatisé.</p>
+      <a href="https://competencesrh.fr/automatisation.html" class="link-white-underline">Découvrir →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Conformité</h3>
+      <p>AI Act, RGPD, audit algorithmique.</p>
+      <a href="https://competencesrh.fr/conformite-ethique-rh.html" class="link-white-underline">Découvrir →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <span class="nav-logo">DATA<span>RH</span></span>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/methodologie.html">Méthode</a>
+    <a href="https://competencesrh.fr/blog.html">Blog</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
