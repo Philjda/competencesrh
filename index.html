@@ -11,6 +11,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
+  <style>
+    @keyframes pulse-border {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.6); }
+      50% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+    }
+    .btn-pdf-pulse:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.8) !important;
+    }
+  </style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,7 +42,6 @@
 }
 </script>
 
-
   
 </head>
 <body>
@@ -49,9 +59,7 @@
     <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
   </ul>
   <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
-
-   
-  </nav>
+ </nav>
 
    <div style="margin-top: 1.5rem;">
   <a href="https://x.com/competencerh2" target="_blank" rel="noopener" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'DM Mono'; font-size: 0.85rem; padding: 12px 20px; border: 1px solid #000; color: #000; transition: all 0.3s ease;">
@@ -80,6 +88,42 @@
     <div class="hero-actions" style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-top: 2rem;">
       <a href="https://competencesrh.fr/services.html" class="btn-primary">Découvrir les services</a>
       <a href="https://competencesrh.fr/ia-rh.html" class="btn-ghost">Testez nos outils IA</a>
+      
+      <!-- BOUTON PDF PULSANT -->
+      <a href="https://competencesrh.fr/contact.html" class="btn-pdf-pulse" style="
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 22px;
+        background: #000;
+        color: #fff;
+        border: 2px solid #ff6b35;
+        border-radius: 6px;
+        text-decoration: none;
+        font-family: 'Syne', sans-serif;
+        position: relative;
+        animation: pulse-border 2s infinite;
+        transition: transform 0.2s ease;
+      ">
+        <span style="
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          background: #ff6b35;
+          color: #fff;
+          font-size: 0.65rem;
+          font-weight: 800;
+          padding: 4px 8px;
+          border-radius: 12px;
+          font-family: 'DM Mono', monospace;
+        ">OFFERT</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem;">
+          📄 Recevez le guide PDF
+        </span>
+        <span style="display: block; font-size: 0.75rem; opacity: 0.9; margin-top: 4px; font-family: 'DM Mono', monospace;">
+          L'IA en RH · Les 10 cas d'usage
+        </span>
+      </a>
       
       <a href="https://x.com/competencerh2" target="_blank" rel="noopener" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'DM Mono'; font-size: 0.8rem; padding: 10px 18px; border: 1px solid #000; color: #000; transition: all 0.3s ease; background: #f9f9f9;">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -137,7 +181,7 @@
 
   <div class="cta-band">
     <div class="cta-band-inner">
-      <p class="cta-band-text">Vos données RH méritent mieux qu’un tableur Excel.</p>
+      <p class="cta-band-text">Vos données RH méritent mieux qu'un tableur Excel.</p>
       <a href="https://competencesrh.fr/services.html" class="btn-primary">Découvrir les services IA & People Analytics</a>
     </div>
   </div>
@@ -237,9 +281,9 @@ Explorez nos expertises en Data RH et intelligence artificielle
   <a href="https://competencesrh.fr/services.html">Services</a>
   <a href="https://competencesrh.fr/automatisation.html">Automatisation par l'IA</a> 
   <a href="https://competencesrh.fr/contact.html">Contact</a>
-  <a href="https://competencesrh.fr/data-rh.html>Data RH</a>
-    <a href="https://competencesrh.fr/modelisation-donnees-rh.html>Modelisation des données</a>
-     <a href="https://competencesrh.fr/semantic-search.html>Recherche sémantique</a>   
+  <a href="https://competencesrh.fr/data-rh.html">Data RH</a>
+  <a href="https://competencesrh.fr/modelisation-donnees-rh.html">Modelisation des données</a>
+  <a href="https://competencesrh.fr/semantic-search.html">Recherche sémantique</a>   
     
 </div>
       <a href="https://x.com/competencerh2" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 5px;">
@@ -248,9 +292,6 @@ Explorez nos expertises en Data RH et intelligence artificielle
   </a>
     </div>
     <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
-
-
-    
   </footer>
 
   <script src="main.js"></script>
