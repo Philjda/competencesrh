@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Qualité et gouvernance des données RH : comment structurer vos processus pour garantir des données fiables à la source. Règles de saisie, standardisation et responsabilité."/>
+  <title>Qualité et Gouvernance des Données RH — La fondation de vos décisions | CompetencesRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html#article",
+    "isPartOf": {
+      "@type": "WebPage",
+      "@id": "https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html"
+    },
+    "headline": "Qualité et Gouvernance des Données RH : La fondation de vos décisions",
+    "description": "Comment structurer vos processus RH pour garantir une donnée propre, standardisée et actionnable dès la source. Règles de saisie, dictionnaire de données et responsabilité.",
+    "inLanguage": "fr",
+    "mainEntityOfPage": "https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html",
+    "datePublished": "2026-07-16",
+    "dateModified": "2026-07-16",
+    "author": {
+      "@type": "Person",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr",
+      "jobTitle": "Consultant Data RH & People Analytics"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://competencesrh.fr/assets/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Faut-il un outil spécifique pour la gouvernance des données RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. La gouvernance est d'abord une question de processus et de discipline, pas de technologie. Avant d'investir dans un outil de Data Quality, commencez par définir vos règles de saisie, votre dictionnaire de données et les responsabilités de chacun dans votre SIRH ou vos fichiers Excel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qui doit être responsable de la qualité des données RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le DRH ou le Responsable RH est le propriétaire (Data Owner) de la donnée : il définit les règles et en garantit la valeur métier. En revanche, les gestionnaires de paie, les RRH et les managers sont les garants (Data Stewards) : ils sont responsables de la saisie correcte et de la mise à jour au quotidien."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment nettoyer un historique de données déjà corrompu ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La gouvernance empêche les futures erreurs, mais ne corrige pas le passé. Pour nettoyer un historique existant (doublons, formats incohérents, valeurs manquantes), il faut mettre en place des scripts de <a href='https://competencesrh.fr/ia/nettoyage-donnees-rh.html'>nettoyage de données RH</a> (via Python ou Power Query) avant de construire vos tableaux de bord."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "La gouvernance des données ralentit-elle les processus RH ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "À très court terme, l'application de nouvelles règles de saisie peut demander un effort d'adaptation. Mais à moyen terme, elle accélère considérablement tous les processus : fini les allers-retours pour corriger des erreurs, les consolidations manuelles de fin de mois ou les tableaux de bord faux à retraiter."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/methodologie.html">Méthode</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+  </ul>
+  <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Gouvernance & Qualité Data</div>
+  <div class="section-label"><span class="dot"></span> Guide pratique · DRH & Gestionnaires RH</div>
+  <h1 class="page-title">
+    Qualité et gouvernance<br>
+    des données RH :<br>
+    <em>la fondation invisible de vos décisions</em>
+  </h1>
+  <p class="page-sub">
+    Un tableau de bord RH n'a de valeur que si les données qui l'alimentent sont fiables. Découvrez comment structurer vos processus pour garantir une donnée propre, standardisée et actionnable, dès la source.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">80%</span>
+      <span class="stat-label">des échecs de projets Data<br>viennent de la qualité des données</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">piliers pour une donnée<br>fiable à la source</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">de traçabilité<br>des modifications</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Qualité des données</span><span class="sep">·</span>
+    <span>Gouvernance RH</span><span class="sep">·</span>
+    <span>Règles de saisie</span><span class="sep">·</span>
+    <span>Dictionnaire de données</span><span class="sep">·</span>
+    <span>Standardisation</span><span class="sep">·</span>
+    <span>Fiabilité SIRH</span><span class="sep">·</span>
+    <span>Data Stewardship</span><span class="sep">·</span>
+    <span>Qualité des données</span><span class="sep">·</span>
+    <span>Gouvernance RH</span><span class="sep">·</span>
+    <span>Règles de saisie</span><span class="sep">·</span>
+    <span>Dictionnaire de données</span><span class="sep">·</span>
+    <span>Standardisation</span><span class="sep">·</span>
+    <span>Fiabilité SIRH</span><span class="sep">·</span>
+    <span>Data Stewardship</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Le mythe de la donnée parfaite<br><em>et la réalité du "Garbage In, Garbage Out"</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h3>Pourquoi vos tableaux de bord sont faux</h3>
+        <p>Vous avez investi dans un <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="link-white-underline">tableau de bord RH</a> moderne, mais les chiffres ne collent pas avec la réalité du terrain. Pourquoi ? Parce que la donnée en amont est corrompue. C'est le principe du "Garbage In, Garbage Out" (déchets en entrée, déchets en sortie).</p>
+        <p>Dans 80% des PME que j'accompagne, je retrouve les mêmes erreurs : des dates de sortie antérieures aux dates d'entrée, des motifs de départ classés en "Autre", des doublons de collaborateurs, ou des libellés de services écrits de 5 façons différentes ("Compta", "Comptabilité", "Service Comptable", "FIN", "Finance").</p>
+        <ul class="service-tags">
+          <li>Incohérences de dates</li><li>Libellés non standardisés</li><li>Valeurs manquantes</li><li>Doublons</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h3>Le nettoyage n'est pas une solution durable</h3>
+        <p>Beaucoup d'entreprises tentent de résoudre ce problème a posteriori. C'est utile, et c'est d'ailleurs une partie de mon métier via des scripts de <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">nettoyage de données RH</a>. Mais nettoyer en continu est un combat perdu d'avance si la source reste polluée.</p>
+        <p>La vraie solution n'est pas technique, elle est organisationnelle. Elle s'appelle la <strong>gouvernance des données</strong>.</p>
+        <ul class="service-tags">
+          <li>Prévention vs Correction</li><li>Processus avant Outil</li><li>Responsabilisation</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Les 3 piliers de la gouvernance<br><em>des données RH</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <h3>1. Le Dictionnaire de Données</h3>
+      <p>C'est la bible de votre système. Il définit précisément chaque champ : qu'est-ce qu'un "départ" ? (Est-ce la date de la lettre ou le dernier jour travaillé ?). Quelles sont les valeurs autorisées pour le "type de contrat" ? Plus d'ambiguïté, plus d'interprétation libre.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👤</div>
+      <h3>2. La Responsabilité (Data Stewardship)</h3>
+      <p>La donnée n'est pas "à tout le monde". Le DRH est le propriétaire (Data Owner) qui définit les règles. Mais le gestionnaire de paie ou le manager est le garant (Data Steward) : c'est lui qui saisit et qui est responsable de l'exactitude de sa saisie au quotidien.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>3. Les Contrôles à la Source</h3>
+      <p>Intégrez des règles de validation directement dans vos outils. Empêcher la saisie d'une date de fin de période d'essai antérieure à la date d'embauche est 100 fois plus efficace que de corriger l'erreur 3 mois plus tard dans un tableau Excel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">Comment structurer la donnée<br><em>à la source : méthode en 4 étapes</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Auditer l'existant</h3>
+      <p>Identifiez les 5 champs les plus critiques et les plus erronés (ex : date de naissance, service, motif de sortie). Mesurez le taux d'erreur actuel pour établir un point de départ.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Standardiser les listes de valeurs</h3>
+      <p>Remplacez les champs "texte libre" par des listes déroulantes fermées. Si un manager doit choisir un motif d'absence, il ne doit pas pouvoir taper "maladie" ou "Maladie" ou "Arrêt maladie", mais sélectionner une valeur unique dans une liste prédéfinie.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Automatiser les alertes de qualité</h3>
+      <p>Configurez votre SIRH ou vos fichiers pour qu'ils bloquent ou alertent en cas d'incohérence flagrante (ex : un salaire négatif, un collaborateur avec deux contrats actifs dans le même service sans explication).</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Former et responsabiliser</h3>
+      <p>Expliquez à vos équipes <em>pourquoi</em> la qualité de saisie est cruciale. Un gestionnaire qui comprend que sa saisie impacte directement le pilotage stratégique de l'entreprise sera beaucoup plus rigoureux.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">Le lien indissoluble avec<br><em>vos indicateurs de pilotage</em></h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">04.01</div>
+      <div class="service-body">
+        <h3>Une donnée propre débloque des analyses puissantes</h3>
+        <p>Tant que vos motifs de départ sont mal renseignés, votre taux de <a href="https://competencesrh.fr/turnover.html" class="link-white-underline">turnover</a> est faux, et toute analyse des causes de démission est impossible. Une fois la donnée standardisée, vous pouvez enfin calculer des <a href="https://competencesrh.fr/analyse-donnees/indicateurs-rh.html" class="link-white-underline">indicateurs RH</a> fiables et les croiser (ex : turnover par manager, par tranche d'ancienneté, par type de contrat).</p>
+        <p>La gouvernance n'est pas une contrainte administrative. C'est le passeport qui vous permet de passer du simple reporting administratif à la véritable <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="link-white-underline">analyse de données RH</a> à valeur ajoutée.</p>
+        <ul class="service-tags">
+          <li>Fiabilité des KPI</li><li>Analyse croisée</li><li>Prise de décision</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Pourquoi une double compétence<br><em>est indispensable ici</em></h2>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Le Data Scientist pur</div>
+      <div class="compare-item">Voit des colonnes et des types de données.</div>
+      <div class="compare-item">Nettoie les données avec des scripts complexes.</div>
+      <div class="compare-item">Ne comprend pas pourquoi un manager saisit mal une information (contraintes de temps, méconnaissance du processus).</div>
+      <div class="compare-item">Propose des solutions techniques qui ne sont pas adoptées sur le terrain.</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Le RH de métier + Data Analyst</div>
+      <div class="compare-item">Comprend le processus métier derrière chaque champ de donnée.</div>
+      <div class="compare-item">Sait nettoyer les données, mais préfère d'abord corriger le processus qui crée l'erreur.</div>
+      <div class="compare-item">Parle le même langage que les gestionnaires de paie et les managers pour les former.</div>
+      <div class="compare-item">Met en place une <a href="https://competencesrh.fr/methodologie.html" class="link-white-underline">méthodologie</a> pragmatique, adoptée et durable.</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Vos données sont-elles vraiment fiables ?<br><em>Ne construisez pas votre pilotage sur du sable.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Demander un audit qualité de mes données →</a>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 06 · FAQ – Gouvernance des données RH</div>
+  <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Faut-il un outil spécifique pour la gouvernance des données RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Non. La gouvernance est d'abord une question de processus et de discipline, pas de technologie. Avant d'investir dans un outil de Data Quality, commencez par définir vos règles de saisie, votre dictionnaire de données et les responsabilités de chacun dans votre SIRH ou vos fichiers Excel.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Qui doit être responsable de la qualité des données RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Le DRH ou le Responsable RH est le propriétaire (Data Owner) de la donnée : il définit les règles et en garantit la valeur métier. En revanche, les gestionnaires de paie, les RRH et les managers sont les garants (Data Stewards) : ils sont responsables de la saisie correcte et de la mise à jour au quotidien.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Comment nettoyer un historique de données déjà corrompu ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">La gouvernance empêche les futures erreurs, mais ne corrige pas le passé. Pour nettoyer un historique existant (doublons, formats incohérents, valeurs manquantes), il faut mettre en place des scripts de <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">nettoyage de données RH</a> (via Python ou Power Query) avant de construire vos tableaux de bord.</p>
+
+    <h4 style="color: #fff; font-family: var(--font-syne); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">La gouvernance des données ralentit-elle les processus RH ?</h4>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">À très court terme, l'application de nouvelles règles de saisie peut demander un effort d'adaptation. Mais à moyen terme, elle accélère considérablement tous les processus : fini les allers-retours pour corriger des erreurs, les consolidations manuelles de fin de mois ou les tableaux de bord faux à retraiter.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <span class="nav-logo">DATA<span>RH</span></span>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/methodologie.html">Méthode</a>
+    <a href="https://competencesrh.fr/automatisation.html">Automatisation par l'IA</a> 
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+    <a href="https://competencesrh.fr/data-rh.html">Data RH</a>
+    <a href="https://competencesrh.fr/modelisation-donnees-rh.html">Modélisation des données</a>
+    <a href="https://competencesrh.fr/semantic-search.html">Recherche sémantique</a>   
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
