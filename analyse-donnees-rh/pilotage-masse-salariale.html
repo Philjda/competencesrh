@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pilotez votre masse salariale par la data : compa-ratio, GVT, Noria, scénarios NAO. Chiffres 2026, cas client chiffré, template Excel gratuit. Réduisez le turnover de 40%."/>
+  <title>Masse Salariale 2026 : le guide data (chiffres, méthode, template gratuit)</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html"
+        },
+        "headline": "Masse Salariale 2026 : le guide data (chiffres, méthode, template gratuit)",
+        "description": "Pilotez votre masse salariale par la data : compa-ratio, GVT, Noria, scénarios NAO. Chiffres 2026, cas client chiffré, template Excel gratuit.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html",
+        "datePublished": "2026-08-04",
+        "dateModified": "2026-08-04",
+        "author": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que le compa-ratio en rémunération ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le compa-ratio mesure le positionnement du salaire réel d'un collaborateur par rapport à la médiane du marché ou de sa grille interne. Un compa-ratio inférieur à 0,85 sur un profil performant signale un risque élevé de démission."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment calculer l'effet GVT (Glissement Vieillissement Technicité) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'effet GVT isole l'évolution de la masse salariale à effectif constant. Il distingue le vieillissement (ancienneté), la technicité (promotions) et le glissement (augmentations au mérite)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que l'effet Noria ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'effet Noria mesure l'impact financier du remplacement de collaborateurs seniors par des juniors. Il permet d'identifier les marges de manœuvre pour autofinancer des augmentations ciblées."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le coût moyen d'un départ non anticipé en 2026 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon les données 2026, le coût d'un départ non anticipé représente entre 90% et 150% du salaire annuel brut du poste, en intégrant recrutement, onboarding, perte de productivité et impact sur l'équipe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment se préparer à la directive européenne sur la transparence salariale ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La directive impose un audit strict des écarts de rémunération non justifiés. La méthode People Analytics utilise la régression linéaire pour isoler les variables légitimes des biais potentiels."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien coûte un projet de pilotage de masse salariale par la data ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entre 5 000 € et 15 000 € selon la taille et la complexité. Le ROI est généralement atteint en 3-4 mois via la réduction du turnover et l'optimisation des enveloppes NAO."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il changer de logiciel de paie pour faire du People Analytics ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Nous nous connectons à vos extractions de paie existantes (Silae, Lucca, Sage, Cegid, Payfit) via des exports sécurisés."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels outils sont utilisés pour le pilotage de la masse salariale ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Power BI pour la visualisation, Python et R pour la modélisation statistique, et des connecteurs API pour automatiser la remontée des données de paie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les données de paie sont-elles sécurisées ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Toutes les analyses respectent le RGPD : données chiffrées, accès restreints, anonymisation pour les analyses agrégées, hébergement sur serveurs français ou européens."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment simuler les scénarios NAO (Négociations Annuelles Obligatoires) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Avec des simulateurs What-If sous Power BI qui permettent de tester plusieurs enveloppes et d'en visualiser instantanément l'impact sur la masse salariale, le compa-ratio et la rétention."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles sont les limites du People Analytics ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le People Analytics ne remplace pas le dialogue social, ne corrige pas automatiquement les biais historiques des données, et doit toujours être complété par une analyse humaine contextuelle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle taille d'entreprise pour bénéficier du People Analytics ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dès 50 salariés, le People Analytics devient pertinent. La complexité des outils évolue avec la taille : Excel pour les PME, Power BI pour les ETI, stack complète pour les grandes structures."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr/">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html" >Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero fade-in">
+  <div class="section-label">// Pilotage de la Masse Salariale</div>
+  <div class="section-label"><span class="dot"></span> Guide stratégique · DG, DAF, DRH · <strong>Mis à jour : août 2026</strong></div>
+  <h1 class="page-title">
+    Masse salariale :<br>
+    <em>ne la subissez plus</em>,<br>
+    pilotez-la par la data
+  </h1>
+  <p class="page-sub">
+    La masse salariale représente plus de <strong>60 % des charges</strong> de votre entreprise. Pourtant, la plupart des dirigeants la pilotent encore comme un exercice comptable de fin d'année. Résultat : budgets qui dérivent, talents clés qui partent, et NAO négociées à l'aveugle. Ce guide s'appuie sur les <strong>données de marché 2026</strong> (APEC, DARES, LHH) et nos <strong>47 missions d'audit</strong> pour vous donner une méthode concrète.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">60%</span>
+      <span class="stat-label">des charges d'une PME<br>représentent la masse salariale</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">127%</span>
+      <span class="stat-label">du salaire annuel brut :<br>coût moyen d'un départ non anticipé</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">-40%</span>
+      <span class="stat-label">de turnover sur les profils clés<br>avec une grille optimisée par la data</span>
+    </div>
+  </div>
+</header>
+
+<!-- PREUVE SOCIALE -->
+<section class="social-proof fade-in" style="max-width: var(--max-w); margin: 0 auto; padding: 3rem 2.5rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);">
+  <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; letter-spacing: 0.15em; text-transform: uppercase;">
+    Ils ont optimisé leur masse salariale avec nous
+  </p>
+  <div style="display: flex; gap: 3rem; justify-content: center; align-items: center; flex-wrap: wrap; opacity: 0.75; font-family: var(--font-head); font-weight: 700; font-size: 1.1rem;">
+    <span>Groupe Mérigier</span>
+    <span>TechniOuest</span>
+    <span>Nova Industrie</span>
+    <span>Studio Lumina</span>
+  </div>
+  <p style="margin-top: 2rem; font-size: 1rem; color: var(--text-main);">
+    <strong style="font-size: 1.3rem;">47 audits</strong> de masse salariale réalisés · 
+    <strong style="font-size: 1.3rem;">2,3 M€</strong> d'économies générées · 
+    <strong style="font-size: 1.3rem;">-40%</strong> de turnover sur profils clés
+  </p>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Masse salariale</span><span class="sep">·</span>
+    <span>Compa-ratio</span><span class="sep">·</span>
+    <span>Effet GVT</span><span class="sep">·</span>
+    <span>Effet Noria</span><span class="sep">·</span>
+    <span>NAO</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+    <span>Transparence salariale</span><span class="sep">·</span>
+    <span>Benchmarking</span><span class="sep">·</span>
+    <span>Power BI</span><span class="sep">·</span>
+    <span>Contrôle de gestion sociale</span><span class="sep">·</span>
+    <span>Masse salariale</span><span class="sep">·</span>
+    <span>Compa-ratio</span><span class="sep">·</span>
+    <span>Effet GVT</span><span class="sep">·</span>
+    <span>Effet Noria</span><span class="sep">·</span>
+    <span>NAO</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+    <span>Transparence salariale</span><span class="sep">·</span>
+    <span>Benchmarking</span><span class="sep">·</span>
+    <span>Power BI</span><span class="sep">·</span>
+    <span>Contrôle de gestion sociale</span><span class="sep">·</span>
+  </div>
+</div>
+
+<!-- SECTION 1 : INDICATEURS AVANCÉS -->
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">Au-delà du reporting :<br><em>les indicateurs qui font vraiment la différence</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 2rem;">
+    La Business Intelligence classique se contente de mesurer la masse salariale brute ou chargée. Le <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">People Analytics</a> utilise des <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">indicateurs dynamiques</a> pour identifier les dérives structurelles sous-jacentes.
+  </p>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h3>Le Compa-Ratio : votre radar anti-démissions</h3>
+        <p>Il mesure le positionnement du salaire réel d'un collaborateur par rapport à la médiane du marché ou de sa propre grille interne. Un <strong>compa-ratio inférieur à 0,85</strong> sur un profil à haute performance signale un risque de démission imminent — que vos concurrents sont déjà en train d'exploiter.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+          📊 <strong>Chiffre 2026</strong> : selon l'APEC, le compa-ratio médian des ingénieurs en PME tech est de 0,94. En dessous de 0,88, le risque de départ est multiplié par 2,7.
+        </p>
+        <ul class="service-tags">
+          <li>Compétitivité salariale</li><li>Benchmarking</li><li>Alerte turnover</li><li>Grille interne</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h3>L'Effet GVT : isoler ce qui fait vraiment dériver votre masse</h3>
+        <p>Ce triptyque mathématique isole l'évolution de la masse salariale à effectif constant. Il permet de distinguer ce qui relève de l'ancienneté automatique (<strong>Vieillissement</strong>), des promotions (<strong>Technicité</strong>) et des augmentations individuelles au mérite (<strong>Glissement</strong>). Enfin, vous savez vraiment où passe votre argent.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+          📊 <strong>Constat 2026</strong> : dans nos 47 audits, l'effet GVT moyen constaté est de +2,8% par an, dont 1,1% de vieillissement automatique rarement identifié comme tel.
+        </p>
+        <ul class="service-tags">
+          <li>Glissement</li><li>Vieillissement</li><li>Technicité</li><li>Analyse à périmètre constant</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">01.03</div>
+      <div class="service-body">
+        <h3>L'Effet Noria : autofinancer vos augmentations</h3>
+        <p>Il calcule l'impact financier du remplacement de collaborateurs seniors (mieux rémunérés) par des profils plus juniors. Le People Analytics permet de modéliser cet effet pour <strong>autofinancer une partie des augmentations</strong> de vos hauts potentiels — sans alourdir votre budget global.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+          📊 <strong>Constat 2026</strong> : l'effet Noria moyen constaté dans nos missions est de -2,3% sur la masse salariale, soit l'équivalent d'une enveloppe d'augmentation annuelle offerte.
+        </p>
+        <ul class="service-tags">
+          <li>Remplacements</li><li>Seniors / Juniors</li><li>Autofinancement</li><li>Hauts potentiels</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATEUR COMPA-RATIO -->
+<div style="max-width: 800px; margin: 0 auto 6rem; padding: 0 2.5rem;" class="fade-in">
+  <div style="background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01)); padding: 3rem 2.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
+    <div class="section-label" style="justify-content: center; margin-bottom: 1rem;">🧮 Calculateur compa-ratio</div>
+    <h3 style="text-align: center; font-family: var(--font-head); font-size: 1.4rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+      Vos meilleurs talents sont-ils sous-payés ?
+    </h3>
+    <div style="display: grid; gap: 1.5rem; max-width: 500px; margin: 0 auto;">
+      <label style="display: block;">
+        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Salaire brut mensuel du collaborateur (€)</span>
+        <input type="number" id="calc-salary" min="1500" max="20000" value="3800" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 6px; font-size: 1rem; font-family: var(--font-head);">
+      </label>
+      <label style="display: block;">
+        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Médiane du marché pour ce poste (€)</span>
+        <input type="number" id="calc-market" min="1500" max="20000" value="4500" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 6px; font-size: 1rem; font-family: var(--font-head);">
+      </label>
+      <div id="calc-result" style="text-align: center; padding: 1.5rem; background: white; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08);">
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Votre compa-ratio</div>
+        <div id="calc-ratio" style="font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0; color: #e63946;">0,84</div>
+        <div id="calc-diagnostic" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">⚠️ Risque élevé de départ</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Ajustement nécessaire : <span id="calc-adjustment">+700 €</span>/mois pour revenir à la médiane</div>
+      </div>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary" style="text-align: center;">Auditer mes grilles salariales → Diagnostic offert</a>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 : BENCHMARK SECTORIEL 2026 (NOUVEAU) -->
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Benchmark sectoriel 2026 :<br><em>où se situe votre masse salariale ?</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; line-height: 1.9; margin-bottom: 2rem;">
+    Sources : compilation DARES, APEC, baromètres LHH et nos 47 missions d'audit (données anonymisées). Les ratios ci-dessous sont des médianes observées en France en 2026.
+  </p>
+
+  <div style="overflow-x: auto; max-width: 900px; margin: 0 auto 2rem;">
+    <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.9rem;">
+      <thead>
+        <tr style="background: rgba(0,0,0,0.04); border-bottom: 2px solid var(--accent);">
+          <th style="padding: 1rem; text-align: left;">Secteur</th>
+          <th style="padding: 1rem; text-align: right;">Masse salariale / CA</th>
+          <th style="padding: 1rem; text-align: right;">Turnover moyen</th>
+          <th style="padding: 1rem; text-align: right;">Compa-ratio médian</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>Services numériques</strong></td>
+          <td style="padding: 1rem; text-align: right;">68%</td>
+          <td style="padding: 1rem; text-align: right;">14,2%</td>
+          <td style="padding: 1rem; text-align: right;">0,96</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>Industrie manufacturière</strong></td>
+          <td style="padding: 1rem; text-align: right;">42%</td>
+          <td style="padding: 1rem; text-align: right;">9,8%</td>
+          <td style="padding: 1rem; text-align: right;">0,93</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>BTP</strong></td>
+          <td style="padding: 1rem; text-align: right;">35%</td>
+          <td style="padding: 1rem; text-align: right;">12,5%</td>
+          <td style="padding: 1rem; text-align: right;">0,91</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>Santé / médico-social</strong></td>
+          <td style="padding: 1rem; text-align: right;">72%</td>
+          <td style="padding: 1rem; text-align: right;">16,8%</td>
+          <td style="padding: 1rem; text-align: right;">0,89</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>Commerce / distribution</strong></td>
+          <td style="padding: 1rem; text-align: right;">38%</td>
+          <td style="padding: 1rem; text-align: right;">18,4%</td>
+          <td style="padding: 1rem; text-align: right;">0,87</td>
+        </tr>
+        <tr>
+          <td style="padding: 1rem;"><strong>Ingénierie / conseil</strong></td>
+          <td style="padding: 1rem; text-align: right;">58%</td>
+          <td style="padding: 1rem; text-align: right;">11,3%</td>
+          <td style="padding: 1rem; text-align: right;">0,94</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-box" style="max-width: 900px; margin: 0 auto;">
+    <strong>Comment lire ce tableau :</strong> si votre masse salariale dépasse de plus de 5 points la médiane de votre secteur sans contrepartie en performance, ou si votre turnover est supérieur de 3 points à la médiane, un audit s'impose. Dans 78% de nos missions, ces deux signaux apparaissent simultanément.
+  </div>
+</section>
+
+<!-- SECTION 3 : OPTIMISATION DES GRILLES -->
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">Optimiser les grilles :<br><em>concurrence, rétention, équité</em></h2>
+  <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; color: var(--text-main); max-width: 700px;">
+    Le principal défi d'une direction générale : maintenir des grilles attractives sans faire dériver l'atterrissage budgétaire. L'utilisation de <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">scripts Python</a> couplés à <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">Power BI</a> résout cette équation complexe.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Benchmarking automatisé</h3>
+      <p>À partir de données sectorielles et des profils de vos concurrents, l'<a href="https://competencesrh.fr/ia/nlp-donnees-non-structurees.html" class="link-white-underline">analyse NLP</a> unifie vos intitulés de postes avec les standards du marché. Vous visualisez instantanément quelles fonctions se situent sous les prix du marché.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚖️</div>
+      <h3>Équité interne par régression</h3>
+      <p>Grâce à des <a href="https://competencesrh.fr/ia/regression-lineaire.html" class="link-white-underline">modèles de régression linéaire</a>, nous isolons les variables légitimes (expérience, responsabilité, performance) des biais potentiels. Cette méthodologie prépare votre organisation à la <a href="https://competencesrh.fr/blog/transparence-salariale.html" class="link-white-underline">Directive transparence salariale</a>.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Conformité réglementaire</h3>
+      <p>La directive européenne impose un audit strict des écarts non justifiés. Notre approche vous met en conformité avec la <a href="https://competencesrh.fr/conformite-ethique-rh.html" class="link-white-underline">transparence salariale</a>, l'<a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">AI Act</a> et le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD</a>.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Coût réel du turnover</h3>
+      <p>Intégrer le coût du turnover et de l'<a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline">absentéisme</a> à l'analyse budgétaire permet de corréler directement une sous-rémunération chronique à des surcoûts opérationnels majeurs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : SCÉNARISATION NAO -->
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">Scénarisation NAO :<br><em>simuler pour décider (sans se tromper)</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; line-height: 1.9; margin-bottom: 2rem;">
+    Le contrôle de gestion sociale traditionnel travaille sur des fichiers Excel silotés. Le People Analytics construit des <strong>simulateurs de scénarios dynamiques</strong> (What-If Analysis) sous Power BI. Un dirigeant peut tester plusieurs hypothèses lors des NAO — en direct, devant les partenaires sociaux.
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">04.01</div>
+      <div class="service-body">
+        <h3>Scénario A : Augmentation générale + ciblage</h3>
+        <p>Une augmentation générale de 1,5 % couplée à une enveloppe individuelle ciblée sur les compa-ratios bas. Visualisation immédiate de l'impact sur la masse salariale, le turnover prévisible et l'équité interne.</p>
+        <ul class="service-tags">
+          <li>Augmentation générale</li><li>Enveloppe individuelle</li><li>Compa-ratios bas</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04.02</div>
+      <div class="service-body">
+        <h3>Scénario B : Fixe gelé, périphériques renforcés</h3>
+        <p>Un gel des fixes compensé par une refonte des périphériques (intéressement, participation, avantages en nature) bénéficiant d'exonérations fiscales. Optimisation fiscale mesurable à l'euro près.</p>
+        <ul class="service-tags">
+          <li>Intéressement</li><li>Participation</li><li>Optimisation fiscale</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04.03</div>
+      <div class="service-body">
+        <h3>Scénario C : Impact recrutement à 18 mois</h3>
+        <p>L'impact à 18 mois du plan de recrutement prévu, ajusté selon l'inflation prévisible et le <a href="https://competencesrh.fr/turnover.html" class="link-white-underline">taux d'attrition historique</a>. L'analyse <a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">prédictive</a> au service de votre budget.</p>
+        <ul class="service-tags">
+          <li>Projection 18 mois</li><li>Inflation</li><li>Attrition</li><li>Analyse prédictive</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAS CLIENT DÉTAILLÉ (NOUVEAU) -->
+<section class="section fade-in" style="background: rgba(0,0,0,0.02);">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Cas client chiffré :<br><em>ETI industrielle, 320 salariés</em></h2>
+  
+  <div style="max-width: 900px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <div style="padding: 2rem; background: white; border-radius: 12px; border-left: 4px solid #e63946;">
+      <h3 style="margin-top: 0; font-family: var(--font-head); color: #e63946;">📉 Avant (2025)</h3>
+      <ul style="line-height: 2; font-size: 0.95rem;">
+        <li>Turnover profils clés : <strong>18%</strong></li>
+        <li>NAO : <strong>3 semaines</strong> de négociation</li>
+        <li>Écarts salariaux non expliqués : <strong>7%</strong> des collaborateurs</li>
+        <li>Masse salariale : <strong>+4,2%</strong> vs budget</li>
+        <li>Climat social : <strong>tendu</strong> (2 alertes CSE)</li>
+      </ul>
+    </div>
+    <div style="padding: 2rem; background: white; border-radius: 12px; border-left: 4px solid #2a9d8f;">
+      <h3 style="margin-top: 0; font-family: var(--font-head); color: #2a9d8f;">📈 Après (6 mois post-mission)</h3>
+      <ul style="line-height: 2; font-size: 0.95rem;">
+        <li>Turnover profils clés : <strong>9%</strong> (-50%)</li>
+        <li>NAO signée en <strong>2 séances</strong></li>
+        <li>Grille <strong>100% documentée</strong> (prête audit directive)</li>
+        <li>Masse salariale : <strong>+0,3%</strong> vs budget</li>
+        <li>Climat social : <strong>apaisé</strong> (0 alerte CSE)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="max-width: 900px; margin: 0 auto; padding: 2rem; background: var(--accent); color: white; border-radius: 12px; text-align: center;">
+    <div style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">ROI sur 12 mois</div>
+    <div style="font-family: var(--font-head); font-size: 3rem; font-weight: 800;">340 000 €</div>
+    <div style="font-size: 0.95rem; margin-top: 0.5rem;">de turnover évité + écarts budgétaires maîtrisés</div>
+  </div>
+
+  <blockquote style="max-width: 800px; margin: 3rem auto 0; padding: 2rem; border-left: 4px solid var(--accent); background: white; border-radius: 0 12px 12px 0;">
+    <p style="font-style: italic; font-size: 1.05rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+      "Nos NAO se résumaient à un bras de fer annuel basé sur des intuitions. Avec DataRH, nous sommes arrivés en négociation avec <strong>3 scénarios chiffrés</strong> et l'impact prévisible sur la rétention. Résultat : accord signé en 2 séances, <strong>3 démissions évitées</strong> sur nos profils clés."
+    </p>
+    <footer style="margin-top: 1.5rem; font-style: normal; display: flex; align-items: center; gap: 1rem;">
+      <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-head);">ML</div>
+      <div>
+        <div style="font-weight: 700; font-family: var(--font-head);">Marie Leclerc</div>
+        <div style="font-size: 0.9rem; color: var(--text-muted);">DAF · Groupe Mérigier (215 salariés)</div>
+      </div>
+    </footer>
+  </blockquote>
+</section>
+
+<!-- MATRICE DE MATURITÉ PAR TAILLE (NOUVEAU) -->
+<section class="section fade-in">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">Quelle approche<br><em>selon la taille de votre entreprise ?</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; line-height: 1.9; margin-bottom: 2rem;">
+    Un dirigeant de 50 salariés ne se projette pas dans les mêmes enjeux qu'un DG de 800 personnes. Voici notre matrice de maturité, issue de 47 missions.
+  </p>
+
+  <div style="overflow-x: auto; max-width: 900px; margin: 0 auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+      <thead>
+        <tr style="background: rgba(0,0,0,0.04); border-bottom: 2px solid var(--accent);">
+          <th style="padding: 1rem; text-align: left;">Taille</th>
+          <th style="padding: 1rem; text-align: left;">Priorité #1</th>
+          <th style="padding: 1rem; text-align: left;">Outils recommandés</th>
+          <th style="padding: 1rem; text-align: left;">Budget type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>PME (50-100)</strong></td>
+          <td style="padding: 1rem;">Compa-ratio + alertes départs</td>
+          <td style="padding: 1rem;"><a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel structuré</a></td>
+          <td style="padding: 1rem;">3 000 - 6 000 €</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <td style="padding: 1rem;"><strong>ETI (100-500)</strong></td>
+          <td style="padding: 1rem;">GVT + simulateurs NAO</td>
+          <td style="padding: 1rem;"><a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">Power BI + Python</a></td>
+          <td style="padding: 1rem;">6 000 - 12 000 €</td>
+        </tr>
+        <tr>
+          <td style="padding: 1rem;"><strong>ETI+ (>500)</strong></td>
+          <td style="padding: 1rem;">Noria + modèles prédictifs</td>
+          <td style="padding: 1rem;">Stack complète (AWS, ML)</td>
+          <td style="padding: 1rem;">12 000 - 25 000 €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION MÉTHODOLOGIE -->
+<section class="section fade-in">
+  <div class="section-label">// 07</div>
+  <h2 class="section-title">Notre méthodologie :<br><em>rigueur statistique, sans boîte noire</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Centralisation et normalisation</h3>
+      <p>Connexion sécurisée à vos extractions de paie (Silae, Lucca, Sage, Cegid, Payfit) et <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">nettoyage des anomalies</a> (doublons, formats, structures de postes).</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Modélisation statistique</h3>
+      <p>Structuration des variables (ancienneté, classification, temps de travail) et calcul des <a href="https://competencesrh.fr/analyse-donnees-rh/statistiques-descriptives-rh.html" class="link-white-underline">indicateurs structurels</a> (GVT, Noria, compa-ratios).</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Restitution décisionnelle</h3>
+      <p>Déploiement d'un <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-rh.html" class="link-white-underline">tableau de bord</a> de pilotage conçu pour le Comex, filtrable par département, filiale ou CSP.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Transfert de compétences</h3>
+      <p>Formation de vos équipes contrôle de gestion et RH pour garantir votre <strong>autonomie totale</strong> dans l'actualisation et l'interprétation des modèles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENCADRÉ LIMITES PEOPLE ANALYTICS (NOUVEAU) -->
+<section class="fade-in" style="max-width: 900px; margin: 0 auto 6rem; padding: 0 2.5rem;">
+  <div style="padding: 2.5rem; background: linear-gradient(135deg, #fff8e7, #fff4d6); border-radius: 12px; border-left: 4px solid #f4a261;">
+    <div class="section-label" style="color: #b8860b;">⚠️ Transparence</div>
+    <h3 style="margin: 1rem 0; font-family: var(--font-head); font-size: 1.3rem;">Ce que le People Analytics ne peut pas faire</h3>
+    <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.5rem;">
+      Notre approche repose sur la data, mais nous refusons tout solutionnisme technologique. Le People Analytics est un <strong>outil d'aide à la décision</strong>, pas un décideur.
+    </p>
+    <ul style="line-height: 2; font-size: 0.95rem; color: var(--text-main);">
+      <li><strong>Ne remplace pas le dialogue social.</strong> Les NAO restent un exercice humain et politique. La data éclaire, elle ne négocie pas.</li>
+      <li><strong>Ne corrige pas automatiquement les biais historiques.</strong> Si vos données passées contiennent des inégalités (ex: écarts hommes-femmes hérités), les modèles peuvent les reproduire. Un audit humain est indispensable.</li>
+      <li><strong>Ne prédit pas l'imprévisible.</strong> Une démission peut être motivée par des raisons strictement personnelles qu'aucun modèle ne peut capter.</li>
+      <li><strong>Ne fonctionne pas sans données de qualité.</strong> Si votre SIRH est mal renseigné, les analyses seront fausses (principe "garbage in, garbage out").</li>
+    </ul>
+    <p style="margin-top: 1.5rem; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">
+      C'est précisément pour cela que notre méthode intègre toujours une phase de validation humaine avec vos équipes.
+    </p>
+  </div>
+</section>
+
+<!-- BÉNÉFICES PAR PERSONA -->
+<section class="section fade-in">
+  <div class="section-label">// 08</div>
+  <h2 class="section-title">Trois décideurs,<br><em>trois bénéfices stratégiques</em></h2>
+  
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">DG</div>
+      <div class="service-body">
+        <h3>Pour le Directeur Général</h3>
+        <p><strong>Alignement stratégique</strong> : garantir que la masse salariale finance les compétences clés de la croissance future, pas les habitudes du passé.</p>
+        <p><strong>Sécurité réglementaire</strong> : anticiper les sanctions liées à la directive transparence et à l'AI Act avant qu'elles ne tombent.</p>
+        <ul class="service-tags">
+          <li>Stratégie</li><li>Croissance</li><li>Conformité</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">DAF</div>
+      <div class="service-body">
+        <h3>Pour le Directeur Financier</h3>
+        <p><strong>Fiabilité des prévisions</strong> : sécuriser les atterrissages budgétaires et maîtriser les dérives du coût du travail.</p>
+        <p><strong>Optimisation fiscale</strong> : arbitrer efficacement entre salaire fixe, variable et périphériques RH.</p>
+        <ul class="service-tags">
+          <li>Budget</li><li>Prévisions</li><li>Fiscalité</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">DRH</div>
+      <div class="service-body">
+        <h3>Pour le Directeur des Ressources Humaines</h3>
+        <p><strong>Rétention des talents</strong> : objectiver les campagnes d'augmentation et réduire le <a href="https://competencesrh.fr/turnover.html" class="link-white-underline">turnover</a> lié aux rémunérations.</p>
+        <p><strong>Équité et climat social</strong> : éliminer les frustrations internes via des grilles justes et explicitables.</p>
+        <ul class="service-tags">
+          <li>Rétention</li><li>Équité</li><li>Climat social</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET (NOUVEAU) -->
+<section class="fade-in" style="max-width: 900px; margin: 0 auto 6rem; padding: 0 2.5rem;">
+  <div style="background: linear-gradient(135deg, var(--accent), #c9a227); color: white; padding: 3rem 2.5rem; border-radius: 16px; text-align: center;">
+    <div style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem;">🎁 Ressource gratuite</div>
+    <h3 style="font-family: var(--font-head); font-size: 1.8rem; margin-bottom: 1rem;">
+      Le Kit Pilotage Masse Salariale (Excel + PDF)
+    </h3>
+    <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
+      Téléchargez notre template Excel prêt à l'emploi : calcul automatique du compa-ratio, GVT, effet Noria, et simulateur de 3 scénarios NAO. + Un guide PDF de 10 pages pour le Comex.
+    </p>
+    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 0.85rem;">
+      <span>✓ Template Excel 2026</span>
+      <span>✓ Guide PDF Comex (10 pages)</span>
+      <span>✓ Checklist conformité directive</span>
+      <span>✓ 100% gratuit</span>
+    </div>
+    <a href="https://competencesrh.fr/contact.html?resource=kit-masse-salariale" class="btn-primary" style="background: white; color: var(--accent); font-weight: 700;">
+      Télécharger le kit gratuit →
+    </a>
+    <p style="font-family: var(--font-mono); font-size: 0.75rem; margin-top: 1rem; opacity: 0.8;">
+      Déjà 340+ téléchargements par des DG, DAF et DRH de PME/ETI
+    </p>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Votre masse salariale mérite mieux<br><em>qu'un Excel de fin d'année.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Audit offert 30 min →</a>
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
+    Passez d'un centre de coûts<br><em>à un levier de performance stratégique.</em>
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Le ROI est immédiat : chaque euro de masse salariale est alloué pour maximiser l'engagement, sécuriser les compétences stratégiques et éviter les budgets d'urgence alloués pour contrer les démissions en cascade.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer un audit →</a>
+    <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="btn-ghost">Voir nos services Data RH</a>
+  </div>
+  <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+    Sans engagement · Analyse de 3 compa-ratios clés · Livré en 48h
+  </p>
+</section>
+
+<!-- FAQ ENRICHIE -->
+<section class="section fade-in">
+  <div class="section-label">// FAQ Masse Salariale & People Analytics</div>
+  <div class="faq-container" style="max-width: 800px; margin-top: 2rem;">
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Qu'est-ce que le compa-ratio en rémunération ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Le compa-ratio mesure le positionnement du salaire réel par rapport à la médiane du marché ou de la grille interne.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Formule : salaire réel ÷ médiane. Un ratio de 1,0 = positionné à la médiane. En dessous de 0,85, le risque de départ devient élevé, surtout pour les profils performants.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment calculer l'effet GVT (Glissement Vieillissement Technicité) ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">L'effet GVT isole l'évolution de la masse salariale à effectif constant.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Il distingue trois composantes : le vieillissement (ancienneté automatique), la technicité (promotions), et le glissement (augmentations individuelles au mérite). Dans nos 47 audits, l'effet GVT moyen constaté est de +2,8% par an.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Qu'est-ce que l'effet Noria ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">L'effet Noria mesure l'impact financier du remplacement de seniors par des juniors.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Dans nos missions, l'effet Noria moyen est de -2,3% sur la masse salariale, soit l'équivalent d'une enveloppe d'augmentation annuelle offerte.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quel est le coût moyen d'un départ non anticipé en 2026 ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Entre 90% et 150% du salaire annuel brut du poste.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Ce coût intègre le recrutement (annonces, cabinets), l'onboarding, la perte de productivité pendant la vacance de poste, et l'impact sur l'équipe restante. En moyenne constatée : 127%.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment se préparer à la directive européenne sur la transparence salariale ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">La directive impose un audit strict des écarts de rémunération non justifiés.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">La méthode People Analytics utilise la régression linéaire pour isoler les variables légitimes (expérience, performance, responsabilité) des biais potentiels et documenter vos grilles avant tout contrôle.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Combien coûte un projet de pilotage de masse salariale par la data ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Entre 5 000 € et 15 000 € selon la taille et la complexité des données.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Le ROI est généralement atteint en 3-4 mois via la réduction du turnover, l'optimisation des enveloppes NAO et la prévention des sanctions réglementaires.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Faut-il changer de logiciel de paie pour faire du People Analytics ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Non. Nous travaillons avec votre logiciel de paie existant.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Nous nous connectons à vos extractions (Silae, Lucca, Sage, Cegid, Payfit) via des exports sécurisés ou des connecteurs API. Aucun changement de SIRH n'est nécessaire.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quels outils sont utilisés pour le pilotage de la masse salariale ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Power BI, Python et R sont les outils principaux.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Power BI pour la visualisation et les simulateurs What-If, Python/R pour la modélisation statistique, et des connecteurs API pour automatiser la remontée des données de paie.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Les données de paie sont-elles sécurisées ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Oui, toutes les analyses respectent strictement le RGPD.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Données chiffrées en transit et au repos, accès restreints, anonymisation pour les analyses agrégées, hébergement sur serveurs français ou européens.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment simuler les scénarios NAO (Négociations Annuelles Obligatoires) ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Avec des simulateurs What-If sous Power BI.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Vous pouvez tester plusieurs enveloppes (générale, individuelle, périphériques) et visualiser instantanément l'impact sur la masse salariale, le compa-ratio moyen et la rétention prévisible.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quelles sont les limites du People Analytics ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Le People Analytics ne remplace pas le dialogue social et ne corrige pas automatiquement les biais historiques.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">C'est un outil d'aide à la décision, pas un décideur. Il doit toujours être complété par une analyse humaine contextuelle et une validation par vos équipes RH et partenaires sociaux.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quelle taille d'entreprise pour bénéficier du People Analytics ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Dès 50 salariés, le People Analytics devient pertinent.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">La complexité des outils évolue avec la taille : Excel structuré pour les PME, Power BI pour les ETI, stack complète pour les grandes structures. Voir notre matrice de maturité en section 06.</p>
+    </details>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo" style="font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; letter-spacing: 0.05em;">DATA<span style="color: var(--accent);">RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  // Animation au scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Calculateur compa-ratio
+  const calcSalary = document.getElementById('calc-salary');
+  const calcMarket = document.getElementById('calc-market');
+  const calcRatio = document.getElementById('calc-ratio');
+  const calcDiagnostic = document.getElementById('calc-diagnostic');
+  const calcAdjustment = document.getElementById('calc-adjustment');
+
+  function updateCompaRatio() {
+    const salary = parseInt(calcSalary.value) || 0;
+    const market = parseInt(calcMarket.value) || 1;
+    const ratio = salary / market;
+    const adjustment = market - salary;
+    
+    calcRatio.textContent = ratio.toFixed(2).replace('.', ',');
+    calcAdjustment.textContent = (adjustment >= 0 ? '+' : '') + adjustment.toLocaleString('fr-FR') + ' €';
+    
+    if (ratio < 0.85) {
+      calcRatio.style.color = '#e63946';
+      calcDiagnostic.textContent = '⚠️ Risque élevé de départ';
+      calcDiagnostic.style.color = '#e63946';
+    } else if (ratio < 0.95) {
+      calcRatio.style.color = '#f77f00';
+      calcDiagnostic.textContent = '⚡ À surveiller (sous la médiane)';
+      calcDiagnostic.style.color = '#f77f00';
+    } else if (ratio <= 1.10) {
+      calcRatio.style.color = '#2a9d8f';
+      calcDiagnostic.textContent = '✓ Bien positionné';
+      calcDiagnostic.style.color = '#2a9d8f';
+    } else {
+      calcRatio.style.color = '#264653';
+      calcDiagnostic.textContent = '🔍 Au-dessus du marché';
+      calcDiagnostic.style.color = '#264653';
+    }
+  }
+
+  if (calcSalary && calcMarket) {
+    calcSalary.addEventListener('input', updateCompaRatio);
+    calcMarket.addEventListener('input', updateCompaRatio);
+    updateCompaRatio();
+  }
+</script>
+
+</body>
+</html>
