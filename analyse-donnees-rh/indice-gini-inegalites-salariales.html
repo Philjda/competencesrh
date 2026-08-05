@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Un bon Index Égalité Pro peut masquer des écarts explosifs. Cas client ETI + méthode complète pour détecter les inégalités salariales cachées dans vos grilles, avant les NAO."/>
+  <title>Détecter les inégalités salariales en entreprise : l'analyse que votre Index ne voit pas</title>
+  <link rel="stylesheet" href="https://competencesrh.fr/style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html"
+        },
+        "headline": "Détecter les inégalités salariales en entreprise : l'analyse que votre Index ne voit pas",
+        "description": "Un bon Index Égalité Pro peut masquer des écarts explosifs. Cas client ETI + méthode complète pour détecter les inégalités salariales cachées dans vos grilles, avant les NAO.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html",
+        "datePublished": "2026-08-05",
+        "dateModified": "2026-08-05",
+        "author": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Détection des inégalités salariales en entreprise"
+        },
+        "mentions": [
+          {"@type": "Thing", "name": "Indice de Gini"},
+          {"@type": "Thing", "name": "Courbe de Lorenz"},
+          {"@type": "Thing", "name": "Index Égalité Professionnelle"},
+          {"@type": "Thing", "name": "People Analytics"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment détecter les inégalités salariales cachées dans une entreprise ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En analysant la distribution réelle des rémunérations plutôt que les moyennes. On classe les salaires par ordre croissant, on trace la courbe de Lorenz par strate (coefficient, service, ancienneté) et on calcule l'indice de Gini. Les strates dont le Gini dépasse 0,35 révèlent des anomalies invisibles dans les moyennes globales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi l'Index Égalité Pro ne suffit-il pas ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'Index Égalité Pro repose sur des moyennes par catégorie socio-professionnelle. Il peut masquer des disparités extrêmes à l'intérieur d'un même coefficient ou service. Deux salariés à 2 100 € et 3 800 € produisent une moyenne « correcte » de 2 950 €. L'index ne voit pas la disparité, l'analyse de distribution si."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que l'indice de Gini appliqué aux salaires ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "C'est un indicateur qui mesure la concentration des inégalités dans la distribution des rémunérations. Il varie de 0 (égalité parfaite) à 1 (inégalité maximale). Appliqué par strate, il révèle les micro-inégalités invisibles dans les moyennes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est un bon score de Gini pour une entreprise ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entre 0,15 et 0,30 au global, c'est normal (reflète les différences légitimes de postes). Au-delà de 0,35 au sein d'une même strate (coefficient, service, ancienneté), des anomalies structurelles sont probables et méritent un audit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "L'analyse des inégalités salariales est-elle compatible avec le RGPD ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Le calcul se fait sur des données anonymisées ou agrégées par strate. Aucune donnée nominative n'est nécessaire pour le calcul lui-même. Les résultats sont présentés sous forme de distributions statistiques."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment intégrer cette analyse dans mon tableau de bord RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En calculant l'indice de Gini par strate trimestriellement, avec un seuil d'alerte à 0,35. Nous l'intégrons dans Power BI via un script Python pour l'automatisation. Voir notre guide des tableaux de bord RH."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero fade-in">
+  <div class="section-label">// Analyse de données RH · Équité salariale</div>
+  <div class="section-label"><span class="dot"></span> 5 août 2026 · 12 min de lecture · Cible : DRH, DAF</div>
+  <h1 class="page-title">
+    Détecter les inégalités<br>
+    salariales : l'analyse que<br>
+    <em>votre Index ne voit pas</em>
+  </h1>
+  <p class="page-sub">
+    Votre Index Égalité Pro affiche un solide 87/100 et pourtant, vos NAO ont failli exploser. C'est le piège classique : les moyennes réglementaires masquent la distribution réelle des rémunérations. Voici la méthode — issue d'un cas client réel — pour détecter les inégalités salariales cachées avant qu'elles ne deviennent une crise sociale.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">87/100</span>
+      <span class="stat-label">score d'Index qui masquait<br>les anomalies réelles</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">24h</span>
+      <span class="stat-label">pour cartographier la distribution<br>et révéler les écarts cachés</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">micro-anomalies détectées<br>et corrigées avant la crise</span>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Inégalités salariales</span><span class="sep">·</span>
+    <span>Index Égalité Pro</span><span class="sep">·</span>
+    <span>Courbe de Lorenz</span><span class="sep">·</span>
+    <span>Indice de Gini</span><span class="sep">·</span>
+    <span>NAO</span><span class="sep">·</span>
+    <span>Équité salariale</span><span class="sep">·</span>
+    <span>Transparence salariale</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+    <span>Inégalités salariales</span><span class="sep">·</span>
+    <span>Index Égalité Pro</span><span class="sep">·</span>
+    <span>Courbe de Lorenz</span><span class="sep">·</span>
+    <span>Indice de Gini</span><span class="sep">·</span>
+    <span>NAO</span><span class="sep">·</span>
+    <span>Équité salariale</span><span class="sep">·</span>
+    <span>Transparence salariale</span><span class="sep">·</span>
+    <span>People Analytics</span><span class="sep">·</span>
+  </div>
+</div>
+
+<!-- ═══ PARTIE 1 : STORYTELLING (TEXTE ORIGINAL INTÉGRAL) ═══ -->
+
+<section class="section fade-in">
+  <div class="section-label">// 01 — La situation</div>
+  <h2 class="section-title">Une DRH satisfaite,<br><em>un index dans le vert</em></h2>
+  <div style="max-width: 720px; margin: 0 auto; line-height: 1.85; font-size: 1.02rem;">
+    <p>La DRH était plutôt satisfaite.</p>
+    <p>À la dernière publication de l'<a href="https://competencesrh.fr/blog/transparence-salariale.html" class="link-white-underline">Index Égalité Professionnelle</a>, son entreprise affichait un solide <strong>87/100</strong>. Pour cette ETI de 250 salariés, le signal semblait clair : la politique RH tenait la route, les indicateurs étaient dans le vert, et les tableaux de bord Excel confirmaient une situation globalement maîtrisée.</p>
+    <p>En apparence, tout allait bien.</p>
+    <p>Mais quelques semaines plus tard, lors des <a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="link-white-underline">négociations annuelles obligatoires</a>, le climat a changé. Les représentants du personnel ont mis le doigt sur un sujet sensible : dans un service précis, les écarts de rémunération semblaient difficiles à justifier. Très vite, les échanges ont dépassé le cadre technique. Des cas individuels ont été cités, la tension est montée, et la DRH a compris que ses moyennes globales ne racontaient pas toute l'histoire.</p>
+  </div>
+</section>
+
+<section class="section fade-in" style="background: rgba(0,0,0,0.02);">
+  <div class="section-label">// 02 — Le piège</div>
+  <h2 class="section-title">Quand une bonne note masque<br><em>une réalité fragile</em></h2>
+  <div style="max-width: 720px; margin: 0 auto; line-height: 1.85; font-size: 1.02rem;">
+    <p>C'est l'un des pièges les plus fréquents en matière d'égalité salariale : un bon score global peut masquer des inégalités internes très fortes.</p>
+    <p>L'Index Égalité Professionnelle est utile, mais il reste un indicateur agrégé. Il peut dire qu'une organisation progresse, sans montrer où se nichent les déséquilibres. Dans cette entreprise, la moyenne générale était rassurante, mais elle cachait des écarts extrêmes à l'intérieur même de certains coefficients, métiers ou équipes. Autrement dit : <em>la photo officielle était flatteuse, mais le film social était beaucoup plus contrasté.</em></p>
+    <p>Et c'est exactement là que la difficulté commence pour un DRH. Car lorsque le dialogue social s'ouvre, les moyennes ne suffisent plus. Les partenaires sociaux veulent voir la structure réelle des rémunérations, pas seulement une note réglementaire.</p>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03 — Le déclencheur</div>
+  <h2 class="section-title">Des écarts invisibles<br><em>dans les moyennes</em></h2>
+  <div style="max-width: 720px; margin: 0 auto; line-height: 1.85; font-size: 1.02rem;">
+    <p>Le service pointé du doigt n'était pas le plus exposé sur le papier. Pourtant, en creusant, on a constaté qu'une partie des salariés se situait durablement sous la médiane du groupe, tandis qu'un petit nombre captait une part importante de la masse salariale.</p>
+    <p>Le problème n'était pas seulement l'écart entre femmes et hommes. Il était plus profond : une distribution salariale déséquilibrée, concentrée, peu lisible, et donc vulnérable au conflit social.</p>
+    <p>La DRH avait bien des graphiques, des moyennes, des ratios. Mais elle n'avait pas encore d'outil capable de mesurer la répartition réelle des salaires dans l'organisation.</p>
+    <p>C'est là que l'<strong>indice de Gini</strong> a changé la donne.</p>
+  </div>
+</section>
+
+<section class="section fade-in" style="background: rgba(0,0,0,0.02);">
+  <div class="section-label">// 04 — L'approche</div>
+  <h2 class="section-title">Remplacer la moyenne<br><em>par la distribution</em></h2>
+  <div style="max-width: 720px; margin: 0 auto; line-height: 1.85; font-size: 1.02rem;">
+    <p>Nous avons récupéré le fichier des rémunérations anonymisé. Plutôt que de comparer uniquement des moyennes, nous avons classé les salariés par niveau de rémunération, puis observé comment la masse salariale se répartissait progressivement dans l'entreprise.</p>
+    <p>L'objectif était simple : répondre à une question essentielle.</p>
+    <p style="text-align: center; font-weight: 700; font-family: var(--font-head); font-size: 1.1rem; padding: 1.5rem; background: white; border-radius: 8px; border-left: 4px solid var(--accent); margin: 1.5rem 0;">
+      Les salaires sont-ils répartis de façon homogène, ou bien concentrés sur quelques poches de valeur ?
+    </p>
+    <p>Pour y répondre, nous avons utilisé la <strong>courbe de Lorenz</strong>, qui représente le cumul des effectifs en face du cumul des salaires. Puis nous avons calculé l'aire sous la courbe à l'aide de l'intégrale, afin d'en déduire l'indice de Gini.</p>
+    <p>Plus la courbe s'éloigne de la ligne d'égalité parfaite, plus les inégalités sont fortes. Plus l'aire entre les deux courbes est grande, plus le Gini augmente.</p>
+    <p>En <strong>24 heures de calcul</strong>, les anomalies sont apparues avec une netteté que les tableaux de bord habituels ne permettaient pas de voir.</p>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05 — Ce que révélait l'analyse</div>
+  <h2 class="section-title">Quatre micro-anomalies,<br><em>une structure déséquilibrée</em></h2>
+  <div style="max-width: 720px; margin: 0 auto; line-height: 1.85; font-size: 1.02rem;">
+    <p>L'analyse a mis en évidence quatre micro-anomalies salariales. Aucune n'était, prise isolément, spectaculaire. Mais ensemble, elles dessinaient une structure déséquilibrée :</p>
+    <ul style="line-height: 2; margin: 1.5rem 0;">
+      <li>un écart mal corrigé dans une strate intermédiaire ;</li>
+      <li>une politique de promotion irrégulière dans un service clé ;</li>
+      <li>des variables de rémunération trop concentrées sur quelques profils ;</li>
+      <li>un sous-positionnement persistant de certains salariés pourtant comparables.</li>
+    </ul>
+    <p>Ce que les moyennes masquaient, l'analyse de distribution l'a rendu visible. Et cette visibilité a tout changé.</p>
+    <p>Car un DRH ne pilote pas seulement une conformité réglementaire. Il pilote aussi une <strong>crédibilité sociale</strong>. Or face à des partenaires sociaux, il est toujours plus difficile de défendre une politique salariale quand la structure de répartition n'a jamais été objectivée sérieusement.</p>
+  </div>
+</section>
+
+<section class="section fade-in" style="background: rgba(0,0,0,0.02);">
+  <div class="section-label">// 06 — Le bénéfice</div>
+  <h2 class="section-title">Reprendre la main<br><em>avant la crise</em></h2>
+  <div style="max-width: 720px; margin: 0 auto; line-height: 1.85; font-size: 1.02rem;">
+    <p>L'entreprise a pu corriger ces quatre points avant que la situation n'explose.</p>
+    <p>Les ajustements ont été ciblés, rapides et documentés. La DRH a pu revenir en NAO avec autre chose qu'un discours défensif : une <strong>cartographie scientifique, claire et incontestable</strong> de sa politique salariale. Le débat a changé de nature. On ne parlait plus seulement de ressenti ou de cas isolés, mais d'une structure mesurée, visualisée, et donc traitable.</p>
+    <p><strong>Résultat :</strong> la direction RH a retrouvé de la crédibilité. Et surtout, elle a évité qu'une faiblesse invisible ne se transforme en crise ouverte.</p>
+  </div>
+</section>
+
+<!-- ═══ PARTIE 2 : APPROFONDISSEMENT TECHNIQUE ═══ -->
+
+<section class="section fade-in">
+  <div class="section-label">// 07 — La méthode en profondeur</div>
+  <h2 class="section-title">Ce que cette histoire enseigne<br><em>aux DRH qui veulent reproduire</em></h2>
+  <div style="max-width: 720px; margin: 0 auto 2rem; line-height: 1.85; font-size: 1.02rem;">
+    <p>Cette situation illustre une vérité simple : un bon index ne garantit pas une bonne lecture des inégalités. L'Index Égalité Professionnelle est indispensable, mais il ne suffit pas toujours à détecter les zones de fragilité interne.</p>
+    <p>Dès qu'une entreprise veut aller plus loin dans l'analyse de l'<a href="https://competencesrh.fr/analyse-donnees-rh.html" class="link-white-underline">équité salariale</a>, elle doit regarder la <strong>distribution réelle</strong> des rémunérations. C'est exactement le rôle de l'indice de Gini : passer du score global à la structure fine.</p>
+    <p>Pour un DRH, l'intérêt est considérable :</p>
+    <ul style="line-height: 2; margin: 1rem 0;">
+      <li>détecter les déséquilibres cachés ;</li>
+      <li>objectiver les écarts dans une logique de preuve ;</li>
+      <li>préparer les NAO avec des données plus robustes ;</li>
+      <li>restaurer la confiance avec les partenaires sociaux ;</li>
+      <li>piloter l'équité salariale comme un véritable sujet de gouvernance.</li>
+    </ul>
+    <p>Voyons maintenant concrètement comment cette méthode fonctionne — mathématiquement et techniquement.</p>
+  </div>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">07.01</div>
+      <div class="service-body">
+        <h3>La formule mathématique</h3>
+        <p>L'indice de Gini se calcule à partir de l'intégrale de la <a href="https://competencesrh.fr/analyse-donnees-rh/analyse-descriptive-rh.html" class="link-white-underline">courbe de Lorenz</a> L(x), qui représente le cumul des salaires en fonction du cumul des effectifs, du plus bas au plus haut salaire.</p>
+        <div style="background: rgba(0,0,0,0.03); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: var(--font-mono); font-size: 0.95rem; text-align: center;">
+          <strong>G = 1 − 2 × ∫₀¹ L(x) dx</strong><br><br>
+          <span style="color: var(--text-muted); font-size: 0.85rem;">où L(x) est la fonction de Lorenz : le pourcentage cumulé de la masse salariale détenu par les x% des salariés les moins bien rémunérés</span>
+        </div>
+        <p>Une valeur de <strong>0</strong> indique une égalité parfaite (tous les salaires identiques). Une valeur de <strong>1</strong> indique une inégalité maximale (une personne détient l'intégralité de la masse salariale).</p>
+        <ul class="service-tags">
+          <li>Courbe de Lorenz</li><li>Intégrale</li><li>Distribution cumulative</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">07.02</div>
+      <div class="service-body">
+        <h3>Les seuils d'interprétation pour une entreprise</h3>
+        <p>Contrairement aux pays (où on compare des Gini entre 0,25 et 0,65), dans une entreprise les échelles sont plus serrées. Voici les seuils que nous utilisons dans nos <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">missions d'analyse de données RH</a> :</p>
+        <div style="overflow-x: auto; margin: 1.5rem 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <thead>
+              <tr style="background: rgba(0,0,0,0.04); border-bottom: 2px solid var(--accent);">
+                <th style="padding: 0.8rem; text-align: left;">Score Gini</th>
+                <th style="padding: 0.8rem; text-align: left;">Interprétation</th>
+                <th style="padding: 0.8rem; text-align: left;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+                <td style="padding: 0.8rem;"><strong>0,10 – 0,20</strong></td>
+                <td style="padding: 0.8rem;">Très égalitaire (rare, équipes homogènes)</td>
+                <td style="padding: 0.8rem;">Surveiller l'attractivité</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+                <td style="padding: 0.8rem;"><strong>0,20 – 0,30</strong></td>
+                <td style="padding: 0.8rem;">Normal (reflète les écarts légitimes)</td>
+                <td style="padding: 0.8rem;">Pilotage standard</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+                <td style="padding: 0.8rem;"><strong>0,30 – 0,35</strong></td>
+                <td style="padding: 0.8rem;">Vigilance (distribution concentrée)</td>
+                <td style="padding: 0.8rem;">Audit par strate</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.8rem;"><strong>&gt; 0,35</strong></td>
+                <td style="padding: 0.8rem;">Anomalie probable</td>
+                <td style="padding: 0.8rem;">Diagnostic complet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">⚠️ Ces seuils s'appliquent au Gini calculé <strong>par strate</strong> (même coefficient, même service, même ancienneté). Un Gini global plus élevé peut être normal dans une entreprise hiérarchisée.</p>
+        <ul class="service-tags">
+          <li>Seuils d'alerte</li><li>Benchmarking</li><li>Analyse par strate</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">07.03</div>
+      <div class="service-body">
+        <h3>La méthode des trapèzes (sans intégrale manuelle)</h3>
+        <p>En pratique, on n'intègre pas à la main. On approxime l'aire sous la courbe de Lorenz par la <strong>méthode des trapèzes</strong> : on découpe la courbe en petits trapèzes, on calcule l'aire de chacun, et on additionne. Avec 250 salariés (comme dans notre cas client), la précision est largement suffisante pour un usage RH.</p>
+        <p>C'est exactement ce que font les bibliothèques <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python</a> numpy et scipy en une seule ligne de code.</p>
+        <ul class="service-tags">
+          <li>Méthode des trapèzes</li><li>Approximation numérique</li><li>numpy / scipy</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUALISATION COURBE DE LORENZ -->
+<div style="max-width: 800px; margin: 0 auto 4rem; padding: 0 2.5rem;" class="fade-in">
+  <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
+    <div class="section-label" style="margin-bottom: 1rem;">📊 Visualisation de la courbe de Lorenz</div>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+      L'indice de Gini mesure l'aire entre la diagonale (égalité parfaite) et la courbe réelle de distribution des salaires.
+    </p>
+    <pre style="margin: 0; overflow-x: auto; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5; padding: 1.5rem; background: #fafafa; border-radius: 6px;">
+100% │                                             ╱ Diagonale
+     │                                          ╱    (égalité parfaite)
+Cumul│                                       ╱
+salaires│                                   ╱
+     │                                ╱ ╭─────
+     │                            ╱ ╭──╯     ╰─── Courbe de Lorenz
+     │                        ╱ ╭──╯           (distribution réelle)
+     │                    ╱ ╭──╯
+     │                ╱ ╭──╯
+ 50% │            ╱ ╭──╯
+     │        ╱ ╭──╯
+     │    ╱ ╭──╯
+     │ ╱ ╭──╯
+  0% │─╯────────────────────────────────────────────
+     0%       25%       50%       75%      100%
+                    Cumul des effectifs
+
+  🔴 Aire entre diagonale et courbe = Inégalité salariale
+  📐 Gini = Aire d'inégalité ÷ Aire totale du triangle (0,5)
+
+  Exemple réel (ETI 250 salariés) :
+  • Gini global :         0,28 ✓ normal
+  • Gini strate "tech 3" : 0,41 ⚠️ anomalie
+    </pre>
+  </div>
+</div>
+
+<!-- SECTION IMPLÉMENTATION 6 ÉTAPES -->
+<section class="section fade-in" style="background: rgba(0,0,0,0.02);">
+  <div class="section-label">// 08 — Comment l'implémenter</div>
+  <h2 class="section-title">6 étapes pour détecter<br><em>les inégalités chez vous</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin: 0 auto 3rem; text-align: center;">
+    Voici le protocole que nous appliquons systématiquement dans nos missions d'<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-diagnostique-rh.html" class="link-white-underline">analyse diagnostique RH</a>. Vous pouvez le reproduire avec vos données existantes.
+  </p>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Récupérer et anonymiser les données</h3>
+      <p>Extraire du SIRH : identifiant anonyme, salaire brut annuel, coefficient, service, ancienneté. Aucune donnée nominative n'est nécessaire. Voir notre guide <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Définir les strates d'analyse</h3>
+      <p>Choisir les dimensions pertinentes : coefficient, service, tranche d'ancienneté, CSP. Plus la strate est homogène, plus l'analyse est révélatrice. Minimum recommandé : 10 salariés par strate.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Trier les salaires par ordre croissant</h3>
+      <p>Dans chaque strate, classer les rémunérations du plus bas au plus haut. C'est la base de construction de la courbe de Lorenz.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Construire la courbe de Lorenz</h3>
+      <p>Pour chaque percentile d'effectif, calculer le pourcentage cumulé de la masse salariale. Tracer la courbe. En Python : <code>cumsum(salaires) / sum(salaires)</code>.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <h3>Calculer l'intégrale (méthode des trapèzes)</h3>
+      <p>Intégrer numériquement la courbe pour obtenir l'aire sous la courbe. En Python, <code>numpy.trapz()</code> fait ce travail en une ligne. Puis : G = 1 − 2 × Aire.</p>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <span class="step-num">06</span>
+      <h3>Intégrer au tableau de bord trimestriel</h3>
+      <p>Automatiser le calcul dans <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">Power BI</a> avec un script Python. Définir un seuil d'alerte à 0,35 par strate et un reporting trimestriel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CODE PYTHON -->
+<section class="section fade-in">
+  <div class="section-label">// 09 — Le code prêt à l'emploi</div>
+  <h2 class="section-title">Détecter les anomalies<br><em>en 15 lignes de Python</em></h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin: 0 auto 2rem; text-align: center;">
+    Voici le script que nous utilisons en mission. Il fonctionne sur n'importe quel fichier CSV avec une colonne "salaire".
+  </p>
+
+  <div style="max-width: 800px; margin: 0 auto; background: #1e1e2e; color: #cdd6f4; padding: 2rem; border-radius: 12px; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; overflow-x: auto;">
+<pre style="margin: 0;">
+<span style="color: #89b4fa;">import</span> numpy <span style="color: #89b4fa;">as</span> np
+<span style="color: #89b4fa;">import</span> pandas <span style="color: #89b4fa;">as</span> pd
+
+<span style="color: #89b4fa;">def</span> <span style="color: #a6e3a1;">calculer_gini</span>(salaires):
+    <span style="color: #f9e2af;">"""Calcule l'indice de Gini pour un array de salaires."""</span>
+    salaires = np.sort(salaires)  <span style="color: #6c7086;"># Tri croissant</span>
+    n = <span style="color: #89b4fa;">len</span>(salaires)
+
+    <span style="color: #6c7086;"># Cumul des effectifs (axe x) et des salaires (axe y)</span>
+    cum_effectifs = np.arange(<span style="color: #fab387;">1</span>, n + <span style="color: #fab387;">1</span>) / n
+    cum_salaires = np.cumsum(salaires) / np.sum(salaires)
+
+    <span style="color: #6c7086;"># Ajout du point d'origine (0, 0)</span>
+    cum_effectifs = np.insert(cum_effectifs, <span style="color: #fab387;">0</span>, <span style="color: #fab387;">0</span>)
+    cum_salaires = np.insert(cum_salaires, <span style="color: #fab387;">0</span>, <span style="color: #fab387;">0</span>)
+
+    <span style="color: #6c7086;"># Aire sous la courbe de Lorenz (méthode des trapèzes)</span>
+    aire_lorenz = np.trapz(cum_salaires, cum_effectifs)
+
+    <span style="color: #6c7086;"># Indice de Gini = 1 - 2 × Aire</span>
+    gini = <span style="color: #fab387;">1</span> - <span style="color: #fab387;">2</span> * aire_lorenz
+    <span style="color: #89b4fa;">return</span> gini
+
+<span style="color: #6c7086;"># === Détection des inégalités sur vos données ===</span>
+df = pd.read_csv(<span style="color: #f9e2af;">"remunerations.csv"</span>)
+
+<span style="color: #6c7086;"># Gini global</span>
+<span style="color: #89b4fa;">print</span>(<span style="color: #f9e2af;">f"Gini global : {calculer_gini(df.salaire):.3f}"</span>)
+
+<span style="color: #6c7086;"># Gini par strate (coefficient, service...)</span>
+<span style="color: #89b4fa;">for</span> strate, groupe <span style="color: #89b4fa;">in</span> df.groupby(<span style="color: #f9e2af;">"coefficient"</span>):
+    g = calculer_gini(groupe.salaire)
+    alerte = <span style="color: #f9e2af;">"⚠️"</span> <span style="color: #89b4fa;">if</span> g > <span style="color: #fab387;">0.35</span> <span style="color: #89b4fa;">else</span> <span style="color: #f9e2af;">"✓"</span>
+    <span style="color: #89b4fa;">print</span>(<span style="color: #f9e2af;">f"{alerte} Coeff {strate} : Gini = {g:.3f}"</span>)
+</pre>
+  </div>
+
+  <div class="highlight-box" style="max-width: 800px; margin: 2rem auto 0;">
+    <strong>Temps d'exécution :</strong> moins d'une seconde pour 10 000 salariés. <strong>Dépendances :</strong> uniquement numpy et pandas. <strong>Intégration :</strong> peut être appelé directement depuis Power BI via un script Python intégré.
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
+    L'écart qu'on n'avait pas<br><em>pris le temps de mesurer</em>
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    L'histoire de cette ETI le montre bien : une entreprise peut afficher un excellent score réglementaire tout en portant, en interne, des tensions salariales prêtes à émerger. L'analyse de distribution ne remplace pas l'Index Égalité Professionnelle. Elle le complète. Elle le prolonge. Elle permet surtout de voir ce que les moyennes ne montrent jamais : la réalité de la répartition des salaires.
+  </p>
+  <p style="font-size: 1.05rem; font-weight: 600; color: var(--text-main); max-width: 600px; margin: 0 auto 2rem; line-height: 1.6;">
+    Et pour un DRH, cette différence peut tout changer.<br>
+    Entre une politique perçue comme conforme et une politique réellement maîtrisée, il y a souvent un seul écart : celui qu'on n'avait pas pris le temps de mesurer.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Audit d'équité salariale →</a>
+    <a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="btn-ghost">Voir le pilotage masse salariale</a>
+  </div>
+  <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+    Sans engagement · Analyse de 3 strates clés · Livré en 48h
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="section fade-in">
+  <div class="section-label">// FAQ Détecter les inégalités salariales</div>
+  <div class="faq-container" style="max-width: 800px; margin-top: 2rem;">
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment détecter les inégalités salariales cachées dans une entreprise ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">En analysant la distribution réelle des rémunérations plutôt que les moyennes.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">On classe les salaires par ordre croissant, on trace la courbe de Lorenz par strate (coefficient, service, ancienneté) et on calcule l'indice de Gini. Les strates dont le Gini dépasse 0,35 révèlent des anomalies invisibles dans les moyennes globales.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Pourquoi l'Index Égalité Pro ne suffit-il pas ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Parce qu'il repose sur des moyennes par catégorie socio-professionnelle.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Deux salariés à 2 100 € et 3 800 € dans le même coefficient produisent une moyenne "correcte" de 2 950 €. L'index ne voit pas la disparité. L'analyse de distribution, si. C'est exactement ce qui s'est passé dans notre cas client.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Qu'est-ce que l'indice de Gini appliqué aux salaires ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">C'est un indicateur qui mesure la concentration des inégalités dans la distribution des rémunérations.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Il varie de 0 (égalité parfaite) à 1 (inégalité maximale). Appliqué par strate, il révèle les micro-inégalités invisibles dans les moyennes.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quel est un bon score de Gini pour une entreprise ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Entre 0,15 et 0,30 au global, c'est normal. Au-delà de 0,35 au sein d'une même strate, il y a un problème.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Un Gini global élevé peut refléter des différences légitimes (PDG vs ouvrier). C'est le Gini par strate qui révèle les vraies anomalies.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">L'analyse des inégalités salariales est-elle compatible avec le RGPD ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Oui. Le calcul se fait sur des données anonymisées ou agrégées par strate.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Aucune donnée nominative n'est nécessaire. Les résultats sont présentés sous forme de distributions statistiques.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment intégrer cette analyse dans mon tableau de bord RH ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">En calculant l'indice de Gini par strate trimestriellement avec un seuil d'alerte à 0,35.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Nous l'intégrons dans un tableau de bord Power BI avec un script Python pour l'automatisation. Voir notre guide des <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-rh.html" class="link-white-underline">tableaux de bord RH</a>.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ARTICLES LIÉS -->
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Pour aller plus loin</div>
+  <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
+    Continuez à explorer<br><em>l'analyse de données RH</em>
+  </h2>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+    <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="btn-ghost">Guide analyse données RH</a>
+    <a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="btn-ghost">Pilotage masse salariale</a>
+    <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="btn-ghost">Les indicateurs RH clés</a>
+    <a href="https://competencesrh.fr/blog/transparence-salariale.html" class="btn-ghost">Transparence salariale</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
