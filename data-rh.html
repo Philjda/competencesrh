@@ -11,33 +11,68 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   
 <script type="application/ld+json">
-  
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Data RH — Construire des décisions RH avec la donnée",
-  "description": "Découvrez comment le People Analytics transforme les données RH en insights stratégiques : recrutement, rétention, L&D et équité.",
-  "image": "https://competencesrh.fr/assets/data-rh-hero.jpg",
-  "author": {
-    "@type": "Person",
-    "name": "DataRH",
-    "url": "https://competencesrh.fr/contact.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "CompétencesRH",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://competencesrh.fr/assets/logo.png"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://competencesrh.fr",
+      "url": "https://competencesrh.fr",
+      "name": "DataRH",
+      "publisher": { "@id": "https://competencesrh.fr#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://competencesrh.fr#organization",
+      "name": "DataRH",
+      "url": "https://competencesrh.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://competencesrh.frassets/logo.png"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://competencesrh.frdata-rh.html#webpage",
+      "url": "https://competencesrh.frdata-rh.html",
+      "name": "Data RH & People Analytics : Décisions Stratégiques",
+      "isPartOf": { "@id": "https://competencesrh.fr" },
+      "description": "Comment structurer la Data RH et utiliser le People Analytics pour basculer d'un pilotage descriptif à une stratégie prédictive basée sur l'IA."
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://competencesrh.frdata-rh.html#article",
+      "isPartOf": { "@id": "https://competencesrh.frdata-rh.html#webpage" },
+      "headline": "People Analytics : Comment la Data RH construit la décision stratégique",
+      "description": "Analyse de la maturité des données RH : du rapport d'activité descriptif au pilotage préscriptif et à la préparation des données pour l'intelligence artificielle.",
+      "inLanguage": "fr",
+      "mainEntityOfPage": "https://competencesrh.frdata-rh.html",
+      "datePublished": "2026-04-28",
+      "dateModified": "2026-08-14",
+      "author": { "@id": "https://competencesrh.fr#organization" },
+      "publisher": { "@id": "https://competencesrh.fr#organization" },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "People Analytics",
+          "sameAs": "https://wikipedia.org"
+        },
+        {
+          "@type": "Thing",
+          "name": "Ressources humaines",
+          "sameAs": "https://wikipedia.org"
+        },
+        {
+          "@type": "Thing",
+          "name": "Intelligence artificielle",
+          "sameAs": "https://wikipedia.org"
+        }
+      ]
     }
-  },
-  "datePublished": "2026-04-28",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://competencesrh.fr/data-rh.html"
-  }
+  ]
 }
 </script>
+
   
 </head>
 <body>
