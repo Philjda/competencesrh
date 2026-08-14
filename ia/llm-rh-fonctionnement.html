@@ -10,23 +10,23 @@
   <link rel="canonical" href="https://competencesrh.fr/ia/llm-rh-fonctionnement.html"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght=400;700;800&family=DM+Mono:wght=300;400&display=swap" rel="stylesheet">
 
-  <script type="application/ld+json">
+   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Article",
-        "@id": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html#article",
+        "@type": "TechArticle",
+        "@id": "https://competencesrh.fr",
         "isPartOf": {
           "@type": "WebPage",
-          "@id": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html"
+          "@id": "https://competencesrh.fr"
         },
-        "headline": "LLM en RH : comment ils fonctionnent réellement et pourquoi ils changent la donne",
-        "description": "Analyse technique et opérationnelle des grands modèles de langage (LLM) appliqués aux ressources humaines. Comprendre les probabilités, le contexte et le RAG.",
+        "headline": "LLM et RH : comment intégrer les modèles de langage en entreprise",
+        "description": "Guide d'intégration des grands modèles de langage (LLM) pour les directions RH. Maîtrise des risques d'hallucination, sécurisation des données et apport des architectures RAG.",
         "inLanguage": "fr",
-        "mainEntityOfPage": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html",
+        "mainEntityOfPage": "https://competencesrh.fr",
         "datePublished": "2026-06-17",
-        "dateModified": "2026-06-17",
+        "dateModified": "2026-08-14",
         "author": {
           "@type": "Organization",
           "name": "DataRH",
@@ -35,51 +35,55 @@
         "publisher": {
           "@type": "Organization",
           "name": "DataRH",
-          "url": "https://competencesrh.fr"
+          "url": "https://competencesrh.fr",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://competencesrh.fr"
+          }
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://competencesrh.fr/ia/llm-rh-fonctionnement.html#faq",
+        "@id": "https://competencesrh.fr#faq",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Qu'est-ce qu'un token pour un LLM et quel est son impact en RH ?",
+            "name": "Comment fonctionne un LLM appliqué aux Ressources Humaines ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Un token est l'unité de texte minimale (un morceau de mot ou de ponctuation) manipulée par le LLM. Le modèle calcule des probabilités de succession de ces tokens. En RH, cela implique que le modèle ne comprend pas le sens intrinsèque d'une fiche de poste, mais assemble les fragments les plus statistiquement probables."
+              "text": "Un LLM fonctionne par calcul de probabilités statistiques en découpant le texte en morceaux (tokens). En RH, cela signifie que l'IA ne 'comprend' pas les émotions ou les compétences d'une fiche de poste, mais assemble de manière logique les suites de mots les plus cohérentes."
             }
           },
           {
             "@type": "Question",
-            "name": "Pourquoi un LLM peut-il halluciner lors du traitement de données RH ?",
+            "name": "Qu'est-ce que le risque d'hallucination d'un LLM pour un service RH ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "L'hallucination n'est pas un bug, c'est une propriété fondamentale des systèmes probabilistes. Le LLM cherche à tout prix à générer un texte fluide et syntaxiquement correct. Face à un manque d'informations vérifiées ou un contexte flou, il comble les vides en privilégiant la cohérence linguistique sur la vérité factuelle."
+              "text": "L'hallucination est la génération par l'IA d'un texte fluide mais factuellement faux. En RH, ce risque survient si le modèle manque d'informations vérifiées. L'IA va alors combler les vides juridiques ou textuels en privilégiant la forme sur le fond, d'où la nécessité d'un contrôle humain systématique."
             }
           },
           {
             "@type": "Question",
-            "name": "Quelle est la différence entre le Fine-Tuning et une architecture RAG pour adapter un LLM ?",
+            "name": "Comment sécuriser un outil d'IA RH grâce à une architecture RAG ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Le fine-tuning modifie les poids internes du modèle en le réentraînant sur des données ciblées, ce qui est complexe et coûteux. Le RAG (Retrieval-Augmented Generation) laisse le modèle intact mais enrichit son contexte en allant chercher dynamiquement des informations fiables dans une base vectorielle interne."
+              "text": "Le RAG (Retrieval-Augmented Generation) sécurise l'IA en forçant le LLM à s'appuyer uniquement sur une base de données interne et vérifiée (comme vos accords d'entreprise ou votre règlement). Contrairement au fine-tuning qui réentraîne l'IA, le RAG encapsule le modèle pour éliminer les fausses réponses."
             }
           },
           {
             "@type": "Question",
-            "name": "Qu'est-ce que le paramètre de température pour un modèle de langage ?",
+            "name": "Peut-on régler le niveau de créativité ou de rigueur d'un LLM RH ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La température contrôle le degré de créativité ou de rigueur algorithmique des réponses. Une température basse pousse le modèle à choisir les tokens les plus probables (réponses stables et prévisibles, idéales pour le droit social), tandis qu'une température élevée favorise la diversité des termes (idéal pour la rédaction de fiches de poste)."
+              "text": "Oui, via le paramètre technique de température. Une température basse pousse le modèle vers une rigueur maximale indispensable pour l'analyse du droit social ou des contrats, tandis qu'une température haute offre la flexibilité nécessaire pour la rédaction créative de fiches de poste."
             }
           },
           {
             "@type": "Question",
-            "name": "Quand faut-il absolument éviter d'utiliser un LLM seul au sein de la fonction RH ?",
+            "name": "Quels sont les cas où un LLM classique doit être évité en RH ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il faut éviter le LLM seul lorsque la décision nécessite une traçabilité mathématique stricte, lorsque la précision des données chiffrées est critique, ou lorsque les informations manipulées touchent au secret médical ou à de hauts niveaux de confidentialité sans infrastructure souveraine."
+              "text": "Il faut exclure l'usage d'un LLM grand public isolé dès que les données touchent au secret médical, à des hauts niveaux de confidentialité salariale ou à des calculs chiffrés complexes. Pour ces tâches, l'utilisation d'une infrastructure souveraine et d'audits algorithmiques est obligatoire."
             }
           }
         ]
@@ -87,6 +91,7 @@
     ]
   }
   </script>
+
 </head>
 <body>
 
@@ -106,7 +111,7 @@
  
   <header class="page-hero">
     <div class="section-label">// Traitement du Langage Naturel, Transformers &amp; Probabilités</div>
-    <h1 class="page-title">LLM en RH : comment ils fonctionnent réellement<br/>et pourquoi ils changent la donne</h1>
+    <h1 class="page-title">LLM et IA en RH : Comprendre leur mécanique pour transformer vos processus</h1>
     <p class="page-sub">
       Un LLM en RH ne “comprend” pas les ressources humaines. Il prédit. Mot après mot. Phrase après phrase. Et cette mécanique, souvent invisible, explique à la fois sa puissance… et ses limites.
     </p>
