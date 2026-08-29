@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Automatisation des processus RH par l'IA en PME : quelles tâches automatiser, quels gains de temps, quel ROI ? Guide opérationnel + diagnostic offert."/>
+  <title>Automatisation RH par l'IA en PME : tâches, gains et ROI | CompétencesRH</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="canonical" href="https://competencesrh.fr/automatisation.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/automatisation.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/automatisation.html"
+        },
+        "headline": "Automatisation RH par l'IA en PME : tâches, gains et ROI",
+        "description": "Automatisation des processus RH par l'IA en PME : quelles tâches automatiser, quels gains de temps, quel ROI ? Guide opérationnel + diagnostic offert.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/automatisation.html",
+        "datePublished": "2026-05-26",
+        "dateModified": "2026-08-29",
+        "author": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/automatisation.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelles tâches administratives RH peut-on automatiser en priorité avec une IA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En priorité : l'onboarding (contrats, accès, livret d'accueil), la collecte des variables de paie, le tri des CV, les accusés de réception candidats, les relances, et les réponses aux questions récurrentes des salariés (congés, mutuelle, notes de frais)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment l'IA peut-elle rédiger des fiches de poste ou des contrats de travail sans erreur ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'IA générative propose des brouillons à partir de modèles validés par vos équipes. Le rôle de l'IA est d'accélérer la rédaction, pas de décider : un humain valide toujours le contenu juridique et les clauses sensibles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on automatiser le tri et le pré-filtrage des CV sans perdre le côté humain ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. L'IA classe et score les candidatures selon vos critères (compétences, expérience, localisation), mais la décision finale et l'entretien restent humains. Cela réduit le temps de tri tout en gardant le jugement humain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment utiliser l'IA pour générer automatiquement les compte-rendus des entretiens annuels ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "À partir d'une prise de notes structurée ou d'un enregistrement (avec accord), l'IA peut produire un premier jet de compte-rendu : objectifs, points forts, axes d'amélioration, plan de formation. Le manager relit, corrige et valide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Existe-t-il une IA pour automatiser le suivi des plans de formation des salariés ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Des outils IA peuvent suivre les échéances, relancer les managers et salariés, proposer des formations en fonction des compétences et des écarts, et alimenter votre tableau de bord RH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment connecter un agent IA à mon SIRH actuel pour automatiser les flux de travail ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Via des connecteurs (APIs) ou des plateformes d'automatisation (Make, Zapier, n8n) qui lisent et écrivent dans votre SIRH. On définit des déclencheurs (ex. : nouvelle embauche) et des actions (création de compte, envoi de documents)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on créer un chatbot IA interne pour répondre automatiquement aux questions des salariés sur les congés ou la mutuelle ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Un chatbot RH connecté à votre base documentaire (règlement intérieur, notes internes, conventions) répond 24/7 aux questions sur les congés, la mutuelle, les notes de frais, etc., et remonte les cas complexes aux RH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment automatiser l'importation des variables de paie depuis Excel vers mon logiciel de paie grâce à l'IA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En structurant vos fichiers Excel (colonnes stables, noms de champs clairs) et en utilisant un workflow d'automatisation qui lit le fichier, contrôle les incohérences et injecte les données dans le logiciel de paie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre une automatisation classique (RPA) et une automatisation pilotée par l'IA (IA générative) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le RPA exécute des règles fixes (si X alors Y). L'IA générative comprend du langage naturel, résume, rédige, classe des documents non structurés. En RH, on combine souvent RPA (flux) + IA (contenu, tri, réponses)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment garantir le respect du RGPD quand une IA automatise le traitement des données des salariés ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En définissant une finalité claire, en minimisant les données, en sécurisant les accès, en informant les salariés, en signant des clauses avec les fournisseurs, et en réalisant une AIPD pour les usages à risque (recrutement, évaluation)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "L'automatisation des décisions RH (comme les augmentations ou les licenciements) est-elle autorisée par l'AI Act ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'AI Act classe les usages RH (recrutement, évaluation, promotion, rupture) comme systèmes à haut risque. Une décision significative (augmentation, licenciement) ne peut pas reposer uniquement sur un algorithme : une supervision humaine est obligatoire."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment gérer la peur des équipes RH face à l'automatisation de leur propre métier ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En positionnant l'IA comme un assistant qui retire l'administratif répétitif, pas comme un remplacement. En associant les équipes à la conception des workflows, en formant, et en montrant les gains concrets (moins de saisie, plus de conseil)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment éviter que l'IA n'automatise et ne propage des discriminations dans notre processus de recrutement ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En choisissant des outils documentés, en testant les biais (par genre, âge, origine), en gardant un humain dans la boucle, et en surveillant les indicateurs de diversité à chaque étape du processus."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien d'heures par semaine l'automatisation RH par l'IA permet-elle réellement de libérer ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sur un périmètre onboarding + variables de paie + questions récurrentes, les PME observent souvent 6 à 10 heures gagnées par semaine pour une équipe de 1–3 personnes RH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le coût de développement d'un script d'automatisation sur-mesure par rapport à un logiciel du marché ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un projet ciblé (ex. : onboarding automatisé) coûte souvent entre 3 000 € et 15 000 € en prestation, avec un ROI en moins de 4 mois. Les logiciels du marché ont un coût récurrent par salarié, mais moins de développement initial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le retour sur investissement (ROI) rapide d'un projet d'automatisation Data RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le ROI rapide vient de la réduction du temps administratif (onboarding, paie, recrutement) et de la diminution des erreurs. Un gain de 8h/semaine sur un coût moyen de 35–45 €/h donne 1 120–1 440 €/mois de valeur."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr/">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html" >Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html" class="active">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" >Analyse Donnees</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+  </ul>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
+
+<header class="page-hero fade-in">
+  <div class="section-label">// Automatisation RH par l'IA</div>
+  <div class="section-label"><span class="dot"></span> Guide DRH & dirigeants de PME</div>
+  <h1 class="page-title">
+    Automatisation RH par l'IA en PME :<br>
+    <em>quelles tâches, quels gains, quel ROI ?</em>
+  </h1>
+  <p class="page-sub">
+    Vous passez des heures sur l'onboarding, les fiches de paie, les relances de recrutement. Ces tâches RH ne disparaîtront pas — mais elles peuvent se faire sans vous. L'automatisation des processus RH par l'IA n'est pas un projet informatique. C'est une décision de direction.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">60%</span>
+      <span class="stat-label">des tâches RH répétitives<br>sont automatisables dès aujourd'hui</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">8h</span>
+      <span class="stat-label">gagnées par semaine en moyenne<br>après automatisation de l'onboarding</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">×3</span>
+      <span class="stat-label">la vitesse de traitement<br>avec un logiciel RH PME bien configuré</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Automatisation RH</span><span class="sep">·</span>
+    <span>Process RH</span><span class="sep">·</span>
+    <span>Onboarding automatisé</span><span class="sep">·</span>
+    <span>Fiche de paie</span><span class="sep">·</span>
+    <span>Recrutement</span><span class="sep">·</span>
+    <span>Chatbot RH</span><span class="sep">·</span>
+    <span>Logiciel RH PME</span><span class="sep">·</span>
+    <span>IA RH</span><span class="sep">·</span>
+    <span>Gain de temps</span><span class="sep">·</span>
+    <span>Tâches RH répétitives</span><span class="sep">·</span>
+    <span>Automatisation RH</span><span class="sep">·</span>
+    <span>Process RH</span><span class="sep">·</span>
+    <span>Onboarding automatisé</span><span class="sep">·</span>
+    <span>Fiche de paie</span><span class="sep">·</span>
+    <span>Recrutement</span><span class="sep">·</span>
+    <span>Chatbot RH</span><span class="sep">·</span>
+    <span>Logiciel RH PME</span><span class="sep">·</span>
+    <span>IA RH</span><span class="sep">·</span>
+    <span>Gain de temps</span><span class="sep">·</span>
+    <span>Tâches RH répétitives</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 01</div>
+  <h2 class="section-title">
+    Productivité RH :<br>
+    <em>quelles tâches automatiser en priorité avec l'IA ?</em>
+  </h2>
+
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 1.5rem;">
+    L'automatisation des processus RH en PME permet de digitaliser les workflows répétitifs (onboarding, fiche de paie, recrutement, notes de frais, planning) sans changer de SIRH. En 2026, les PME combinent outils no-code (Make, Zapier) et modules RH ciblés pour réduire le temps administratif et améliorer l'expérience collaborateur [1][14][15].
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01.01</div>
+      <div class="service-body">
+        <h3>Quelles tâches administratives RH peut-on automatiser en priorité avec une IA ?</h3>
+        <p>En priorité : l'onboarding (contrats, accès, livret d'accueil), la collecte des variables de paie, le tri des CV, les accusés de réception candidats, les relances, et les réponses aux questions récurrentes des salariés (congés, mutuelle, notes de frais).</p>
+        <ul class="service-tags">
+          <li>Automatiser l'onboarding</li>
+          <li><a href="https://competencesrh.fr/automatisation/workflow-rh-pme.html" class="link-white-underline" style="color:inherit;">Fiche de paie automatisée</a></li>
+          <li>Recrutement automatisé</li>
+          <li>Relances candidats</li>
+          <li>Questions récurrentes</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">01.02</div>
+      <div class="service-body">
+        <h3>Comment l'IA peut-elle rédiger des fiches de poste ou des contrats de travail sans erreur ?</h3>
+        <p>L'IA générative propose des brouillons à partir de modèles validés par vos équipes. Le rôle de l'IA est d'accélérer la rédaction, pas de décider : un humain valide toujours le contenu juridique et les clauses sensibles.</p>
+        <ul class="service-tags">
+          <li>Fiches de poste</li>
+          <li>Contrats de travail</li>
+          <li>Modèles RH</li>
+          <li>Validation humaine</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">01.03</div>
+      <div class="service-body">
+        <h3>Peut-on automatiser le tri et le pré-filtrage des CV sans perdre le côté humain ?</h3>
+        <p>Oui. L'IA classe et score les candidatures selon vos critères (compétences, expérience, localisation), mais la décision finale et l'entretien restent humains. Cela réduit le temps de tri tout en gardant le jugement humain.</p>
+        <ul class="service-tags">
+          <li>Tri des CV</li>
+          <li>Scoring candidats</li>
+          <li><a href="https://competencesrh.fr/automatisation/recrutement-automatise.html" class="link-white-underline">Recrutement</a></li>
+          <li>Supervision humaine</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">01.04</div>
+      <div class="service-body">
+        <h3>Comment utiliser l'IA pour générer automatiquement les compte-rendus des entretiens annuels ?</h3>
+        <p>À partir d'une prise de notes structurée ou d'un enregistrement (avec accord), l'IA peut produire un premier jet de compte-rendu : objectifs, points forts, axes d'amélioration, plan de formation. Le manager relit, corrige et valide.</p>
+        <ul class="service-tags">
+          <li>Entretiens annuels</li>
+          <li>Compte-rendus</li>
+          <li>Plan de formation</li>
+          <li>Gain de temps</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">01.05</div>
+      <div class="service-body">
+        <h3>Existe-t-il une IA pour automatiser le suivi des plans de formation des salariés ?</h3>
+        <p>Oui. Des outils IA peuvent suivre les échéances, relancer les managers et salariés, proposer des formations en fonction des compétences et des écarts, et alimenter votre <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="link-white-underline">tableau de bord RH</a>.</p>
+        <ul class="service-tags">
+          <li>Plans de formation</li>
+          <li>Relances automatiques</li>
+          <li>Compétences</li>
+          <li>Reporting RH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem 6rem; position: relative; z-index:1;" class="fade-in">
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">⟳</div>
+      <h3>Automatiser l'<a href="https://competencesrh.fr/automatisation/experience-collaborateur.html" class="link-white-underline">onboarding</a></h3>
+      <p>Envoi automatique des documents, création des accès, séquence de messages au nouvel arrivant. Zéro oubli, zéro relance manuelle.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">∑</div>
+      <h3><a href="https://competencesrh.fr/automatisation/workflow-rh-pme.html" class="link-white-underline" style="color:inherit;">Fiche de paie</a></h3>
+      <p>Collecte des variables de paie, transmission au cabinet comptable, archivage automatique. La fiche de paie n'exige plus votre attention chaque fin de mois.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">↗</div>
+      <h3>Recrutement automatisé</h3>
+      <p>Tri des candidatures, accusés de réception, relances, planning d'entretiens. Le <a href="https://competencesrh.fr/automatisation/recrutement-automatise.html" class="link-white-underline">recrutement</a> automatisé réduit le délai de traitement de 40%.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◎</div>
+      <h3>Chatbot RH</h3>
+      <p>Un <a href="https://competencesrh.fr/automatisation/chatbot-rh-ia.html" class="link-white-underline" style="color:inherit;">chatbot RH</a> répond aux questions fréquentes des salariés (congés, solde, mutuelle) sans mobiliser la RH ni le dirigeant.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⧖</div>
+      <h3>Logiciel RH PME</h3>
+      <p>Un <a href="https://competencesrh.fr/automatisation/outils-automatisation-rh.html" class="link-white-underline" style="color:inherit;">logiciel RH PME</a> bien configuré centralise absences, paie, documents et alertes. Pas besoin d'un outil complexe — il faut surtout qu'il soit utilisé.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">€</div>
+      <h3>Gain de temps mesurable</h3>
+      <p>L'automatisation des tâches RH se mesure en heures récupérées par semaine, pas en promesses. Le gain de temps se calcule avant de décider via un <a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="link-white-underline">tableau de bord RH</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATEUR INTERACTIF -->
+<div style="max-width: 800px; margin: 0 auto 6rem; padding: 0 2.5rem;" class="fade-in">
+  <div style="background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01)); padding: 3rem 2.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
+    <div class="section-label" style="justify-content: center; margin-bottom: 1rem;">🧮 Calculateur</div>
+    <h3 style="text-align: center; font-family: var(--font-head); font-size: 1.4rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+      Combien d'heures RH perdez-vous chaque mois ?
+    </h3>
+    <div style="display: grid; gap: 1.5rem; max-width: 500px; margin: 0 auto;">
+      <label style="display: block;">
+        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Nouveaux salariés embauchés par mois</span>
+        <input type="number" id="calc-hires" min="0" max="100" value="3" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 6px; font-size: 1rem; font-family: var(--font-head);">
+      </label>
+      <label style="display: block;">
+        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Nombre de salariés</span>
+        <input type="number" id="calc-employees" min="1" max="5000" value="80" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 6px; font-size: 1rem; font-family: var(--font-head);">
+      </label>
+      <div id="calc-result" style="text-align: center; padding: 1.5rem; background: white; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08);">
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Temps administratif perdu</div>
+        <div id="calc-hours" style="font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0;">21h</div>
+        <div style="font-size: 0.9rem; color: var(--text-muted);">par mois sur l'onboarding + relances</div>
+      </div>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary" style="text-align: center;">Récupérer ces heures → Diagnostic 30 min offert</a>
+    </div>
+  </div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">
+    Intégration technique :<br>
+    <em>comment connecter l'IA à votre SIRH et à vos outils ?</em>
+  </h2>
+  
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 1.5rem;">
+    Le DRH s'inquiète de la « tuyauterie » : est-ce que l'IA peut parler avec mon SIRH, mon Excel, mon logiciel de paie ? La bonne nouvelle : oui, sans tout remplacer. [2][4][15].
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">02.01</div>
+      <div class="service-body">
+        <h3>Comment connecter un agent IA à mon SIRH actuel pour automatiser les flux de travail ?</h3>
+        <p>Via des connecteurs (APIs) ou des plateformes d'automatisation (Make, Zapier, n8n) qui lisent et écrivent dans votre SIRH. On définit des déclencheurs (ex. : nouvelle embauche) et des actions (création de compte, envoi de documents).</p>
+        <ul class="service-tags">
+          <li>APIs SIRH</li>
+          <li>Make / Zapier</li>
+          <li><a href="https://competencesrh.fr/automatisation/workflow-rh-pme.html" class="link-white-underline">Workflow RH</a></li>
+          <li>Déclencheurs</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02.02</div>
+      <div class="service-body">
+        <h3>Peut-on créer un chatbot IA interne pour répondre automatiquement aux questions des salariés sur les congés ou la mutuelle ?</h3>
+        <p>Oui. Un chatbot RH connecté à votre base documentaire (règlement intérieur, notes internes, conventions) répond 24/7 aux questions sur les congés, la mutuelle, les notes de frais, etc., et remonte les cas complexes aux RH.</p>
+        <ul class="service-tags">
+          <li><a href="https://competencesrh.fr/automatisation/chatbot-rh-ia.html" class="link-white-underline" style="color:inherit;">Chatbot RH</a></li>
+          <li>Questions salariés</li>
+          <li>Base documentaire</li>
+          <li>Support RH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02.03</div>
+      <div class="service-body">
+        <h3>Comment automatiser l'importation des variables de paie depuis Excel vers mon logiciel de paie grâce à l'IA ?</h3>
+        <p>En structurant vos fichiers Excel (colonnes stables, noms de champs clairs) et en utilisant un workflow d'automatisation qui lit le fichier, contrôle les incohérences et injecte les données dans le logiciel de paie.</p>
+        <ul class="service-tags">
+          <li>Variables de paie</li>
+          <li>Excel</li>
+          <li>Logiciel de paie</li>
+          <li>Contrôle automatique</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02.04</div>
+      <div class="service-body">
+        <h3>Quelle est la différence entre une automatisation classique (RPA) et une automatisation pilotée par l'IA (IA générative) ?</h3>
+        <p>Le RPA exécute des règles fixes (si X alors Y). L'IA générative comprend du langage naturel, résume, rédige, classe des documents non structurés. En RH, on combine souvent RPA (flux) + IA (contenu, tri, réponses).</p>
+        <ul class="service-tags">
+          <li>RPA</li>
+          <li>IA générative</li>
+          <li>Automatisation RH</li>
+          <li>Flux vs contenu</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Ce qu'un chatbot RH fait vraiment :</strong> il répond aux questions répétitives des salariés (solde de congés, procédure d'arrêt maladie, délai de remboursement de frais) sans intervention humaine. Il ne remplace pas les RH — il absorbe le bruit de fond qui les empêche de travailler sur ce qui compte.
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Sans automatisation RH</div>
+      <div class="compare-item">L'onboarding dépend de votre disponibilité</div>
+      <div class="compare-item">Les fiches de paie génèrent des allers-retours mensuels</div>
+      <div class="compare-item">Les candidats attendent 5 jours pour une réponse</div>
+      <div class="compare-item">Les salariés vous appellent pour des questions basiques</div>
+      <div class="compare-item">Chaque process RH repart de zéro</div>
+    </div>
+    <div class="compare-col after">
+      <div class="compare-head">Avec automatisation des processus RH</div>
+      <div class="compare-item">L'onboarding se déclenche seul dès la signature</div>
+      <div class="compare-item">Les variables de paie remontent automatiquement</div>
+      <div class="compare-item">Les candidats reçoivent une réponse en moins d'une heure</div>
+      <div class="compare-item">Le chatbot RH absorbe 80% des questions courantes</div>
+      <div class="compare-item">Chaque process RH est une séquence réutilisable</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 03</div>
+  <h2 class="section-title">
+    Sécurité, éthique et résistance au changement :<br>
+    <em>comment rassurer et encadrer l'IA RH ?</em>
+  </h2>
+
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 1.5rem;">
+    L'automatisation par l'IA fait peur aux équipes et touche à des données ultra-sensibles. Le DRH doit verrouiller cet aspect : RGPD, AI Act, biais, supervision humaine [16][18][20][21][22].
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">03.01</div>
+      <div class="service-body">
+        <h3>Comment garantir le respect du RGPD quand une IA automatise le traitement des données des salariés ?</h3>
+        <p>En définissant une finalité claire, en minimisant les données, en sécurisant les accès, en informant les salariés, en signant des clauses avec les fournisseurs, et en réalisant une AIPD pour les usages à risque (recrutement, évaluation) [16][20][24][27].</p>
+        <ul class="service-tags">
+          <li>RGPD</li>
+          <li>AIPD</li>
+          <li>Données salariés</li>
+          <li><a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline" style="color:inherit;">Conformité</a></li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03.02</div>
+      <div class="service-body">
+        <h3>L'automatisation des décisions RH (comme les augmentations ou les licenciements) est-elle autorisée par l'AI Act ?</h3>
+        <p>L'AI Act classe les usages RH (recrutement, évaluation, promotion, rupture) comme systèmes à haut risque. Une décision significative (augmentation, licenciement) ne peut pas reposer uniquement sur un algorithme : une supervision humaine est obligatoire [18][21][22][23][29][30].</p>
+        <ul class="service-tags">
+          <li>AI Act</li>
+          <li>Décisions RH</li>
+          <li>Supervision humaine</li>
+          <li>Haut risque</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03.03</div>
+      <div class="service-body">
+        <h3>Comment gérer la peur des équipes RH face à l'automatisation de leur propre métier ?</h3>
+        <p>En positionnant l'IA comme un assistant qui retire l'administratif répétitif, pas comme un remplacement. En associant les équipes à la conception des workflows, en formant, et en montrant les gains concrets (moins de saisie, plus de conseil).</p>
+        <ul class="service-tags">
+          <li>Conduite du changement</li>
+          <li>Formation RH</li>
+          <li>IA assistant</li>
+          <li>Gain de temps</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03.04</div>
+      <div class="service-body">
+        <h3>Comment éviter que l'IA n'automatise et ne propage des discriminations dans notre processus de recrutement ?</h3>
+        <p>En choisissant des outils documentés, en testant les biais (par genre, âge, origine), en gardant un humain dans la boucle, et en surveillant les indicateurs de diversité à chaque étape du processus [19][22][23].</p>
+        <ul class="service-tags">
+          <li>Biais IA</li>
+          <li>Recrutement</li>
+          <li>Diversité</li>
+          <li>Contrôle humain</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 04</div>
+  <h2 class="section-title">
+    Coût, rentabilité et ROI :<br>
+    <em>comment justifier un budget automatisation RH auprès du DAF ?</em>
+  </h2>
+
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 1.5rem;">
+    Pour obtenir le budget auprès du DAF ou du DG, le DRH doit prouver la valeur financière de l'automatisation : heures gagnées, coût de prestation vs logiciel, ROI rapide [1][12][14].
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">04.01</div>
+      <div class="service-body">
+        <h3>Combien d'heures par semaine l'automatisation RH par l'IA permet-elle réellement de libérer ?</h3>
+        <p>Sur un périmètre onboarding + variables de paie + questions récurrentes, les PME observent souvent 6 à 10 heures gagnées par semaine pour une équipe de 1–3 personnes RH.</p>
+        <ul class="service-tags">
+          <li>Gain de temps</li>
+          <li>Onboarding</li>
+          <li>Paie</li>
+          <li>Support RH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04.02</div>
+      <div class="service-body">
+        <h3>Quel est le coût de développement d'un script d'automatisation sur-mesure par rapport à un logiciel du marché ?</h3>
+        <p>Un projet ciblé (ex. : onboarding automatisé) coûte souvent entre 3 000 € et 15 000 € en prestation, avec un ROI en moins de 4 mois. Les logiciels du marché ont un coût récurrent par salarié, mais moins de développement initial.</p>
+        <ul class="service-tags">
+          <li>Coût automatisation</li>
+          <li>Prestation vs SaaS</li>
+          <li>ROI</li>
+          <li>Budget RH</li>
+        </ul>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04.03</div>
+      <div class="service-body">
+        <h3>Quel est le retour sur investissement (ROI) rapide d'un projet d'automatisation Data RH ?</h3>
+        <p>Le ROI rapide vient de la réduction du temps administratif (onboarding, paie, recrutement) et de la diminution des erreurs. Un gain de 8h/semaine sur un coût moyen de 35–45 €/h donne 1 120–1 440 €/mois de valeur.</p>
+        <ul class="service-tags">
+          <li>ROI automatisation</li>
+          <li>Data RH</li>
+          <li>Productivité</li>
+          <li><a href="https://competencesrh.fr/analyse-donnees/tableau-de-bord-rh.html" class="link-white-underline">Tableau de bord RH</a></li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 2rem auto; overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; font-family: var(--font-mono);">
+      <thead>
+        <tr style="background: rgba(0,0,0,0.04);">
+          <th style="padding: 0.6rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1);">Outil</th>
+          <th style="padding: 0.6rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1);">Points forts</th>
+          <th style="padding: 0.6rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1);">Cible</th>
+          <th style="padding: 0.6rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1);">Tarif indicatif</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">PayFit</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">Paie automatisée, DSN, onboarding</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">TPE / PME 1–500</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">~13 €/bulletin + abonnement</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">Factorial</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">Onboarding, congés, évaluations, recrutement</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">PME en croissance</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">Gratuit → ~6,50 €/salarié/mois</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">Lucca</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">SIRH modulaire, temps, congés, notes de frais</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">PME / ETI</td>
+          <td style="padding: 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.06);">~3–7 €/salarié/mois</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.6rem;">Personio</td>
+          <td style="padding: 0.6rem;">Core RH, recrutement, performance, paie (selon pays)</td>
+          <td style="padding: 0.6rem;">PME 50–500</td>
+          <td style="padding: 0.6rem;">Sur devis (~6–10 €/salarié/mois)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">
+      Sources : comparatifs logiciels RH / SIRH 2026 [2][3][4][5][15].
+    </p>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">
+    Votre plan d'action en 4 étapes<br>
+    <em>(dès lundi matin)</em>
+  </h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">05.01</div>
+      <div class="service-body">
+        <h3>Identifier les tâches RH les plus répétitives</h3>
+        <p>Avant tout outil, il faut une liste. Passez en revue la semaine RH type dans votre entreprise. Les tâches qui reviennent plus de deux fois par mois avec exactement la même logique sont les premières candidates à l'automatisation des <a href="https://competencesrh.fr/automatisation/processus-rh-pme.html" class="link-white-underline">processus</a> RH. L'automatisation permet de libérer du temps pour se concentrer sur la <a href="https://competencesrh.fr/competences.html" class="link-white-underline">montée en compétences</a> critiques.</p>
+        <ul class="service-tags">
+          <li>Audit des tâches RH</li><li>Cartographie des process</li><li>Volumétrie</li><li>Fréquence</li>
+        </ul>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05.02</div>
+      <div class="service-body">
+        <h3>Commencer par l'onboarding</h3>
+        <p>Automatiser l'onboarding est le premier levier dans la plupart des PME. C'est un process RH linéaire, bien délimité dans le temps, avec des étapes identiques à chaque recrutement. Les gains de temps sont immédiats et mesurables — et l'<a href="https://competencesrh.fr/automatisation/experience-collaborateur.html" class="link-white-underline">expérience collaborateur</a> s'évalue en parallèle.</p>
+        <p>Un nouvel arrivant bien accueilli dès le premier jour coûte moins cher à fidéliser qu'un salarié qui part dans les 6 mois parce que l'onboarding était raté.</p>
+        <ul class="service-tags">
+          <li>Séquence onboarding</li><li>Documents automatiques</li><li>Accès outils</li><li>Parcours intégration</li><li>DPAE automatisée</li>
+        </ul>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">
+    La méthode DataRH :<br>
+    <em>résultats mesurables en 3 semaines</em>
+  </h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">06.01</div>
+      <div class="service-body">
+        <h3>Une méthode, pas un outil</h3>
+        <p>Je ne vends pas de logiciel RH PME. J'accompagne les dirigeants et DRH de PME qui veulent mettre en place l'automatisation des processus RH sans perdre de temps à configurer un outil que personne n'utilisera dans 3 mois.</p>
+        <p>Ma méthode : identifier les 3 process RH les plus coûteux en temps, formaliser leur logique, choisir l'outil adapté à votre contexte, configurer et former. Résultat : un gain de temps mesurable dès les premières semaines.</p>
+        <ul class="service-tags">
+          <li>Make / Zapier</li><li>Notion</li><li>Airtable</li><li>Payfit</li><li>Workelo</li><li>Chatbot RH</li><li><a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline" style="color:inherit;">IA RH</a></li><li><a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline" style="color:inherit;">Python</a></li>
+        </ul>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">Vos tâches RH répétitives<br><em>peuvent se faire sans vous.</em></div>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Diagnostic 30 min offert →</a>
+  </div>
+</div>
+
+<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
+  <div class="section-label" style="justify-content: center;">// Conclusion</div>
+  <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
+    L'automatisation RH par l'IA n'est pas<br><em>un projet pour plus tard.</em>
+  </h2>
+  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.9;">
+    Chaque semaine sans automatisation des processus RH, c'est du temps perdu sur des tâches que vous ferez encore exactement de la même façon dans six mois. Le gain de temps commence par un diagnostic d'une heure.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer un diagnostic →</a>
+    <a href="https://competencesrh.fr/services.html" class="btn-ghost">Voir les services</a>
+  </div>
+  <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+    Sans engagement · 3 quick wins identifiés · Livré en 48h
+  </p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// FAQ Automatisation RH par l'IA</div>
+  <div class="faq-container" style="max-width: 800px; margin-top: 2rem;">
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quelles tâches administratives RH peut-on automatiser en priorité avec une IA ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">En priorité : l'onboarding, la collecte des variables de paie, le tri des CV, les accusés de réception candidats, les relances, et les réponses aux questions récurrentes des salariés.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Ces tâches représentent souvent 60% du temps administratif RH dans une PME.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment l'IA peut-elle rédiger des fiches de poste ou des contrats sans erreur ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">L'IA générative propose des brouillons à partir de modèles validés par vos équipes.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Un humain valide toujours le contenu juridique et les clauses sensibles avant envoi.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Peut-on automatiser le tri des CV sans perdre le côté humain ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Oui. L'IA classe et score les candidatures selon vos critères, mais la décision finale et l'entretien restent humains.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Cela réduit le temps de tri tout en gardant le jugement humain.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Comment garantir le respect du RGPD avec une IA RH ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">En définissant une finalité claire, en minimisant les données, en sécurisant les accès, en informant les salariés, et en réalisant une AIPD pour les usages à risque [16][20][24][27].</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Le RGPD s'applique pleinement aux traitements par IA, sans exception.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">L'automatisation des décisions RH (augmentations, licenciements) est-elle autorisée par l'AI Act ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">L'AI Act classe les usages RH comme systèmes à haut risque. Une décision significative ne peut pas reposer uniquement sur un algorithme : une supervision humaine est obligatoire [18][21][22][23][29][30].</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Tout licenciement fondé uniquement sur un algorithme est nul.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Combien d'heures par semaine l'automatisation RH par l'IA permet-elle de libérer ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Sur un périmètre onboarding + variables de paie + questions récurrentes, les PME observent souvent 6 à 10 heures gagnées par semaine pour une équipe de 1–3 personnes RH.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Le gain exact dépend de votre volumétrie et de vos process actuels.</p>
+    </details>
+    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quel est le ROI rapide d'un projet d'automatisation Data RH ?</summary>
+      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Le ROI rapide vient de la réduction du temps administratif et de la diminution des erreurs.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Un gain de 8h/semaine sur un coût moyen de 35–45 €/h donne 1 120–1 440 €/mois de valeur.</p>
+    </details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo" style="font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; letter-spacing: 0.05em;">DATA<span style="color: var(--accent);">RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  // Animation au scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Calculateur interactif
+  const calcHires = document.getElementById('calc-hires');
+  const calcEmployees = document.getElementById('calc-employees');
+  const calcHours = document.getElementById('calc-hours');
+
+  function updateCalculator() {
+    const hires = parseInt(calcHires.value) || 0;
+    const employees = parseInt(calcEmployees.value) || 0;
+    // Formule : onboarding = 6h/embauche + relances/questions = 0.1h/salarié/mois
+    const onboardingHours = hires * 6;
+    const recurringHours = Math.round(employees * 0.1);
+    const totalHours = onboardingHours + recurringHours;
+    calcHours.textContent = totalHours + 'h';
+  }
+
+  if (calcHires && calcEmployees && calcHours) {
+    calcHires.addEventListener('input', updateCalculator);
+    calcEmployees.addEventListener('input', updateCalculator);
+    updateCalculator();
+  }
+</script>
+
+</body>
+</html>
