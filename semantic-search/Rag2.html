@@ -1,0 +1,191 @@
+import torch
+
+if torch.cuda.is_available():
+    MODELE = "Qwen/Qwen2.5-1.5B-Instruct"
+    DEVICE = 0
+    print("🚀 GPU détecté : on utilise le moteur rapide.")
+else:
+    MODELE = "Qwen/Qwen2.5-0.5B-Instruct"
+    DEVICE = -1
+    print("🐢 Pas de GPU : on utilise le moteur léger. Tout marchera quand même.")
+
+print()
+print("👉 Écrivez PRÊT dans le chat !")
+
+import io, requests
+from pypdf import PdfReader
+
+# ⬇️ L'adresse publique où sont rangés les PDF (dataset Hugging Face) ⬇️
+BASE_URL = "https://huggingface.co/datasets/Gui3/Atelier-Code-3-sep-25/resolve/main/"
+FICHIERS = ["club-odyssee-paris.pdf", "club-odyssee-lyon.pdf", "club-odyssee-marseille.pdf",
+            "club-odyssee-toulouse.pdf", "club-odyssee-lille.pdf", "club-odyssee-conditions-generales.pdf"]
+
+TEXTES = {}
+try:
+    for f in FICHIERS:
+        r = requests.get(BASE_URL + f, timeout=30)
+        r.raise_for_status()
+        pages = PdfReader(io.BytesIO(r.content)).pages
+        TEXTES[f] = "\n".join((p.extract_text() or "") for p in pages)
+        print(f"✅ {f:42s} {len(pages)} page(s) · {len(TEXTES[f]):5d} caractères")
+except Exception as e:
+    import base64
+    print("⚠️ Téléchargement impossible (", e, ")")
+    print("   On bascule sur les six PDF de secours embarqués : la suite est identique.\n")
+    TEXTES = {}
+    for f, contenu_b64 in PDF_SECOURS.items():
+        pages = PdfReader(io.BytesIO(base64.b64decode(contenu_b64))).pages
+        TEXTES[f] = "\n".join((p.extract_text() or "") for p in pages)
+        print(f"🛟 {f:42s} {len(pages)} page(s) · {len(TEXTES[f]):5d} caractères  (secours)")
+
+print(f"\n📚 {len(TEXTES)} documents chargés.")
+
+def decouper(texte, taille=500, chevauchement=80):
+    """Découpe un texte en passages d'environ `taille` caractères, en coupant de préférence en fin de phrase."""
+    texte = " ".join(texte.split())          # on nettoie les sauts de ligne du PDF
+    passages, debut = [], 0
+    while debut < len(texte):
+        fin = min(debut + taille, len(texte))
+        if fin < len(texte):
+            coupe = texte.rfind(". ", debut + taille // 2, fin)   # la fin de phrase la plus proche
+            if coupe != -1:
+                fin = coupe + 1
+        passages.append(texte[debut:fin].strip())
+        if fin >= len(texte):
+            break
+        debut = max(fin - chevauchement, debut + 1)   # on recule un peu : le chevauchement
+    return [p for p in passages if p]
+
+
+DOCUMENTS = []
+for f, t in TEXTES.items():
+    nom = f.replace(".pdf", "").replace("club-odyssee-", "Club Odyssée ").replace("-", " ").title()
+    for i, p in enumerate(decouper(t), 1):
+        DOCUMENTS.append({"titre": f"{nom} · passage {i}", "texte": p})
+
+print(f"✅ {len(DOCUMENTS)} passages, prêts à être encodés.")
+print()
+print("Exemple ·", DOCUMENTS[0]["titre"])
+print(DOCUMENTS[0]["texte"][:350], "...")
+
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+# TROU 1 · le modèle de mardi
+encodeur = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+# On encode le TITRE avec le passage : le moteur saura ainsi de quel club on parle.
+# Mais le texte qu'on donnera au modèle, lui, restera propre.
+textes = [f"{d['titre']} - {d['texte']}" for d in DOCUMENTS]
+#textes = [___ for ___ in ___]
+vecteurs = encodeur.encode(textes, normalize_embeddings=True)
+
+print(f"✅ {len(vecteurs)} passages encodés.")
+print(f"Chaque passage est devenu un vecteur de {vecteurs.shape[1]} nombres.")
+
+def chercher(question, k=3):
+    """Renvoie les k passages les plus proches de la question."""
+    v_question = encodeur.encode(question, normalize_embeddings=True)
+    similarites = vecteurs @ v_question
+    indices = np.argsort(-similarites)[:k]
+    return [(DOCUMENTS[i]["titre"], DOCUMENTS[i]["texte"], float(similarites[i]))
+            for i in indices]
+
+for titre, texte, score in chercher("Le club de Paris propose-t'il des vélos ?"):
+    print(f"[{score:.2f}] {titre}")
+
+print()
+print("✅ Le moteur retrouve les bons passages, et le bon club !")
+
+for titre, texte, score in chercher("Je veux arrêter mon abonnement, comment faire ?"):
+    print(f"[{score:.2f}] {titre}")
+
+from transformers import pipeline
+import transformers
+
+transformers.logging.set_verbosity_error()   # on masque les avertissements techniques
+print("Chargement du modèle (1 à 3 minutes la première fois)...")
+generateur = pipeline("text-generation", model=MODELE, device=DEVICE)
+
+#print("Chargement du modèle (1 à 3 minutes la première fois)...")
+#generateur = pipeline("text-generation", model=___, device=___)
+
+# On règle la génération une fois pour toutes
+generateur.tokenizer.clean_up_tokenization_spaces = False
+generateur.model.generation_config.max_new_tokens = 180
+generateur.model.generation_config.do_sample = False
+generateur.model.generation_config.temperature = None
+generateur.model.generation_config.top_p = None
+generateur.model.generation_config.top_k = None
+
+print("✅ Modèle chargé !")
+
+
+def demander_au_modele(messages):
+    sortie = generateur(messages)
+    return sortie[0]["generated_text"][-1]["content"]
+
+# Dans toute vraie application, l'assistant a un RÔLE. Le nôtre :
+ROLE = ("Tu es l'assistant du Club Odyssée, une chaîne de salles de sport en France. "
+        "Tu réponds aux questions des adhérents de façon précise, utile et directe.")
+
+# votre question : sa réponse est dans nos guides, mais le modèle ne les a pas encore.
+question_test = "Combien coûte l'abonnement Premium au club de Marseille ?"   # ex : Combien coûte l'abonnement Premium au club de Marseille ?
+
+# On garde cette réponse de côté : on la comparera tout à l'heure.
+reponse_sans_documents = demander_au_modele([
+    {"role": "system", "content": ROLE},          # il est l'assistant du club...
+    {"role": "user", "content": question_test},   # ...mais il n'a aucun document.
+])
+print(reponse_sans_documents)
+
+
+def repondre(question):
+    """L'assistant complet : recherche + rédaction sous contrainte."""
+    passages = ___ # on recherches les K passages les plus pertinents vis-a-vis de la question
+    contexte = ___ # on mets tous ces "passages" au sein d'une meme string, ca sera notre "contexte"
+
+    # On Construit le Prompt Final : qu'est-ce qu'on lui interdit ? et que doit-il dire s'il ne sait pas ?
+    messages = [
+        {"role": "system", "content": ROLE +          # <- le MÊME rôle que tout à l'heure
+            " Tu réponds ___ à partir des documents fournis. "
+            "Si la réponse n'y figure pas, réponds exactement : « Je ne sais pas, il faut demander a l'accueil »"},
+        {"role": "user", "content": f"Documents :\n{contexte}\n\nQuestion : {question}"},
+    ]
+
+    reponse = demander_au_modele(messages)
+    sources = ", ".join(t for t, _, _ in passages)
+    return reponse, sources
+
+
+# La MÊME question, cette fois avec les documents. On affiche les deux réponses l'une sous l'autre.
+reponse_avec_documents, sources = repondre(question_test)
+
+print("❓", question_test)
+print()
+print("❌ SANS les documents :")
+print("   ", " ".join(reponse_sans_documents.split())[:400])
+print()
+print("✅ AVEC les documents :")
+print("   ", " ".join(reponse_avec_documents.split()))
+print("    📎 Sources :", sources)
+
+
+questions = [
+    "Le club de Lyon a-t-il une piscine ?",
+    "Quel club propose un sauna ?",
+    "Le club de Toulouse est-il ouvert le dimanche ?",
+    "Combien de cours collectifs par semaine propose le club de Lyon ?",
+    "Quel est le préavis pour résilier mon abonnement ?",
+    "Quel est le cours du Bitcoin ?",
+]
+
+for q in questions:
+    r, s = repondre(q)
+    print(f"❓ {q}")
+    print(f"💬 {r}")
+    print(f"📎 {s}")
+    print()
+
+print("🎉 Levez la main dans le chat : votre assistant vient de répondre !")
+
