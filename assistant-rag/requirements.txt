@@ -1,0 +1,7 @@
+gradio>=4.0
+torch
+transformers
+sentence-transformers
+pypdf
+requests
+numpy
