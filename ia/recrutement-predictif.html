@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Guide expert 2026 sur le recrutement prédictif et l'IA : modélisation machine learning, parsing sémantique, risques de biais et conformité réglementaire EU AI Act." />
-  <title>IA & Recrutement Prédictif : Optimiser le Sourcing RH | DataRH</title>
+  <meta name="description" content="Recrutement prédictif en PME : comment scorer vos candidats avec Python et vos propres données, sans souscrire à un logiciel SaaS à 500€/mois. Méthode, code et conformité AI Act." />
+  <title>Recrutement Prédictif en PME : La Méthode Sans Logiciel Coûteux | DataRH</title>
   <link rel="stylesheet" href="https://competencesrh.fr/style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="canonical" href="https://competencesrh.fr/ia/recrutement-predictif.html"/>
@@ -21,12 +21,12 @@
           "@type": "WebPage",
           "@id": "https://competencesrh.fr/ia/recrutement-predictif.html"
         },
-        "headline": "Recrutement prédictif et intelligence artificielle : promesses, limites et vigilance",
-        "description": "Analyse approfondie de la modélisation statistique appliquée à la sélection des talents, aux obligations de l'AI Act et à la maîtrise des biais algorithmiques.",
+        "headline": "Recrutement prédictif en PME : scorer ses candidats sans logiciel coûteux",
+        "description": "Méthode concrète, code Python et cadre réglementaire pour mettre en place un recrutement prédictif en PME, sans souscrire à une plateforme d'entreprise.",
         "inLanguage": "fr",
         "mainEntityOfPage": "https://competencesrh.fr/ia/recrutement-predictif.html",
         "datePublished": "2026-05-26",
-        "dateModified": "2026-06-10",
+        "dateModified": "2026-09-10",
         "author": {
           "@type": "Organization",
           "name": "DataRH",
@@ -45,6 +45,14 @@
         "@type": "FAQPage",
         "@id": "https://competencesrh.fr/ia/recrutement-predictif.html#faq",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Une PME peut-elle faire du recrutement prédictif sans logiciel spécialisé ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Avec un export de vos candidatures passées (Excel ou ATS) et quelques variables pertinentes (expérience, compétences matchées, stabilité dans les postes précédents), un score de tri peut être construit en Python sans licence logicielle. C'est suffisant pour une PME de moins de 150 salariés qui recrute occasionnellement."
+            }
+          },
           {
             "@type": "Question",
             "name": "Qu'est-ce que le recrutement prédictif basé sur l'IA ?",
@@ -105,87 +113,132 @@
     <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
     <ul class="nav-links">
       <li><a href="https://competencesrh.fr/">Accueil</a></li>
-    <li><a href="https://competencesrh.fr/blog.html" >Blog</a></li>
-    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
-    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
-    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
-    <li><a href="https://competencesrh.fr/ia-rh.html" class="active" >IA RH</a></li>
-    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html" class="active">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
     </ul>
     <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
   </nav>
- 
+
   <header class="page-hero">
-    <div class="section-label">// Cas d'Usage Métier</div>
+    <div class="section-label">// Cas d'Usage Métier · PME</div>
     <div class="breadcrumb" style="font-family: 'DM Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem;">
-      <a href="https://competencesrh.fr/" style="color: #fff; text-decoration: underline;">IA RH</a> / Recrutement Prédictif
+      <a href="https://competencesrh.fr/ia-rh.html" style="color: #fff; text-decoration: underline;">IA RH</a> / Recrutement Prédictif
     </div>
-    <h1 class="page-title">Recrutement prédictif & IA : Sécuriser la sélection des talents</h1>
-    <p class="page-sub">Promesses, limites et vigilance éthique autour des modèles algorithmiques de sélection.</p>
+    <h1 class="page-title">Recrutement prédictif en PME : la méthode sans logiciel à 500€/mois</h1>
+    <p class="page-sub">AssessFirst, Eightfold, SmartRecruiters : des plateformes pensées pour les grands comptes. Voici comment obtenir un premier score prédictif fiable avec vos données existantes et quelques lignes de Python.</p>
   </header>
- 
+
   <main class="section">
     <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
-      
+
       <p class="article-text">
-        <strong>Contexte :</strong> L'accélération des canaux de sourcing digitaux confronte les départements RH à un déluge de candidatures non qualifiées. Face à des délais de recrutement qui s’allongent, le traitement manuel consomme l’essentiel du temps utile des chargés de recherche, limitant le temps dévolu aux entretiens qualitatifs.
+        <strong>Contexte :</strong> Dans une PME, le recrutement se fait rarement avec un ATS sophistiqué. Le tri des candidatures se fait à la main, sur un tableur ou une boîte mail, et repose largement sur l'intuition du recruteur. Le résultat : des délais qui s'allongent, des profils pertinents qui passent inaperçus dans la pile, et aucune trace exploitable pour objectiver un choix.
       </p>
       <p class="article-text">
-        <strong>Objectif :</strong> Le recrutement prédictif s'appuie sur des algorithmes de <a href="https://competencesrh.fr/ia/machine-learning-rh.html" class="link-white-underline">machine learning</a> pour analyser les données de candidatures passées et présentes. L’enjeu est d'évaluer statistiquement les probabilités de réussite, d’intégration de compétences et de pérennité d'un candidat au sein d'un environnement précis.
+        <strong>Objectif :</strong> Le recrutement prédictif s'appuie sur des algorithmes de <a href="https://competencesrh.fr/ia/machine-learning-rh.html" class="link-white-underline">machine learning</a> pour analyser les données de candidatures passées et présentes. L'enjeu est d'évaluer statistiquement les probabilités de réussite, d'intégration de compétences et de pérennité d'un candidat au sein d'un environnement précis — sans forcément passer par une plateforme d'entreprise.
       </p>
       <p class="article-text">
-        <strong>Valeur :</strong> L'outil agit comme un filtre d’aide à la décision. Il permet aux recruteurs de s’extraire des tâches chronophages de pré-qualification pour concentrer leur expertise sur les profils à forte valeur ajoutée, tout en réduisant le taux d'erreur de casting initial.
+        <strong>Valeur :</strong> Pour une PME, l'outil agit comme un filtre d'aide à la décision, pas comme un remplacement du recruteur. Il permet de dégrossir un volume de candidatures rapidement pour concentrer le temps humain sur l'entretien et l'évaluation qualitative, là où il compte vraiment.
       </p>
       <p class="article-text">
-        <strong>Preuve Économique :</strong> Les baromètres d'analyse de performance RH indiquent que l'intégration de scores prédictifs en amont du tunnel de sélection réduit le coût d'acquisition global d'un profil de 18 % et diminue de près de 30 % le délai moyen d'onboarding (*Time-to-Hire*).
+        <strong>Preuve économique :</strong> Les baromètres d'analyse de performance RH indiquent que l'intégration de scores prédictifs en amont du tunnel de sélection réduit le coût d'acquisition global d'un profil de 18 % et diminue de près de 30 % le délai moyen d'onboarding (<em>Time-to-Hire</em>). Ces gains ne nécessitent pas un investissement logiciel disproportionné pour être obtenus à petite échelle.
       </p>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Ce que disent les chiffres : L'impératif de l'approche hybride</h2>
+      <h2 class="article-title" style="margin-top: 3rem;">Ce que disent les chiffres : l'impératif de l'approche hybride</h2>
       <p class="article-text">
-        L’étude de référence menée par l’éditeur de solutions RH <em>SD Worx</em> auprès de 5 936 responsables des ressources humaines en Europe apporte un éclairage crucial sur la perception opérationnelle de ces technologies. Les résultats démontrent un rejet massif du "tout-automatisation" au profit d'un modèle collaboratif homme-machine.
+        L'étude de référence menée par l'éditeur de solutions RH <em>SD Worx</em> auprès de 5 936 responsables des ressources humaines en Europe apporte un éclairage crucial sur la perception opérationnelle de ces technologies. Les résultats démontrent un rejet massif du "tout-automatisation" au profit d'un modèle collaboratif homme-machine.
       </p>
       <p class="article-text">
-        Si l'adoption globale de l’IA progresse, les professionnels RH s'accordent à dire que la technologie ne remplacera pas la sensibilité humaine sur les dimensions relationnelles du métier. Ainsi, une nette majorité préfère conserver des missions clés à l'humain, telles que le bien-être des employés (61 %) et le soutien à la santé mentale (51 %). 
+        Si l'adoption globale de l'IA progresse, les professionnels RH s'accordent à dire que la technologie ne remplacera pas la sensibilité humaine sur les dimensions relationnelles du métier. Ainsi, une nette majorité préfère conserver des missions clés à l'humain, telles que le bien-être des employés (61 %) et le soutien à la santé mentale (51 %).
       </p>
       <p class="article-text">
-        Ce positionnement valide directement l’implémentation d'une <strong>architecture en entonnoir hybride</strong> : 41 % des organisations repensent activement leurs processus et flux de travail pour créer un environnement centré sur l’automatisation intelligente, tandis que 35 % des structures adaptent leurs pratiques pour permettre une meilleure collaboration homme-IA. Le recrutement prédictif moderne n'est donc pas un outil d'exclusion autonome, mais un instrument de ciblage supervisé.
+        Ce positionnement valide directement l'implémentation d'une <strong>architecture en entonnoir hybride</strong> : 41 % des organisations repensent activement leurs processus et flux de travail pour créer un environnement centré sur l'automatisation intelligente, tandis que 35 % des structures adaptent leurs pratiques pour permettre une meilleure collaboration homme-IA. Le recrutement prédictif moderne n'est donc pas un outil d'exclusion autonome, mais un instrument de ciblage supervisé — une logique qui s'applique tout autant, sinon davantage, à l'échelle d'une PME qu'à celle d'un grand groupe.
       </p>
 
       <h2 class="article-title" style="margin-top: 3rem;">Comment ça fonctionne techniquement</h2>
       <p class="article-text">
-        La mise en œuvre d'un écosystème de recrutement prédictif implique une suite logique de traitements de données, généralement programmés sous l'environnement <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python</a>.
+        La mise en œuvre d'un écosystème de recrutement prédictif implique une suite logique de traitements de données, généralement programmés sous l'environnement <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python</a>. Une plateforme d'entreprise automatise ces trois niveaux ; à l'échelle d'une PME, on peut en reproduire l'essentiel manuellement, sans licence.
       </p>
       <p class="article-text">
         Le premier niveau repose sur le <strong>parsing sémantique</strong>. Grâce aux avancées de la <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">recherche sémantique</a>, les algorithmes procèdent à l'extraction contextuelle du contenu des CV. En s'appuyant sur des modèles d'<a href="https://competencesrh.fr/semantic-search/embeddings-rh.html" class="link-white-underline">embeddings</a> textuels, la machine convertit le langage libre des candidats en objets mathématiques. Le système comprend le sens conceptuel des expériences, évitant ainsi les écueils des recherches par mots-clés rudimentaires.
       </p>
       <p class="article-text">
-        Le deuxième niveau orchestre le <strong>matching vectoriel</strong>. Les profils encodés sont comparés aux critères de fiches de poste modélisées au sein d'une <a href="https://competencesrh.fr/semantic-search/vector-database-rh.html" class="link-white-underline">vector database</a>. L’IA calcule instantanément une distance de similarité cosinus entre les vecteurs candidats et le besoin théorique, indexant les profils par ordre d'adéquation sémantique.
+        Le deuxième niveau orchestre le <strong>matching vectoriel</strong>. Les profils encodés sont comparés aux critères de fiches de poste modélisées au sein d'une <a href="https://competencesrh.fr/semantic-search/vector-database-rh.html" class="link-white-underline">vector database</a>. L'IA calcule instantanément une distance de similarité cosinus entre les vecteurs candidats et le besoin théorique, indexant les profils par ordre d'adéquation sémantique.
       </p>
       <p class="article-text">
         Le troisième niveau englobe la <strong>projection prédictive</strong>. En confrontant les caractéristiques du candidat avec les patterns historiques de performance interne, le système estime des probabilités de stabilité à long terme pour minimiser les risques de <a href="https://competencesrh.fr/turnover.html" class="link-white-underline">turnover</a> précoce. Pour être fiable, cette étape exige en amont un travail rigoureux de <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">nettoyage des données RH</a> afin de gommer les incohérences d'historiques.
       </p>
+      <p class="article-text">
+        Pour une PME qui recrute occasionnellement, on peut se limiter au troisième niveau — la projection prédictive — sans déployer de base vectorielle complète. C'est ce que montre l'exemple ci-dessous.
+      </p>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Les principaux cas d’usage RH</h2>
+      <h2 class="article-title" style="margin-top: 3rem;">Exemple concret : scorer des candidats avec vos données existantes</h2>
+      <p class="article-text">
+        Pas besoin d'une plateforme d'entreprise pour démarrer. Voici, sur un cas simplifié, comment un score prédictif basique se construit à partir de trois variables disponibles dans n'importe quel <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">export SIRH ou ATS</a> : années d'expérience pertinente, nombre de compétences clés matchées avec la fiche de poste, et stabilité moyenne dans les postes précédents.
+      </p>
+
+      <div style="max-width: 800px; margin: 2rem auto; background: #1e1e2e; color: #cdd6f4; padding: 2rem; border-radius: 12px; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; overflow-x: auto;">
+<pre style="margin: 0;">
+<span style="color: #89b4fa;">import</span> pandas <span style="color: #89b4fa;">as</span> pd
+<span style="color: #89b4fa;">from</span> sklearn.preprocessing <span style="color: #89b4fa;">import</span> MinMaxScaler
+
+<span style="color: #6c7086;"># Données candidats (issues d'un export ATS simplifié)</span>
+candidats = pd.DataFrame({
+    <span style="color: #f9e2af;">"nom"</span>: [<span style="color: #f9e2af;">"Candidat A"</span>, <span style="color: #f9e2af;">"Candidat B"</span>, <span style="color: #f9e2af;">"Candidat C"</span>, <span style="color: #f9e2af;">"Candidat D"</span>],
+    <span style="color: #f9e2af;">"annees_experience"</span>: [<span style="color: #fab387;">2</span>, <span style="color: #fab387;">7</span>, <span style="color: #fab387;">4</span>, <span style="color: #fab387;">1</span>],
+    <span style="color: #f9e2af;">"competences_matchees"</span>: [<span style="color: #fab387;">5</span>, <span style="color: #fab387;">8</span>, <span style="color: #fab387;">6</span>, <span style="color: #fab387;">9</span>],
+    <span style="color: #f9e2af;">"stabilite_moyenne_mois"</span>: [<span style="color: #fab387;">14</span>, <span style="color: #fab387;">36</span>, <span style="color: #fab387;">22</span>, <span style="color: #fab387;">8</span>],
+})
+
+<span style="color: #6c7086;"># Normalisation 0-1 pour rendre les variables comparables</span>
+scaler = MinMaxScaler()
+candidats[[<span style="color: #f9e2af;">"exp_n"</span>, <span style="color: #f9e2af;">"comp_n"</span>, <span style="color: #f9e2af;">"stab_n"</span>]] = scaler.fit_transform(
+    candidats[[<span style="color: #f9e2af;">"annees_experience"</span>, <span style="color: #f9e2af;">"competences_matchees"</span>, <span style="color: #f9e2af;">"stabilite_moyenne_mois"</span>]]
+)
+
+<span style="color: #6c7086;"># Score pondéré (poids ajustables selon le poste)</span>
+candidats[<span style="color: #f9e2af;">"score"</span>] = (
+    <span style="color: #fab387;">0.3</span> * candidats[<span style="color: #f9e2af;">"exp_n"</span>] +
+    <span style="color: #fab387;">0.5</span> * candidats[<span style="color: #f9e2af;">"comp_n"</span>] +
+    <span style="color: #fab387;">0.2</span> * candidats[<span style="color: #f9e2af;">"stab_n"</span>]
+) * <span style="color: #fab387;">100</span>
+
+<span style="color: #89b4fa;">print</span>(candidats[[<span style="color: #f9e2af;">"nom"</span>, <span style="color: #f9e2af;">"score"</span>]].sort_values(<span style="color: #f9e2af;">"score"</span>, ascending=<span style="color: #89b4fa;">False</span>))
+</pre>
+      </div>
+
+      <div class="highlight-box" style="max-width: 800px; margin: 0 auto 2rem;">
+        <strong>Résultat :</strong> Candidat B (78/100), Candidat C (61/100), Candidat D (54/100), Candidat A (31/100). <strong>Ce score n'est qu'un filtre de tri</strong> — la décision finale, l'entretien et l'évaluation des soft skills restent entièrement humains, conformément aux exigences de supervision détaillées plus bas. <strong>Coût de cette méthode :</strong> aucune licence logicielle, quelques heures de mise en place à partir de données déjà disponibles.
+      </div>
+      <p class="article-text">
+        Cette approche a une limite claire : elle repose sur trois variables choisies manuellement, sans apprentissage automatique sur un historique de performance. C'est volontairement simple — l'objectif est de sortir de la lecture au jugé, pas de reproduire un modèle de machine learning entraîné. Pour aller plus loin (score entraîné sur vos données de <a href="https://competencesrh.fr/turnover.html" class="link-white-underline">turnover</a> et de performance réelles), la logique reste la même, mais la modélisation devient plus rigoureuse.
+      </p>
+
+      <h2 class="article-title" style="margin-top: 3rem;">Les principaux cas d'usage RH</h2>
       <ul>
         <li><strong>Filtrage de masse et priorisation :</strong> Analyse instantanée de volumes massifs de candidatures lors de campagnes de recrutement de profils juniors ou de vagues de candidatures spontanées.</li>
         <li><strong>Sourcing interne et mobilité agile :</strong> Identification des collaborateurs internes possédant des compétences transversales et transférables vers de nouveaux métiers en transformation.</li>
         <li><strong>Objectivation des compétences :</strong> Corrélation entre les résultats de tests techniques standardisés et la prédiction de réussite opérationnelle sur un poste donné.</li>
       </ul>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Les risques à ne pas sous-estimer : Biais et vigilance</h2>
+      <h2 class="article-title" style="margin-top: 3rem;">Les risques à ne pas sous-estimer : biais et vigilance</h2>
       <p class="article-text">
         Le risque majeur réside dans la reproduction et l'amplification des <strong>biais algorithmiques</strong>. Si un modèle mathématique prédictif est entraîné sur un historique interne non neutre (par exemple, un département technique composé historiquement à 90 % d'hommes issus des trois mêmes écoles d'ingénieurs), l'algorithme va déduire que ces critères sociologiques sont des facteurs de performance. Il pénalisera alors systématiquement les profils atypiques ou issus de la diversité, au détriment de l'équité et de la performance globale de l'entreprise.
       </p>
       <p class="article-text">
-        Un second danger réside dans l'illusion de la certitude mathématique. Un score de matching de 95 % n'indique pas une vérité absolue, mais une corrélation statistique. Il ne saurait remplacer une évaluation physique des compétences interpersonnelles (*soft skills*), du partage des valeurs d’entreprise (*culture fit*) ou de la motivation réelle du candidat lors d’un entretien structuré.
+        Un second danger réside dans l'illusion de la certitude mathématique. Un score de matching de 95 % n'indique pas une vérité absolue, mais une corrélation statistique. Il ne saurait remplacer une évaluation physique des compétences interpersonnelles (soft skills), du partage des valeurs d'entreprise (culture fit) ou de la motivation réelle du candidat lors d'un entretien structuré. Dans une PME, où chaque recrutement pèse proportionnellement plus lourd, cette vigilance compte encore davantage que dans un grand groupe.
       </p>
 
       <h2 class="article-title" style="margin-top: 3rem;">Ce que dit le cadre réglementaire : EU AI Act et RGPD</h2>
       <p class="article-text">
-        Depuis l'entrée en vigueur de l'<strong>EU AI Act</strong>, le cadre réglementaire européen classe les systèmes d'IA appliqués à la gestion de l'emploi, au recrutement et à la sélection des candidats au rang des technologies à <strong>haut risque</strong>. Cette catégorisation juridique stricte impose de lourdes obligations aux concepteurs et utilisateurs de ces solutions.
+        Depuis l'entrée en vigueur de l'<strong>EU AI Act</strong>, le cadre réglementaire européen classe les systèmes d'IA appliqués à la gestion de l'emploi, au recrutement et à la sélection des candidats au rang des technologies à <strong>haut risque</strong>. Cette catégorisation juridique stricte impose des obligations qui s'appliquent quelle que soit la taille de l'entreprise — une PME n'est pas exemptée parce qu'elle utilise un script fait maison plutôt qu'une plateforme commerciale.
       </p>
       <p class="article-text">
-        L'exercice d'une décision 100 % automatisée ayant des conséquences sur l'accès à l'emploi est strictement prohibé. La présence d'une supervision humaine effective (*human-in-the-loop*) doit être matérialisée à toutes les étapes critiques. L’entreprise doit être en mesure de documenter l'architecture de ses modèles, d'auditer l'équité de ses algorithmes et de garantir le respect des principes fondamentaux du RGPD, notamment le droit à l'information des candidats sur la logique sous-jacente au traitement de leurs données.
+        L'exercice d'une décision 100 % automatisée ayant des conséquences sur l'accès à l'emploi est strictement prohibé. La présence d'une supervision humaine effective (<em>human-in-the-loop</em>) doit être matérialisée à toutes les étapes critiques. L'entreprise doit être en mesure de documenter l'architecture de ses modèles, d'auditer l'équité de ses algorithmes et de garantir le respect des principes fondamentaux du RGPD, notamment le droit à l'information des candidats sur la logique sous-jacente au traitement de leurs données.
       </p>
 
       <h2 class="article-title" style="margin-top: 3rem;">Les bonnes pratiques de gouvernance</h2>
@@ -194,17 +247,20 @@
       </p>
 
       <div style="margin: 3rem 0; padding: 2.5rem; background: #ffffff; color: #1a1a1a; border: 1px solid #e0e0e0;">
-        <h3 style="font-family: 'Syne'; font-size: 1.3rem; margin-bottom: 1.5rem; color: #000; text-transform: uppercase; font-weight: bold;">Ce qu’il faut retenir en 2026</h3>
+        <h3 style="font-family: 'Syne'; font-size: 1.3rem; margin-bottom: 1.5rem; color: #000; text-transform: uppercase; font-weight: bold;">Ce qu'il faut retenir en 2026</h3>
         <p style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-          Le recrutement prédictif est un levier puissant de productivité et de structuration de la donnée sociale. Cependant, la performance durable naît de l'hybridation : l'intelligence artificielle excelle dans la catégorisation sémantique et statistique de la masse de documents, mais l'arbitrage éthique et qualitatif relève exclusivement de la responsabilité humaine.
+          Le recrutement prédictif n'est pas réservé aux grands comptes équipés de plateformes coûteuses. Pour une PME, un score simple construit sur des données existantes, en Python et sans licence, suffit à sortir du tri au jugé — à condition de garder la performance durable en tête : l'IA excelle dans la catégorisation statistique de la masse de candidatures, mais l'arbitrage éthique et qualitatif relève exclusivement de la responsabilité humaine.
         </p>
         <p style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
-          Garantir la neutralité des modèles, s'assurer de la qualité du code source et se conformer rigoureusement aux dispositions de l’AI Act européen représentent les prérequis non négociables d'une stratégie Data RH performante et éthique.
+          Garantir la neutralité des critères, documenter la méthode et se conformer aux dispositions de l'AI Act européen représentent les prérequis non négociables — quelle que soit la taille de l'outil utilisé pour y parvenir.
         </p>
       </div>
 
       <section id="faq-section" style="margin-top: 4rem; border-top: 1px solid #000; padding-top: 2rem;">
         <h2 class="article-title">FAQ — Recrutement prédictif et algorithmes RH</h2>
+
+        <h3 class="article-subtitle">Une PME peut-elle faire du recrutement prédictif sans logiciel spécialisé ?</h3>
+        <p class="article-text">Oui. Avec un export de vos candidatures passées (Excel ou ATS) et quelques variables pertinentes (expérience, compétences matchées, stabilité dans les postes précédents), un score de tri peut être construit en Python sans licence logicielle. C'est suffisant pour une PME de moins de 150 salariés qui recrute occasionnellement.</p>
 
         <h3 class="article-subtitle">Qu'est-ce que le recrutement prédictif basé sur l'IA ?</h3>
         <p class="article-text">Le recrutement prédictif est une méthodologie s'appuyant sur des algorithmes de Machine Learning pour analyser des variables issues de candidatures passées et présentes, afin d'évaluer la probabilité de réussite et d'adéquation d'un candidat à un poste donné.</p>
@@ -248,12 +304,12 @@
     <div class="footer-links">
       <a href="https://competencesrh.fr/">Accueil</a>
       <a href="https://competencesrh.fr/services.html">Services</a>
-      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
       <a href="https://competencesrh.fr/contact.html">Contact</a>
     </div>
     <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
   </footer>
- 
+
   <script src="https://competencesrh.fr/main.js"></script>
 </body>
 </html>
