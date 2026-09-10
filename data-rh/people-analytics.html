@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="People Analytics : définition, cas d'usage RH (turnover, recrutement, compétences, équité), méthode de mise en œuvre en 4 étapes et synergies avec l'IA en 2026." />
+  <title>People Analytics : définition, cas d'usage et méthode (2026) | CompétencesRH</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://competencesrh.fr/data-rh/people-analytics.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/data-rh/people-analytics.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://competencesrh.fr/data-rh/people-analytics.html"
+        },
+        "headline": "People Analytics : définition, cas d'usage et mise en œuvre",
+        "description": "Le people analytics utilise les données RH et workforce pour éclairer les décisions de recrutement, rétention, compétences et organisation. État des lieux, cas d'usage et feuille de route en 2026.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/data-rh/people-analytics.html",
+        "datePublished": "2026-09-10",
+        "dateModified": "2026-09-10",
+        "author": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DataRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/data-rh/people-analytics.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre data RH, HR analytics et people analytics ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La data RH désigne l'ensemble des données relatives aux collaborateurs et aux processus RH. Les HR analytics se concentrent sur l'analyse de ces données pour optimiser les processus RH. Le people analytics va plus loin : il croise les données RH avec d'autres sources (finance, clients, opérations) pour éclairer des décisions business stratégiques (rétention, productivité, organisation, compétences)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les cas d'usage les plus rentables du people analytics ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les cas d'usage à fort ROI incluent : la prédiction et la réduction du turnover, l'optimisation du recrutement et de la qualité de l'embauche, l'analyse des compétences et des gaps de skills, la détection des facteurs d'engagement et d'absentéisme, l'équité salariale, et la planification des effectifs (workforce planning)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Par où commencer un projet people analytics en PME ou ETI ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il est recommandé de démarrer par un audit des données disponibles (SIRH, paie, recrutement, formation), de choisir un ou deux cas d'usage prioritaires liés à un enjeu business clair (ex. turnover des jeunes talents, pénurie de compétences critiques), puis de construire un premier tableau de bord simple avant d'envisager des modèles prédictifs ou de l'IA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les risques et limites du people analytics ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les principaux risques concernent la qualité et les biais des données, la sur-interprétation des corrélations, les effets de prophétie autoréalisatrice, et les enjeux de conformité (RGPD, AI Act). Le people analytics doit rester un outil d'aide à la décision, et non un système de décision automatique opaque."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+ 
+  <header class="page-hero">
+    <div class="section-label">// People Analytics &amp; Décision RH</div>
+    <h1 class="page-title">People Analytics :<br/>définition, cas d'usage et mise en œuvre</h1>
+    <p class="page-sub">
+      Le people analytics ne se résume pas à des tableaux de bord RH. Il s'agit d'utiliser les données sur les collaborateurs et l'organisation pour comprendre ce qui se joue, anticiper les risques et orienter les choix stratégiques en matière de talents, de compétences et de performance.
+    </p>
+    <div class="hero-actions">
+      <a href="https://competencesrh.fr/data-rh.html" class="btn-primary">Data RH en PME</a>
+      <a href="https://competencesrh.fr/analyse-donnees-rh.html" class="btn-primary">Analyse de Données</a>
+    </div>
+  </header>
+ 
+  <main>
+    <section class="section">
+      <div class="blog-article" style="max-width: 800px; margin: 0 auto;">
+        
+        <p class="article-text">
+          Dans la plupart des organisations, les données RH existent déjà : SIRH, paie, recrutement, formation, entretiens, enquêtes de climat. La question n'est plus d'en produire davantage, mais de les faire parler pour répondre à des enjeux business concrets : rétention des talents, pénuries de compétences, productivité, équité, transformation organisationnelle.
+        </p>
+
+        <h2>1. Qu'est-ce que le people analytics ?</h2>
+        <p class="article-text">
+          Le <strong>people analytics</strong> (aussi appelé <em>HR analytics</em>, <em>workforce analytics</em> ou <em>talent analytics</em>) est la pratique qui consiste à collecter, analyser et interpréter des données relatives aux collaborateurs et à l'organisation pour améliorer les décisions RH et business.
+        </p>
+        <p class="article-text">
+          Contrairement au reporting RH traditionnel, qui décrit ce qui s'est passé (effectifs, turnover, absentéisme), le people analytics cherche à :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Comprendre <strong>pourquoi</strong> certains phénomènes se produisent (ex. pourquoi le turnover est plus élevé dans telle population ?).</li>
+          <li>Identifier des <strong>leviers d'action</strong> (pratiques managériales, politiques salariales, parcours de formation, etc.).</li>
+          <li>Anticiper des <strong>risques et opportunités</strong> (départs probables, gaps de compétences, besoins de recrutement).</li>
+        </ul>
+        <p class="article-text">
+          En 2026, le people analytics s'inscrit dans un contexte où les directions RH sont attendues sur leur contribution à la performance globale, et non plus seulement sur la gestion administrative des processus.
+        </p>
+
+        <h3>Data RH, HR analytics, people analytics : quelles différences ?</h3>
+        <p class="article-text">
+          Ces termes sont souvent utilisés de manière interchangeable, mais on peut les distinguer ainsi :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li><strong>Data RH</strong> : l'ensemble des données relatives aux collaborateurs et aux processus RH (paie, temps, recrutement, formation, évaluations, etc.). C'est la matière première.</li>
+          <li><strong>HR analytics</strong> : l'analyse de ces données pour optimiser les processus RH (ex. améliorer le time-to-hire, réduire l'absentéisme).</li>
+          <li><strong>People analytics</strong> : une approche plus stratégique, qui croise les données RH avec d'autres sources (finance, clients, opérations) pour éclairer des décisions business (rétention des talents critiques, organisation du travail, équité, productivité).</li>
+        </ul>
+        <p class="article-text">
+          En pratique, le people analytics ne se limite pas au périmètre RH : il interroge la manière dont les choix en matière de talents et d'organisation impactent la performance globale.
+        </p>
+
+        <h2>2. Cas d'usage : où le people analytics crée de la valeur</h2>
+        <p class="article-text">
+          Les cas d'usage les plus matures et à fort ROI en 2026 se concentrent sur quelques grands domaines :
+        </p>
+
+        <h3>Turnover et rétention</h3>
+        <p class="article-text">
+          C'est historiquement le cas d'usage phare. Le people analytics permet de :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Segmenter le turnover par population, métier, manager, ancienneté, performance.</li>
+          <li>Identifier les facteurs associés aux départs (rémunération, évolution, management, charge, etc.).</li>
+          <li>Développer des modèles prédictifs pour cibler les collaborateurs à risque et tester des actions de rétention ciblées.</li>
+        </ul>
+        <p class="article-text">
+          Voir aussi : <a href="https://competencesrh.fr/turnover.html" class="link-underline">Turnover : analyse et leviers d'action</a>, <a href="https://competencesrh.fr/ia/ia-predictive-rh.html" class="link-underline">IA prédictive RH</a>.
+        </p>
+
+        <h3>Recrutement et qualité de l'embauche</h3>
+        <p class="article-text">
+          Le people analytics aide à :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Analyser les sources de recrutement les plus efficaces (canaux, cabinets, écoles).</li>
+          <li>Relier les profils embauchés à leur performance et leur rétention à 12–24 mois.</li>
+          <li>Identifier les biais potentiels dans les processus de sélection (genre, âge, origine, etc.).</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/automatisation/processus-rh-recrutement.html" class="link-underline">Automatisation du recrutement</a>, <a href="https://competencesrh.fr/ia/recrutement-predictif.html" class="link-underline">Recrutement prédictif en PME</a>.
+        </p>
+
+        <h3>Compétences, mobilité et workforce planning</h3>
+        <p class="article-text">
+          Dans un contexte de transformations rapides, le people analytics permet de :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Cartographier les compétences disponibles et les gaps critiques.</li>
+          <li>Simuler des scénarios de workforce planning (besoins futurs, réorganisations, départs à la retraite).</li>
+          <li>Orienter les politiques de formation, de mobilité interne et de recrutement en fonction des besoins stratégiques.</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/competences.html" class="link-underline">Compétences RH</a>, <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-underline">Modélisation des données RH</a>.
+        </p>
+
+        <h3>Engagement, absentéisme et santé au travail</h3>
+        <p class="article-text">
+          En croisant enquêtes de climat, données d'absence, performance et caractéristiques des équipes, le people analytics aide à :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Identifier les facteurs d'engagement et de désengagement.</li>
+          <li>Comprendre les dynamiques d'absentéisme (par métier, manager, site, etc.).</li>
+          <li>Éclairer les politiques de QVT, de prévention et de management.</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-underline">Absentéisme 2026</a>, <a href="https://competencesrh.fr/blog/reguler-charge-travail-transformation-rh.html" class="link-underline">Charge de travail et transformations</a>.
+        </p>
+
+        <h3>Équité salariale et diversité</h3>
+        <p class="article-text">
+          Le people analytics est un levier clé pour :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Détecter des écarts de rémunération inexpliqués entre femmes et hommes, ou selon d'autres critères.</li>
+          <li>Analyser les dynamiques de promotion, de mobilité et de reconnaissance.</li>
+          <li>Piloter des plans d'action concrets et mesurer leur impact dans le temps.</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" class="link-underline">Détecter les inégalités salariales cachées (indice de Gini)</a>, <a href="https://competencesrh.fr/conformite-ethique-rh.html" class="link-underline">Conformité et éthique RH</a>.
+        </p>
+
+        <h2>3. Mettre en œuvre le people analytics : par où commencer ?</h2>
+        <p class="article-text">
+          Beaucoup d'organisations veulent se lancer, mais ne savent pas par quel bout prendre le sujet. Une approche pragmatique en 2026 ressemble souvent à ceci :
+        </p>
+
+        <h3>Étape 1 – Auditer les données disponibles</h3>
+        <p class="article-text">
+          Avant tout modèle sophistiqué, il faut connaître sa matière première :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Quelles données existent (SIRH, paie, recrutement, formation, évaluations, enquêtes) ?</li>
+          <li>Où sont-elles stockées, qui y a accès, comment sont-elles documentées ?</li>
+          <li>Quelles sont les principales lacunes (données manquantes, incohérentes, non standardisées) ?</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html" class="link-underline">Qualité et gouvernance des données RH</a>.
+        </p>
+
+        <h3>Étape 2 – Choisir un ou deux cas d'usage prioritaires</h3>
+        <p class="article-text">
+          Le piège classique est de vouloir tout faire en même temps. Il est plus efficace de :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Identifier un ou deux enjeux business clairs (ex. turnover des jeunes talents, pénurie de compétences critiques, équité salariale).</li>
+          <li>Vérifier que les données nécessaires sont disponibles ou accessibles.</li>
+          <li>Définir des indicateurs de succès concrets (ex. réduction de X% du turnover sur une population cible).</li>
+        </ul>
+
+        <h3>Étape 3 – Construire un premier tableau de bord simple</h3>
+        <p class="article-text">
+          Un premier dashboard, même basique, vaut mieux qu'un projet « parfait » qui n'aboutit pas. L'objectif est de :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Rendre visibles les indicateurs clés (turnover, rétention, recrutement, compétences, etc.).</li>
+          <li>Permettre aux RH et aux managers de poser des questions et d'explorer les données.</li>
+          <li>Créer une dynamique d'usage et d'amélioration continue.</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-rh.html" class="link-underline">Tableau de bord RH</a>, <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-underline">Tableau de bord Excel & Power Query</a>, <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-underline">Power BI</a>.
+        </p>
+
+        <h3>Étape 4 – Monter en compétences et structurer la gouvernance</h3>
+        <p class="article-text">
+          Le people analytics ne repose pas uniquement sur des outils. Il nécessite :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li>Des compétences en analyse de données, statistiques et visualisation au sein de l'équipe RH.</li>
+          <li>Une gouvernance claire : qui est responsable des données, des indicateurs, des accès, de la conformité ?</li>
+          <li>Un lien fort avec la direction pour aligner les priorités people analytics sur la stratégie business.</li>
+        </ul>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/data-rh/culture-data-convaincre-direction.html" class="link-underline">Culture data et convaincre la direction</a>, <a href="https://competencesrh.fr/conformite-ethique-rh.html" class="link-underline">Conformité et éthique RH</a>.
+        </p>
+
+        <h2>4. People analytics et IA : quelles synergies en 2026 ?</h2>
+        <p class="article-text">
+          L'IA prédictive et générative vient enrichir le people analytics, mais ne le remplace pas. En 2026, on observe plusieurs tendances :
+        </p>
+        <ul class="article-text" style="margin-left: 2rem; margin-bottom: 1.5rem;">
+          <li><strong>Prédiction</strong> : modèles de turnover, de réussite en formation, de besoins de recrutement, etc.</li>
+          <li><strong>Skills inference</strong> : détection automatique de compétences à partir de descriptions de poste, de CV, de projets.</li>
+          <li><strong>Conversational analytics</strong> : chatbots et assistants qui permettent aux managers et aux RH d'interroger les données en langage naturel.</li>
+        </ul>
+        <p class="article-text">
+          Ces usages doivent rester encadrés : explicabilité des modèles, conformité RGPD et AI Act, vigilance sur les biais et les effets de prophétie autoréalisatrice.
+        </p>
+        <p class="article-text">
+          Voir : <a href="https://competencesrh.fr/ia/ia-predictive-rh.html" class="link-underline">IA prédictive RH</a>, <a href="https://competencesrh.fr/ia/limites-ia-rh.html" class="link-underline">Limites de l'IA en RH</a>, <a href="https://competencesrh.fr/conformite/audit-algorithmique-biais.html" class="link-underline">Audit algorithmique et biais</a>.
+        </p>
+
+        <h2>5. Limites et vigilances : ce que le people analytics ne fait pas</h2>
+        <p class="article-text">
+          Le people analytics n'est pas une baguette magique : qualité des données, corrélation confondue avec causalité, effets de prophétie autoréalisatrice, enjeux RGPD et AI Act sont autant de pièges classiques. Nous détaillons chacun de ces risques, avec des exemples concrets, dans notre <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-underline">guide dédié aux limites du people analytics</a>.
+        </p>
+        <p class="article-text">
+          Le people analytics doit rester un outil d'<strong>aide à la décision</strong>, et non un système de décision automatique opaque. La légitimité finale revient aux humains : RH, managers, directions.
+        </p>
+
+        <h2>Ce qu'il faut retenir</h2>
+        <p class="article-text" style="margin-bottom: 2rem;">
+          Le people analytics ne se résume pas à des tableaux de bord RH. Il s'agit d'utiliser les données sur les collaborateurs et l'organisation pour comprendre, anticiper et orienter les décisions en matière de talents, de compétences et de performance. En 2026, il est devenu un levier stratégique pour les directions RH qui souhaitent passer d'une logique de reporting à une logique d'impact business.
+        </p>
+      </div>
+    </section>
+  </main>
+ 
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <p class="cta-band-text">Vous souhaitez structurer une démarche people analytics ou prioriser des cas d'usage à fort impact (turnover, compétences, équité, workforce planning) ?</p>
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Contacter un consultant expert Data RH →</a>
+    </div>
+  </section>
+ 
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+  </footer>
+ 
+  <script src="../main.js"></script>
+</body>
+</html>
