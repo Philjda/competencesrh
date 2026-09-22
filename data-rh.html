@@ -1,288 +1,850 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="People Analytics et Data RH : transformez vos décisions RH avec l'IA. Guide complet : indicateurs clés, maturité analytique et cas d'usage pour les DRH de PME/ETI."/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>People Analytics et Data RH : transformer la décision avec l'IA | CompetencesRH</title>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ymacclcqrb");
-</script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-3ZT1R1H6RV');
-</script>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="canonical" href="https://competencesrh.fr/data-rh.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://competencesrh.fr/",
-      "url": "https://competencesrh.fr/",
-      "name": "CompetencesRH",
-      "publisher": { "@id": "https://competencesrh.fr/#organization" }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://competencesrh.fr/#organization",
-      "name": "CompetencesRH",
-      "url": "https://competencesrh.fr/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://competencesrh.fr/assets/logo.png"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://competencesrh.fr/data-rh.html#webpage",
-      "url": "https://competencesrh.fr/data-rh.html",
-      "name": "People Analytics et Data RH : transformer la décision avec l'IA",
-      "isPartOf": { "@id": "https://competencesrh.fr/" },
-      "description": "Comment structurer la Data RH et utiliser le People Analytics pour basculer d'un pilotage descriptif à une stratégie prédictive basée sur l'IA."
-    },
-    {
-      "@type": "TechArticle",
-      "@id": "https://competencesrh.fr/data-rh.html#article",
-      "isPartOf": { "@id": "https://competencesrh.fr/data-rh.html#webpage" },
-      "headline": "People Analytics et Data RH : transformer la décision avec l'IA",
-      "description": "Guide complet sur la maturité des données RH : du reporting descriptif au pilotage prédictif et à l'intégration de l'IA dans les processus RH.",
-      "inLanguage": "fr",
-      "mainEntityOfPage": "https://competencesrh.fr/data-rh.html",
-      "datePublished": "2025-04-28",
-      "dateModified": "2026-09-14",
-      "author": { "@id": "https://competencesrh.fr/#organization" },
-      "publisher": { "@id": "https://competencesrh.fr/#organization" },
-      "about": [
-        { "@type": "Thing", "name": "People Analytics" },
-        { "@type": "Thing", "name": "Data RH" },
-        { "@type": "Thing", "name": "Intelligence artificielle" },
-        { "@type": "Thing", "name": "Indicateurs RH" },
-        { "@type": "Thing", "name": "DRH" },
-        { "@type": "Thing", "name": "Pilotage prédictif" }
-      ]
-    }
-  ]
-}
-</script>
-  
+  <meta
+    name="description"
+    content="Data RH décisionnelle pour DRH, RRH et dirigeants de PME et ETI : transformez vos données de turnover, d’absentéisme et de masse salariale en décisions concrètes."
+  >
+
+  <link
+    rel="canonical"
+    href="https://competencesrh.fr/data-rh.html"
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="People Analytics et Data RH : transformer la décision avec l'IA | CompetencesRH">
+  <meta
+    property="og:description"
+    content="Sortez du reporting RH passif. Transformez vos données sociales en décisions concrètes sur le turnover, l’absentéisme et la masse salariale."
+  >
+  <meta property="og:url" content="https://competencesrh.fr/data-rh.html">
+
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="https://competencesrh.fr/" class="nav-logo">COMPETENCES<span>RH</span></a>
-    <ul class="nav-links">
-     <li><a href="https://competencesrh.fr/">Accueil</a></li>
-      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
-      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
-      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
-      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse Donnees</a></li>
-      <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
-      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">Parlons Data RH →</a>
-  </nav>
+<body class="page-data-rh">
 
-  <!-- PAGE HERO + CTA -->
-  <section class="page-hero">
-    <div class="section-label">// Data RH & IA</div>
-    <h1 class="page-title">People Analytics et Data RH : transformer la décision avec l'IA</h1>
-    <p class="page-sub">
-      À la croisée entre RH et IA : utilisez le People Analytics pour transformer vos décisions RH instinctives 
-      en insights basés sur la donnée, et passez d'un pilotage descriptif à une stratégie prédictive.
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="site-logo" href="/" aria-label="CompetencesRH - Accueil">
+      CompetencesRH
+    </a>
+
+    <nav class="main-navigation" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/data-rh.html" aria-current="page">Data RH</a>
+      <a href="/articles.html">Articles</a>
+      <a href="/a-propos.html">À propos</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       HERO : PROMESSE DE LA MICRO-MARQUE
+  ========================================================== -->
+  <section class="brand-hero">
+    <div class="container brand-hero-grid">
+
+      <div class="brand-hero-content">
+
+        <p class="brand-kicker">
+          Data RH décisionnelle pour PME et ETI
+        </p>
+
+        <h1>
+          Vos données RH doivent vous dire où agir,
+          pas seulement ce qui s’est passé.
+        </h1>
+
+        <p class="brand-hero-lead">
+          Vous avez des tableaux Excel, des exports SIRH et des indicateurs
+          sociaux. Mais lorsque la direction demande « que devons-nous faire ? »,
+          vos données ne donnent pas encore de réponse claire.
+        </p>
+
+        <p>
+          Je transforme vos données de turnover, d’absentéisme, d’effectifs
+          et de masse salariale en décisions RH concrètes, priorisées
+          et reliées aux enjeux économiques de votre entreprise.
+        </p>
+
+        <p class="brand-signature">
+          15 ans de métier RH, Python, Data Science et IA :
+          le pont entre l’humain, la technique et la décision.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#diagnostic">
+            Diagnostiquer mon pilotage RH
+          </a>
+
+          <a class="button button-link" href="#doctrine">
+            Comprendre la méthode
+          </a>
+        </div>
+
+      </div>
+
+      <aside class="brand-hero-card">
+
+        <p class="card-eyebrow">
+          La promesse de cette URL
+        </p>
+
+        <h2>
+          Moins de reporting.
+          Plus de décisions.
+        </h2>
+
+        <p>
+          Vos données doivent permettre de répondre à trois questions :
+        </p>
+
+        <ol class="hero-questions">
+          <li>Où se situe le problème ?</li>
+          <li>Quel coût ou quel risque représente-t-il ?</li>
+          <li>Quelle action faut-il prioriser ?</li>
+        </ol>
+
+        <p class="card-footer">
+          C’est cela, la Data RH décisionnelle.
+        </p>
+
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RUPTURE : L'ENNEMI DE LA MICRO-MARQUE
+  ========================================================== -->
+  <section class="section section-rupture" id="probleme">
+    <div class="container narrow">
+
+      <p class="section-kicker">
+        L’ennemi
+      </p>
+
+      <h2>
+        Le reporting RH n’est pas du pilotage RH.
+      </h2>
+
+      <p>
+        Un reporting vous indique combien de salariés sont partis.
+        Un pilotage RH vous aide à comprendre où le risque se concentre,
+        ce qu’il coûte et quelle action mérite d’être engagée.
+      </p>
+
+      <p>
+        Tant que vos données restent dispersées entre le SIRH, la paie,
+        les fichiers Excel et les présentations PowerPoint, vous accumulez
+        des chiffres sans construire de décision.
+      </p>
+
+      <div class="contrast-grid">
+
+        <div class="contrast-card contrast-card-negative">
+          <span class="contrast-label">Reporting passif</span>
+          <h3>« Le turnover est de 14 %. »</h3>
+          <p>
+            Un chiffre global, sans population prioritaire,
+            sans coût estimé et sans action associée.
+          </p>
+        </div>
+
+        <div class="contrast-card contrast-card-positive">
+          <span class="contrast-label">Data RH décisionnelle</span>
+          <h3>« Voici où agir en premier. »</h3>
+          <p>
+            Une analyse qui relie une population, un risque,
+            un coût et une décision opérationnelle.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DOCTRINE : CONCEPT PROPRIETAIRE
+  ========================================================== -->
+  <section class="section section-doctrine" id="doctrine">
+    <div class="container doctrine-grid">
+
+      <div>
+        <p class="section-kicker">
+          La doctrine Data RH décisionnelle
+        </p>
+
+        <h2>
+          Aucun indicateur ne mérite d’exister
+          s’il ne répond pas à une question de décision.
+        </h2>
+      </div>
+
+      <div class="doctrine-content">
+
+        <p>
+          Avant de construire un tableau de bord, nous définissons la décision
+          qu’il doit éclairer.
+        </p>
+
+        <ul class="decision-list">
+          <li>
+            <strong>Quelle population</strong> devons-nous surveiller ?
+          </li>
+          <li>
+            <strong>Quel risque ou quel coût</strong> devons-nous réduire ?
+          </li>
+          <li>
+            <strong>Quelle action</strong> est possible dans les 30, 60 ou 90 jours ?
+          </li>
+          <li>
+            <strong>Quel indicateur</strong> permettra de mesurer l’effet de cette action ?
+          </li>
+        </ul>
+
+        <p>
+          Si un indicateur ne permet de répondre à aucune de ces questions,
+          il est peut-être inutile. Ou mal défini.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROBLEMES POSSEDES PAR L'URL
+  ========================================================== -->
+  <section class="section section-use-cases" id="cas-usage">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="section-kicker">
+          Les décisions que vos données doivent éclairer
+        </p>
+
+        <h2>
+          Quatre problèmes RH.
+          Une même exigence : savoir où agir.
+        </h2>
+
+        <p>
+          La Data RH décisionnelle ne commence pas par un outil.
+          Elle commence par une question qui coûte cher lorsqu’elle reste sans réponse.
+        </p>
+      </div>
+
+      <div class="use-case-grid">
+
+        <article class="use-case-card">
+          <span class="use-case-number">01</span>
+          <h3>Turnover</h3>
+          <p class="use-case-question">
+            Pourquoi nos salariés partent-ils ici, maintenant ?
+          </p>
+          <p>
+            Identifiez les métiers, sites, équipes ou périodes qui concentrent
+            les départs afin de prioriser vos actions de fidélisation.
+          </p>
+          <a href="/analyse-turnover.html">
+            Explorer l’analyse turnover
+          </a>
+        </article>
+
+        <article class="use-case-card">
+          <span class="use-case-number">02</span>
+          <h3>Absentéisme</h3>
+          <p class="use-case-question">
+            Où l’absentéisme produit-il le plus de désorganisation et de coût ?
+          </p>
+          <p>
+            Analysez les écarts entre populations, établissements, métiers
+            et périodes au lieu de subir un taux global.
+          </p>
+          <a href="/analyse-absenteisme.html">
+            Explorer l’analyse absentéisme
+          </a>
+        </article>
+
+        <article class="use-case-card">
+          <span class="use-case-number">03</span>
+          <h3>Masse salariale</h3>
+          <p class="use-case-question">
+            Quelle évolution devons-nous anticiper avant qu’elle ne s’impose ?
+          </p>
+          <p>
+            Reliez les effectifs, rémunérations, recrutements, mobilités
+            et départs pour construire des scénarios plus fiables.
+          </p>
+          <a href="/masse-salariale-data-rh.html">
+            Explorer le pilotage de masse salariale
+          </a>
+        </article>
+
+        <article class="use-case-card">
+          <span class="use-case-number">04</span>
+          <h3>Reporting RH</h3>
+          <p class="use-case-question">
+            Pourquoi produisons-nous autant de chiffres sans décider plus vite ?
+          </p>
+          <p>
+            Remplacez les consolidations répétitives par un dispositif
+            de pilotage social lisible et utilisable.
+          </p>
+          <a href="/tableau-de-bord-rh.html">
+            Transformer mon reporting RH
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       POSITIONNEMENT PERSONNEL
+  ========================================================== -->
+  <section class="section section-positioning" id="positionnement">
+    <div class="container positioning-grid">
+
+      <div class="positioning-intro">
+        <p class="section-kicker">
+          Pourquoi cette approche est différente
+        </p>
+
+        <h2>
+          Je ne suis pas un fournisseur de tableaux de bord.
+        </h2>
+
+        <p class="positioning-statement">
+          Je suis un professionnel RH capable de comprendre vos enjeux
+          et de travailler directement sur vos données.
+        </p>
+      </div>
+
+      <div class="positioning-pillars">
+
+        <article class="positioning-pillar">
+          <span>01</span>
+          <h3>Je connais le terrain RH</h3>
+          <p>
+            Effectifs, métiers, absentéisme, turnover, performance sociale,
+            managers et direction : les données sont toujours liées
+            à une réalité de travail.
+          </p>
+        </article>
+
+        <article class="positioning-pillar">
+          <span>02</span>
+          <h3>Je maîtrise la technique</h3>
+          <p>
+            Python, SQL, Data Science, automatisation et outils de Business
+            Intelligence permettent d’aller au-delà des fichiers bricolés
+            lorsque cela est réellement nécessaire.
+          </p>
+        </article>
+
+        <article class="positioning-pillar">
+          <span>03</span>
+          <h3>Je traduis l’analyse en décision</h3>
+          <p>
+            Vous obtenez des résultats compréhensibles, leurs limites,
+            les hypothèses à vérifier et les actions à prioriser.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="signature-quote">
+        <p>
+          Je ne vends pas du Python, du Power BI ou du Machine Learning.
+          Je vends une capacité à décider avec moins d’incertitude.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       METHODE
+  ========================================================== -->
+  <section class="section section-method" id="methode">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="section-kicker">
+          La méthode
+        </p>
+
+        <h2>
+          Quatre étapes pour passer du chiffre à la décision.
+        </h2>
+
+        <p>
+          Pas de boîte noire. Pas de grand projet technique lancé
+          avant d’avoir identifié le problème à résoudre.
+        </p>
+      </div>
+
+      <div class="method-timeline">
+
+        <article class="method-step">
+          <div class="method-step-number">01</div>
+          <div class="method-step-content">
+            <h3>Écoute</h3>
+            <h4>Nous partons de votre décision bloquée.</h4>
+            <p>
+              Quelle question revient en comité de direction ?
+              Quel indicateur est contesté ? Quel rapport prend trop de temps ?
+              Quel coût RH doit être maîtrisé ?
+            </p>
+            <p class="method-deliverable">
+              <strong>Sortie :</strong>
+              les questions business prioritaires.
+            </p>
+          </div>
+        </article>
+
+        <article class="method-step">
+          <div class="method-step-number">02</div>
+          <div class="method-step-content">
+            <h3>Diagnostic</h3>
+            <h4>Nous vérifions ce que vos données permettent réellement.</h4>
+            <p>
+              Nous cartographions les sources disponibles, les définitions,
+              les doublons, les données manquantes et les règles de calcul.
+            </p>
+            <p class="method-deliverable">
+              <strong>Sortie :</strong>
+              la cartographie des données et des limites.
+            </p>
+          </div>
+        </article>
+
+        <article class="method-step">
+          <div class="method-step-number">03</div>
+          <div class="method-step-content">
+            <h3>Construction</h3>
+            <h4>Nous construisons uniquement ce qui sert la décision.</h4>
+            <p>
+              Indicateurs, dictionnaire de données, tableau de bord,
+              analyse Python, scénarios ou automatisation :
+              le niveau d’outillage dépend du problème.
+            </p>
+            <p class="method-deliverable">
+              <strong>Sortie :</strong>
+              un dispositif de pilotage lisible et actionnable.
+            </p>
+          </div>
+        </article>
+
+        <article class="method-step">
+          <div class="method-step-number">04</div>
+          <div class="method-step-content">
+            <h3>Autonomie</h3>
+            <h4>Nous transmettons le raisonnement, pas seulement l’outil.</h4>
+            <p>
+              Les sources, calculs, limites et usages sont documentés.
+              Vos équipes savent actualiser les données et interpréter
+              les signaux de décision.
+            </p>
+            <p class="method-deliverable">
+              <strong>Sortie :</strong>
+              la documentation, la transmission et le plan d’évolution.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       IA ET MATURITE
+  ========================================================== -->
+  <section class="section section-ai" id="ia-rh">
+    <div class="container ai-grid">
+
+      <div>
+        <p class="section-kicker">
+          IA et People Analytics
+        </p>
+
+        <h2>
+          L’IA ne remplace pas le pilotage.
+          Elle amplifie une décision bien posée.
+        </h2>
+
+        <p>
+          Un modèle prédictif ne corrige pas une donnée mal définie.
+          Il ne compense pas un historique trop court.
+          Il ne transforme pas automatiquement une corrélation en cause.
+        </p>
+
+        <p>
+          L’intelligence artificielle intervient lorsque les fondations sont
+          suffisamment solides et lorsque son usage apporte une valeur réelle.
+        </p>
+      </div>
+
+      <div class="maturity-path">
+
+        <div class="maturity-step">
+          <span>01</span>
+          <h3>Décrire</h3>
+          <p>Que s’est-il passé ?</p>
+        </div>
+
+        <div class="maturity-step">
+          <span>02</span>
+          <h3>Diagnostiquer</h3>
+          <p>Où et pourquoi cela s’est-il produit ?</p>
+        </div>
+
+        <div class="maturity-step">
+          <span>03</span>
+          <h3>Anticiper</h3>
+          <p>Que risque-t-il de se produire ?</p>
+        </div>
+
+        <div class="maturity-step">
+          <span>04</span>
+          <h3>Agir</h3>
+          <p>Quelle action devons-nous prioriser ?</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       OFFRES NOMMEES
+  ========================================================== -->
+  <section class="section section-offers" id="offres">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="section-kicker">
+          Les offres Data RH décisionnelle
+        </p>
+
+        <h2>
+          Pas une liste de prestations.
+          Un chemin vers l’autonomie.
+        </h2>
+      </div>
+
+      <div class="offer-grid">
+
+        <article class="offer-card">
+          <p class="offer-number">01</p>
+          <h3>Le Diagnostic Décisionnel RH</h3>
+          <p class="offer-price">
+            À partir de 1 500 € HT
+          </p>
+          <p>
+            Pour identifier la décision RH prioritaire, évaluer vos données
+            et éviter de lancer un projet qui ne répond à aucun problème concret.
+          </p>
+          <a href="#diagnostic">
+            Diagnostiquer mon pilotage RH
+          </a>
+        </article>
+
+        <article class="offer-card offer-card-featured">
+          <p class="offer-number">02</p>
+          <h3>Le Cockpit RH Décisionnel</h3>
+          <p class="offer-price">
+            À partir de 4 500 € HT
+          </p>
+          <p>
+            Pour remplacer les fichiers dispersés par un dispositif de pilotage
+            lisible, documenté et réellement utilisé.
+          </p>
+          <a href="#diagnostic">
+            Construire mon cockpit RH
+          </a>
+        </article>
+
+        <article class="offer-card">
+          <p class="offer-number">03</p>
+          <h3>Le Radar Turnover</h3>
+          <p class="offer-price">
+            Sur étude du périmètre
+          </p>
+          <p>
+            Pour identifier les populations à risque, estimer les coûts
+            et prioriser les actions de fidélisation.
+          </p>
+          <a href="/analyse-turnover.html">
+            Explorer le Radar Turnover
+          </a>
+        </article>
+
+      </div>
+
+      <p class="pricing-note">
+        Les montants sont indicatifs. Le budget dépend du nombre de sources,
+        du périmètre étudié, de la qualité des données et du niveau d’autonomie attendu.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PREUVES ET LIMITES
+  ========================================================== -->
+  <section class="section section-proof" id="preuves">
+    <div class="container proof-grid">
+
+      <div>
+        <p class="section-kicker">
+          Ce que vous obtenez
+        </p>
+
+        <h2>
+          Une analyse exploitable par la DRH,
+          la direction et les managers.
+        </h2>
+
+        <p>
+          L’objectif n’est pas de produire une présentation supplémentaire.
+          L’objectif est de permettre une discussion plus claire et une décision
+          mieux priorisée.
+        </p>
+      </div>
+
+      <ul class="proof-list">
+        <li>Des indicateurs dont les définitions sont explicites.</li>
+        <li>Des données documentées et des limites identifiées.</li>
+        <li>Des analyses reliées à des questions métier.</li>
+        <li>Des recommandations compréhensibles par les décideurs.</li>
+        <li>Un niveau d’outillage proportionné au besoin.</li>
+        <li>Une transmission pour éviter la dépendance.</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CTA FINAL
+  ========================================================== -->
+  <section class="section section-final-cta" id="diagnostic">
+    <div class="container final-cta-content">
+
+      <p class="section-kicker">
+        Votre prochain signal de décision
+      </p>
+
+      <h2>
+        Quelle décision RH vos données ne vous permettent-elles pas encore de prendre ?
+      </h2>
+
+      <p>
+        Présentez votre sujet prioritaire : turnover, absentéisme,
+        masse salariale, reporting ou exploitation de vos données SIRH.
+        Nous commencerons par le problème, pas par l’outil.
+      </p>
+
+      <a class="button button-primary" href="#formulaire">
+        Identifier mon angle mort RH
+      </a>
+
+      <p class="cta-microcopy">
+        Premier échange de cadrage. Aucun projet technique ne sera proposé
+        avant d’avoir clarifié la décision à éclairer.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FORMULAIRE
+  ========================================================== -->
+  <section class="section section-form" id="formulaire">
+    <div class="container form-grid">
+
+      <div class="form-intro">
+        <p class="section-kicker">
+          Diagnostic Data RH décisionnelle
+        </p>
+
+        <h2>
+          Décrivez le problème.
+          Nous chercherons ensuite la bonne solution.
+        </h2>
+
+        <p>
+          Vous n’avez pas besoin d’arriver avec un cahier des charges,
+          un modèle de données ou une liste d’outils.
+        </p>
+
+        <p>
+          Il suffit de préciser la décision qui vous manque aujourd’hui.
+        </p>
+      </div>
+
+      <form
+        class="contact-form"
+        action="/contact.html"
+        method="post"
+      >
+
+        <div class="form-field">
+          <label for="nom">Nom et prénom</label>
+          <input
+            type="text"
+            id="nom"
+            name="nom"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="fonction">Fonction</label>
+          <input
+            type="text"
+            id="fonction"
+            name="fonction"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="entreprise">
+            Entreprise et effectif approximatif
+          </label>
+          <input
+            type="text"
+            id="entreprise"
+            name="entreprise"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="sujet">Votre angle mort RH</label>
+          <select id="sujet" name="sujet" required>
+            <option value="">Sélectionnez un sujet</option>
+            <option value="turnover">
+              Nous ne comprenons pas notre turnover
+            </option>
+            <option value="absenteisme">
+              Nous subissons l’absentéisme
+            </option>
+            <option value="masse-salariale">
+              Nous manquons de visibilité sur la masse salariale
+            </option>
+            <option value="reporting">
+              Notre reporting RH est trop long ou peu utilisé
+            </option>
+            <option value="sirh">
+              Nos données SIRH sont sous-exploitées
+            </option>
+            <option value="people-analytics">
+              Nous voulons structurer une démarche People Analytics
+            </option>
+            <option value="autre">
+              Autre sujet
+            </option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="email">
+            Adresse e-mail professionnelle
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="message">
+            Quelle décision voulez-vous mieux prendre ?
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Exemple : notre turnover augmente sur deux métiers, mais nous ne savons pas si le problème vient du management, de la rémunération ou de l’organisation."
+          ></textarea>
+        </div>
+
+        <div class="form-consent">
+          <label>
+            <input
+              type="checkbox"
+              name="consentement"
+              required
+            >
+            J’accepte que mes informations soient utilisées pour être recontacté
+            au sujet de ma demande.
+          </label>
+        </div>
+
+        <button
+          class="button button-primary"
+          type="submit"
+        >
+          Identifier mon angle mort RH
+        </button>
+
+        <p class="form-privacy">
+          Vos données sont utilisées uniquement pour traiter votre demande.
+          Consultez la
+          <a href="/politique-confidentialite.html">
+            politique de confidentialité
+          </a>.
+        </p>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <p>
+      © 2026 CompetencesRH
     </p>
 
-    <!-- CTA VERT en haut -->
-    <div class="hero-ctas">
-      <a href="https://competencesrh.fr/contact.html" class="btn-primary btn-emerald">Réserver un audit Data RH (30 min)</a>
-      <a href="automatisation/processus-gepp-pme.html" class="btn-primary btn-emerald">Découvrir notre approche GEPP & IA</a>
-    </div>
-  </section>
+    <nav aria-label="Navigation secondaire">
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/politique-confidentialite.html">
+        Politique de confidentialité
+      </a>
+      <a href="/contact.html">Contact</a>
+    </nav>
 
-  <!-- ARTICLE PRINCIPAL -->
-  <section class="section content">
-    <article class="blog-article">
-      <p>
-        L'émergence des HR Analytics (ou People Analytics) marque une rupture pour les RH.  
-        Cette discipline transforme les décisions RH instinctives en <strong>insights basés sur des données</strong>,  
-        permettant aux dirigeants d'agir avec <strong>clarté</strong> et <strong>confiance</strong>.
-      </p>
+  </div>
+</footer>
 
-      <p>
-        <strong>Chez CompetencesRH, nous sommes à la croisée entre RH et IA.</strong> 
-        Nous ne faisons pas du People Analytics "de papier" : nous utilisons la data pour capter les réalités du terrain, 
-        anticiper les risques de turnover et construire des parcours de compétences ancrés dans le travail réel. 
-        La centralisation et la gouvernance des données sociales ne sont pas de simples obligations administratives. 
-        Elles constituent le socle indispensable pour basculer vers un pilotage prédictif. En effet, la réussite d'un projet 
-        d'intégration de l'<a href="https://competencesrh.fr/ia-rh.html">IA RH</a> dépend entièrement de la qualité de cette matière première. 
-        Structurer votre Data RH aujourd'hui, c'est préparer votre entreprise aux outils d'intelligence artificielle et d'automatisation de demain.
-      </p>
-
-      <h2>Comment les données RH servent‑elles la décision ?</h2>
-      <p>
-        Les <a href="https://competencesrh.fr/analyse-donnees-rh.html">données</a> RH servent de pont entre la gestion des talents et les objectifs commerciaux globaux,  
-        en connectant le comportement des employés aux indicateurs de performance, tels que la productivité et la satisfaction client.
-      </p>
-
-      <h3>Optimisation du recrutement</h3>
-      <p>
-        Au lieu de se fier uniquement au « feeling », l'analyse des CV et des performances post‑embauche  
-        permet d'<a href="https://competencesrh.fr/semantic-search.html">identifier</a> les attributs des candidats ayant le plus de chances de réussir.  
-        Par exemple, dans certaines organisations, l'utilisation de l'analyse prédictive lors des entretiens permet de réduire le temps de recrutement  
-        tout en améliorant la diversité des profils retenus.
-      </p>
-
-      <h3>Rétention et engagement</h3>
-      <p>
-        Les modèles prédictifs analysent des signaux comme l'absentéisme, la baisse de performance ou l'évolution de la charge de travail  
-        pour identifier les employés risquant de démissionner.  
-        Cela permet de passer d'une réaction après‑coup à une intervention proactive,  
-        par exemple via des rotations de projets, des ajustements de charge ou des entretiens de rétention ciblés.
-      </p>
-
-      <h3>Développement des compétences (L&amp;D)</h3>
-      <p>
-        Les données permettent de mesurer l'impact réel des formations sur la productivité, la qualité du travail ou la mobilité interne,  
-        et de personnaliser l'apprentissage en fonction des lacunes de compétences individuelles et des besoins métiers.
-      </p>
-
-      <h3>Équité et Inclusion (DEI)</h3>
-      <p>
-        L'analyse des données peut révéler des biais cachés dans les salaires, les promotions ou l'accès à la formation,  
-        permettant de corriger les inégalités de manière factuelle et de renforcer la confiance dans les processus RH.
-      </p>
-
-      <h2>Comment les données construisent‑elles la décision ?</h2>
-      <p>
-        La construction d'une décision éclairée repose sur une progression méthodologique,  
-        souvent décrite comme un parcours de maturité en quatre étapes :
-      </p>
-
-      <h3>Analyse Descriptive</h3>
-      <p>
-        <strong>Que s'est‑il passé ?</strong>  
-        Exemple : le taux de rotation est de 12 %.  
-        Cela donne une vision de surface, mais pas encore d'explication ni d'action.
-      </p>
-
-      <h3>Analyse Diagnostique</h3>
-      <p>
-        <strong>Pourquoi cela s'est‑il produit ?</strong>  
-        Exemple : l'attrition est liée à un faible engagement dans certaines équipes, à une concentration de départs dans les 18 premiers mois, ou à des écarts de rémunération non expliqués.  
-        Cela permet de comprendre les causes profondes.
-      </p>
-
-      <h3>Analyse Prédictive</h3>
-      <p>
-        <strong>Que va‑t‑il se passer ?</strong>  
-        Exemple : les employés sans opportunités de croissance perçues sont deux fois plus susceptibles de partir dans les 12 mois.  
-        Cela anticipe les tendances futures et aide à prioriser les actions.
-      </p>
-
-      <h3>Analyse Prescriptive</h3>
-      <p>
-        <strong>Que devrions‑nous faire ?</strong>  
-        Exemple : lancer un programme de mentorat pour les groupes à risque, ajuster les politiques de mobilité interne, ou repenser les critères de promotion.  
-        Cela recommande des actions concrètes, directement liées aux insights.
-      </p>
-
-      <p>
-        Pour que ces données construisent réellement la décision,  
-        elles doivent passer du statut de simple « rapport d'activité » (nombre de sessions, de participants)  
-        à celui de « signaux de décision ».  
-        Cela implique de se poser les bonnes questions stratégiques dès le départ,  
-        comme « pourquoi nos meilleurs éléments partent‑ils ? »  
-        plutôt que de simplement collecter des chiffres.
-      </p>
-
-      <h2>Vers une culture de la donnée</h2>
-      <p>
-        La décision se construit aussi par l'intégration de signaux précoces comme le moral en temps réel,  
-        le sentiment des employés et les modèles de reconnaissance.  
-        En visualisant ces indicateurs via des tableaux de bord interactifs,  
-        les RH peuvent observer des tendances avant qu'elles ne se transforment en problèmes majeurs,  
-        comme des pics d'absentéisme ou une baisse de performance.
-      </p>
-
-      <h2>Une méthode en 3 étapes pour structurer votre Data RH</h2>
-      <p>
-        Dans la plupart des PME et ETI, la maturité Data RH progresse en trois temps :
-      </p>
-
-      <h3>1. Audit et priorisation</h3>
-      <p>
-        Cartographie des données disponibles (SIRH, paie, recrutement, formation, enquêtes),  
-        identification des indicateurs clés (turnover, absentéisme, durée d'intégration, équité salariale)  
-        et sélection des 2–3 cas d'usage à fort impact (ex. : réduire le turnover des jeunes talents, fiabiliser le reporting RH).
-      </p>
-
-      <h3>2. Structuration et tableaux de bord</h3>
-      <p>
-        Nettoyage et harmonisation des données, définition des règles de calcul,  
-        puis mise en place de tableaux de bord simples et lisibles pour la direction et les managers.  
-        L'objectif : que chaque indicateur réponde à une question de décision précise.
-      </p>
-
-      <h3>3. Pilotage prédictif et IA</h3>
-      <p>
-        Une fois les bases solides, il devient possible d'introduire des modèles prédictifs (risque de départ, succès en poste)  
-        et d'expérimenter des usages d'<a href="https://competencesrh.fr/ia-rh.html">IA RH</a> : aide à la rédaction de fiches de poste, tri de CV, chatbot RH, etc.
-      </p>
-
-      <p>
-        <strong>Vous voulez aller plus loin ?</strong> 
-        Découvrez comment nous utilisons la Data RH et l'IA pour transformer la GEPP en levier de performance et de QVCT : 
-        recherche sémantique, chatbot RH et RAG pour capter les compétences invisibles et anticiper le turnover.
-        → <a href="automatisation/processus-gepp-pme.html">Voir notre offre GEPP augmentée par l'IA</a>
-      </p>
-
-      <p>
-        En conclusion, la construction de la décision RH ne remplace pas l'humain par l'algorithme.  
-        Au contraire, elle utilise la technologie pour réduire l'incertitude.  
-        L'objectif ultime est que la donnée et l'empathie travaillent main dans la main  
-        pour transformer les RH en un véritable architecte stratégique de la transformation organisationnelle.
-      </p>
-    </article>
-  </section>
-
-  <!-- CTA BAND FINAL -->
-  <section class="cta-band">
-    <div class="cta-band-inner">
-      <p class="cta-band-text">Vos données RH méritent mieux qu'un simple reporting Excel.</p>
-      <a href="https://competencesrh.fr/contact.html" class="btn-primary">Parler projet Data RH →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-left">
-      <span class="nav-logo">COMPETENCES<span>RH</span></span>
-      <p>L'intelligence RH par la donnée.</p>
-    </div>
-    <div class="footer-links">
-      <a href="https://competencesrh.fr/">Accueil</a>
-      <a href="https://competencesrh.fr/services.html">Services</a>
-      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
-      <a href="https://competencesrh.fr/contact.html">Contact</a>
-    </div>
-    <div class="footer-copy">© 2026 CompetencesRH. Tous droits réservés.</div>
-  </footer>
-
-  <script src="main.js"></script>
 </body>
 </html>
