@@ -487,5 +487,16 @@
   C'est elle qui contient le script qui rend visibles les blocs « fade-in ».
 -->
 
+<!-- Sécurité : affiche le contenu même si le script d'animation est absent -->
+<style>
+  .fade-in { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+</style>
+<script>
+  // rend visibles les blocs animés, quel que soit le nom de classe attendu par style.css
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    el.classList.add('visible', 'is-visible', 'in-view', 'show', 'active', 'appear');
+  });
+</script>
+
 </body>
 </html>
