@@ -1,356 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Analyse de données RH avec l'IA : turnover, absentéisme, masse salariale. Méthode, outils, ROI et conformité AI Act & RGPD pour PME et ETI."/>
-  <title>Analyse de données RH avec l'IA : méthode, outils et ROI | CompétencesRH</title>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ymacclcqrb");
-</script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3ZT1R1H6RV');
-</script>
-  <link rel="stylesheet" href="https://competencesrh.fr/style.css"/>
-  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees-rh.html" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Turnover, absentéisme, effectifs : structurez vos données RH, fiabilisez vos indicateurs et choisissez les analyses adaptées à votre PME.">
+  <title>Analyse de données RH pour PME : méthode et indicateurs | CompétencesRH</title>
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees-rh.html">
+  <link rel="stylesheet" href="https://competencesrh.fr/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "@id": "https://competencesrh.fr/analyse-donnees-rh.html#article",
-        "isPartOf": {
-          "@type": "WebPage",
-          "@id": "https://competencesrh.fr/analyse-donnees-rh.html"
-        },
-        "headline": "Analyse de données RH avec l'IA : méthode, outils et ROI",
-        "description": "Analyse de données RH avec l'IA : turnover, absentéisme, masse salariale. Méthode, outils, ROI et conformité AI Act & RGPD pour PME et ETI.",
-        "inLanguage": "fr",
-        "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees-rh.html",
-        "datePublished": "2026-05-26",
-        "dateModified": "2026-10-08",
-        "author": {
-          "@type": "Organization",
-          "name": "CompétencesRH",
-          "url": "https://competencesrh.fr"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "CompétencesRH",
-          "url": "https://competencesrh.fr"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "DataRH",
-        "jobTitle": "Consultant People Analytics & Data RH",
-        "url": "https://competencesrh.fr",
-        "image": "https://competencesrh.fr/assets/logo.png",
-        "sameAs": ["https://x.com/competencerh2"],
-        "knowsAbout": [
-          "People Analytics",
-          "Data RH",
-          "Analyse de données RH",
-          "Tableaux de bord RH",
-          "Turnover",
-          "Absentéisme",
-          "Power BI",
-          "Python",
-          "Machine Learning RH",
-          "IA RH"
-        ]
-      },
-      {
-        "@type": "ProfessionalService",
-        "name": "DataRH — Analyse de données RH",
-        "url": "https://competencesrh.fr/analyse-donnees-rh.html",
-        "image": "https://competencesrh.fr/assets/logo.png",
-        "description": "Consultant freelance en analyse de données RH pour PME : tableaux de bord RH, pilotage du turnover, de l'absentéisme et de la masse salariale. 15 ans d'expérience.",
-        "provider": {
-          "@type": "Person",
-          "name": "DataRH",
-          "url": "https://competencesrh.fr"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "France"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Services Data RH",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Audit et nettoyage de données RH"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Construction de tableaux de bord RH (Power BI, Excel, Python)"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Analyse prédictive du turnover et de l'absentéisme"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://competencesrh.fr/analyse-donnees-rh.html#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Combien coûte un projet d'analyse de données RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Le budget dépend du nombre de sources de données, de leur qualité et du périmètre étudié. Le diagnostic offert de 30 minutes permet d'en faire une première estimation."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Faut-il des compétences techniques pour piloter un tableau de bord RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Non. Je construis des tableaux de bord visuels et intuitifs (Power BI, Excel structuré) que vous pouvez piloter seul après une formation de 2 heures. Aucune compétence technique requise."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quelles données faut-il pour commencer l'analyse RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Vous avez déjà les données nécessaires : fichiers de paie, historique d'absences, contrats de travail, entretiens annuels. Je travaille avec vos données existantes, sans besoin de nouveau logiciel."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Combien de temps pour avoir un premier tableau de bord ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Un tableau de bord RH opérationnel peut être livré en 48h pour une version basique, 2-3 semaines pour une version complète avec analyses prédictives et formations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "L'analyse de données RH est-elle compatible avec le RGPD ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui. Je travaille uniquement sur des données agrégées et anonymisées pour les analyses. Les données personnelles restent dans votre SIRH avec les accès restreints conformes au RGPD."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quels sont les indicateurs RH les plus importants à suivre ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Les 6 indicateurs essentiels sont : taux d'absentéisme, turnover, masse salariale/CA, délai de recrutement, coût par embauche, ancienneté moyenne. Le choix dépend de vos enjeux stratégiques."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Peut-on prédire le turnover avec l'analyse de données ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui. L'analyse prédictive identifie les signaux faibles (absences répétées, baisse d'ancienneté, patterns saisonniers) qui précèdent un départ. Vous pouvez intervenir 2-3 mois avant."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Faut-il changer de SIRH pour faire de l'analyse de données RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Non. Je me connecte à votre SIRH existant (ou vos fichiers Excel) via des exports sécurisés. Aucun changement d'outil nécessaire pour démarrer."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quelle est la différence entre reporting RH et analyse de données RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Le reporting décrit le passé (ce qui s'est passé). L'analyse de données RH explique le présent (pourquoi) et prédit l'avenir (ce qui va se passer). C'est la différence entre constater et anticiper."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "L'analyse de données RH est-elle utile pour une PME de 30 salariés ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolument. Plus la structure est petite, plus chaque décision RH a un impact fort. Un turnover de 2 personnes dans une PME de 30 salariés coûte proportionnellement plus cher que dans un grand groupe."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quelles sont les limites de l'analyse de données RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "L'analyse de données RH ne remplace pas le dialogue social, ne corrige pas automatiquement les biais historiques des données, et ne prédit pas l'imprévisible (événements personnels). C'est un outil d'aide à la décision, pas un décideur."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quel est le coût moyen d'un turnover non anticipé en 2026 ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Selon les données 2026 (APEC, DARES), le coût moyen d'un départ non anticipé représente 127% du salaire annuel brut du poste, en intégrant recrutement, onboarding, perte de productivité et impact sur l'équipe."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment l'IA peut-elle détecter un risque de démission avant que le salarié ne donne sa démission ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "L'IA analyse les signaux faibles (absences, évolution de la charge, historique de mobilité, écarts de rémunération) pour estimer une probabilité de départ. Elle ne prédit pas une démission individuelle, mais aide à prioriser les actions de rétention."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quels sont les signaux faibles qu'un algorithme de Machine Learning utilise pour prédire le turnover ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Les modèles utilisent des variables comme l'absentéisme récent, l'ancienneté, les changements de poste, les écarts de salaire, les notes d'entretien, la participation aux formations. Ces signaux sont combinés pour identifier des profils à risque."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Peut-on anticiper les vagues d'absentéisme dans une PME grâce aux données de paie et à l'IA ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui. En croisant historique d'absences, données de paie, saisonnalité et contexte (service, manager, période), l'IA peut détecter des patterns annonciateurs de pics d'absentéisme et alerter les RH en amont."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment l'analyse prédictive RH permet-elle de réduire concrètement le coût d'un départ ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "En identifiant plus tôt les collaborateurs à risque, vous pouvez agir en amont (entretien, évolution, formation, ajustement de rémunération) et éviter un départ coûteux. Le gain vient des recrutements et pertes de productivité évités."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Faut-il une grande quantité de données pour qu'une IA de People Analytics soit fiable dans une PME ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Non. Pour des usages simples (alertes turnover, absentéisme), quelques centaines de lignes bien structurées peuvent suffire. La qualité et la cohérence des données comptent plus que le volume brut."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Peut-on faire de l'analyse de données RH avec l'IA si on utilise uniquement Excel et des exports de paie ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui. Beaucoup de projets démarrent avec des fichiers Excel et des exports de paie ou SIRH. L'IA peut travailler sur ces données structurées pour produire des analyses et des alertes, sans outil complexe."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quelle est la différence entre un tableau de bord Power BI classique et une analyse RH pilotée par l'IA ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Un tableau de bord Power BI classique décrit le passé et le présent. Une analyse RH pilotée par l'IA ajoute une couche prédictive : probabilités de départ, risques d'absentéisme, scénarios de masse salariale."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment l'IA s'alimente-t-elle des données textuelles comme les comptes-rendus d'entretiens annuels ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Via des techniques de traitement du langage (NLP), l'IA extrait des thèmes, sentiments et signaux (engagement, tensions, souhaits d'évolution) à partir des comptes-rendus, puis les combine avec des données chiffrées."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "L'analyse prédictive du turnover est-elle considérée comme une IA à haut risque selon l'AI Act ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "L'AI Act classe les systèmes d'IA utilisés pour le recrutement, la promotion ou la gestion des performances comme potentiellement à haut risque. L'analyse prédictive du turnover doit donc être encadrée, documentée et supervisée par des humains."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment garantir l'anonymat et le respect du RGPD lors d'une analyse de données RH par une IA ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "En travaillant sur des données agrégées et pseudonymisées, en limitant les accès, en définissant une finalité claire, en signant des clauses avec les fournisseurs, et en réalisant une AIPD pour les usages à risque."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment expliquer aux salariés et au CSE que nous utilisons l'IA pour analyser leurs données ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "En présentant l'objectif (améliorer les conditions de travail, anticiper les risques), les données utilisées, les garanties (anonymat, supervision humaine), et en associant le CSE en amont du déploiement."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment s'assurer qu'un algorithme de People Analytics ne reproduit pas des discriminations historiques ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "En auditant les données sources, en testant les modèles sur des sous-groupes (genre, âge, origine), en gardant un humain dans la boucle, et en surveillant les indicateurs de diversité à chaque étape."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quel est le retour sur investissement (ROI) rapide d'un projet d'analyse prédictive RH ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Le ROI rapide vient des départs et recrutements évités, de la réduction de l'absentéisme et d'une meilleure allocation des budgets formation. Un gain de quelques départs évités couvre souvent le coût du projet."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Combien coûte le développement d'un modèle d'IA pour analyser la masse salariale d'une ETI ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Le coût d'un projet ciblé (analyse de masse salariale, scénarios, alertes) dépend de la complexité, de la qualité des données et du niveau d'automatisation souhaité. Il se cadre après un premier diagnostic des données disponibles."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Pourquoi choisir un consultant Data RH plutôt que d'acheter un logiciel de People Analytics sur étagère ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Un consultant adapte la solution à vos données, vos process et vos enjeux, sans vous enfermer dans un outil rigide. C'est souvent plus rapide, moins coûteux à court terme, et plus aligné avec votre réalité."
-            }
-          }
-        ]
-      }
-    ]
+    "@type": "Article",
+    "@id": "https://competencesrh.fr/analyse-donnees-rh.html#article",
+    "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees-rh.html",
+    "headline": "Analyse de données RH pour PME : méthode et indicateurs",
+    "description": "Méthode pour structurer les données RH, fiabiliser les indicateurs et éclairer les décisions d'une PME.",
+    "inLanguage": "fr",
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-10-12",
+    "author": {
+      "@type": "Organization",
+      "name": "CompétencesRH",
+      "url": "https://competencesrh.fr"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CompétencesRH",
+      "url": "https://competencesrh.fr"
+    }
   }
   </script>
 
+  <!-- Réintégrez ici vos scripts Analytics et Clarity actuels, si nécessaire. -->
 </head>
-<body>
 
+<body>
 <nav class="nav">
   <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
   <ul class="nav-links">
     <li><a href="https://competencesrh.fr/">Accueil</a></li>
-    <li><a href="https://competencesrh.fr/blog.html" >Blog</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
     <li><a href="https://competencesrh.fr/services.html">Services</a></li>
     <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
     <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse Données</a></li>
@@ -360,459 +52,358 @@
   <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
 </nav>
 
-<!-- PAGE HERO -->
 <header class="page-hero fade-in">
-  <div class="section-label">// Analyse de données RH avec l'IA</div>
-  <div class="section-label"><span class="dot"></span> Guide pratique · Dirigeants de PME · <strong>Mis à jour : octobre 2026</strong></div>
+  <div class="section-label">// Data RH · People Analytics</div>
+  <div class="section-label"><span class="dot"></span> Guide pratique · PME et ETI · Mis à jour : octobre 2026</div>
+
   <h1 class="page-title">
-    Analyse de données RH avec l'IA :<br>
-    <em>anticiper turnover, absentéisme<br>et masse salariale</em>
+    Analyse de données RH :<br>
+    <em>de vos fichiers à des décisions utiles</em>
   </h1>
+
   <p class="page-sub">
-    Vous gérez 30, 50, 80 personnes. Vous sentez que quelque chose ne va pas — <a href="https://competencesrh.fr/turnover.html">turnover</a> en hausse, ambiance tendue, recrutements qui traînent — mais vous n'avez pas les chiffres pour mettre le doigt dessus. Ce guide s'appuie sur les <strong>données de marché 2026</strong> (APEC, DARES, LHH) pour vous donner une méthode concrète d'analyse de données RH avec l'IA.
+    Vous avez des données de paie, d’absences, d’effectifs ou de recrutement, mais elles ne vous aident pas encore à décider ?
+    L’analyse de données RH consiste à organiser ces informations, à vérifier leur qualité et à les relier à une question métier.
+    L’objectif n’est pas d’ajouter un outil de plus : c’est de mieux comprendre une situation et de choisir une action adaptée.
   </p>
+
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">67%</span>
-      <span class="stat-label">des dirigeants de PME pilotent<br>sans indicateurs formalisés</span>
+      <span class="stat-num">1</span>
+      <span class="stat-label">question métier<br>à clarifier</span>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
-      <span class="stat-num">127%</span>
-      <span class="stat-label">du salaire annuel brut :<br>coût moyen d'un départ non anticipé</span>
+      <span class="stat-num">3</span>
+      <span class="stat-label">étapes clés : fiabiliser,<br>analyser, décider</span>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
-      <span class="stat-num">48h</span>
-      <span class="stat-label">pour un premier tableau<br>de bord RH opérationnel</span>
+      <span class="stat-num">RH</span>
+      <span class="stat-label">une expertise métier<br>au service de la donnée</span>
     </div>
   </div>
 </header>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span>Absentéisme</span><span class="sep">·</span>
+    <span>Data RH</span><span class="sep">·</span>
+    <span>Indicateurs RH</span><span class="sep">·</span>
     <span>Turnover</span><span class="sep">·</span>
+    <span>Absentéisme</span><span class="sep">·</span>
     <span>Masse salariale</span><span class="sep">·</span>
     <span>Tableau de bord RH</span><span class="sep">·</span>
-    <span>Reporting dirigeant</span><span class="sep">·</span>
-    <span>Indicateurs sociaux</span><span class="sep">·</span>
-    <span>SIRH & Data</span><span class="sep">·</span>
     <span>People Analytics</span><span class="sep">·</span>
-    <span>Décision RH</span><span class="sep">·</span>
-    <span>Pilotage PME</span><span class="sep">·</span>
-    <span>IA RH</span><span class="sep">·</span>
-    <span>Analyse prédictive</span><span class="sep">·</span>
-    <span>Machine Learning</span><span class="sep">·</span>
-    <span>AI Act</span><span class="sep">·</span>
-    <span>RGPD</span><span class="sep">·</span>
-    <span>Absentéisme</span><span class="sep">·</span>
-    <span>Turnover</span><span class="sep">·</span>
-    <span>Masse salariale</span><span class="sep">·</span>
-    <span>Tableau de bord RH</span><span class="sep">·</span>
-    <span>Reporting dirigeant</span><span class="sep">·</span>
-    <span>Indicateurs sociaux</span><span class="sep">·</span>
-    <span>SIRH & Data</span><span class="sep">·</span>
-    <span>People Analytics</span><span class="sep">·</span>
-    <span>Décision RH</span><span class="sep">·</span>
-    <span>Pilotage PME</span><span class="sep">·</span>
+    <span>Décision RH</span>
   </div>
 </div>
 
-<!-- SECTION 1 -->
 <section class="section fade-in">
   <div class="section-label">// 01</div>
-  <h2 class="section-title">Vos données RH existent déjà —<br><em>vous ne les lisez pas encore</em></h2>
+  <h2 class="section-title">Qu’est-ce que l’analyse<br><em>de données RH ?</em></h2>
+
+  <p>
+    L’analyse de données RH est une démarche qui transforme des données liées au travail et aux ressources humaines en informations utiles à une décision.
+    Elle commence par une question concrète : pourquoi les départs augmentent-ils dans une équipe ? Les délais de recrutement s’allongent-ils ?
+    Comment évolue la masse salariale ?
+  </p>
+
+  <p>
+    Un indicateur isolé ne donne pas automatiquement une explication. Il faut préciser sa définition, vérifier les données qui le composent,
+    observer son évolution et le replacer dans son contexte. La
+    <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">data RH</a>
+    devient ainsi un support de discussion et de pilotage, et non une fin en soi.
+  </p>
+
+  <p>
+    Pour distinguer le suivi périodique des indicateurs d’une analyse qui cherche à comprendre une situation, consultez le guide
+    <a href="https://competencesrh.fr/analyse-donnees-rh/reporting-vs-analyse-avancee.html" class="link-white-underline">Reporting RH vs analyse avancée</a>.
+  </p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 02</div>
+  <h2 class="section-title">Partir d’une question,<br><em>pas d’un tableau de bord</em></h2>
+
   <div class="services-list">
     <div class="service-item">
-      <div class="service-num">01.01</div>
+      <div class="service-num">01</div>
       <div class="service-body">
-        <h3>La donnée dort dans vos outils</h3>
-        <p>Tout dirigeant de PME dispose de données RH, ce que l'on appelle la <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">data RH</a>. Elles dorment dans votre logiciel de paie, vos fichiers Excel, votre outil de gestion des absences. Le problème n'est pas l'absence de données — c'est l'absence de lecture structurée.</p>
-        <ul class="service-tags">
-          <li>Logiciel de paie</li><li>SIRH</li><li>Excel RH</li><li>Données sociales</li>
-        </ul>
+        <h3>Formuler le problème de gestion</h3>
+        <p>
+          Décrivez la décision à éclairer, les personnes concernées et la période étudiée.
+          « Réduire le turnover » est trop large pour démarrer. « Comprendre dans quels métiers et à quelles périodes les départs augmentent »
+          est une question plus exploitable.
+        </p>
       </div>
       <div class="service-accent">◈</div>
     </div>
+
     <div class="service-item">
-      <div class="service-num">01.02</div>
+      <div class="service-num">02</div>
       <div class="service-body">
-        <h3>Les <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline" style="color:inherit;">6 indicateurs</a> qui sauvent des PME</h3>
-        <p>Un bulletin de salaire contient des informations sur la masse salariale. Un tableau de congés révèle des patterns d'absentéisme. Un historique de recrutement cache un délai moyen qui vous coûte de l'argent chaque mois.</p>
-        <ul class="service-tags">
-          <li>Taux d'absentéisme</li>
-          <li>Turnover</li>
-          <li>Masse salariale</li>
-          <li>Délai de recrutement</li>
-          <li>Coût par embauche</li>
-          <li>Ancienneté moyenne</li>
-        </ul>
+        <h3>Vérifier les données disponibles</h3>
+        <p>
+          Recensez les sources, les définitions, les périodes couvertes et les données manquantes.
+          Les fichiers de paie, exports SIRH, historiques d’absence et données de recrutement peuvent suffire à un premier diagnostic.
+          La <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">qualité et le nettoyage des données RH</a>
+          conditionnent la fiabilité des analyses.
+        </p>
       </div>
       <div class="service-accent">◉</div>
     </div>
-  </div>
-</section>
 
-<!-- CARDS -->
-<div style="max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem 6rem; position: relative; z-index:1;" class="fade-in">
-  <div class="cards">
-    <div class="card"><div class="card-icon">↗</div><h3><a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline" style="color:inherit;">Taux d'absentéisme</a></h3><p>Révèle le niveau d'engagement et les tensions internes avant qu'elles ne deviennent visibles en surface.</p></div>
-    <div class="card"><div class="card-icon">⟳</div><h3><a href="https://competencesrh.fr/turnover.html" class="link-white-underline" style="color:inherit;">Turnover</a></h3><p>Un turnover élevé coûte entre 50% et 200% du salaire annuel du poste à remplacer. Mesurez-le.</p></div>
-    <div class="card"><div class="card-icon">∑</div><h3><a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="link-white-underline" style="color:inherit;">Masse salariale</a></h3><p>En % du chiffre d'affaires, c'est votre premier levier de rentabilité opérationnelle, à piloter sans perdre de vue l'<a href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" class="link-white-underline">équité salariale</a>.</p></div>
-    <div class="card"><div class="card-icon">⧖</div><h3><a href="https://competencesrh.fr/automatisation/processus-rh-recrutement.html" class="link-white-underline" style="color:inherit;">Délai de recrutement</a></h3><p>Chaque jour de poste vacant a un coût direct. Le mesurer permet de l'anticiper et de l'optimiser.</p></div>
-    <div class="card"><div class="card-icon">€</div><h3>Coût par embauche</h3><p>Agrège les coûts cachés : annonces, temps RH mobilisé, onboarding, formation initiale.</p></div>
-    <div class="card"><div class="card-icon">◎</div><h3>Ancienneté moyenne</h3><p>Signal de fidélisation et d'attractivité employeur sur votre bassin de recrutement.</p></div>
-  </div>
-</div>
-
-<!-- CALCULATEUR INTERACTIF -->
-<div style="max-width: 800px; margin: 0 auto 6rem; padding: 0 2.5rem;" class="fade-in">
-  <div style="background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01)); padding: 3rem 2.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
-    <div class="section-label" style="justify-content: center; margin-bottom: 1rem;">💰 Calculateur</div>
-    <h3 style="text-align: center; font-family: var(--font-head); font-size: 1.4rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-      Combien vous coûte vraiment votre turnover ?
-    </h3>
-    <div style="display: grid; gap: 1.5rem; max-width: 500px; margin: 0 auto;">
-      <label style="display: block;">
-        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Nombre de départs par an</span>
-        <input type="number" id="calc-turnover" min="0" max="100" value="8" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 6px; font-size: 1rem; font-family: var(--font-head);">
-      </label>
-      <label style="display: block;">
-        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Salaire brut moyen (€)</span>
-        <input type="number" id="calc-salary" min="1500" max="20000" value="3500" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 6px; font-size: 1rem; font-family: var(--font-head);">
-      </label>
-      <div id="calc-result" style="text-align: center; padding: 1.5rem; background: white; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08);">
-        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Coût annuel du turnover</div>
-        <div id="calc-cost" style="font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0;">42 000 €</div>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">soit <span id="calc-monthly">3 500 €</span>/mois de pertes cachées</div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-body">
+        <h3>Définir des indicateurs compréhensibles</h3>
+        <p>
+          Documentez le calcul, le périmètre et la fréquence de chaque mesure.
+          Le <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">choix des indicateurs RH</a>
+          dépend de la question posée : une PME n’a pas besoin de suivre tous les KPI possibles.
+        </p>
       </div>
-      <a href="https://competencesrh.fr/contact.html" class="btn-primary" style="text-align: center;">Réduire ce coût → Diagnostic offert</a>
+      <div class="service-accent">⬡</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-body">
+        <h3>Analyser, interpréter et décider</h3>
+        <p>
+          Comparez les résultats dans le temps et entre des groupes suffisamment pertinents.
+          Formulez des hypothèses, confrontez-les à la réalité du terrain et décidez d’une action proportionnée.
+          Prévoyez ensuite une date pour évaluer ce qui a changé.
+        </p>
+      </div>
+      <div class="service-accent">◈</div>
     </div>
   </div>
-</div>
-
-<!-- BENCHMARK SECTORIEL 2026 -->
-<section class="section fade-in">
-  <div class="section-label">// 02</div>
-  <h2 class="section-title">Benchmark sectoriel 2026 :<br><em>où se situe votre entreprise ?</em></h2>
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; line-height: 1.9; margin-bottom: 2rem;">
-    Sources : compilation DARES, APEC, baromètres LHH. Les ratios ci-dessous sont des médianes observées en France en 2026.
-  </p>
-
-  <div style="overflow-x: auto; max-width: 900px; margin: 0 auto 2rem;">
-    <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.9rem;">
-      <thead>
-        <tr style="background: rgba(0,0,0,0.04); border-bottom: 2px solid var(--accent);">
-          <th style="padding: 1rem; text-align: left;">Secteur</th>
-          <th style="padding: 1rem; text-align: right;">Turnover</th>
-          <th style="padding: 1rem; text-align: right;">Absentéisme</th>
-          <th style="padding: 1rem; text-align: right;">Délai recrutement</th>
-          <th style="padding: 1rem; text-align: right;">Masse salariale / CA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>Services numériques</strong></td>
-          <td style="padding: 1rem; text-align: right;">14,2%</td>
-          <td style="padding: 1rem; text-align: right;">4,8%</td>
-          <td style="padding: 1rem; text-align: right;">42 jours</td>
-          <td style="padding: 1rem; text-align: right;">68%</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>Industrie manufacturière</strong></td>
-          <td style="padding: 1rem; text-align: right;">9,8%</td>
-          <td style="padding: 1rem; text-align: right;">6,1%</td>
-          <td style="padding: 1rem; text-align: right;">54 jours</td>
-          <td style="padding: 1rem; text-align: right;">42%</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>BTP</strong></td>
-          <td style="padding: 1rem; text-align: right;">12,5%</td>
-          <td style="padding: 1rem; text-align: right;">7,4%</td>
-          <td style="padding: 1rem; text-align: right;">38 jours</td>
-          <td style="padding: 1rem; text-align: right;">35%</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>Santé / médico-social</strong></td>
-          <td style="padding: 1rem; text-align: right;">16,8%</td>
-          <td style="padding: 1rem; text-align: right;">9,2%</td>
-          <td style="padding: 1rem; text-align: right;">61 jours</td>
-          <td style="padding: 1rem; text-align: right;">72%</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>Commerce / distribution</strong></td>
-          <td style="padding: 1rem; text-align: right;">18,4%</td>
-          <td style="padding: 1rem; text-align: right;">5,9%</td>
-          <td style="padding: 1rem; text-align: right;">32 jours</td>
-          <td style="padding: 1rem; text-align: right;">38%</td>
-        </tr>
-        <tr>
-          <td style="padding: 1rem;"><strong>Ingénierie / conseil</strong></td>
-          <td style="padding: 1rem; text-align: right;">11,3%</td>
-          <td style="padding: 1rem; text-align: right;">5,1%</td>
-          <td style="padding: 1rem; text-align: right;">47 jours</td>
-          <td style="padding: 1rem; text-align: right;">58%</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="highlight-box" style="max-width: 900px; margin: 0 auto;">
-    <strong>Comment lire ce tableau :</strong> si votre turnover dépasse de plus de 3 points la médiane de votre secteur, ou si votre absentéisme grimpe de 2 points en 12 mois, un audit s'impose : ces deux signaux réunis précèdent souvent une dégradation du climat social.
-  </div>
 </section>
 
-<!-- SECTION 3 : TABLEAU DE BORD -->
 <section class="section fade-in">
   <div class="section-label">// 03</div>
-  <h2 class="section-title">Ce qu'un <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-rh.html" class="link-white-underline" style="color:inherit;">tableau de bord RH</a><br><em>change dans vos décisions</em></h2>
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.9; margin-bottom: 0.5rem;">La différence entre un dirigeant qui pilote ses RH à l'intuition et un dirigeant qui pilote par les données n'est pas une question de taille d'entreprise. C'est une question de visibilité, et une bonne <a href="https://competencesrh.fr/analyse-donnees-rh/dataviz.html" class="link-white-underline">data visualisation RH</a> la rend immédiate.</p>
-  <div class="compare-grid">
-    <div class="compare-col">
-      <div class="compare-head">Sans reporting RH</div>
-      <div class="compare-item">Vous découvrez le turnover quand il est trop tard</div>
-      <div class="compare-item">Vous recrutez en urgence, donc mal</div>
-      <div class="compare-item">Vous augmentez sans vision globale masse salariale</div>
-      <div class="compare-item">Vous gérez les absences au cas par cas</div>
-      <div class="compare-item">Vous réagissez aux problèmes RH</div>
+  <h2 class="section-title">Quels indicateurs RH<br><em>suivre en premier ?</em></h2>
+
+  <p>
+    Commencez par quelques indicateurs associés à une décision réelle.
+    Voici des exemples de familles de mesures ; leur définition exacte doit être adaptée à vos règles de gestion et à vos données.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">↗</div>
+      <h3><a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline" style="color:inherit;">Absentéisme</a></h3>
+      <p>Suivez son évolution selon une définition stable, puis examinez les contextes de travail et les périodes concernés. Un taux ne prouve pas à lui seul la cause d’une absence.</p>
     </div>
-    <div class="compare-col after">
-      <div class="compare-head">Avec un tableau de bord RH</div>
-      <div class="compare-item">Vous détectez les signaux faibles 3 mois avant</div>
-      <div class="compare-item">Vous anticipez les besoins de recrutement</div>
-      <div class="compare-item">Vous pilotez la masse salariale comme un levier</div>
-      <div class="compare-item">Vous identifiez les services à risque</div>
-      <div class="compare-item">Vous anticipez les problèmes RH</div>
+
+    <div class="card">
+      <div class="card-icon">⟳</div>
+      <h3><a href="https://competencesrh.fr/turnover.html" class="link-white-underline" style="color:inherit;">Turnover</a></h3>
+      <p>Définissez les départs inclus dans le calcul et observez les écarts par métier, ancienneté ou période, en évitant les conclusions sur de petits effectifs.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">∑</div>
+      <h3><a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="link-white-underline" style="color:inherit;">Masse salariale</a></h3>
+      <p>
+        Analysez son évolution en tenant compte des effectifs, des rémunérations et des changements de périmètre.
+        Complétez cette lecture par les enjeux d’
+        <a href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" class="link-white-underline">équité salariale</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⧖</div>
+      <h3><a href="https://competencesrh.fr/automatisation/processus-rh-recrutement.html" class="link-white-underline" style="color:inherit;">Recrutement</a></h3>
+      <p>Le délai de recrutement, le coût par embauche et les étapes du processus peuvent aider à identifier les points de blocage, si les dates et les règles de calcul sont cohérentes.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">◎</div>
+      <h3>Effectifs et ancienneté</h3>
+      <p>Ces données permettent de décrire la structure des équipes et d’éclairer des questions de compétences, de mobilité et de renouvellement des effectifs.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">▤</div>
+      <h3>Formation et mobilité</h3>
+      <p>Reliez les actions de développement aux besoins métiers et aux parcours, sans confondre participation à une formation et acquisition effective d’une compétence.</p>
     </div>
   </div>
+
+  <p>
+    Pour construire une restitution lisible et actionnable, découvrez le guide sur le
+    <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-rh.html" class="link-white-underline">tableau de bord RH</a>
+    et les principes de
+    <a href="https://competencesrh.fr/analyse-donnees-rh/dataviz.html" class="link-white-underline">datavisualisation RH</a>.
+  </p>
 </section>
 
-<!-- SECTION 4 : OUTILS -->
 <section class="section fade-in">
   <div class="section-label">// 04</div>
-  <h2 class="section-title">Analyse de données RH :<br><em>faut-il être développeur ?</em></h2>
+  <h2 class="section-title">De l’indicateur<br><em>à l’explication</em></h2>
+
+  <div class="compare-grid">
+    <div class="compare-col">
+      <div class="compare-head">Un constat</div>
+      <div class="compare-item">Le taux d’absence évolue sur une période</div>
+      <div class="compare-item">Les départs se concentrent dans certains métiers</div>
+      <div class="compare-item">Les recrutements dépassent le délai attendu</div>
+      <div class="compare-item">La masse salariale augmente plus vite que prévu</div>
+    </div>
+
+    <div class="compare-col after">
+      <div class="compare-head">Une analyse à conduire</div>
+      <div class="compare-item">Vérifier la définition, le périmètre et la saisonnalité</div>
+      <div class="compare-item">Comparer des groupes pertinents et vérifier les effectifs</div>
+      <div class="compare-item">Examiner les étapes et les causes de retard</div>
+      <div class="compare-item">Décomposer l’évolution : effectifs, rémunérations, structure</div>
+    </div>
+  </div>
+
+  <p>
+    Cette démarche ne démontre pas automatiquement une causalité. Elle permet de construire des hypothèses, de les confronter aux acteurs concernés
+    et de décider quelles investigations ou actions sont utiles.
+    Une <a href="https://competencesrh.fr/analyse-donnees-rh/analyse-diagnostique-rh.html" class="link-white-underline">analyse diagnostique RH</a>
+    va plus loin que le simple constat.
+  </p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 05</div>
+  <h2 class="section-title">Quels outils utiliser<br><em>pour analyser les données RH ?</em></h2>
+
+  <p>
+    Le bon outil est celui qui répond au besoin avec un niveau de complexité maîtrisable.
+    Une analyse peut commencer avec un tableur correctement structuré ; un environnement plus avancé devient pertinent quand les sources,
+    les mises à jour ou les analyses le justifient.
+  </p>
+
   <div class="services-list">
     <div class="service-item">
-      <div class="service-num">04.01</div>
+      <div class="service-num">A</div>
       <div class="service-body">
-        <h3>Non. Les outils ont évolué.</h3>
-        <p>C'est l'objection que j'entends le plus souvent chez les dirigeants de PME. Un tableau de bord RH opérationnel peut être construit avec Excel bien structuré, <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">Power BI</a> connecté à votre SIRH, ou <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-python.html" class="link-white-underline">Python</a> pour aller plus loin dans l'automatisation. Dans les trois cas, aucune ligne de code n'est nécessaire pour commencer.</p>
-        <p>Ce qui compte, c'est la logique de structuration des données, autrement dit la <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-white-underline">modélisation des données RH</a> — pas la maîtrise technique. C'est précisément là que se situe mon accompagnement.</p>
-        <ul class="service-tags">
-          <li><a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline" style="color:inherit;">Excel structuré</a></li>
-          <li>Power BI</li>
-          <li>Python + Pandas</li>
-          <li>SQL</li>
-          <li>Google Sheets</li>
-          <li>Votre SIRH existant</li>
-        </ul>
+        <h3>Excel et Power Query</h3>
+        <p>
+          Adaptés à des analyses et mises à jour simples, à condition de maîtriser les versions, les définitions et les contrôles de qualité.
+          Voir le guide <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel et Power Query pour un tableau de bord RH</a>.
+        </p>
       </div>
       <div class="service-accent">◫</div>
     </div>
+
+    <div class="service-item">
+      <div class="service-num">B</div>
+      <div class="service-body">
+        <h3>Power BI</h3>
+        <p>
+          Utile pour construire des rapports interactifs et relier plusieurs sources lorsque le modèle de données et les règles de calcul sont correctement définis.
+          En savoir plus sur le <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">tableau de bord RH avec Power BI</a>.
+        </p>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">C</div>
+      <div class="service-body">
+        <h3>Python et SQL</h3>
+        <p>
+          Ils peuvent faciliter le traitement reproductible, les contrôles et les analyses plus spécifiques.
+          Ils demandent une méthode, une documentation et des compétences adaptées.
+          Découvrez <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-python.html" class="link-white-underline">Python pour l’analyse RH</a>,
+          ainsi que la <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-white-underline">modélisation des données RH</a>.
+        </p>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
   </div>
 </section>
 
-<!-- SECTION 5 : ERREURS -->
 <section class="section fade-in">
-  <div class="section-label">// 05</div>
-  <h2 class="section-title">Les 3 erreurs qui faussent<br><em>votre lecture des données RH</em></h2>
+  <div class="section-label">// 06</div>
+  <h2 class="section-title">L’IA RH : un moyen,<br><em>pas le point de départ</em></h2>
+
+  <p>
+    L’IA et les méthodes statistiques peuvent contribuer à certaines analyses lorsque la question, les données et les conditions d’usage sont adaptées.
+    Elles ne remplacent ni la qualité des données, ni la connaissance du travail réel, ni la validation humaine.
+    Commencez par un besoin précis et vérifiez qu’une méthode plus simple ne suffit pas.
+  </p>
+
+  <p>
+    Pour une analyse prédictive, il faut notamment définir ce que l’on cherche à estimer, vérifier la qualité et la représentativité des données,
+    tester les résultats sur des données distinctes et examiner les erreurs. Une probabilité issue d’un modèle n’est ni une certitude ni une explication
+    de la situation d’une personne.
+  </p>
+
+  <p>
+    Les usages impliquant des données de salariés nécessitent un examen attentif de la finalité, des accès, de la minimisation, de la transparence et des risques.
+    Le cadre applicable dépend du dispositif concret ; faites valider le projet par les interlocuteurs compétents.
+    Consultez également les ressources sur le
+    <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>
+    et les <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-white-underline">limites du People Analytics</a>.
+  </p>
+
+  <p>
+    La page dédiée à l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive RH</a>
+    approfondit cette approche. Pour comprendre les différentes familles d’analyse, consultez aussi l’
+    <a href="https://competencesrh.fr/analyse-donnees-rh/analyse-descriptive-rh.html" class="link-white-underline">analyse descriptive</a>,
+    l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-inferentielle-rh.html" class="link-white-underline">analyse inférentielle</a>
+    et les <a href="https://competencesrh.fr/analyse-donnees-rh/statistiques-descriptives-rh.html" class="link-white-underline">statistiques descriptives RH</a>.
+  </p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-label">// 07</div>
+  <h2 class="section-title">Trois pièges<br><em>à éviter</em></h2>
+
   <div class="process-steps">
     <div class="process-step">
       <span class="step-num">01</span>
-      <h3>Confondre indicateur et explication</h3>
-      <p>Un taux d'absentéisme de 8% est un constat, pas une cause. Trop de dirigeants s'arrêtent au chiffre sans chercher ce qui se passe derrière : un service en tension, un manager, une période de l'année. L'<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-diagnostique-rh.html" class="link-white-underline">analyse diagnostique</a> creuse ces causes.</p>
+      <h3>Comparer des chiffres incomparables</h3>
+      <p>Une définition qui change, une période incomplète ou un périmètre différent peut rendre une comparaison trompeuse. Documentez les règles avant de commenter l’évolution.</p>
     </div>
+
     <div class="process-arrow">→</div>
+
     <div class="process-step">
       <span class="step-num">02</span>
-      <h3>Travailler sur des données incomplètes</h3>
-      <p>Un tableau de bord alimenté par des données partielles produit des conclusions fausses. La <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">qualité de saisie</a> dans votre SIRH conditionne directement la qualité de votre <a href="https://competencesrh.fr/analyse-donnees-rh/erreurs-analyse-rh.html" class="link-white-underline">analyse RH</a>.</p>
+      <h3>Présenter une corrélation comme une cause</h3>
+      <p>Deux phénomènes qui évoluent ensemble ne prouvent pas que l’un provoque l’autre. Les analyses orientent l’enquête ; elles ne dispensent pas de vérifier le contexte et les explications alternatives.</p>
     </div>
+
     <div class="process-arrow">→</div>
+
     <div class="process-step">
       <span class="step-num">03</span>
       <h3>Mesurer sans décider</h3>
-      <p>Le <a href="https://competencesrh.fr/analyse-donnees-rh/reporting-vs-analyse-avancee.html" class="link-white-underline">reporting RH</a> n'a de valeur que s'il débouche sur une action. Beaucoup de PME construisent des tableaux de bord consultés une fois par trimestre sans jamais en tirer de décision concrète.</p>
+      <p>Un indicateur ne crée pas de valeur par sa seule présence. Associez à chaque mesure une question, un responsable de suivi et une décision possible.</p>
     </div>
   </div>
-</section>
 
-<!-- SECTION 6 : ANALYSE PRÉDICTIVE ET TURNOVER (NOUVELLE) -->
-<section class="section fade-in">
-  <div class="section-label">// 06</div>
-  <h2 class="section-title">
-    Analyse prédictive et turnover :<br>
-    <em>ce que l'IA peut vraiment anticiper</em>
-  </h2>
-
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 2rem;">
-    L'IA peut-elle vraiment lire l'avenir dans vos fichiers RH et vous éviter des départs coûteux ? Voici ce que vous pouvez en attendre, et ce qu'elle ne peut pas promettre.
+  <p>
+    Pour approfondir les erreurs fréquentes, consultez le guide sur les
+    <a href="https://competencesrh.fr/analyse-donnees-rh/erreurs-analyse-rh.html" class="link-white-underline">erreurs d’analyse RH</a>.
   </p>
-
-  <div class="services-list">
-    <div class="service-item">
-      <div class="service-num">06.01</div>
-      <div class="service-body">
-        <h3>Comment l'IA peut-elle détecter un risque de démission avant que le salarié ne donne sa démission ?</h3>
-        <p>L'IA analyse les signaux faibles (absences, évolution de la charge, historique de mobilité, écarts de rémunération) pour estimer une probabilité de départ. Elle ne prédit pas une démission individuelle, mais aide à prioriser les actions de rétention.</p>
-        <ul class="service-tags">
-          <li>Signaux faibles</li>
-          <li>Probabilité de départ</li>
-          <li>Rétention</li>
-          <li><a href="https://competencesrh.fr/turnover.html" class="link-white-underline">Turnover</a></li>
-        </ul>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">06.02</div>
-      <div class="service-body">
-        <h3>Quels sont les signaux faibles qu'un algorithme de Machine Learning utilise pour prédire le turnover ?</h3>
-        <p>Les modèles utilisent des variables comme l'absentéisme récent, l'ancienneté, les changements de poste, les écarts de salaire, les notes d'entretien, la participation aux formations. Ces signaux sont combinés pour identifier des profils à risque.</p>
-        <ul class="service-tags">
-          <li>Machine Learning</li>
-          <li>Variables RH</li>
-          <li>Profils à risque</li>
-          <li>People Analytics</li>
-        </ul>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">06.03</div>
-      <div class="service-body">
-        <h3>Peut-on anticiper les vagues d'absentéisme dans une PME grâce aux données de paie et à l'IA ?</h3>
-        <p>Oui. En croisant historique d'absences, données de paie, saisonnalité et contexte (service, manager, période), l'IA peut détecter des patterns annonciateurs de pics d'absentéisme et alerter les RH en amont. Les absences et les congés ont aussi un <a href="https://competencesrh.fr/analyse-donnees-rh/impact-conges-tresorerie.html" class="link-white-underline">impact sur la trésorerie</a> à anticiper.</p>
-        <ul class="service-tags">
-          <li>Absentéisme</li>
-          <li>Données de paie</li>
-          <li>Patterns</li>
-          <li>Alertes RH</li>
-        </ul>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">06.04</div>
-      <div class="service-body">
-        <h3>Comment l'analyse prédictive RH permet-elle de réduire concrètement le coût d'un départ ?</h3>
-        <p>En identifiant plus tôt les collaborateurs à risque, vous pouvez agir en amont (entretien, évolution, formation, ajustement de rémunération) et éviter un départ coûteux. Le gain vient des recrutements et pertes de productivité évités.</p>
-        <ul class="service-tags">
-          <li>Analyse prédictive</li>
-          <li>Coût d'un départ</li>
-          <li>Rétention</li>
-          <li>ROI</li>
-        </ul>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-  </div>
 </section>
 
-<!-- SECTION 7 : ACCESSIBILITÉ, OUTILS ET DONNÉES (NOUVELLE) -->
-<section class="section fade-in">
-  <div class="section-label">// 07</div>
-  <h2 class="section-title">
-    Accessibilité, outils et données :<br>
-    <em>l'IA RH est-elle accessible aux PME ?</em>
-  </h2>
-
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 2rem;">
-    Vous craignez la complexité technique ? La vraie question est de savoir si vos données actuelles, même imparfaites, sont exploitables par une IA.
-  </p>
-
-  <div class="services-list">
-    <div class="service-item">
-      <div class="service-num">07.01</div>
-      <div class="service-body">
-        <h3>Faut-il une grande quantité de données pour qu'une IA de People Analytics soit fiable dans une PME ?</h3>
-        <p>Non. Pour des usages simples (alertes turnover, absentéisme), quelques centaines de lignes bien structurées peuvent suffire. La qualité et la cohérence des données comptent plus que le volume brut.</p>
-        <ul class="service-tags">
-          <li>Volume de données</li>
-          <li>Qualité des données</li>
-          <li>PME</li>
-          <li>People Analytics</li>
-        </ul>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">07.02</div>
-      <div class="service-body">
-        <h3>Peut-on faire de l'analyse de données RH avec l'IA si on utilise uniquement Excel et des exports de paie ?</h3>
-        <p>Oui. Beaucoup de projets démarrent avec des fichiers Excel et des exports de paie ou SIRH. L'IA peut travailler sur ces données structurées pour produire des analyses et des alertes, sans outil complexe.</p>
-        <ul class="service-tags">
-          <li>Excel</li>
-          <li>Exports de paie</li>
-          <li>SIRH</li>
-          <li>Analyse RH</li>
-        </ul>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">07.03</div>
-      <div class="service-body">
-        <h3>Quelle est la différence entre un tableau de bord Power BI classique et une analyse RH pilotée par l'IA ?</h3>
-        <p>Un tableau de bord Power BI classique décrit le passé et le présent. Une analyse RH pilotée par l'IA ajoute une couche prédictive : probabilités de départ, risques d'absentéisme, scénarios de masse salariale.</p>
-        <ul class="service-tags">
-          <li>Power BI</li>
-          <li>Analyse prédictive</li>
-          <li>IA RH</li>
-          <li>Scénarios</li>
-        </ul>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">07.04</div>
-      <div class="service-body">
-        <h3>Comment l'IA s'alimente-t-elle des données textuelles comme les comptes-rendus d'entretiens annuels ?</h3>
-        <p>Via des techniques de traitement du langage (NLP), l'IA extrait des thèmes, sentiments et signaux (engagement, tensions, souhaits d'évolution) à partir des comptes-rendus, puis les combine avec des données chiffrées.</p>
-        <ul class="service-tags">
-          <li>NLP</li>
-          <li>Entretiens annuels</li>
-          <li>Données textuelles</li>
-          <li>IA RH</li>
-        </ul>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 8 : ÉTHIQUE, LÉGISLATION ET TRANSPARENCE (NOUVELLE) -->
 <section class="section fade-in">
   <div class="section-label">// 08</div>
-  <h2 class="section-title">
-    Éthique, législation et transparence :<br>
-    <em>comment encadrer l'IA RH ?</em>
-  </h2>
+  <h2 class="section-title">Une méthode adaptée<br><em>à votre organisation</em></h2>
 
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 2rem;">
-    Deux craintes freinent souvent les projets : le cadre légal (RGPD, AI Act) et la réaction des équipes, qui peuvent redouter une forme de surveillance.
+  <p>
+    Une petite structure peut commencer par clarifier quelques indicateurs et fiabiliser ses fichiers.
+    Une organisation disposant de plusieurs sources peut avoir besoin de règles de gestion partagées, d’un modèle de données et d’une restitution plus automatisée.
+    La taille ne suffit pas à déterminer la solution : les enjeux, les données disponibles et les utilisateurs comptent aussi.
   </p>
 
   <div class="services-list">
     <div class="service-item">
       <div class="service-num">08.01</div>
       <div class="service-body">
-        <h3>L'analyse prédictive du turnover est-elle considérée comme une IA à haut risque selon l'AI Act ?</h3>
-        <p>L'AI Act classe les systèmes d'IA utilisés pour le recrutement, la promotion ou la gestion des performances comme potentiellement à haut risque. L'analyse prédictive du turnover doit donc être encadrée, documentée et supervisée par des humains.</p>
-        <ul class="service-tags">
-          <li>AI Act</li>
-          <li>IA à haut risque</li>
-          <li>Supervision humaine</li>
-          <li>Conformité</li>
-        </ul>
+        <h3>Cadrer la demande</h3>
+        <p>Identifier la décision à soutenir, les personnes impliquées et les résultats attendus.</p>
       </div>
       <div class="service-accent">◈</div>
     </div>
@@ -820,14 +411,8 @@
     <div class="service-item">
       <div class="service-num">08.02</div>
       <div class="service-body">
-        <h3>Comment garantir l'anonymat et le respect du RGPD lors d'une analyse de données RH par une IA ?</h3>
-        <p>En travaillant sur des données agrégées et pseudonymisées, en limitant les accès, en définissant une finalité claire, en signant des clauses avec les fournisseurs, et en réalisant une AIPD pour les usages à risque.</p>
-        <ul class="service-tags">
-          <li>RGPD</li>
-          <li>Anonymat</li>
-          <li>AIPD</li>
-          <li>Données RH</li>
-        </ul>
+        <h3>Évaluer les sources et les règles</h3>
+        <p>Examiner la disponibilité, la qualité, les définitions et les contraintes de traitement des données.</p>
       </div>
       <div class="service-accent">◉</div>
     </div>
@@ -835,341 +420,188 @@
     <div class="service-item">
       <div class="service-num">08.03</div>
       <div class="service-body">
-        <h3>Comment expliquer aux salariés et au CSE que nous utilisons l'IA pour analyser leurs données ?</h3>
-        <p>En présentant l'objectif (améliorer les conditions de travail, anticiper les risques), les données utilisées, les garanties (anonymat, supervision humaine), et en associant le CSE en amont du déploiement.</p>
-        <ul class="service-tags">
-          <li>CSE</li>
-          <li>Transparence</li>
-          <li>Dialogue social</li>
-          <li>IA RH</li>
-        </ul>
+        <h3>Construire une première analyse utile</h3>
+        <p>Privilégier un périmètre limité, explicable et vérifiable plutôt qu’un dispositif complexe sans usage établi.</p>
       </div>
-      <div class="service-accent">◈</div>
+      <div class="service-accent">⬡</div>
     </div>
 
     <div class="service-item">
       <div class="service-num">08.04</div>
       <div class="service-body">
-        <h3>Comment s'assurer qu'un algorithme de People Analytics ne reproduit pas des discriminations historiques ?</h3>
-        <p>En auditant les données sources, en testant les modèles sur des sous-groupes (genre, âge, origine), en gardant un humain dans la boucle, et en surveillant les indicateurs de diversité à chaque étape.</p>
-        <ul class="service-tags">
-          <li>Biais algorithmiques</li>
-          <li>Diversité</li>
-          <li>People Analytics</li>
-          <li>Contrôle humain</li>
-        </ul>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 9 : ROI ET JUSTIFICATION BUDGÉTAIRE (NOUVELLE) -->
-<section class="section fade-in">
-  <div class="section-label">// 09</div>
-  <h2 class="section-title">
-    ROI et justification budgétaire :<br>
-    <em>comment vendre un projet IA RH au DAF ?</em>
-  </h2>
-
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 700px; line-height: 1.9; margin-bottom: 2rem;">
-    Pour convaincre votre directeur financier, il faut montrer ce que le projet rapporte : départs évités, absentéisme réduit, temps gagné.
-  </p>
-
-  <div class="services-list">
-    <div class="service-item">
-      <div class="service-num">09.01</div>
-      <div class="service-body">
-        <h3>Quel est le retour sur investissement (ROI) rapide d'un projet d'analyse prédictive RH ?</h3>
-        <p>Le ROI rapide vient des départs et recrutements évités, de la réduction de l'absentéisme et d'une meilleure allocation des budgets formation. Un gain de quelques départs évités couvre souvent le coût du projet.</p>
-        <ul class="service-tags">
-          <li>ROI</li>
-          <li>Analyse prédictive</li>
-          <li>Recrutements évités</li>
-          <li>Budget formation</li>
-        </ul>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">09.02</div>
-      <div class="service-body">
-        <h3>Combien coûte le développement d'un modèle d'IA pour analyser la masse salariale d'une ETI ?</h3>
-        <p>Le coût d'un projet ciblé (analyse de masse salariale, scénarios, alertes) dépend de la complexité, de la qualité des données et du niveau d'automatisation souhaité. Il se cadre après un premier diagnostic des données disponibles.</p>
-        <ul class="service-tags">
-          <li>Coût modèle IA</li>
-          <li>Masse salariale</li>
-          <li>ETI</li>
-          <li>Automatisation</li>
-        </ul>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">09.03</div>
-      <div class="service-body">
-        <h3>Pourquoi choisir un consultant Data RH plutôt que d'acheter un logiciel de People Analytics sur étagère ?</h3>
-        <p>Un consultant adapte la solution à vos données, vos process et vos enjeux, sans vous enfermer dans un outil rigide. C'est souvent plus rapide, moins coûteux à court terme, et plus aligné avec votre réalité.</p>
-        <ul class="service-tags">
-          <li>Consultant Data RH</li>
-          <li>Logiciel People Analytics</li>
-          <li>Sur-mesure</li>
-          <li>ROI</li>
-        </ul>
+        <h3>Transmettre et faire évoluer</h3>
+        <p>Documenter les indicateurs, expliquer les limites et permettre aux équipes de s’approprier la restitution.</p>
       </div>
       <div class="service-accent">◈</div>
     </div>
   </div>
-</section>
 
-<!-- MATRICE DE MATURITÉ PAR TAILLE -->
-<section class="section fade-in">
-  <div class="section-label">// 10</div>
-  <h2 class="section-title">Quelle approche<br><em>selon la taille de votre entreprise ?</em></h2>
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 650px; line-height: 1.9; margin-bottom: 2rem;">
-    Un dirigeant de 30 salariés ne se projette pas dans les mêmes enjeux qu'un DG de 500 personnes. Voici une matrice de maturité indicative.
+  <p>
+    Cette approche s’inscrit dans une double compétence RH et data : comprendre les processus métier, puis choisir les méthodes et outils adaptés.
+    Pour en savoir plus, consultez la
+    <a href="https://competencesrh.fr/methodologie.html" class="link-white-underline">méthodologie d’accompagnement</a>,
+    les pages <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python appliqué aux RH</a>
+    et <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">RAG et recherche sémantique</a>.
   </p>
-
-  <div style="overflow-x: auto; max-width: 900px; margin: 0 auto;">
-    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-      <thead>
-        <tr style="background: rgba(0,0,0,0.04); border-bottom: 2px solid var(--accent);">
-          <th style="padding: 1rem; text-align: left;">Taille</th>
-          <th style="padding: 1rem; text-align: left;">Priorité #1</th>
-          <th style="padding: 1rem; text-align: left;">Outils recommandés</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>PME (30-100)</strong></td>
-          <td style="padding: 1rem;">6 indicateurs clés + alertes départs</td>
-          <td style="padding: 1rem;"><a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel structuré</a></td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <td style="padding: 1rem;"><strong>ETI (100-500)</strong></td>
-          <td style="padding: 1rem;">Analyse diagnostique + prédictive</td>
-          <td style="padding: 1rem;"><a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">Power BI + Python</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 1rem;"><strong>ETI+ (>500)</strong></td>
-          <td style="padding: 1rem;">Machine Learning + modèles avancés</td>
-          <td style="padding: 1rem;">Stack complète (AWS, ML)</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </section>
 
-<!-- SECTION 12 : MÉTHODE -->
-<section class="section fade-in">
-  <div class="section-label">// 11</div>
-  <h2 class="section-title">De la donnée brute<br>à la <em>décision éclairée</em></h2>
-  <div class="services-list">
-    <div class="service-item">
-      <div class="service-num">11.01</div>
-      <div class="service-body">
-        <h2>La méthode DataRH : résultats en 3 semaines</h2>
-        <p>Je suis responsable RH de formation, avec une expertise en data analyse. J'accompagne les dirigeants de PME qui veulent exploiter leurs données RH sans recruter une équipe technique, et sans se perdre dans des outils complexes.</p>
-        <p>Ma méthode : partir de vos données existantes, identifier les indicateurs qui comptent pour votre situation spécifique, construire un tableau de bord que vous pilotez seul ensuite. L'analyse de données RH n'est pas un projet IT. C'est un projet de direction.</p>
-        <ul class="service-tags">
-          <li><a href="https://competencesrh.fr/analyse-donnees-rh/analyse-descriptive-rh.html" class="link-white-underline" style="color:inherit;">Analyse descriptive</a></li>
-          <li><a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline" style="color:inherit;">Analyse prédictive</a></li>
-          <li><a href="https://competencesrh.fr/analyse-donnees-rh/analyse-inferentielle-rh.html" class="link-white-underline" style="color:inherit;">Analyse inférentielle</a></li>
-          <li><a href="https://competencesrh.fr/analyse-donnees-rh/statistiques-descriptives-rh.html" class="link-white-underline" style="color:inherit;">Statistiques</a></li>
-          <li><a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline" style="color:inherit;">Python</a></li>
-          <li>Power BI</li>
-          <li><a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline" style="color:inherit;">RAG/ IA</a></li>
-          <li>People Analytics</li>
-        </ul>
-      </div>
-      <div class="service-accent">⬡</div>
-    </div>
-  </div>
-</section>
+<section class="fade-in" style="max-width:900px;margin:0 auto 5rem;padding:0 2.5rem;">
+  <div style="padding:2.5rem;background:linear-gradient(135deg,#fff8e7,#fff4d6);border-radius:12px;border-left:4px solid #f4a261;">
+    <div class="section-label" style="color:#b8860b;">// Limites et transparence</div>
+    <h2 style="margin:1rem 0;font-family:var(--font-head);font-size:1.3rem;">Ce que l’analyse RH ne peut pas faire</h2>
 
-<!-- ENCADRÉ LIMITES -->
-<section class="fade-in" style="max-width: 900px; margin: 0 auto 6rem; padding: 0 2.5rem;">
-  <div style="padding: 2.5rem; background: linear-gradient(135deg, #fff8e7, #fff4d6); border-radius: 12px; border-left: 4px solid #f4a261;">
-    <div class="section-label" style="color: #b8860b;">⚠️ Transparence</div>
-    <h3 style="margin: 1rem 0; font-family: var(--font-head); font-size: 1.3rem;">Ce que l'analyse de données RH ne peut pas faire</h3>
-    <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.5rem;">
-      Mon approche repose sur la data, mais je refuse tout solutionnisme technologique. Le <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-white-underline">People Analytics</a> est un <strong>outil d'aide à la décision</strong>, pas un décideur.
-    </p>
-    <ul style="line-height: 2; font-size: 0.95rem; color: var(--text-main);">
-      <li><strong>Ne remplace pas le dialogue social.</strong> Les entretiens, l'écoute managériale et le climat humain restent irremplaçables.</li>
-      <li><strong>Ne corrige pas automatiquement les biais historiques.</strong> Si vos données passées contiennent des inégalités, les modèles peuvent les reproduire. Un audit humain est indispensable.</li>
-      <li><strong>Ne prédit pas l'imprévisible.</strong> Une démission peut être motivée par des raisons strictement personnelles qu'aucun modèle ne peut capter.</li>
-      <li><strong>Ne fonctionne pas sans données de qualité.</strong> Si votre SIRH est mal renseigné, les analyses seront fausses (principe "garbage in, garbage out").</li>
+    <ul style="line-height:1.9;font-size:.95rem;color:var(--text-main);">
+      <li>Un indicateur ne révèle pas à lui seul la cause d’une situation.</li>
+      <li>Un modèle ne prédit pas avec certitude les décisions individuelles ni les événements futurs.</li>
+      <li>Des données historiques peuvent refléter des pratiques passées et leurs biais.</li>
+      <li>Une analyse ne remplace ni le dialogue avec les équipes ni le jugement professionnel.</li>
+      <li>La pseudonymisation n’est pas la même chose que l’anonymisation ; les règles de protection des données doivent être examinées selon le traitement envisagé.</li>
     </ul>
-    <p style="margin-top: 1.5rem; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">
-      C'est précisément pour cela que ma méthode intègre toujours une phase de validation humaine avec vos équipes.
+
+    <p style="margin-top:1rem;">
+      Le People Analytics reste un outil d’aide à la décision, pas un décideur.
+      Les <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-white-underline">limites du People Analytics</a>
+      méritent d’être intégrées dès le cadrage.
     </p>
   </div>
 </section>
 
-<!-- LEAD MAGNET -->
-<section class="fade-in" style="max-width: 900px; margin: 0 auto 6rem; padding: 0 2.5rem;">
-  <div style="background: linear-gradient(135deg, var(--accent), #c9a227); color: white; padding: 3rem 2.5rem; border-radius: 16px; text-align: center;">
-    <div style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem;">🎁 Ressource gratuite</div>
-    <h3 style="font-family: var(--font-head); font-size: 1.8rem; margin-bottom: 1rem;">
-      Le Kit Pilotage RH par la Data (Excel + PDF)
-    </h3>
-    <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
-      Téléchargez le template Excel prêt à l'emploi : calcul automatique des 6 indicateurs clés, alertes visuelles sur les signaux faibles, tableau de bord dirigeant. + Un guide PDF de 10 pages pour le Comex.
-    </p>
-    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 0.85rem;">
-      <span>✓ Template Excel 2026</span>
-      <span>✓ Guide PDF Comex (10 pages)</span>
-      <span>✓ Checklist qualité données</span>
-      <span>✓ 100% gratuit</span>
-    </div>
-    <a href="https://competencesrh.fr/contact.html?resource=kit-data-rh" class="btn-primary" style="background: white; color: var(--accent); font-weight: 700;">
-      Télécharger le kit gratuit →
-    </a>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<div class="cta-band">
-  <div class="cta-band-inner">
-    <div class="cta-band-text">Vos données RH sont déjà là.<br><em>Il reste à les lire.</em></div>
-    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Diagnostic 30 min offert →</a>
-  </div>
-</div>
-
-<!-- CONCLUSION -->
-<section class="section fade-in" style="text-align: center; padding-bottom: 3rem;">
-  <div class="section-label" style="justify-content: center;">// Conclusion</div>
-  <h2 class="section-title" style="max-width: 700px; margin: 0 auto 1.5rem;">
-    L'analyse de données RH avec l'IA est le levier<br>le plus <em>sous-utilisé</em> des PME françaises.
-  </h2>
-  <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.9;">
-    Pas par manque de données — par manque de méthode. C'est exactement ce que je construis avec vous, depuis votre première donnée jusqu'à votre premier tableau de bord actionnable.
-  </p>
-  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Démarrer un diagnostic →</a>
-    <a href="https://competencesrh.fr/services.html" class="btn-ghost">Voir les services</a>
-  </div>
-  <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
-    Sans engagement · 3 indicateurs clés identifiés · Livré en 48h
-  </p>
-</section>
-
-<!-- FAQ -->
 <section class="section fade-in">
-  <div class="section-label">// FAQ Analyse de données RH avec l'IA</div>
-  <div class="faq-container" style="max-width: 800px; margin-top: 2rem;">
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Combien coûte un projet d'analyse de données RH ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Le budget dépend du nombre de sources de données, de leur qualité et du périmètre étudié.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Le diagnostic offert de 30 minutes permet d'en faire une première estimation.</p>
+  <div class="section-label">// FAQ</div>
+  <h2 class="section-title">Questions fréquentes sur<br><em>l’analyse de données RH</em></h2>
+
+  <div class="faq-container" style="max-width:800px;margin-top:2rem;">
+    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
+      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Peut-on commencer avec Excel et des exports de paie ?</summary>
+      <p style="margin-top:1rem;">
+        Oui, si les fichiers sont accessibles et suffisamment cohérents pour répondre à la question étudiée.
+        Il faut d’abord vérifier les définitions, les périodes, les données manquantes et les conditions de sécurité.
+        Aucun changement de SIRH n’est automatiquement nécessaire pour cadrer une première analyse.
+      </p>
+      <p>
+        Pour une approche tableur, consultez le guide
+        <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel et Power Query</a>.
+      </p>
     </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Faut-il des compétences techniques pour piloter un tableau de bord RH ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Non. Je construis des tableaux de bord visuels et intuitifs (Power BI, Excel structuré) que vous pouvez piloter seul après une formation de 2 heures.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Aucune compétence technique requise. L'objectif est que vous soyez autonome dès la première semaine.</p>
+
+    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
+      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Quels indicateurs RH faut-il suivre en premier ?</summary>
+      <p style="margin-top:1rem;">
+        Ceux qui répondent à une question de gestion prioritaire. Le turnover, l’absentéisme, les effectifs, la masse salariale ou les délais de recrutement sont des exemples, pas une liste universelle.
+        Définissez chaque indicateur et son mode de calcul avant de comparer les résultats.
+      </p>
+      <p>
+        Voir le guide des <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">indicateurs RH</a>.
+      </p>
     </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quelles données faut-il pour commencer l'analyse RH ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Vous avez déjà les données nécessaires : fichiers de paie, historique d'absences, contrats de travail, entretiens annuels.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Je travaille avec vos données existantes, sans besoin de nouveau logiciel ni de migration complexe.</p>
+
+    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
+      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Quelle est la différence entre reporting RH et analyse RH ?</summary>
+      <p style="margin-top:1rem;">
+        Le reporting organise et restitue des indicateurs selon une périodicité définie.
+        L’analyse cherche à répondre à une question, à examiner des écarts et à éclairer une décision.
+        Les deux démarches sont complémentaires.
+      </p>
+      <p>
+        Pour aller plus loin :
+        <a href="https://competencesrh.fr/analyse-donnees-rh/reporting-vs-analyse-avancee.html" class="link-white-underline">reporting RH et analyse avancée</a>.
+      </p>
     </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Combien de temps pour avoir un premier tableau de bord ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Un tableau de bord RH opérationnel peut être livré en 48h pour une version basique, 2-3 semaines pour une version complète avec analyses prédictives et formations.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Le délai dépend du nombre d'indicateurs souhaités et de la qualité de vos données sources.</p>
+
+    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
+      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Faut-il utiliser l’IA pour analyser les données RH ?</summary>
+      <p style="margin-top:1rem;">
+        Non. L’IA n’est pas un prérequis. Commencez par la question métier, la qualité des données et la méthode d’analyse.
+        Un tableur ou un tableau de bord peut suffire ; des méthodes avancées se justifient seulement si elles apportent une réponse utile et peuvent être évaluées.
+      </p>
+      <p>
+        Pour les usages prédictifs, consultez la page sur l’
+        <a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive RH</a>.
+      </p>
     </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">L'analyse de données RH est-elle compatible avec le RGPD ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Oui. Je travaille uniquement sur des données agrégées et anonymisées pour les analyses.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Les données personnelles restent dans votre SIRH avec les accès restreints conformes au RGPD. Voir la page dédiée sur le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>.</p>
+
+    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
+      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Comment protéger les données des salariés ?</summary>
+      <p style="margin-top:1rem;">
+        Définissez la finalité, limitez les données et les accès au nécessaire, vérifiez les conditions de partage et de conservation,
+        et impliquez les interlocuteurs compétents. Les garanties à prévoir dépendent du traitement envisagé ; une page générale ne remplace pas une analyse juridique ou une étude de conformité adaptée.
+      </p>
+      <p>
+        Consultez la page dédiée au
+        <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>.
+      </p>
     </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quels sont les indicateurs RH les plus importants à suivre ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Les 6 indicateurs essentiels sont : taux d'absentéisme, turnover, masse salariale/CA, délai de recrutement, coût par embauche, ancienneté moyenne.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Le choix définitif dépend de vos enjeux stratégiques spécifiques (croissance, fidélisation, rentabilité). Voir le <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">guide complet des indicateurs</a>.</p>
-    </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Peut-on prédire le turnover avec l'analyse de données ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Oui. L'<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive</a> identifie les signaux faibles (absences répétées, baisse d'ancienneté, patterns saisonniers) qui précèdent un départ.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Vous pouvez intervenir 2-3 mois avant et proposer des solutions de rétention ciblées.</p>
-    </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Faut-il changer de SIRH pour faire de l'analyse de données RH ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Non. Je me connecte à votre SIRH existant (ou vos fichiers Excel) via des exports sécurisés.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Aucun changement d'outil nécessaire pour démarrer. Je travaille avec ce que vous avez.</p>
-    </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quelle est la différence entre reporting RH et analyse de données RH ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Le reporting décrit le passé (ce qui s'est passé). L'analyse de données RH explique le présent (pourquoi) et prédit l'avenir (ce qui va se passer).</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">C'est la différence entre constater et anticiper. Entre subir et décider. Voir l'article <a href="https://competencesrh.fr/analyse-donnees-rh/reporting-vs-analyse-avancee.html" class="link-white-underline">Reporting vs Analyse avancée</a>.</p>
-    </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">L'analyse de données RH est-elle utile pour une PME de 30 salariés ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Absolument. Plus la structure est petite, plus chaque décision RH a un impact fort.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Un turnover de 2 personnes dans une PME de 30 salariés coûte proportionnellement plus cher que dans un grand groupe.</p>
-    </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quelles sont les limites de l'analyse de données RH ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">L'analyse de données RH ne remplace pas le dialogue social et ne corrige pas automatiquement les biais historiques.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">C'est un outil d'aide à la décision, pas un décideur. Voir la page dédiée sur les <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-white-underline">limites du People Analytics</a>.</p>
-    </details>
-    <details style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <summary style="font-weight: 700; cursor: pointer; font-family: 'Syne';">Quel est le coût moyen d'un turnover non anticipé en 2026 ?</summary>
-      <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem;">Entre 90% et 150% du salaire annuel brut du poste.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">Selon les données 2026 (APEC, DARES), la moyenne constatée est de 127%, en intégrant recrutement, onboarding, perte de productivité et impact sur l'équipe restante.</p>
+
+    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
+      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Combien coûte et combien de temps dure un projet ?</summary>
+      <p style="margin-top:1rem;">
+        Le budget et le délai dépendent du nombre de sources, de leur qualité, du périmètre, des livrables et du niveau d’automatisation.
+        Il est plus sérieux de cadrer ces éléments après avoir compris le besoin et les données disponibles que d’annoncer un délai ou un prix universel.
+      </p>
+      <p>
+        Un premier échange permet de préciser le besoin :
+        <a href="https://competencesrh.fr/contact.html" class="link-white-underline">contacter CompétencesRH</a>.
+      </p>
     </details>
   </div>
 </section>
 
-<!-- FOOTER -->
+<section class="fade-in" style="max-width:900px;margin:0 auto 5rem;padding:0 2.5rem;">
+  <div style="background:linear-gradient(135deg,var(--accent),#c9a227);color:white;padding:3rem 2.5rem;border-radius:16px;text-align:center;">
+    <h2 style="font-family:var(--font-head);font-size:1.7rem;margin-bottom:1rem;">Vous voulez exploiter vos données RH ?</h2>
+    <p style="max-width:650px;margin:0 auto 1.5rem;line-height:1.7;">
+      Un premier échange permet de clarifier votre question, d’identifier les données disponibles et de déterminer si une analyse est pertinente.
+      La méthode et les livrables sont définis en fonction de votre contexte.
+    </p>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary" style="background:white;color:var(--accent);font-weight:700;">Parler de votre besoin →</a>
+  </div>
+</section>
+
+<section class="section fade-in" style="text-align:center;padding-bottom:3rem;">
+  <div class="section-label" style="justify-content:center;">// Pour aller plus loin</div>
+  <h2 class="section-title" style="max-width:700px;margin:0 auto 1.5rem;">De la donnée RH<br>à la <em>décision éclairée</em></h2>
+  <p style="max-width:650px;margin:0 auto 2rem;line-height:1.8;">
+    Retrouvez les services de <a href="https://competencesrh.fr/services.html" class="link-white-underline">CompétencesRH</a>,
+    les autres sujets du <a href="https://competencesrh.fr/blog.html" class="link-white-underline">blog RH, data et IA</a>,
+    ou les ressources consacrées à l’<a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">IA appliquée aux RH</a>.
+  </p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Contacter CompétencesRH →</a>
+    <a href="https://competencesrh.fr/realisations.html" class="btn-ghost">Voir les réalisations</a>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer-left">
     <div class="nav-logo">DATA<span>RH</span></div>
     <p>L'intelligence RH par la donnée.</p>
   </div>
+
   <div class="footer-links">
     <a href="https://competencesrh.fr/">Accueil</a>
     <a href="https://competencesrh.fr/services.html">Services</a>
-    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
     <a href="https://competencesrh.fr/contact.html">Contact</a>
   </div>
-  <div class="footer-copy">© 2026 DataRH. Tous droits réservés.</div>
+
+  <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
 </footer>
 
 <script>
-  // Animation au scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
-  // Calculateur de coût du turnover
-  const calcTurnover = document.getElementById('calc-turnover');
-  const calcSalary = document.getElementById('calc-salary');
-  const calcCost = document.getElementById('calc-cost');
-  const calcMonthly = document.getElementById('calc-monthly');
-
-  function updateTurnoverCalculator() {
-    const departures = parseInt(calcTurnover.value) || 0;
-    const salary = parseInt(calcSalary.value) || 0;
-    // Coût moyen d'un départ = 127% du salaire annuel (données 2026 APEC/DARES)
-    const costPerDeparture = Math.round(salary * 12 * 1.27);
-    const totalCost = departures * costPerDeparture;
-    const monthlyCost = Math.round(totalCost / 12);
-    
-    calcCost.textContent = totalCost.toLocaleString('fr-FR') + ' €';
-    calcMonthly.textContent = monthlyCost.toLocaleString('fr-FR') + ' €';
-  }
-
-  if (calcTurnover && calcSalary && calcCost && calcMonthly) {
-    calcTurnover.addEventListener('input', updateTurnoverCalculator);
-    calcSalary.addEventListener('input', updateTurnoverCalculator);
-    updateTurnoverCalculator();
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
   }
 </script>
-
 </body>
 </html>
