@@ -1,147 +1,511 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="canonical" href="https://competencesrh.fr/ia.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Chatbot IA RH DataRH : analyse compétences, turnover prédictif, tableaux de bord automatisés. Intelligence artificielle au service des RH." />
-    <title>Chatbot IA RH — CompetencesRH</title>
-    <script type="text/javascript">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Chatbot RH : usages en PME, limites et démo à tester</title>
+  <meta name="description" content="Ce qu'un chatbot RH peut faire (congés, mutuelle, procédures), comment il fonctionne, ses limites RGPD et AI Act, et une démo à tester en ligne." />
+  <link rel="canonical" href="https://competencesrh.fr/ia.html" />
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ymacclcqrb");
-</script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #000;
-        color: #fff;
-        margin: 0;
-        padding: 20px;
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3ZT1R1H6RV');
+  </script>
+
+  <link rel="stylesheet" href="https://competencesrh.fr/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Styles propres à cette page : démo du chatbot et tableau -->
+  <style>
+    .demo-wrap{max-width:820px;margin:2rem 0 1rem;}
+    .demo-box{border:1px solid rgba(128,128,128,.35);border-radius:12px;overflow:hidden;}
+    .demo-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1.1rem;border-bottom:1px solid rgba(128,128,128,.25);font-family:var(--font-mono, monospace);font-size:.8rem;}
+    .demo-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent, #c9a227);margin-right:.5rem;}
+    #chat{height:420px;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:.7rem;}
+    .msg{padding:.7rem .95rem;border-radius:10px;max-width:85%;line-height:1.55;font-size:.95rem;white-space:pre-wrap;word-wrap:break-word;}
+    .msg.user{align-self:flex-end;background:var(--accent, #c9a227);color:#111;}
+    .msg.bot{align-self:flex-start;background:rgba(128,128,128,.14);}
+    .msg.pending{opacity:.65;font-style:italic;}
+    .demo-input{display:flex;gap:.6rem;padding:.8rem;border-top:1px solid rgba(128,128,128,.25);}
+    .demo-input input{flex:1;padding:.75rem .9rem;border-radius:8px;border:1px solid rgba(128,128,128,.4);background:transparent;color:inherit;font-size:1rem;}
+    .demo-input button{padding:.75rem 1.2rem;border-radius:8px;border:none;background:var(--accent, #c9a227);color:#111;font-weight:700;cursor:pointer;}
+    .demo-input button:disabled{opacity:.5;cursor:wait;}
+    .demo-suggestions{display:flex;flex-wrap:wrap;gap:.5rem;padding:0 1.1rem 1rem;}
+    .demo-suggestions button{font-size:.8rem;padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(128,128,128,.4);background:transparent;color:inherit;cursor:pointer;}
+    .demo-note{font-family:var(--font-mono, monospace);font-size:.78rem;opacity:.75;line-height:1.6;margin-top:.75rem;max-width:820px;}
+    .table-wrap{overflow-x:auto;margin:2rem 0;}
+    .data-table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.55;min-width:620px;}
+    .data-table caption{text-align:left;font-family:var(--font-head);font-weight:700;margin-bottom:.75rem;}
+    .data-table th,.data-table td{padding:.75rem .9rem;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;vertical-align:top;}
+    .data-table th{font-family:var(--font-head);font-weight:700;}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/ia.html#article",
+        "mainEntityOfPage": "https://competencesrh.fr/ia.html",
+        "headline": "Chatbot RH : usages en PME, limites et démo à tester",
+        "description": "Ce qu'un chatbot RH peut faire, comment il fonctionne, ses limites RGPD et AI Act, et une démo à tester en ligne.",
+        "inLanguage": "fr",
+        "datePublished": "2026-05-08",
+        "dateModified": "2026-11-04",
+        "author": {"@type": "Organization", "name": "CompétencesRH", "url": "https://competencesrh.fr"},
+        "publisher": {"@type": "Organization", "name": "CompétencesRH", "url": "https://competencesrh.fr"},
+        "about": ["Chatbot RH", "Assistant IA RH", "Automatisation RH"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/"},
+          {"@type": "ListItem", "position": 2, "name": "Automatisation RH", "item": "https://competencesrh.fr/automatisation.html"},
+          {"@type": "ListItem", "position": 3, "name": "Chatbot RH", "item": "https://competencesrh.fr/ia.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce qu'un chatbot RH ?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Un chatbot RH est un assistant conversationnel qui répond par écrit aux questions des salariés sur les sujets RH courants : congés, mutuelle, notes de frais, procédures internes. Les chatbots récents utilisent un modèle de langage relié à la documentation de l'entreprise, ce qui leur permet de comprendre des questions formulées librement."}
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre un chatbot RH, un assistant IA RH et un agent IA RH ?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Le chatbot RH répond aux questions. L'assistant IA RH aide en plus l'équipe RH à rédiger, résumer ou rechercher dans des documents. L'agent IA RH va plus loin : il exécute des actions dans les outils, comme créer une demande de congés ou relancer un manager, ce qui impose des règles de contrôle plus strictes."}
+          },
+          {
+            "@type": "Question",
+            "name": "Un chatbot RH peut-il remplacer le service RH ?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Non. Il traite les questions répétitives et les demandes d'information standard. Les situations individuelles, les conflits, la santé, les sanctions ou l'interprétation juridique doivent être transmis à une personne de l'équipe RH."}
+          },
+          {
+            "@type": "Question",
+            "name": "Un chatbot RH est-il compatible avec le RGPD et l'AI Act ?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Oui, s'il est conçu pour : finalité définie, données limitées au nécessaire, hébergement et contrats maîtrisés, durée de conservation des échanges fixée, information des salariés. L'AI Act impose aussi d'indiquer clairement à l'utilisateur qu'il échange avec une IA. Le CSE doit être informé, et consulté si l'outil permet de contrôler l'activité des salariés."}
+          },
+          {
+            "@type": "Question",
+            "name": "Comment mettre en place un chatbot RH dans une PME ?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Rassemblez les questions les plus fréquentes et les documents de référence, choisissez un périmètre limité (congés et mutuelle, par exemple), reliez le chatbot à ces documents, testez-le avec quelques salariés, puis mesurez les questions résolues et celles transmises aux RH avant d'élargir."}
+          }
+        ]
       }
-      h1 {
-        color: #ccc;
-      }
-      #chat {
-        max-width: 800px;
-        margin: 20px auto;
-        border: 1px solid #444;
-        border-radius: 8px;
-        padding: 15px;
-        height: 60vh;
-        overflow-y: auto;
-      }
-      .message {
-        margin-bottom: 10px;
-        padding: 8px 12px;
-        border-radius: 6px;
-        max-width: 80%;
-        word-wrap: break-word;
-      }
-      .user {
-        background: #333;
-        margin-left: auto;
-        text-align: right;
-      }
-      .bot {
-        background: #222;
-        margin-right: auto;
-      }
-      #input-container {
-        max-width: 800px;
-        margin: 10px auto;
-        display: flex;
-        gap: 8px;
-      }
-      #message {
-        flex: 1;
-        padding: 10px;
-        border-radius: 4px;
-        border: 1px solid #444;
-        background: #111;
-        color: #fff;
-      }
-      button {
-        padding: 10px 16px;
-        border-radius: 4px;
-        border: 1px solid #444;
-        background: #222;
-        color: #fff;
-        cursor: pointer;
-      }
-      button:hover {
-        background: #333;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Chatbot IA RH — compétencesrh.fr</h1>
-    <p>Poser une question sur le management RH, les compétences ou la data RH.(merci de patienter quelques secondes au démarrage)</p>
-    <!-- BLOC CONTEXTUEL SEO À AJOUTER EN DESSOUS -->
-<section class="seo-content" style="margin-top: 50px; max-width: 800px;">
-  <h2>Pourquoi utiliser un assistant virtuel pour vos ressources humaines ?</h2>
-  
-  <p>Ce <strong>chatbot IA RH</strong> a été conçu pour illustrer concrètement la puissance de l'intelligence artificielle appliquée au quotidien des entreprises. En centralisant les requêtes courantes, un agent conversationnel permet d'absorber jusqu'à 80% des questions répétitives des collaborateurs (congés, mutuelle, processus internes).</p>
-  
-  <p>Le déploiement de ces outils s'inscrit dans une démarche plus large de transformation digitale. L'implémentation réussie d'un assistant virtuel s'appuie sur une stratégie globale d'<strong><a href="https://competencesrh.fr">intégration de l'IA RH</a></strong>, indispensable pour structurer vos données de pilotage en PME.</p>
-  
-  <h3>Les avantages d'un chatbot pour les dirigeants et DRH :</h3>
-  <ul>
-    <li><strong>Disponibilité 24/7 :</strong> Réponses instantanées pour les salariés sans solliciter la direction.</li>
-    <li><strong>Fiabilisation des flux :</strong> Un premier point d'entrée propre pour qualifier les demandes RH.</li>
-    <li><strong>Gain de temps administratif :</strong> Vos équipes se concentrent enfin sur les tâches à haute valeur ajoutée.</li>
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr/">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a></li>
+    <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
   </ul>
-</section>
+  <a class="nav-cta" href="https://competencesrh.fr/contact.html">Parlons Data RH →</a>
+</nav>
 
-    <div id="chat"></div>
+<header class="page-hero">
+  <div class="section-label">// Automatisation RH · Chatbot RH</div>
+  <div class="section-label"><span class="dot"></span> Guide et démo · PME et ETI · Mis à jour : novembre 2026</div>
 
-    <div id="input-container">
-      <input type="text" id="message" placeholder="Question RH…" />
-      <button onclick="sendMessage()">Envoyer</button>
+  <h1 class="page-title">
+    Chatbot RH :<br>
+    <em>testez un assistant IA pour vos questions RH</em>
+  </h1>
+
+  <p class="page-sub">
+    Congés, mutuelle, notes de frais, procédures internes : une grande partie des questions posées au service RH revient chaque semaine.
+    Un chatbot RH y répond à toute heure et transmet le reste à l’équipe. Testez la démo ci-dessous, puis découvrez ce qu’un chatbot RH
+    peut faire dans une PME, comment il fonctionne et quelles règles respecter.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#demo" class="btn-primary">Tester le chatbot →</a>
+    <a href="#mettre-en-place" class="btn-ghost">Mettre en place un chatbot RH</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- DÉMO -->
+  <section class="section" id="demo">
+    <div class="section-label">// Démo</div>
+    <h2 class="section-title">Testez le chatbot RH<br><em>en direct</em></h2>
+
+    <p style="max-width:700px;line-height:1.8;">
+      Posez une question sur la gestion RH, les compétences, l’automatisation ou la data RH.
+      Cette démo répond à partir de connaissances générales : elle ne connaît pas les règles internes de votre entreprise.
+    </p>
+
+    <div class="demo-wrap">
+      <div class="demo-box">
+        <div class="demo-head">
+          <span><span class="demo-dot"></span>Assistant RH · réponses générées par une IA</span>
+          <span>Démo</span>
+        </div>
+        <div id="chat" aria-live="polite"></div>
+        <div class="demo-suggestions" id="suggestions">
+          <button type="button" data-q="Quelles tâches RH peut-on automatiser dans une PME ?">Tâches RH à automatiser</button>
+          <button type="button" data-q="Comment calculer le taux de turnover ?">Calculer le turnover</button>
+          <button type="button" data-q="Qu'est-ce que la GEPP et comment la démarrer ?">Démarrer la GEPP</button>
+        </div>
+        <div class="demo-input">
+          <input type="text" id="message" placeholder="Votre question RH…" maxlength="2000" aria-label="Votre question RH" />
+          <button type="button" id="send">Envoyer</button>
+        </div>
+      </div>
+      <p class="demo-note">
+        Vous échangez avec une intelligence artificielle. Ses réponses peuvent contenir des erreurs et ne constituent pas un conseil juridique.
+        N’indiquez aucune donnée personnelle (nom, situation médicale, salaire…). Le premier message peut prendre quelques secondes, le temps que le service démarre.
+      </p>
+    </div>
+  </section>
+
+  <!-- DÉFINITION -->
+  <section class="section">
+    <div class="blog-article">
+      <div class="section-label">// Définition</div>
+      <h2 class="section-title">Qu’est-ce qu’un chatbot RH ?</h2>
+
+      <p class="article-text">
+        <strong>Un chatbot RH est un assistant conversationnel qui répond par écrit aux questions des salariés sur les sujets RH courants :
+        congés, mutuelle, notes de frais, procédures internes.</strong>
+        Contrairement à une FAQ statique, il comprend une question formulée librement. Un salarié peut écrire
+        « j’ai besoin de poser une semaine en août » et obtenir la procédure applicable.
+      </p>
+
+      <p class="article-text">
+        Il fait partie des premiers chantiers de l’<a href="https://competencesrh.fr/automatisation.html" class="link-white-underline">automatisation des processus RH</a> :
+        il absorbe les demandes d’information répétitives, et l’équipe RH garde la main sur tout ce qui demande un jugement.
+      </p>
+
+      <h3>Chatbot RH, assistant IA RH, agent IA RH : quelles différences ?</h3>
     </div>
 
-    <script>
-      const chat = document.getElementById("chat");
-      const input = document.getElementById("message");
+    <div class="table-wrap" style="max-width:820px;">
+      <table class="data-table">
+        <caption>Trois niveaux d’IA conversationnelle en RH</caption>
+        <thead>
+          <tr>
+            <th scope="col">Outil</th>
+            <th scope="col">Ce qu’il fait</th>
+            <th scope="col">Pour qui</th>
+            <th scope="col">Niveau de contrôle requis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chatbot RH</td>
+            <td>Répond aux questions à partir de documents validés</td>
+            <td>Salariés et managers</td>
+            <td>Validation des documents sources et des réponses types</td>
+          </tr>
+          <tr>
+            <td>Assistant IA RH</td>
+            <td>Aide à rédiger, résumer, rechercher dans des documents</td>
+            <td>Équipe RH</td>
+            <td>Relecture humaine de chaque production</td>
+          </tr>
+          <tr>
+            <td>Agent IA RH</td>
+            <td>Exécute des actions dans les outils (créer une demande, relancer, mettre à jour)</td>
+            <td>Équipe RH et salariés</td>
+            <td>Droits d’accès limités, journal des actions, validation avant tout acte engageant</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-      function addMessage(text, isUser) {
-        const div = document.createElement("div");
-        div.classList.add("message");
-        div.classList.add(isUser ? "user" : "bot");
-        div.textContent = text;
-        chat.appendChild(div);
-        chat.scrollTop = chat.scrollHeight;
-      }
+  <!-- USAGES -->
+  <section class="section expertise">
+    <div class="section-label">// Usages</div>
+    <h2 class="section-title">Ce qu’un chatbot RH fait<br><em>concrètement dans une PME</em></h2>
 
-      // URL de ton backend Render
-      const API_URL = "https://chatbotia-0qcm.onrender.com/chat";
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">◷</div>
+        <h3>Congés et absences</h3>
+        <p>Règles de pose, délais, procédure en cas d’arrêt maladie, lien vers l’outil de demande. Voir le <a href="https://competencesrh.fr/automatisation/processus-rh-conges.html" class="link-white-underline">processus de congés en PME</a>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✚</div>
+        <h3>Mutuelle et avantages</h3>
+        <p>Garanties, démarches d’affiliation, contacts utiles, documents à fournir.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">€</div>
+        <h3>Notes de frais et paie</h3>
+        <p>Plafonds internes, justificatifs, calendrier de remboursement, lecture des principales lignes du bulletin.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⟳</div>
+        <h3>Onboarding</h3>
+        <p>Réponses aux nouveaux arrivants pendant leurs premières semaines, au service de l’<a href="https://competencesrh.fr/automatisation/experience-collaborateur.html" class="link-white-underline">expérience collaborateur</a>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">◎</div>
+        <h3>Procédures internes</h3>
+        <p>Télétravail, déplacements, formation, entretiens annuels : le chatbot oriente vers la bonne procédure et le bon interlocuteur, et suit les <a href="https://competencesrh.fr/automatisation/processus-rh-pme.html" class="link-white-underline">processus RH de la PME</a>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">▤</div>
+        <h3>Analyse des demandes</h3>
+        <p>Les questions les plus fréquentes révèlent les procédures mal comprises ou mal documentées : une information utile pour améliorer les processus.</p>
+      </div>
+    </div>
+  </section>
 
-      async function sendMessage() {
-        const text = input.value.trim();
-        if (!text) return;
+  <!-- FONCTIONNEMENT -->
+  <section class="section">
+    <div class="blog-article">
+      <div class="section-label">// Fonctionnement</div>
+      <h2 class="section-title">Comment fonctionne un chatbot RH ?</h2>
 
-        addMessage(text, true);
-        input.value = "";
+      <p class="article-text">
+        Les chatbots RH actuels reposent sur un <a href="https://competencesrh.fr/ia/llm-rh-fonctionnement.html" class="link-white-underline">modèle de langage (LLM)</a>
+        associé à la documentation de l’entreprise. Lorsqu’un salarié pose une question, l’outil recherche les passages pertinents
+        (règlement intérieur, accords, notes de service, livret d’accueil), puis rédige une réponse à partir de ces seuls passages.
+        Cette architecture s’appelle le <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">RAG (génération augmentée par la recherche)</a>.
+      </p>
 
-        try {
-          const res = await fetch(API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: text }),
-          });
+      <p class="article-text">
+        La recherche s’appuie sur la <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">recherche sémantique</a> :
+        elle retrouve un document par son sens, même si la question n’emploie pas les mêmes mots. Les documents sont convertis en
+        <a href="https://competencesrh.fr/semantic-search/embeddings-rh.html" class="link-white-underline">embeddings</a> et stockés dans une
+        <a href="https://competencesrh.fr/semantic-search/vector-database-rh.html" class="link-white-underline">base vectorielle</a>.
+        La même technologie sert au matching de CV, présenté sur la page recherche sémantique.
+      </p>
 
-          const data = await res.json();
-          addMessage(data.response || "Erreur de réponse.", false);
-        } catch (err) {
-          addMessage("Erreur de connexion au serveur.", false);
+      <h3>Pourquoi relier le chatbot à vos documents</h3>
+      <p class="article-text">
+        Un modèle de langage seul répond avec des connaissances générales et peut inventer une règle plausible mais fausse.
+        Relié à vos documents validés, il cite vos règles réelles et peut indiquer qu’il ne sait pas lorsque l’information n’existe pas.
+        C’est la différence entre la démo de cette page, qui reste générale, et un chatbot déployé dans une entreprise.
+      </p>
+    </div>
+  </section>
+
+  <!-- LIMITES ET CONFORMITÉ -->
+  <section class="section">
+    <div class="blog-article">
+      <div class="section-label">// Limites et conformité</div>
+      <h2 class="section-title">Limites, RGPD et AI Act :<br>ce qu’un chatbot RH ne doit pas faire</h2>
+
+      <ul>
+        <li><strong>Trancher une situation individuelle</strong> : santé, conflit, sanction, rupture ou interprétation juridique doivent être transmis à une personne.</li>
+        <li><strong>Répondre sans source</strong> : sans document de référence, il doit orienter vers les RH plutôt qu’improviser.</li>
+        <li><strong>Collecter plus que nécessaire</strong> : les échanges contiennent souvent des données personnelles. Leur conservation, leurs accès et leur réutilisation doivent être définis à l’avance, conformément au <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD appliqué aux données salariés</a>.</li>
+        <li><strong>Cacher qu’il est une IA</strong> : l’utilisateur doit savoir qu’il échange avec une intelligence artificielle. C’est une obligation de transparence de l’AI Act, détaillée dans le <a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">guide de l’AI Act pour les PME</a>.</li>
+        <li><strong>Se déployer sans le CSE</strong> : le CSE doit être informé, et consulté si l’outil permet de contrôler l’activité des salariés.</li>
+      </ul>
+
+      <p class="article-text">
+        Ces limites rejoignent celles de l’<a href="https://competencesrh.fr/ia/ia-generative-rh.html" class="link-white-underline">IA générative appliquée aux RH</a> en général.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISE EN PLACE -->
+  <section class="section services-list" id="mettre-en-place">
+    <div class="section-label">// Mise en place</div>
+    <h2 class="section-title">Mettre en place un chatbot RH<br><em>en PME : 5 étapes</em></h2>
+
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-body">
+        <h3>Lister les questions les plus fréquentes</h3>
+        <p>Relevez sur quelques semaines les questions reçues par mail, téléphone ou dans les couloirs. Elles définissent le périmètre utile.</p>
+      </div>
+      <div class="service-accent">◈</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-body">
+        <h3>Rassembler et mettre à jour les documents de référence</h3>
+        <p>Règlement intérieur, accords, notes de service, guide mutuelle. Un document obsolète produira une réponse obsolète.</p>
+      </div>
+      <div class="service-accent">◉</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-body">
+        <h3>Démarrer sur un périmètre limité</h3>
+        <p>Congés et mutuelle, par exemple. Définissez dès le départ quand le chatbot transmet la question à une personne.</p>
+      </div>
+      <div class="service-accent">⬡</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-body">
+        <h3>Tester avec quelques salariés et informer le CSE</h3>
+        <p>Vérifiez la justesse des réponses, le ton et les cas de transmission avant toute diffusion générale.</p>
+      </div>
+      <div class="service-accent">◎</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <div class="service-body">
+        <h3>Mesurer et élargir</h3>
+        <p>Suivez les questions résolues, celles transmises aux RH et les questions sans réponse. Elles indiquent les documents à créer et le prochain périmètre à couvrir.</p>
+      </div>
+      <div class="service-accent">◫</div>
+    </div>
+
+    <p style="max-width:700px;opacity:.8;margin-top:2rem;line-height:1.8;">
+      Le chatbot s’intègre souvent dans un ensemble plus large : <a href="https://competencesrh.fr/automatisation/recrutement-automatise.html" class="link-white-underline">recrutement automatisé</a>,
+      <a href="https://competencesrh.fr/automatisation/outils-automatisation-rh.html" class="link-white-underline">outils d’automatisation RH</a>,
+      <a href="https://competencesrh.fr/automatisation/avantages-automatisation.html" class="link-white-underline">avantages de l’automatisation RH</a>
+      et <a href="https://competencesrh.fr/automatisation/cas-pratiques-pme.html" class="link-white-underline">cas pratiques en PME</a>.
+      Pour une vue d’ensemble des usages de l’IA, consultez la page <a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">IA RH</a>
+      et le <a href="https://competencesrh.fr/lexique.html" class="link-white-underline">lexique IA</a>.
+    </p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section-label">// Questions fréquentes</div>
+    <h2 class="section-title">Questions fréquentes sur le chatbot RH</h2>
+
+    <h3>Qu’est-ce qu’un chatbot RH ?</h3>
+    <p>Un chatbot RH est un assistant conversationnel qui répond par écrit aux questions des salariés sur les sujets RH courants : congés, mutuelle, notes de frais, procédures internes. Les chatbots récents utilisent un modèle de langage relié à la documentation de l’entreprise, ce qui leur permet de comprendre des questions formulées librement.</p>
+
+    <h3>Quelle différence entre un chatbot RH, un assistant IA RH et un agent IA RH ?</h3>
+    <p>Le chatbot RH répond aux questions. L’assistant IA RH aide en plus l’équipe RH à rédiger, résumer ou rechercher dans des documents. L’agent IA RH va plus loin : il exécute des actions dans les outils, comme créer une demande de congés ou relancer un manager, ce qui impose des règles de contrôle plus strictes.</p>
+
+    <h3>Un chatbot RH peut-il remplacer le service RH ?</h3>
+    <p>Non. Il traite les questions répétitives et les demandes d’information standard. Les situations individuelles, les conflits, la santé, les sanctions ou l’interprétation juridique doivent être transmis à une personne de l’équipe RH.</p>
+
+    <h3>Un chatbot RH est-il compatible avec le RGPD et l’AI Act ?</h3>
+    <p>Oui, s’il est conçu pour : finalité définie, données limitées au nécessaire, hébergement et contrats maîtrisés, durée de conservation des échanges fixée, information des salariés. L’AI Act impose aussi d’indiquer clairement à l’utilisateur qu’il échange avec une IA. Le CSE doit être informé, et consulté si l’outil permet de contrôler l’activité des salariés.</p>
+
+    <h3>Comment mettre en place un chatbot RH dans une PME ?</h3>
+    <p>Rassemblez les questions les plus fréquentes et les documents de référence, choisissez un périmètre limité (congés et mutuelle, par exemple), reliez le chatbot à ces documents, testez-le avec quelques salariés, puis mesurez les questions résolues et celles transmises aux RH avant d’élargir.</p>
+  </section>
+
+</main>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <p class="cta-band-text">Un chatbot RH relié à vos propres documents ?</p>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Parlons de votre projet →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
+</footer>
+
+<script>
+  (function () {
+    // URL du backend Render
+    const API_URL = "https://chatbotia-0qcm.onrender.com/chat";
+
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("message");
+    const sendBtn = document.getElementById("send");
+    const suggestions = document.getElementById("suggestions");
+    let busy = false;
+
+    function addMessage(text, who, extraClass) {
+      const div = document.createElement("div");
+      div.className = "msg " + who + (extraClass ? " " + extraClass : "");
+      div.textContent = text; // textContent : aucun HTML injecté
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+      return div;
+    }
+
+    addMessage("Bonjour, je suis l’assistant RH de démonstration de CompétencesRH. Posez-moi une question sur la gestion RH, l’automatisation ou la data RH.", "bot");
+
+    async function sendMessage(text) {
+      text = (text || "").trim();
+      if (!text || busy) return;
+      busy = true;
+      sendBtn.disabled = true;
+      if (suggestions) suggestions.style.display = "none";
+
+      addMessage(text, "user");
+      input.value = "";
+      const pending = addMessage("Réflexion en cours…", "bot", "pending");
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          pending.textContent = data.detail || "Le service est momentanément indisponible. Réessayez dans quelques instants.";
+        } else {
+          pending.textContent = data.response || "Le service est momentanément indisponible. Réessayez dans quelques instants.";
         }
+      } catch (err) {
+        pending.textContent = "Connexion impossible pour le moment. Le service démarre peut-être : réessayez dans une trentaine de secondes.";
+      } finally {
+        pending.classList.remove("pending");
+        busy = false;
+        sendBtn.disabled = false;
+        input.focus();
       }
+    }
 
-      input.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") sendMessage();
+    sendBtn.addEventListener("click", function () { sendMessage(input.value); });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); sendMessage(input.value); }
+    });
+    if (suggestions) {
+      suggestions.addEventListener("click", function (e) {
+        const q = e.target.getAttribute("data-q");
+        if (q) sendMessage(q);
       });
-    </script>
-  </body>
+    }
+  })();
+</script>
+
+</body>
 </html>
