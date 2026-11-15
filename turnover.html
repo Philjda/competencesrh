@@ -3,142 +3,243 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calcul du taux de turnover, coût réel dans une PME, exemple 14% et 6,5%. Modèle Python gratuit IA prédictive satisfaction + ancienneté - 2026.">
-  <title>Turnover : Calcul du taux + Modèle Python de prédiction | CompétencesRH</title>
+  <meta name="description" content="Comment calculer le taux de turnover : formule, exemples chiffrés, interprétation, coût d'un départ et modèle Python gratuit pour anticiper les départs en PME.">
+  <title>Taux de turnover : calcul, formule et exemple (+ modèle Python) | CompétencesRH</title>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymacclcqrb");
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3ZT1R1H6RV');
+  </script>
   <link rel="stylesheet" href="style.css">
   <link rel="canonical" href="https://competencesrh.fr/turnover.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-[{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Comment calculer le taux de turnover ?",
-  "step": [{
-      "@type": "HowToStep",
-      "text": "Additionnez le nombre de départs et d'arrivées sur l'année."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Divisez ce total par deux pour obtenir la moyenne des mouvements."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Divisez le résultat par l'effectif au 1er janvier et multipliez par 100."
-    }]
-},
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Modèle Prédictif Turnover Python",
-  "operatingSystem": "Web (Google Colab / Jupyter)",
-  "applicationCategory": "BusinessApplication",
-  "downloadUrl": "https://github.com/CompetencesRH/turnover",
-  "featureList": "Prédiction du risque de départ, Analyse satisfaction vs ancienneté"
-}]
-</script>
-  
+
+  <style>
+    .formula-box{margin:2rem 0;padding:1.5rem 1.75rem;border-left:4px solid var(--accent);background:rgba(128,128,128,.08);border-radius:8px;}
+    .formula-box p{margin:.4rem 0;line-height:1.7;}
+    .formula{font-family:var(--font-mono);font-size:1rem;font-weight:700;}
+    .article-text li{margin-bottom:.5rem;}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/turnover.html#article",
+        "headline": "Taux de turnover : calcul, formule et modèle de prédiction",
+        "description": "Comment calculer le taux de turnover : formule, exemples chiffrés, interprétation, coût d'un départ et modèle Python gratuit pour anticiper les départs en PME.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/turnover.html",
+        "datePublished": "2026-04-21",
+        "dateModified": "2026-11-15",
+        "author": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "name": "Comment calculer le taux de turnover ?",
+        "step": [
+          {"@type": "HowToStep", "text": "Additionnez le nombre de départs et d'arrivées sur la période, en général l'année."},
+          {"@type": "HowToStep", "text": "Divisez ce total par deux pour obtenir la moyenne des mouvements."},
+          {"@type": "HowToStep", "text": "Divisez le résultat par l'effectif au début de la période et multipliez par 100."}
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Modèle prédictif de turnover en Python",
+        "operatingSystem": "Web (Google Colab / Jupyter)",
+        "applicationCategory": "BusinessApplication",
+        "downloadUrl": "https://github.com/CompetencesRH/turnover",
+        "featureList": "Prédiction du risque de départ, analyse satisfaction et ancienneté"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/turnover.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle est la formule du taux de turnover ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Taux de turnover = [(nombre de départs + nombre d'arrivées) / 2] / effectif au début de la période × 100. Par exemple, 45 départs et 25 arrivées pour 250 salariés donnent un taux de 14 %."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels départs faut-il compter dans le turnover ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il n'existe pas de règle unique. L'essentiel est de définir le périmètre (démissions, licenciements, ruptures conventionnelles, fins de CDD, départs en retraite) et de le garder stable d'une année sur l'autre. Pour piloter la fidélisation, isolez les départs à l'initiative du salarié."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce qu'un bon taux de turnover ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il n'existe pas de seuil universel : le taux normal varie fortement selon le secteur, les métiers et la part de contrats courts. Comparez votre taux à votre propre historique et à votre secteur, puis analysez-le par population (métier, ancienneté, équipe) pour repérer où se concentrent les départs."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="https://competencesrh.fr" class="nav-logo">DATA<span>RH</span></a>
+    <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
     <ul class="nav-links">
       <li><a href="https://competencesrh.fr/">Accueil</a></li>
-    <li><a href="https://competencesrh.fr/blog.html" >Blog</a></li>
-    <li><a href="https://competencesrh.fr/services.html" class="active">Services</a></li>
-    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
-    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse Donnees</a></li>
-    <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
-    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a></li>
+      <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">Parlons Data RH →</a>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
   </nav>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="section-label">// Prédiction Turnover</div>
-    <h1 class="page-title">Calcul du taux de Turnover et Modèle de Prédiction IA</h1>
-    <p class="page-sub">Satisfaction + Ancienneté = Risque Départ<br>Notebook Python gratuit PME 2026</p>
+    <div class="section-label">// Indicateurs RH · Turnover · Mis à jour : novembre 2026</div>
+    <h1 class="page-title">Taux de turnover : calcul, formule et modèle de prédiction</h1>
+    <p class="page-sub">La formule, deux exemples chiffrés, la façon d'interpréter le résultat et de chiffrer le coût d'un départ, puis un modèle Python gratuit pour anticiper les départs.</p>
   </section>
 
-  <!-- CTA PRINCIPAL -->
-  <section class="cta-simple">
-    <h3>🚀 Test interactif 30s</h3>
-    <p>Glisse sliders → résultat instantané</p>
-    <a href="https://github.com/CompetencesRH/turnover" class="cta-main" target="_blank">
-      → Ouvrir Notebook Colab
-    </a>
-    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 1rem;">
-      Open-source GitHub
-    </p>
-  </section>
-
-  <!-- ARTICLE PRINCIPAL -->
   <section class="section">
     <article class="blog-article">
-      
-      <h2 class="article-title">Le Turnover à l'Heure de l'IA Prédictive : Entre Performance Économique et Pilotage Humain</h2>
-      <p class="article-meta">// 21 avril 2026 · 8 min de lecture</p>
 
-      <h3 class="article-subtitle">Le problème : turnover invisible</h3>
-      <p class="article-text">
-        <strong>Tu vois les départs arriver ?</strong> Dans 80% des cas, <strong>non</strong>.<br><br>
-        Satisfaction 3/10 + 1 an ancienneté = <strong>80% risque départ</strong>.<br>
-        Mais personne ne l'avait vu venir.
-      </p>
+      <p class="article-meta">// Publié le 21 avril 2026 · Mis à jour le 15 novembre 2026 · 8 min de lecture</p>
 
-      <h3 class="article-subtitle">Coût réel PME</h3>
-      <p class="article-text">
-        PME 50 salariés, 15% turnover = <strong>7,5M€/an potentiel</strong> :<br>
-        • Recrutement : 20-30k€ cadre<br>
-        • Productivité perdue : 3 mois<br>
-        • Formation remplaçant : 10k€<br>
-        <strong>Total = 60k€ par départ</strong>
-      </p>
+      <!-- L'ESSENTIEL -->
+      <div class="formula-box">
+        <p><strong>Le taux de turnover</strong> (ou taux de rotation du personnel) mesure le renouvellement des effectifs sur une période, en général l'année.</p>
+        <p class="formula">Taux de turnover = [(départs + arrivées) / 2] / effectif au début de la période × 100</p>
+        <p><strong>Exemple :</strong> 250 salariés au 1er janvier, 45 départs et 25 arrivées dans l'année : [(45 + 25) / 2] / 250 = 0,14, soit <strong>14 %</strong>.</p>
+      </div>
 
+      <!-- CALCUL -->
+      <h2 class="article-title">Comment calculer le taux de turnover ?</h2>
+      <p class="article-text">Le calcul repose sur le rapport entre les mouvements de personnel et l'effectif de départ. Il se fait en trois étapes :</p>
+      <ol class="article-text">
+        <li>Additionnez le nombre de départs et le nombre d'arrivées sur la période.</li>
+        <li>Divisez ce total par deux pour obtenir la moyenne des mouvements.</li>
+        <li>Divisez le résultat par l'effectif présent au début de la période, puis multipliez par 100.</li>
+      </ol>
 
-<h3 class="article-subtitle">La réalité invisible du turnover : un gouffre financier</h3>
-      <p class="article-text">
-        Le turnover n'est pas seulement un mouvement naturel de renouvellement des effectifs ; c'est un miroir du climat social et de la santé économique d'une organisation. Pourtant, le constat est alarmant : 81 % des décideurs RH sous-estiment le coût réel de cette rotation. Si le calcul théorique du turnover est simple — le ratio entre la moyenne des départs et des arrivées sur l'effectif initial — son impact financier reste souvent invisible dans les budgets.
-Chaque départ engendre des coûts directs et indirects considérables : frais de recrutement, temps de formation, perte de savoir-faire et désorganisation des équipes. En France, seules 43 % des entreprises font de la fidélisation une priorité concrète, et une sur trois seulement dispose d’une démarche structurée pour l’expérience collaborateur. Ce décalage freine des investissements pourtant vitaux pour la profitabilité à long terme.
-      </p>
+      <h3 class="article-subtitle">Deux exemples chiffrés</h3>
+      <ul class="article-text">
+        <li><strong>Exemple A :</strong> une entreprise de 250 salariés enregistre 45 départs et 25 embauches. [(45 + 25) / 2] / 250 = 0,14, soit un taux de <strong>14 %</strong>.</li>
+        <li><strong>Exemple B :</strong> une PME compte 88 salariés en début d'année, avec 9 départs et 2 recrutements. [(9 + 2) / 2] / 88 × 100 = <strong>6,25 %</strong>.</li>
+      </ul>
 
-<h3 class="article-subtitle">L'IA prédictive : une sentinelle pour les Ressources Humaines</h3>
-      <p class="article-text">
-      Contrairement à l'IA générative (comme ChatGPT), qui crée du contenu, l'IA prédictive se concentre sur l'analyse de données historiques pour anticiper des événements futurs. Dans le domaine des RH, elle devient une véritable alliée stratégique pour identifier les « signaux faibles » précédant une démission.
-Les algorithmes de machine learning analysent une multitude de variables : variations de productivité, taux d'absentéisme, retards fréquents ou encore le niveau d'interaction sur les plateformes internes. En France, des solutions comme TOP permettent déjà aux managers de détecter les risques de départ et d'engager un dialogue avant qu'il ne soit trop tard.
-Au-delà de la simple rétention, cette technologie s'étend à la protection des salariés. Elle permet de :
-Prévenir le burn-out en surveillant les volumes de travail et les horaires décalés.
-Réduire les accidents du travail et les maladies professionnelles (TMS) via des capteurs IoT et l'analyse des postures en temps réel.
-Optimiser l'allocation des ressources humaines en fonction des besoins futurs des projets.
-      </p>
+      <h3 class="article-subtitle">La variante : taux d'entrée et taux de sortie</h3>
+      <p class="article-text">Une autre méthode consiste à calculer séparément les deux taux, puis à en faire la moyenne :</p>
+      <ul class="article-text">
+        <li><strong>Taux d'entrée</strong> = nombre d'arrivées / effectif au début de la période × 100</li>
+        <li><strong>Taux de sortie</strong> = nombre de départs / effectif au début de la période × 100</li>
+      </ul>
+      <p class="article-text">Le résultat est identique à la formule principale. L'intérêt est ailleurs : regarder les deux taux séparément montre si l'entreprise se renouvelle (beaucoup d'entrées et de sorties), se contracte (plus de sorties) ou se développe (plus d'entrées).</p>
 
-      <h3 class="article-subtitle">Le défi des compétences : anticiper pour ne pas subir</h3>
-      <p class="article-text"> Le turnover est aussi le symptôme d'une inadéquation entre les aspirations des salariés et les besoins de l'entreprise. En France, 45 % des entreprises n'ont aucune vision claire des compétences dont elles auront besoin dans les deux à trois prochaines années.
-Parallèlement, 54 % des salariés estiment que leur potentiel n'est pas pleinement exploité, et une large majorité (69 %) considère que leur employeur ne facilite pas l'exploration d'opportunités internes. La gestion stratégique du turnover ne consiste donc pas seulement à retenir les gens, mais à proposer des parcours de formation adaptés et à valoriser les réussites pour renforcer le sentiment d'appartenance
-</p>
-      <h3 class="article-subtitle">Comment le calculer?</h3>
-      <p class="article-text"> Le calcul du taux de turnover (ou taux de rotation) repose sur le ratio entre les mouvements de personnel et l'effectif initial de l'entreprise.
-Voici les étapes précises pour le calculer, selon les sources :
-La formule standard : Vous devez faire la somme des départs et des arrivées de salariés sur une période donnée, diviser ce total par deux, puis diviser le résultat obtenu par l'effectif présent au début de la période.
-Périodicité : Ce calcul s'effectue généralement sur une base annuelle (par exemple, du 1er janvier au 31 décembre).
-Expression en pourcentage : Pour obtenir l'indicateur final, il est nécessaire de multiplier le résultat par 100.
-Exemples concrets de calcul
-Les sources fournissent deux exemples pour illustrer cette méthode :
-Exemple A : Une entreprise de 250 salariés enregistre 45 départs et 25 embauches. Le calcul est : [(45 + 25) / 2] / 250 = 0,14, soit un taux de 14 %.
-Exemple B : L'entreprise Caloop compte 88 employés en début d'année, avec 9 départs et 2 recrutements. Le calcul est : [(9 + 2) / 2] / 88 * 100, ce qui donne un taux de 6,5 %.
-Variante de calcul
-Une autre méthode mentionnée consiste à faire la moyenne entre le taux d'entrées et le taux de sorties:
-Taux d'entrées : (Nombre de recrutements / Effectif total de l'année) x 100.
-Taux de sorties : (Nombre de départs / Effectif du début de l'année) x 100.
-Interprétation des résultats
-Une fois le calcul effectué, le chiffre obtenu permet d'évaluer la santé de l'organisation :
-Moins de 5 % : Témoigne d'un climat social sain et qualitatif.
-Plus de 15 % : Indique souvent des conditions de travail difficiles ou un mauvais climat social.
-0 % ou 100 % : Un taux de 0 % signifie qu'aucun mouvement n'a eu lieu, tandis que 100 % indique que l'intégralité de l'effectif a été renouvelée durant l'année
-</p>
+      <h3 class="article-subtitle">Quels départs compter ?</h3>
+      <p class="article-text">C'est la question qui fait varier le plus les résultats. Démissions, licenciements, ruptures conventionnelles, fins de CDD, départs en retraite, mutations internes : il n'existe pas de règle unique. L'essentiel est de <strong>définir le périmètre une fois pour toutes et de le garder stable</strong>, sinon les comparaisons d'une année sur l'autre n'ont pas de sens. Pour piloter la fidélisation, isolez en plus les départs à l'initiative du salarié : c'est sur eux que vous pouvez agir.</p>
+
+      <!-- INTERPRÉTATION -->
+      <h2 class="article-title">Comment interpréter le résultat ?</h2>
+      <p class="article-text">Il n'existe pas de « bon » taux universel. Le turnover normal varie fortement selon le secteur, les métiers et la part de contrats courts : un taux acceptable dans la restauration serait alarmant dans un bureau d'études. Trois lectures sont plus utiles qu'un seuil :</p>
+      <ul class="article-text">
+        <li><strong>L'évolution :</strong> comparez votre taux à votre propre historique sur trois à cinq ans.</li>
+        <li><strong>Le secteur :</strong> comparez-le aux entreprises de votre branche et de taille comparable.</li>
+        <li><strong>La répartition :</strong> calculez-le par métier, site, équipe, tranche d'ancienneté. Un taux global de 10 % peut cacher une équipe à 35 %. C'est là que se trouvent les actions à mener.</li>
+      </ul>
+      <p class="article-text">Le turnover est l'un des <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">indicateurs RH</a> essentiels, à lire avec l'<a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline">absentéisme</a> : les deux évoluent souvent ensemble quand le climat social se dégrade.</p>
+
+      <!-- COÛT -->
+      <h2 class="article-title">Combien coûte un départ ?</h2>
+      <p class="article-text">Le coût du turnover reste souvent invisible dans les budgets, parce qu'il est réparti entre plusieurs postes. Pour l'estimer, additionnez :</p>
+      <ul class="article-text">
+        <li><strong>Les coûts de recrutement :</strong> annonces, cabinet, temps des RH et des managers en entretiens.</li>
+        <li><strong>La vacance du poste :</strong> travail non fait, heures supplémentaires ou intérim pour compenser.</li>
+        <li><strong>La montée en compétence :</strong> le temps pendant lequel le remplaçant n'est pas encore pleinement opérationnel.</li>
+        <li><strong>La formation et l'intégration</strong> du nouvel arrivant.</li>
+        <li><strong>La perte de savoir-faire</strong> et la désorganisation de l'équipe, plus difficiles à chiffrer.</li>
+      </ul>
+      <p class="article-text"><strong>Exemple, avec des hypothèses à adapter :</strong> une PME qui enregistre 7 départs par an, pour un coût estimé à 30 000 € par départ, supporte environ 210 000 € de coûts liés au turnover chaque année. Remplacez ces hypothèses par vos propres chiffres : c'est l'ordre de grandeur qui compte pour décider d'agir.</p>
+
+      <!-- PRÉDICTION -->
+      <h2 class="article-title">Anticiper les départs avec l'IA prédictive</h2>
+      <p class="article-text">Contrairement à l'IA générative, qui produit du contenu, l'<a href="https://competencesrh.fr/ia/ia-predictive-rh.html" class="link-white-underline">IA prédictive</a> analyse des données historiques pour estimer la probabilité d'un événement futur. Appliquée au turnover, elle repère les situations qui ont précédé des départs dans le passé : faible satisfaction, ancienneté courte, absence d'évolution, hausse de l'absentéisme, changement de manager.</p>
+      <p class="article-text">Le modèle gratuit proposé ci-dessous croise deux variables simples, la satisfaction et l'ancienneté, pour montrer le principe. En mission, on l'enrichit avec les données disponibles dans l'entreprise, après un travail de <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">nettoyage des données RH</a>.</p>
+
+      <div class="formula-box">
+        <p><strong>Modèle Python gratuit :</strong> un notebook open source à ouvrir dans Google Colab pour tester l'effet de la satisfaction et de l'ancienneté sur le risque de départ.</p>
+        <p><a href="https://github.com/CompetencesRH/turnover" class="link-white-underline" target="_blank" rel="noopener">→ Ouvrir le notebook sur GitHub</a></p>
+      </div>
+
+      <h3 class="article-subtitle">Les garde-fous indispensables</h3>
+      <ul class="article-text">
+        <li><strong>Un score n'est pas une décision.</strong> Il sert à ouvrir un dialogue (entretien, évolution, charge de travail), jamais à décider seul d'une promotion ou d'une affectation. S'il servait à décider, l'outil relèverait du haut risque au sens de l'AI Act : voir notre <a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">guide AI Act pour les PME</a>.</li>
+        <li><strong>Les données personnelles sont encadrées.</strong> Finalité claire, données limitées au nécessaire, information des salariés : voir le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD appliqué aux données salariés</a>.</li>
+        <li><strong>Une corrélation n'est pas une cause.</strong> Le modèle montre où regarder ; c'est l'analyse humaine qui explique pourquoi.</li>
+      </ul>
+
+      <!-- COMPÉTENCES -->
+      <h2 class="article-title">Le turnover, symptôme d'un décalage de compétences</h2>
+      <p class="article-text">Une partie des départs vient d'un décalage entre les aspirations des salariés et ce que l'entreprise leur propose : pas de perspective d'évolution, compétences sous-utilisées, mobilité interne difficile. Réduire le turnover ne consiste donc pas seulement à retenir les personnes, mais à leur proposer des parcours. C'est l'objet d'une <a href="https://competencesrh.fr/automatisation/processus-gepp-pme.html" class="link-white-underline">démarche GEPP</a> et d'une cartographie des <a href="https://competencesrh.fr/competences.html" class="link-white-underline">compétences</a>.</p>
+
+      <!-- RADAR TURNOVER -->
+      <h2 class="article-title">Le Radar Turnover : notre accompagnement</h2>
+      <p class="article-text">Calculer un taux est simple. Savoir où agir l'est moins. Le Radar Turnover est notre accompagnement pour passer du chiffre à l'action :</p>
+      <ul class="article-text">
+        <li><strong>Identifier les populations à risque :</strong> métiers, équipes, tranches d'ancienneté où se concentrent les départs.</li>
+        <li><strong>Estimer le coût des départs</strong> avec vos propres données.</li>
+        <li><strong>Prioriser les actions de fidélisation</strong> et définir les indicateurs pour mesurer leur effet.</li>
+      </ul>
+      <p class="article-text">La démarche s'inscrit dans notre approche de la <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">data RH décisionnelle</a> : chaque indicateur doit répondre à une décision.</p>
+      <p class="article-text"><a href="https://competencesrh.fr/contact.html" class="nav-cta" style="display:inline-block;">Analyser mon turnover →</a></p>
+
+      <!-- FAQ -->
+      <section id="faq" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(128,128,128,.25);">
+        <h2 class="article-title">Questions fréquentes sur le turnover</h2>
+
+        <h3 class="article-subtitle">Quelle est la formule du taux de turnover ?</h3>
+        <p class="article-text">Taux de turnover = [(nombre de départs + nombre d'arrivées) / 2] / effectif au début de la période × 100. Par exemple, 45 départs et 25 arrivées pour 250 salariés donnent un taux de 14 %.</p>
+
+        <h3 class="article-subtitle">Quels départs faut-il compter dans le turnover ?</h3>
+        <p class="article-text">Il n'existe pas de règle unique. L'essentiel est de définir le périmètre (démissions, licenciements, ruptures conventionnelles, fins de CDD, départs en retraite) et de le garder stable d'une année sur l'autre. Pour piloter la fidélisation, isolez les départs à l'initiative du salarié.</p>
+
+        <h3 class="article-subtitle">Qu'est-ce qu'un bon taux de turnover ?</h3>
+        <p class="article-text">Il n'existe pas de seuil universel : le taux normal varie fortement selon le secteur, les métiers et la part de contrats courts. Comparez votre taux à votre propre historique et à votre secteur, puis analysez-le par population (métier, ancienneté, équipe) pour repérer où se concentrent les départs.</p>
+      </section>
+
+    </article>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -147,11 +248,11 @@ Plus de 15 % : Indique souvent des conditions de travail difficiles ou un mauvai
       <p>L'intelligence RH par la donnée.</p>
     </div>
     <div class="footer-links">
-    <a href="https://competencesrh.fr/index.html">Accueil</a>
-    <a href="https://competencesrh.fr/services.html">Services</a>
-    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
-    <a href="https://competencesrh.fr/contact.html">Contact</a>
-  </div>
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
     <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
   </footer>
 
