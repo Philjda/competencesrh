@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculer l'écart de rémunération femmes-hommes par catégorie de travail de valeur égale : définir les catégories, formule, seuil de 5 %, exemple chiffré, modèle Excel et script Python.">
+  <title>Écart de rémunération par catégorie : calcul et seuil de 5 %</title>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymacclcqrb");
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3ZT1R1H6RV');
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="canonical" href="https://competencesrh.fr/analyse-donnees-rh/ecart-remuneration-categorie.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    .table-wrap{overflow-x:auto;margin:2rem 0;}
+    .data-table{width:100%;border-collapse:collapse;font-size:.9rem;line-height:1.55;min-width:640px;}
+    .data-table caption{text-align:left;font-family:var(--font-head);font-weight:700;margin-bottom:.75rem;}
+    .data-table th,.data-table td{padding:.7rem .8rem;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;vertical-align:top;}
+    .data-table th{font-family:var(--font-head);font-weight:700;}
+    .info-box{margin:2rem 0;padding:1.5rem 1.75rem;border-left:4px solid var(--accent);background:rgba(128,128,128,.08);border-radius:8px;}
+    .info-box p,.info-box li{line-height:1.7;}
+    .formula{font-family:var(--font-mono);font-size:1rem;font-weight:700;}
+    .code-block{background:#1e1e2e;color:#cdd6f4;padding:1.5rem;border-radius:10px;font-family:var(--font-mono);font-size:.82rem;line-height:1.6;overflow-x:auto;margin:1.5rem 0;}
+    .code-block pre{margin:0;}
+    .author-box{margin-top:4rem;padding:1.5rem 1.75rem;border:1px solid rgba(128,128,128,.25);border-radius:8px;}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/analyse-donnees-rh/ecart-remuneration-categorie.html#article",
+        "headline": "Écart de rémunération par catégorie de travail de valeur égale : calcul, seuil de 5 % et méthode",
+        "description": "Calculer l'écart de rémunération femmes-hommes par catégorie de travail de valeur égale : définir les catégories, formule, seuil de 5 %, exemple chiffré, modèle Excel et script Python.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees-rh/ecart-remuneration-categorie.html",
+        "datePublished": "2026-11-15",
+        "dateModified": "2026-11-15",
+        "author": {
+          "@type": "Person",
+          "name": "[PRÉNOM NOM]",
+          "jobTitle": "Consultant Data & IA RH",
+          "url": "https://competencesrh.fr/",
+          "sameAs": ["[URL PROFIL LINKEDIN]", "[URL PAGE AUTEUR JOURNAL DU NET]"]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        },
+        "about": [
+          {"@type": "Thing", "name": "Écart de rémunération entre les femmes et les hommes"},
+          {"@type": "Thing", "name": "Directive (UE) 2023/970 sur la transparence des rémunérations"}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/"},
+          {"@type": "ListItem", "position": 2, "name": "Analyse de données RH", "item": "https://competencesrh.fr/analyse-donnees-rh.html"},
+          {"@type": "ListItem", "position": 3, "name": "Équité salariale", "item": "https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html"},
+          {"@type": "ListItem", "position": 4, "name": "Écart de rémunération par catégorie", "item": "https://competencesrh.fr/analyse-donnees-rh/ecart-remuneration-categorie.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/analyse-donnees-rh/ecart-remuneration-categorie.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment calcule-t-on l'écart de rémunération dans une catégorie ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On calcule la rémunération moyenne des hommes et celle des femmes de la catégorie, de préférence en taux horaire, puis : écart = (moyenne des hommes − moyenne des femmes) / moyenne des hommes × 100. On fait le même calcul avec les médianes, et séparément pour le salaire de base et pour les éléments variables."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il si l'écart dépasse 5 % ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon la directive (UE) 2023/970, une évaluation conjointe des rémunérations doit être menée avec les représentants du personnel si trois conditions sont réunies : les données communiquées font apparaître un écart moyen d'au moins 5 % dans une catégorie, l'employeur ne le justifie pas par des critères objectifs et non sexistes, et il n'y a pas remédié dans les six mois suivant la communication des données. En France, le projet de loi prévoit un seuil fixé par décret, qui ne pourra pas dépasser 5 %, et des actions correctrices dans le cadre du dialogue social ; les modalités restent à confirmer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on utiliser les coefficients de la convention collective comme catégories ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "C'est un point de départ, pas une réponse suffisante. Une catégorie doit regrouper des postes de même valeur selon des critères objectifs et neutres : compétences, efforts, responsabilités et conditions de travail. Deux métiers de coefficients différents peuvent être de valeur égale, et un même coefficient peut regrouper des postes de valeurs différentes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que faire quand une catégorie compte très peu de femmes ou d'hommes ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le résultat devient très sensible à un seul salaire et peut permettre d'identifier des personnes. Signalez ces catégories, analysez les écarts au cas par cas plutôt qu'en pourcentage, et vérifiez la règle de confidentialité qui sera fixée par les textes d'application avant toute diffusion."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse de données RH</a></li>
+      <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+
+  <section class="page-hero">
+    <div class="section-label">// Analyse de données RH · Équité salariale · Transparence</div>
+    <h1 class="page-title">Écart de rémunération par catégorie de travail de valeur égale : le calcul pas à pas</h1>
+    <p class="page-sub">Définir les catégories, calculer l'écart, repérer le seuil de 5 % et préparer la justification : la méthode, un exemple chiffré, un modèle Excel et un script Python.</p>
+  </section>
+
+  <section class="section">
+    <article class="blog-article">
+
+      <!-- À COMPLÉTER : remplacer [PRÉNOM NOM] ici, dans l'encadré auteur et dans les données structurées -->
+      <p class="article-meta">// Par [PRÉNOM NOM], consultant Data & IA RH · 15 novembre 2026 · 12 min de lecture</p>
+
+      <div class="info-box">
+        <p><strong>L'essentiel</strong></p>
+        <p class="formula">Écart (%) = (rémunération moyenne des hommes − rémunération moyenne des femmes) / rémunération moyenne des hommes × 100</p>
+        <p>Le calcul se fait <strong>dans chaque catégorie</strong> de postes de même valeur, pas sur l'ensemble de l'entreprise.</p>
+        <p><strong>Directive européenne :</strong> lorsque les données communiquées font apparaître un écart moyen d'au moins 5 % dans une catégorie, que l'employeur ne le justifie pas par des critères objectifs et non sexistes, et qu'il n'y a pas remédié dans les six mois suivant la communication des données, une évaluation conjointe des rémunérations doit être menée avec les représentants du personnel.</p>
+        <p><strong>France :</strong> le projet de transposition prévoit un seuil fixé par décret, qui ne pourra pas dépasser 5 %. Un écart non justifié devra faire l'objet d'actions correctrices dans le cadre du dialogue social. Les modalités précises, notamment le rôle du CSE et les délais, restent à confirmer par le texte définitif et ses décrets.</p>
+      </div>
+
+      <h2 class="article-title">Trois niveaux de lecture à ne pas confondre</h2>
+      <ol class="article-text">
+        <li><strong>L'écart global</strong>, sur toute l'entreprise : utile pour un diagnostic d'ensemble, mais il ne déclenche pas les obligations liées aux catégories.</li>
+        <li><strong>L'écart par catégorie</strong> : l'indicateur central de la directive et du projet français. C'est l'objet de cette page.</li>
+        <li><strong>Les écarts individuels et la dispersion</strong> : indispensables pour comprendre et justifier un écart, mais à manier avec une grande prudence au regard du RGPD.</li>
+      </ol>
+
+      <!-- POURQUOI -->
+      <h2 class="article-title">Pourquoi cet indicateur change tout</h2>
+      <p class="article-text">
+        La directive (UE) 2023/970 sur la transparence des rémunérations demande aux employeurs de mesurer les écarts de rémunération entre les femmes et les hommes. Parmi ses sept indicateurs, celui qui porte sur les <strong>catégories de travailleurs</strong> accomplissant un même travail ou un travail de valeur égale est le plus dépendant d'un travail préalable : la définition et la documentation des catégories.
+      </p>
+      <p class="article-text">
+        En France, le projet de loi de transposition n° 944, présenté en Conseil des ministres et déposé au Sénat le 10 septembre 2026 en procédure accélérée, reprend cette logique : il remplace l'Index de l'égalité professionnelle par sept indicateurs et conserve le seuil de 50 salariés des employeurs déjà soumis à l'Index, avec des obligations allégées entre 50 et 99 salariés. Les catégories seraient fixées par accord d'entreprise ou, à défaut, par une décision de l'employeur après consultation du CSE. Le texte n'est pas encore adopté : ses modalités peuvent évoluer, et les éléments de rémunération à retenir comme le seuil de déclenchement seront précisés par décret. Pour le détail du nouveau dispositif, voir notre article sur <a href="https://competencesrh.fr/blog/transparence-salariale-7-indicateurs-strategie.html" class="link-white-underline">les 7 indicateurs de la transparence salariale</a> et celui sur <a href="https://competencesrh.fr/blog/transparence-salariale-septembre-2026.html" class="link-white-underline">le projet de loi de septembre 2026</a>.
+      </p>
+      <p class="article-text">
+        Cet indicateur est exigeant parce qu'il ne se lit pas à l'échelle de l'entreprise. Un écart global modéré peut cacher un écart important dans une seule famille de métiers, et c'est cette catégorie qui déclenche les obligations.
+      </p>
+
+      <!-- ÉTAPE 1 -->
+      <h2 class="article-title">Étape 1 : définir les catégories de postes de même valeur</h2>
+      <p class="article-text">
+        C'est l'étape qui décide de tout le reste. Une catégorie regroupe des postes de même valeur, évalués selon des critères objectifs et non sexistes. La directive en retient quatre :
+      </p>
+      <ul class="article-text">
+        <li><strong>Les compétences</strong>, techniques et relationnelles, requises par le poste.</li>
+        <li><strong>Les efforts</strong>, physiques et mentaux.</li>
+        <li><strong>Les responsabilités</strong> : encadrement, budget, sécurité, impact des décisions.</li>
+        <li><strong>Les conditions de travail</strong> : environnement, horaires, contraintes.</li>
+      </ul>
+      <p class="article-text">
+        On évalue le <strong>poste</strong>, pas la personne qui l'occupe. La grille de classification de votre convention collective est un bon point de départ, mais elle ne suffit pas toujours : deux métiers de coefficients différents peuvent être de valeur égale (par exemple un poste administratif et un poste technique au niveau de responsabilité comparable), et un même coefficient peut regrouper des postes de valeurs très différentes.
+      </p>
+      <p class="article-text">
+        Quel que soit le mode de fixation retenu, documentez la méthode : la grille d'évaluation, la note de chaque poste et le rattachement de chaque poste à sa catégorie. C'est ce document qui vous protégera en cas de contestation.
+      </p>
+
+      <!-- ÉTAPE 2 -->
+      <h2 class="article-title">Étape 2 : rassembler les bonnes données</h2>
+      <p class="article-text">
+        <strong>La période de référence</strong> est annuelle : la directive prévoit un rapport portant sur l'année civile précédente. Retenez l'année civile, sauf si les textes d'application en fixent une autre, et traitez de façon cohérente les entrées et sorties en cours d'année.
+      </p>
+      <p class="article-text">Pour chaque salarié, il vous faut un identifiant anonyme, la catégorie, le sexe et la rémunération sur cette période, en séparant :</p>
+      <ul class="article-text">
+        <li><strong>Le salaire de base</strong> brut annuel.</li>
+        <li><strong>Les éléments variables ou complémentaires</strong> : primes, bonus, avantages en nature, heures supplémentaires. N'y incluez que les éléments retenus par les règles applicables (le décret précisera l'assiette), sinon la comparaison sera biaisée.</li>
+        <li><strong>Le temps de travail</strong> sur la période, pour calculer un taux horaire.</li>
+      </ul>
+      <p class="article-text">
+        Raisonnez en <strong>rémunération horaire</strong> : c'est le seul moyen de comparer une salariée à temps partiel et un salarié à temps plein. La directive définit d'ailleurs le niveau de rémunération à la fois en brut annuel et en brut horaire correspondant. Avant tout calcul, vérifiez la qualité des données (doublons, entrées et sorties en cours d'année, rubriques de paie mal affectées) : voir notre guide sur la <a href="https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html" class="link-white-underline">qualité et la gouvernance des données RH</a>.
+      </p>
+
+      <!-- ÉTAPE 3 -->
+      <h2 class="article-title">Étape 3 : calculer l'écart dans chaque catégorie</h2>
+      <p class="article-text">Pour chaque catégorie, calculez séparément pour les femmes et pour les hommes la rémunération horaire moyenne et la rémunération horaire médiane, puis :</p>
+      <p class="article-text formula">Écart moyen (%) = (moyenne H − moyenne F) / moyenne H × 100</p>
+      <p class="article-text formula">Écart médian (%) = (médiane H − médiane F) / médiane H × 100</p>
+      <p class="article-text">
+        Un écart positif signifie que les hommes sont mieux rémunérés, un écart négatif que les femmes le sont. Faites le calcul deux fois : sur le salaire de base seul, puis sur la rémunération totale (base et variable). Un écart qui n'apparaît que sur le variable oriente l'analyse vers les primes et leurs règles d'attribution.
+      </p>
+      <p class="article-text">
+        La moyenne et la médiane se complètent : la moyenne est sensible à quelques salaires élevés, la médiane montre la situation de la personne « du milieu ». Un écart moyen fort avec un écart médian faible signale souvent quelques cas individuels plutôt qu'un problème de structure.
+      </p>
+
+      <!-- EXEMPLE -->
+      <h2 class="article-title">Exemple chiffré</h2>
+      <p class="article-text">Une PME de 78 salariés a défini trois catégories. Les montants sont fictifs et exprimés en rémunération horaire brute moyenne, base et variable comprises.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Écart de rémunération par catégorie : exemple fictif</caption>
+          <thead>
+            <tr>
+              <th scope="col">Catégorie</th>
+              <th scope="col">Femmes</th>
+              <th scope="col">Hommes</th>
+              <th scope="col">Moyenne F</th>
+              <th scope="col">Moyenne H</th>
+              <th scope="col">Écart moyen</th>
+              <th scope="col">Lecture</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A : techniciens et assistants de même niveau</td>
+              <td>12</td>
+              <td>18</td>
+              <td>17,60 €</td>
+              <td>18,10 €</td>
+              <td>2,8 %</td>
+              <td>Sous le seuil, à surveiller</td>
+            </tr>
+            <tr>
+              <td>B : chargés de clientèle</td>
+              <td>20</td>
+              <td>8</td>
+              <td>15,40 €</td>
+              <td>15,20 €</td>
+              <td>−1,3 %</td>
+              <td>Sous le seuil</td>
+            </tr>
+            <tr>
+              <td>C : ingénieurs et chefs de projet</td>
+              <td>6</td>
+              <td>14</td>
+              <td>27,90 €</td>
+              <td>30,00 €</td>
+              <td><strong>7,0 %</strong></td>
+              <td><strong>Au-dessus de 5 % : justifier ou corriger</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">
+        Calcul pour la catégorie C : (30,00 − 27,90) / 30,00 × 100 = 7,0 %.
+      </p>
+      <p class="article-text">
+        <strong>Le piège de l'écart global.</strong> Sur l'ensemble de l'entreprise, la moyenne des femmes est de 18,07 € et celle des hommes de 21,69 €, soit un écart global de 16,7 %. Ce chiffre mélange deux phénomènes : les femmes sont plus nombreuses dans la catégorie la moins rémunérée (B), et moins nombreuses dans la mieux rémunérée (C). L'écart global mesure surtout la <strong>répartition des femmes et des hommes entre les métiers</strong>. L'écart par catégorie mesure l'<strong>inégalité à travail de même valeur</strong>. Les deux sont utiles, mais seul le second déclenche l'évaluation conjointe.
+      </p>
+
+      <!-- ÉTAPE 4 -->
+      <h2 class="article-title">Étape 4 : repérer le seuil de 5 % et préparer la justification</h2>
+      <h3 class="article-subtitle">Ce que prévoit la directive</h3>
+      <p class="article-text">Selon l'article 10 de la directive, une évaluation conjointe des rémunérations doit être menée avec les représentants du personnel quand trois conditions sont réunies :</p>
+      <ol class="article-text">
+        <li>les données communiquées font apparaître un écart de rémunération moyen d'au moins 5 % dans une catégorie ;</li>
+        <li>l'employeur ne justifie pas cet écart par des critères objectifs et non sexistes ;</li>
+        <li>l'employeur n'y a pas remédié dans les six mois suivant la communication des données sur les rémunérations.</li>
+      </ol>
+      <h3 class="article-subtitle">Ce que prévoit le projet français</h3>
+      <p class="article-text">
+        Le projet de loi ne reprend pas mécaniquement ce schéma. Il prévoit un seuil fixé par décret, qui ne pourra pas dépasser 5 %. Lorsqu'un écart au-delà de ce seuil n'est pas justifié par des critères objectifs et non fondés sur le sexe, l'employeur devra engager des mesures correctrices dans le cadre du dialogue social : par accord collectif ou, à défaut, par un plan d'action établi après consultation du CSE. Les délais et le contenu exact de ces étapes restent à confirmer par le texte définitif et ses décrets.
+      </p>
+      <h3 class="article-subtitle">Justifier ou corriger</h3>
+      <p class="article-text">
+        L'indicateur réglementaire est un <strong>écart brut</strong> : il compare des moyennes sans rien corriger. Pour justifier un écart, il faut aller plus loin et comparer des situations comparables au sein de la catégorie (expérience, qualification, ancienneté dans le poste). C'est une analyse <strong>ajustée</strong>, qui explique l'écart brut sans le remplacer.
+      </p>
+      <p class="article-text">Pour chaque catégorie au-dessus du seuil, analysez les écarts individuels et cherchez ce qui les explique :</p>
+      <ul class="article-text">
+        <li><strong>Des critères qui peuvent être recevables</strong> s'ils sont documentés et appliqués à tous : l'expérience professionnelle sur des compétences utiles au poste, une performance évaluée selon des règles écrites, une qualification spécifique exigée par le poste.</li>
+        <li><strong>Des explications à manier avec prudence</strong> : l'ancienneté peut pénaliser les personnes qui ont eu des interruptions de carrière, et la « négociation à l'embauche » reproduit souvent les écarts du marché. Elles ne suffisent pas à elles seules.</li>
+        <li><strong>Ce qui ne justifie rien</strong> : le temps partiel (neutralisé par le taux horaire), les congés maternité ou parentaux, ou le simple constat que « c'était déjà comme ça ».</li>
+      </ul>
+      <p class="article-text">
+        Si l'écart ne s'explique pas, corrigez-le : ajustements individuels lors des augmentations annuelles ou des NAO, révision des règles d'attribution des primes, rattrapage ciblé. Chiffrez le coût de la correction avec votre <a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="link-white-underline">pilotage de la masse salariale</a>.
+      </p>
+
+      <!-- EXCEL -->
+      <h2 class="article-title">Le faire dans Excel</h2>
+      <p class="article-text">Partez d'un tableau structuré des salariés, avec les colonnes Categorie, Sexe et Taux_horaire. Créez ensuite un tableau de synthèse, une ligne par catégorie, organisé ainsi :</p>
+      <div class="code-block"><pre>Colonne A : Catégorie    (A2 = nom de la catégorie)
+Colonne B : Moyenne F    B2 =MOYENNE.SI.ENS(Taux_horaire; Categorie; A2; Sexe; "F")
+Colonne C : Moyenne H    C2 =MOYENNE.SI.ENS(Taux_horaire; Categorie; A2; Sexe; "H")
+Colonne D : Écart moyen  D2 =SIERREUR((C2-B2)/C2; "")
+Colonne E : Alerte       E2 =SI(D2=""; "Non calculable"; SI(ABS(D2)&gt;=5%; "Au-dessus du seuil"; ""))
+
+Colonne F : Médiane F    F2 =SIERREUR(MEDIANE(FILTRE(Taux_horaire; (Categorie=A2)*(Sexe="F"))); "")
+Colonne G : Médiane H    G2 =SIERREUR(MEDIANE(FILTRE(Taux_horaire; (Categorie=A2)*(Sexe="H"))); "")
+Colonne H : Écart médian H2 =SIERREUR((G2-F2)/G2; "")</pre></div>
+      <p class="article-text">
+        Formatez la colonne D et la colonne H en pourcentage, puis recopiez les formules vers le bas. Si une catégorie ne compte que des femmes ou que des hommes, les moyennes et l'écart ne sont pas calculables : la formule affiche alors « Non calculable » au lieu d'une erreur. La fonction FILTRE nécessite Excel 365 ou Excel 2021. Pour alimenter ce tableau automatiquement à partir de vos exports de paie, voir notre méthode de <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">tableau de bord Excel avec Power Query</a>.
+      </p>
+
+      <!-- PYTHON -->
+      <h2 class="article-title">Le faire en Python</h2>
+      <p class="article-text">
+        Ce script calcule, pour chaque catégorie, les écarts moyen et médian sur la base et sur la rémunération totale, et signale les catégories au-dessus de 5 %. Il fonctionne sur un fichier CSV anonymisé avec les colonnes <code>categorie</code>, <code>sexe</code> (F ou H), <code>base_annuelle</code>, <code>variable_annuelle</code> et <code>heures_annuelles</code>. Pour démarrer avec Python, voir notre page <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python pour les RH</a>.
+      </p>
+      <div class="code-block"><pre>import pandas as pd
+
+df = pd.read_csv("remunerations.csv")
+
+# Contrôle : heures manquantes ou nulles (division impossible)
+heures_ko = df["heures_annuelles"].isna() | (df["heures_annuelles"] &lt;= 0)
+if heures_ko.any():
+    print(f"{heures_ko.sum()} ligne(s) écartée(s) : heures annuelles manquantes ou nulles")
+df = df[~heures_ko].copy()
+
+# Rémunération horaire brute : neutralise l'effet du temps partiel
+# variable_annuelle ne doit contenir que les éléments retenus par les règles applicables
+df["base_h"] = df["base_annuelle"] / df["heures_annuelles"]
+df["totale_h"] = (df["base_annuelle"] + df["variable_annuelle"].fillna(0)) / df["heures_annuelles"]
+
+def ecart(g, col, stat):
+    f = g.loc[g.sexe == "F", col]
+    h = g.loc[g.sexe == "H", col]
+    if f.empty or h.empty:
+        return None                      # catégorie à un seul sexe : non calculable
+    valeur_f = getattr(f, stat)()
+    valeur_h = getattr(h, stat)()
+    if valeur_h == 0:
+        return None
+    return round((valeur_h - valeur_f) / valeur_h * 100, 1)
+
+lignes = []
+for cat, g in df.groupby("categorie"):
+    lignes.append({
+        "categorie": cat,
+        "effectif_F": int((g.sexe == "F").sum()),
+        "effectif_H": int((g.sexe == "H").sum()),
+        "ecart_moyen_base_%": ecart(g, "base_h", "mean"),
+        "ecart_moyen_total_%": ecart(g, "totale_h", "mean"),
+        "ecart_median_total_%": ecart(g, "totale_h", "median"),
+    })
+
+res = pd.DataFrame(lignes)
+res["ecart_moyen_total_%"] = pd.to_numeric(res["ecart_moyen_total_%"])
+res["alerte_5%"] = res["ecart_moyen_total_%"].abs().fillna(0) &gt;= 5
+res["non_calculable"] = res["ecart_moyen_total_%"].isna()
+res["petit_effectif"] = res[["effectif_F", "effectif_H"]].min(axis=1) &lt; 5
+print(res.to_string(index=False))</pre></div>
+      <p class="article-text">
+        Le script écarte les lignes sans heures renseignées, signale les catégories non calculables (un seul sexe représenté) et les petits effectifs. Le seuil de 5 personnes est un repère de prudence, pas une règle légale. Il calcule l'écart brut, celui de l'indicateur réglementaire : l'analyse ajustée qui sert à justifier un écart se fait ensuite, catégorie par catégorie.
+      </p>
+
+      <!-- PIÈGES -->
+      <h2 class="article-title">Les pièges à éviter</h2>
+      <ul class="article-text">
+        <li><strong>Les petites catégories.</strong> Avec deux femmes et dix hommes, un seul salaire fait varier l'écart de plusieurs points. Analysez ces cas un par un, et ne diffusez jamais de moyennes qui permettraient d'identifier quelqu'un : voir notre article sur <a href="https://competencesrh.fr/blog/rgpd-salaires-moyennes-anonymes.html" class="link-white-underline">les moyennes salariales et le RGPD</a>.</li>
+        <li><strong>Les catégories construites pour « passer ».</strong> Regrouper ou séparer des postes pour faire disparaître un écart ne résistera ni au CSE ni à un contrôle. La méthode doit être fixée avant de regarder les résultats.</li>
+        <li><strong>L'oubli du variable.</strong> Une partie des écarts se joue sur les primes et les bonus, pas sur le salaire de base.</li>
+        <li><strong>Les salariés présents une partie de l'année.</strong> Fixez une règle (prorata, exclusion des présences très courtes) et appliquez-la à tous.</li>
+        <li><strong>La photo unique.</strong> Un calcul par an ne suffit pas pour piloter : suivez l'indicateur au moins à chaque campagne d'augmentations.</li>
+      </ul>
+
+      <!-- COMPLÉMENT GINI -->
+      <h2 class="article-title">Aller plus loin : la dispersion au sein des catégories</h2>
+      <p class="article-text">
+        L'écart femmes-hommes compare deux moyennes. Il ne dit pas si les salaires d'une catégorie sont homogènes ou très dispersés. Pour repérer les situations individuelles atypiques, complétez l'analyse par l'indice de Gini par strate : voir notre méthode pour <a href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" class="link-white-underline">détecter les inégalités salariales cachées</a>. Et pour préparer l'ensemble du dispositif, voir notre <a href="https://competencesrh.fr/blog/transparence-salariale-conseils.html" class="link-white-underline">checklist de préparation à la transparence salariale</a>.
+      </p>
+
+      <!-- CALENDRIER -->
+      <div class="info-box">
+        <p><strong>Le calendrier</strong></p>
+        <ul class="article-text">
+          <li><strong>Directive européenne :</strong> premiers rapports au plus tard le 7 juin 2027 pour les employeurs de 150 salariés et plus (puis chaque année à partir de 250 salariés, tous les trois ans entre 150 et 249), et à partir du 7 juin 2031 pour ceux de 100 à 149 salariés.</li>
+          <li><strong>France :</strong> le projet de loi présenté le 10 septembre 2026 abaisse le champ à 50 salariés. L'Index actuel resterait applicable pour la déclaration 2027, avant le passage aux sept indicateurs. Ces dates dépendent du vote définitif du texte et de ses décrets d'application.</li>
+        </ul>
+      </div>
+
+      <!-- ACCOMPAGNEMENT -->
+      <h2 class="article-title">Se faire accompagner</h2>
+      <p class="article-text">
+        Définir des catégories défendables, fiabiliser les données de paie et préparer la justification des écarts demande à la fois une connaissance du métier RH et une pratique de l'analyse de données. C'est précisément l'objet de nos missions d'audit d'équité salariale.
+      </p>
+      <p class="article-text"><a href="https://competencesrh.fr/contact.html" class="nav-cta" style="display:inline-block;">Préparer mon indicateur par catégorie →</a></p>
+
+      <!-- FAQ -->
+      <section id="faq" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(128,128,128,.25);">
+        <h2 class="article-title">Questions fréquentes</h2>
+
+        <h3 class="article-subtitle">Comment calcule-t-on l'écart de rémunération dans une catégorie ?</h3>
+        <p class="article-text">On calcule la rémunération moyenne des hommes et celle des femmes de la catégorie, de préférence en taux horaire, puis : écart = (moyenne des hommes − moyenne des femmes) / moyenne des hommes × 100. On fait le même calcul avec les médianes, et séparément pour le salaire de base et pour les éléments variables.</p>
+
+        <h3 class="article-subtitle">Que se passe-t-il si l'écart dépasse 5 % ?</h3>
+        <p class="article-text">Selon la directive (UE) 2023/970, une évaluation conjointe des rémunérations doit être menée avec les représentants du personnel si trois conditions sont réunies : les données communiquées font apparaître un écart moyen d'au moins 5 % dans une catégorie, l'employeur ne le justifie pas par des critères objectifs et non sexistes, et il n'y a pas remédié dans les six mois suivant la communication des données. En France, le projet de loi prévoit un seuil fixé par décret, qui ne pourra pas dépasser 5 %, et des actions correctrices dans le cadre du dialogue social ; les modalités restent à confirmer.</p>
+
+        <h3 class="article-subtitle">Peut-on utiliser les coefficients de la convention collective comme catégories ?</h3>
+        <p class="article-text">C'est un point de départ, pas une réponse suffisante. Une catégorie doit regrouper des postes de même valeur selon des critères objectifs et neutres : compétences, efforts, responsabilités et conditions de travail. Deux métiers de coefficients différents peuvent être de valeur égale, et un même coefficient peut regrouper des postes de valeurs différentes.</p>
+
+        <h3 class="article-subtitle">Que faire quand une catégorie compte très peu de femmes ou d'hommes ?</h3>
+        <p class="article-text">Le résultat devient très sensible à un seul salaire et peut permettre d'identifier des personnes. Signalez ces catégories, analysez les écarts au cas par cas plutôt qu'en pourcentage, et vérifiez la règle de confidentialité qui sera fixée par les textes d'application avant toute diffusion.</p>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" style="margin-top: 3rem;">
+        <h2 class="article-title">Sources officielles</h2>
+        <ul class="article-text">
+          <li><a href="https://eur-lex.europa.eu/eli/dir/2023/970/oj" class="link-white-underline" target="_blank" rel="noopener">EUR-Lex : directive (UE) 2023/970 du 10 mai 2023 sur la transparence des rémunérations</a> (articles 4, 9 et 10)</li>
+          <li><a href="https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1745257" class="link-white-underline" target="_blank" rel="noopener">Parlement européen, Observatoire législatif : synthèse de la directive</a></li>
+          <li><a href="https://www.senat.fr/leg/pjl25-944.html" class="link-white-underline" target="_blank" rel="noopener">Sénat : projet de loi n° 944 portant transposition de la directive (UE) 2023/970, texte déposé le 10 septembre 2026</a></li>
+        </ul>
+      </section>
+
+      <p class="article-text" style="font-size:.9rem;opacity:.8;margin-top:2rem;">
+        <strong>Dernière vérification juridique : 15 novembre 2026.</strong> Le projet de loi n° 944 n'était pas encore adopté à cette date. Cette page présente des informations générales et ne constitue pas un conseil juridique individualisé : faites valider votre démarche par votre conseil ou votre service juridique.
+      </p>
+
+      <!-- À COMPLÉTER : encadré auteur -->
+      <div class="author-box">
+        <p class="article-text"><strong>À propos de l'auteur</strong></p>
+        <p class="article-text">
+          [PRÉNOM NOM] accompagne les PME et ETI sur la data RH, l'équité salariale et l'IA appliquée aux ressources humaines, avec 15 ans d'expérience du métier RH et une pratique de Python et de la data science. Il publie des tribunes dans le Journal du Net.
+          <a href="[URL PROFIL LINKEDIN]" class="link-white-underline" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+
+    </article>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
