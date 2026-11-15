@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prompts RH : la structure d'un bon prompt, 8 modèles prêts à l'emploi (fiche de poste, annonce, entretien…), les usages à éviter et les garde-fous RGPD et AI Act.">
+  <title>Prompt engineering pour les RH : modèles et garde-fous</title>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymacclcqrb");
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3ZT1R1H6RV');
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="canonical" href="https://competencesrh.fr/ia/prompt-engineering-rh.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    .info-box{margin:2rem 0;padding:1.5rem 1.75rem;border-left:4px solid var(--accent);background:rgba(128,128,128,.08);border-radius:8px;}
+    .info-box p,.info-box li{line-height:1.7;}
+    .prompt-block{background:#1e1e2e;color:#cdd6f4;padding:1.4rem 1.5rem;border-radius:10px;font-family:var(--font-mono);font-size:.84rem;line-height:1.65;overflow-x:auto;margin:1rem 0 2rem;white-space:pre-wrap;}
+    .table-wrap{overflow-x:auto;margin:2rem 0;}
+    .data-table{width:100%;border-collapse:collapse;font-size:.9rem;line-height:1.55;min-width:600px;}
+    .data-table th,.data-table td{padding:.7rem .8rem;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;vertical-align:top;}
+    .data-table th{font-family:var(--font-head);font-weight:700;}
+    .author-box{margin-top:4rem;padding:1.5rem 1.75rem;border:1px solid rgba(128,128,128,.25);border-radius:8px;}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/ia/prompt-engineering-rh.html#article",
+        "headline": "Prompt engineering pour les RH : la méthode, 8 modèles de prompts et les garde-fous",
+        "description": "Prompts RH : la structure d'un bon prompt, 8 modèles prêts à l'emploi (fiche de poste, annonce, entretien…), les usages à éviter et les garde-fous RGPD et AI Act.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/ia/prompt-engineering-rh.html",
+        "datePublished": "2026-11-15",
+        "dateModified": "2026-11-15",
+        "author": {
+          "@type": "Person",
+          "name": "[PRÉNOM NOM]",
+          "jobTitle": "Consultant Data & IA RH",
+          "url": "https://competencesrh.fr/",
+          "sameAs": ["[URL PROFIL LINKEDIN]", "[URL PAGE AUTEUR JOURNAL DU NET]"]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/"},
+          {"@type": "ListItem", "position": 2, "name": "IA RH", "item": "https://competencesrh.fr/ia-rh.html"},
+          {"@type": "ListItem", "position": 3, "name": "IA générative en RH", "item": "https://competencesrh.fr/ia/ia-generative-rh.html"},
+          {"@type": "ListItem", "position": 4, "name": "Prompts RH", "item": "https://competencesrh.fr/ia/prompt-engineering-rh.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/ia/prompt-engineering-rh.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Peut-on saisir des données de salariés dans un assistant IA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il faut l'éviter autant que possible. La CNIL recommande de ne pas fournir de données personnelles aux outils d'IA générative grand public. Retirez les noms, identifiants, dates précises, lieux, intitulés de poste rares et toute combinaison de détails qui permettrait de reconnaître quelqu'un. Si l'anonymisation complète n'est pas possible, n'utilisez pas un outil grand public : pour des usages réguliers sur des données RH, privilégiez un outil d'entreprise encadré par un contrat, avec l'avis de votre DPO."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on utiliser un assistant IA généraliste pour trier des CV ou évaluer un salarié ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Pour ces usages, un assistant généraliste piloté par un prompt n'offre ni la documentation, ni la traçabilité, ni les contrôles de biais nécessaires. Les systèmes destinés au recrutement, à la sélection ou à l'évaluation des salariés peuvent relever du cadre des usages à haut risque de l'AI Act, et le RGPD encadre également les décisions fondées sur un traitement automatisé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il former les équipes RH à l'IA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Depuis le 2 février 2025, l'article 4 de l'AI Act impose aux entreprises qui déploient des systèmes d'IA de prendre des mesures pour développer la maîtrise de l'IA de leurs collaborateurs et des personnes qui les utilisent pour leur compte. Depuis juillet 2026, le texte précise qu'aucun niveau précis n'est exigé pour chaque personne : le niveau attendu dépend des connaissances, de l'expérience, de la formation et du contexte d'utilisation. Pour une équipe RH, cela implique notamment de savoir rédiger un prompt, vérifier un résultat et identifier les usages à risque."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la structure d'un bon prompt RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cinq éléments : le rôle que doit jouer l'assistant, le contexte de l'entreprise, la tâche précise, le format attendu et les contraintes (ton, longueur, ce qu'il ne doit pas faire). Ajoutez une consigne de vérification, par exemple signaler ce qui doit être confirmé par un humain."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a></li>
+      <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html" class="active">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+
+  <section class="page-hero">
+    <div class="section-label">// IA générative · Prompts RH · Garde-fous</div>
+    <h1 class="page-title">Prompt engineering pour les RH : la méthode, 8 modèles de prompts et les garde-fous</h1>
+    <p class="page-sub">Comment écrire un prompt qui donne un résultat utilisable, des modèles prêts à copier pour les tâches RH courantes, et les règles pour rester dans les clous du RGPD et de l'AI Act.</p>
+  </section>
+
+  <section class="section">
+    <article class="blog-article">
+
+      <!-- À COMPLÉTER : remplacer [PRÉNOM NOM] ici, dans l'encadré auteur et dans les données structurées -->
+      <p class="article-meta">// Par [PRÉNOM NOM], consultant Data & IA RH · 15 novembre 2026 · 12 min de lecture</p>
+
+      <div class="info-box">
+        <p><strong>L'essentiel</strong></p>
+        <ul class="article-text">
+          <li><strong>Un bon prompt a cinq éléments :</strong> un rôle, un contexte, une tâche, un format, des contraintes.</li>
+          <li><strong>Aucune donnée permettant d'identifier une personne</strong> dans un outil grand public.</li>
+          <li><strong>L'IA rédige, l'humain décide :</strong> pas de tri de candidatures ni d'évaluation de salariés avec un assistant généraliste.</li>
+          <li><strong>Tout résultat se relit</strong>, et toute référence juridique se vérifie sur une source officielle.</li>
+        </ul>
+      </div>
+
+      <nav class="info-box" aria-label="Sommaire">
+        <p><strong>Sommaire</strong></p>
+        <ol class="article-text">
+          <li><a href="#pourquoi" class="link-white-underline">Pourquoi les prompts RH déçoivent</a></li>
+          <li><a href="#structure" class="link-white-underline">La structure d'un bon prompt</a></li>
+          <li><a href="#modeles" class="link-white-underline">8 modèles de prompts</a></li>
+          <li><a href="#assistance-decision" class="link-white-underline">Assistance ou décision : où placer la limite</a></li>
+          <li><a href="#a-eviter" class="link-white-underline">Les usages à éviter ou à encadrer</a></li>
+          <li><a href="#garde-fous" class="link-white-underline">Les garde-fous</a></li>
+          <li><a href="#tracabilite" class="link-white-underline">Garder une trace</a></li>
+          <li><a href="#checklist" class="link-white-underline">Checklist avant d'utiliser un résultat</a></li>
+          <li><a href="#faq" class="link-white-underline">Questions fréquentes</a></li>
+        </ol>
+      </nav>
+
+      <!-- POURQUOI -->
+      <h2 class="article-title" id="pourquoi">Pourquoi les prompts RH donnent souvent des résultats médiocres</h2>
+      <p class="article-text">
+        La plupart des déceptions avec l'<a href="https://competencesrh.fr/ia/ia-generative-rh.html" class="link-white-underline">IA générative en RH</a> viennent du prompt, pas de l'outil. Trois erreurs reviennent sans cesse :
+      </p>
+      <ul class="article-text">
+        <li><strong>Le prompt est trop court.</strong> « Fais une fiche de poste de comptable » donne une fiche générique, valable pour n'importe quelle entreprise, donc pour aucune.</li>
+        <li><strong>Le contexte manque.</strong> L'assistant ne connaît ni votre taille, ni votre secteur, ni votre convention collective, ni votre culture. Ce que vous ne lui dites pas, il l'invente.</li>
+        <li><strong>Le format n'est pas précisé.</strong> Sans consigne, vous recevez un long texte à retravailler au lieu d'un document prêt à l'emploi.</li>
+      </ul>
+      <p class="article-text">
+        Avant d'écrire des prompts, il faut des bases solides : données fiables, règles claires, usages définis. Voir les <a href="https://competencesrh.fr/ia/fondations-ia-rh.html" class="link-white-underline">fondations de l'IA en RH</a>. Comprendre comment fonctionne un modèle de langage aide aussi à éviter ces pièges : il complète un texte à partir du contexte qu'on lui donne, et il comble les vides de façon plausible plutôt qu'exacte. Voir notre page sur le <a href="https://competencesrh.fr/ia/llm-rh-fonctionnement.html" class="link-white-underline">fonctionnement des LLM en RH</a>.
+      </p>
+
+      <!-- STRUCTURE -->
+      <h2 class="article-title" id="structure">La structure d'un bon prompt RH</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th scope="col">Élément</th><th scope="col">Question à se poser</th><th scope="col">Exemple</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Rôle</strong></td><td>Qui doit parler ?</td><td>« Tu es chargé de recrutement dans une PME industrielle. »</td></tr>
+            <tr><td><strong>Contexte</strong></td><td>Que doit-il savoir de l'entreprise et de la situation ?</td><td>« Entreprise de 80 salariés, convention de la métallurgie, site en zone rurale. »</td></tr>
+            <tr><td><strong>Tâche</strong></td><td>Que doit-il produire, précisément ?</td><td>« Rédige la fiche de poste d'un comptable unique. »</td></tr>
+            <tr><td><strong>Format</strong></td><td>Sous quelle forme ?</td><td>« Titres : missions, compétences, profil. Une page maximum. »</td></tr>
+            <tr><td><strong>Contraintes</strong></td><td>Que doit-il éviter, quel ton adopter ?</td><td>« Pas de jargon, écriture inclusive, ne rien inventer sur la rémunération. »</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">Ajoutez toujours une consigne de vérification : demandez à l'assistant de signaler ce qu'il a supposé et ce qui doit être confirmé par un humain. Cela rend ses hypothèses visibles au lieu de les noyer dans le texte.</p>
+
+      <h3 class="article-subtitle">Avant / après</h3>
+      <p class="article-text"><strong>Avant :</strong></p>
+      <div class="prompt-block">Fais-moi une fiche de poste de comptable.</div>
+      <p class="article-text"><strong>Après :</strong></p>
+      <div class="prompt-block">Tu es responsable RH dans une PME industrielle de 80 salariés.
+Rédige la fiche de poste d'un comptable unique, rattaché au directeur administratif et financier.
+
+Contexte : nous tenons la comptabilité en interne avec un expert-comptable pour le bilan ; le poste inclut la préparation des éléments de paie transmis au cabinet.
+
+Format : quatre rubriques (finalité du poste, missions principales, compétences requises, profil), une page maximum, sous forme de listes.
+
+Contraintes : ton clair et sans jargon, formulations neutres et inclusives, aucune information sur la rémunération.
+
+À la fin, liste les points que tu as supposés et que je dois vérifier.</div>
+
+      <!-- MODÈLES -->
+      <h2 class="article-title" id="modeles">8 modèles de prompts pour les RH</h2>
+      <p class="article-text">Remplacez les éléments entre crochets. Ne remplacez jamais un crochet par un nom ou une donnée permettant d'identifier une personne : remplacer un nom par un rôle ne suffit pas toujours, si le poste, la date ou d'autres détails permettent de reconnaître quelqu'un.</p>
+
+      <h3 class="article-subtitle">1. Fiche de poste</h3>
+      <div class="prompt-block">Tu es responsable RH dans [type d'entreprise, taille, secteur].
+Rédige la fiche de poste de [intitulé], rattaché à [fonction du responsable].
+Missions connues : [3 à 5 missions].
+Format : finalité du poste, missions principales, compétences techniques, compétences relationnelles, profil. Une page maximum.
+Contraintes : formulations neutres et inclusives, pas de critère d'âge, de sexe ou de situation personnelle.
+Signale à la fin ce que tu as supposé.</div>
+      <p class="article-text">La fiche de poste est la première étape d'un <a href="https://competencesrh.fr/automatisation/processus-rh-recrutement.html" class="link-white-underline">processus de recrutement</a> structuré.</p>
+
+      <h3 class="article-subtitle">2. Annonce d'emploi</h3>
+      <div class="prompt-block">À partir de la fiche de poste ci-dessous, rédige une annonce d'emploi pour [canal : site carrière, LinkedIn, job board].
+Ton : [chaleureux / sobre / technique]. Longueur : 250 mots maximum.
+Inclure : les missions, le profil recherché, ce que nous offrons ([avantages réels]), la fourchette de rémunération [montant] et les modalités de candidature.
+Contraintes : écriture inclusive, aucun critère discriminatoire, ne promets rien qui ne figure pas dans mes informations.
+[coller la fiche de poste]</div>
+      <p class="article-text">Le projet de loi sur la transparence salariale prévoit d'imposer l'affichage d'une rémunération ou d'une fourchette dans les offres : voir <a href="https://competencesrh.fr/blog/transparence-salariale-septembre-2026.html" class="link-white-underline">ce que change le projet de loi de septembre 2026</a>.</p>
+
+      <h3 class="article-subtitle">3. Trame d'entretien structuré</h3>
+      <div class="prompt-block">Tu es recruteur. Pour le poste de [intitulé], prépare une trame d'entretien structuré de 45 minutes.
+Compétences à évaluer : [3 à 5 compétences].
+Pour chaque compétence : 2 questions comportementales (« Racontez-moi une situation où… »), les éléments de réponse attendus et une grille de 1 à 4 avec la description de chaque niveau.
+Contraintes : aucune question sur la vie privée, la santé, la situation familiale, l'origine ou les opinions.</div>
+
+      <h3 class="article-subtitle">4. Synthèse de notes sans élément identifiant</h3>
+      <div class="prompt-block">Voici mes notes d'entretien, dont j'ai retiré les noms, les dates, les lieux, les intitulés rares et tout détail permettant d'identifier la personne.
+Résume-les en trois parties : points forts observés, points à approfondir, questions restées sans réponse.
+Contraintes : reste factuel, reprends uniquement ce qui figure dans les notes, ne formule aucune recommandation d'embauche et aucune note globale.
+[coller les notes sans élément identifiant]</div>
+      <p class="article-text">L'assistant structure vos propres observations. La décision reste celle des personnes qui ont mené l'entretien.</p>
+
+      <h3 class="article-subtitle">5. Communication interne</h3>
+      <div class="prompt-block">Tu es responsable de la communication interne d'une [type d'entreprise, taille].
+Rédige un message aux salariés pour annoncer [changement : nouvel outil, réorganisation d'un service, nouvelle procédure].
+Informations à transmettre : [faits, dates, interlocuteurs].
+Format : objet de mail, message de 200 mots maximum, une rubrique « Ce qui change pour vous », une rubrique « À qui poser vos questions ».
+Ton : clair, rassurant, sans langue de bois. N'ajoute aucune information que je ne t'ai pas donnée.</div>
+
+      <h3 class="article-subtitle">6. Réponse à une question récurrente</h3>
+      <div class="prompt-block">Voici un extrait de notre [accord d'entreprise / règlement intérieur / note de procédure].
+Un salarié demande : « [question, sans nom ni situation personnelle identifiable] ».
+Réponds en t'appuyant uniquement sur cet extrait, en 5 lignes maximum, et cite le passage utilisé.
+Si l'extrait ne permet pas de répondre, dis-le et indique de contacter le service RH. N'invente aucune règle.
+[coller l'extrait]</div>
+      <p class="article-text">Cette logique « répondre uniquement à partir des documents » est celle des assistants documentaires : voir notre page sur le <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">RAG</a> et notre démo de <a href="https://competencesrh.fr/ia.html" class="link-white-underline">chatbot RH</a>.</p>
+
+      <h3 class="article-subtitle">7. Plan d'intégration 30, 60, 90 jours</h3>
+      <div class="prompt-block">Tu es responsable RH dans [type d'entreprise, taille]. Prépare le plan d'intégration d'un nouvel arrivant au poste de [intitulé], rattaché à [fonction du responsable].
+Format : un tableau avec quatre périodes (avant l'arrivée, première semaine, 30 jours, 90 jours). Pour chaque période : objectifs, actions, responsable (RH, manager, parrain), indicateur de réussite.
+Contraintes : réaliste pour une PME sans service formation, actions concrètes.</div>
+      <p class="article-text">Pour automatiser ensuite ce plan, voir notre guide pour <a href="https://competencesrh.fr/automatisation/processus-rh-onboarding.html" class="link-white-underline">automatiser l'onboarding</a>.</p>
+
+      <h3 class="article-subtitle">8. Préparation d'un entretien annuel</h3>
+      <div class="prompt-block">Tu es responsable RH. Prépare une trame d'entretien annuel pour des [métier ou famille de postes].
+Rubriques : bilan de l'année, objectifs de l'année à venir, compétences à développer, besoins de formation, souhaits d'évolution, conditions de travail.
+Pour chaque rubrique : 2 ou 3 questions ouvertes pour le manager, et une consigne pour que le salarié prépare l'échange.
+Contraintes : aucune note automatique, aucune question sur la vie privée.</div>
+      <p class="article-text">Pour exploiter ensuite les entretiens de façon agrégée, voir notre page sur l'<a href="https://competencesrh.fr/automatisation/entretiens-annuels-data.html" class="link-white-underline">analyse des entretiens annuels</a>.</p>
+
+      <!-- ASSISTANCE / DÉCISION -->
+      <h2 class="article-title" id="assistance-decision">Assistance ou décision : où placer la limite</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th scope="col">Usage acceptable avec relecture humaine</th><th scope="col">Usage à éviter ou à encadrer fortement</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Rédiger une fiche de poste, une annonce, une trame d'entretien</td><td>Trier, noter ou sélectionner des candidatures</td></tr>
+            <tr><td>Résumer des notes sans élément identifiant</td><td>Attribuer une note à un salarié ou décider d'une promotion</td></tr>
+            <tr><td>Préparer un plan d'intégration</td><td>Prendre une décision disciplinaire, de licenciement ou de fin de période d'essai</td></tr>
+            <tr><td>Répondre à partir d'un document interne validé</td><td>Déduire des émotions, l'état de santé ou des opinions</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">La colonne de gauche correspond à de l'assistance : l'IA prépare un texte qu'une personne relit et valide. La colonne de droite touche à des décisions sur des personnes : c'est là que s'appliquent le cadre des usages à haut risque, les règles du RGPD sur les décisions automatisées, voire des interdictions.</p>
+
+      <!-- À NE PAS FAIRE -->
+      <h2 class="article-title" id="a-eviter">Les usages à éviter ou à encadrer</h2>
+      <p class="article-text">Certains usages ne relèvent pas d'un meilleur prompt mais d'un cadre juridique strict, voire d'une interdiction :</p>
+      <ul class="article-text">
+        <li><strong>« Classe ces CV » ou « Quel candidat choisir ? »</strong> Pour trier, filtrer ou présélectionner des CV, n'utilisez pas un assistant IA généraliste piloté par un prompt. Les systèmes destinés au recrutement ou à la sélection de candidats relèvent des usages à haut risque de l'AI Act et exigent une gouvernance, une documentation et des contrôles adaptés. Un prompt ne remplace ni ces exigences ni la décision humaine. Voir notre fiche <a href="https://competencesrh.fr/conformite/ai-act-conformite-pme.html" class="link-white-underline">IA RH à haut risque</a>.</li>
+        <li><strong>« Donne une note à ce salarié » ou « Faut-il le promouvoir ? »</strong> N'utilisez pas un prompt pour attribuer une note, classer ou décider d'une promotion, d'une sanction ou d'une fin de période d'essai. Ces usages peuvent relever du cadre des systèmes à haut risque lorsqu'ils servent à des décisions affectant la relation de travail ; le RGPD encadre également les décisions fondées sur un traitement automatisé.</li>
+        <li><strong>« Analyse le ton de ces messages pour détecter le stress » ou « Quelle est l'humeur de l'équipe ? »</strong> N'utilisez pas une IA pour déduire l'état émotionnel, le stress ou l'humeur d'une personne à partir de messages, de la voix, d'une vidéo ou d'autres données. L'AI Act interdit la reconnaissance des émotions sur le lieu de travail, sauf finalité médicale ou de sécurité.</li>
+        <li><strong>« Rédige la lettre de licenciement » ou une sanction disciplinaire sans relecture juridique.</strong> L'assistant peut proposer une trame, jamais un document envoyé tel quel.</li>
+        <li><strong>« Que penses-tu de la santé, des opinions ou de la situation familiale de cette personne ? »</strong> Ces informations sont sensibles ou sans lien avec le travail : ni à saisir, ni à déduire.</li>
+      </ul>
+      <p class="article-text">Le calendrier complet et les obligations sont détaillés dans notre <a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">guide AI Act pour les PME</a>.</p>
+
+      <!-- GARDE-FOUS -->
+      <h2 class="article-title" id="garde-fous">Les garde-fous</h2>
+
+      <h3 class="article-subtitle">Protéger les données personnelles</h3>
+      <ul class="article-text">
+        <li><strong>Ne transmettez pas de données permettant d'identifier une personne.</strong> Retirez noms, identifiants, dates précises, lieux, intitulés rares et toute combinaison de détails qui permettrait de reconnaître quelqu'un. Remplacer un nom par un rôle est une pseudonymisation, pas une anonymisation : dans une PME, « la responsable comptable recrutée en mars » suffit souvent à identifier la personne. Si l'anonymisation complète n'est pas possible, n'utilisez pas un outil grand public.</li>
+        <li><strong>Choisissez le bon outil.</strong> Pour un usage régulier sur des documents RH, privilégiez un outil d'entreprise encadré par un contrat, dont les conditions de conservation et de réutilisation des données sont connues, avec l'avis de votre DPO.</li>
+        <li><strong>Encadrez par une charte.</strong> Listez ce qui peut être saisi, ce qui ne doit jamais l'être, et qui en décide.</li>
+      </ul>
+      <p class="article-text">Voir aussi notre page sur le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD appliqué aux données salariés</a>.</p>
+
+      <h3 class="article-subtitle">Vérifier la qualité</h3>
+      <ul class="article-text">
+        <li><strong>Les références juridiques se vérifient toujours</strong> sur Légifrance, Service-Public ou votre convention collective. Un assistant peut citer un article qui n'existe pas ou une règle périmée.</li>
+        <li><strong>Les biais se contrôlent :</strong> relisez les annonces et les trames pour repérer les formulations genrées ou excluantes. Voir notre page sur l'<a href="https://competencesrh.fr/conformite/audit-algorithmique-biais.html" class="link-white-underline">audit des biais algorithmiques</a>.</li>
+        <li><strong>Rien ne part sans relecture humaine.</strong> Organisez cette relecture comme un vrai circuit de validation : voir notre page sur le <a href="https://competencesrh.fr/ia/processus-validation-rh.html" class="link-white-underline">processus de validation RH</a> et les <a href="https://competencesrh.fr/ia/limites-ia-rh.html" class="link-white-underline">limites de l'IA en RH</a>.</li>
+      </ul>
+
+      <h3 class="article-subtitle">Former les équipes</h3>
+      <p class="article-text">
+        Depuis le 2 février 2025, l'article 4 de l'AI Act impose aux entreprises qui déploient des systèmes d'IA de prendre des mesures pour développer la maîtrise de l'IA de leurs collaborateurs et des personnes qui les utilisent pour leur compte. Sa rédaction a été assouplie par le règlement (UE) 2026/1744 (Digital Omnibus), entré en vigueur le 27 juillet 2026 : le texte n'exige plus de garantir un « niveau suffisant » et précise qu'aucun niveau précis n'est imposé pour chaque personne. Le niveau attendu dépend des connaissances, de l'expérience, de la formation et du contexte d'utilisation.
+      </p>
+      <p class="article-text">
+        Pour une équipe RH, cela implique notamment de savoir rédiger un prompt, vérifier un résultat, identifier les usages à risque et appliquer les règles de protection des données. Gardez une trace des actions menées (sessions, supports, participants) : c'est ce qui permet de montrer que des mesures ont été prises.
+      </p>
+
+      <!-- TRAÇABILITÉ -->
+      <h2 class="article-title" id="tracabilite">Garder une trace</h2>
+      <p class="article-text">Pour les documents qui comptent (annonces, trames d'entretien, communications, réponses aux salariés), conservez :</p>
+      <ul class="article-text">
+        <li>le prompt utilisé ;</li>
+        <li>la date ;</li>
+        <li>l'outil employé ;</li>
+        <li>la version du document source, le cas échéant ;</li>
+        <li>le nom de la personne qui a relu ;</li>
+        <li>les corrections apportées.</li>
+      </ul>
+      <p class="article-text">Un simple tableau partagé suffit. Cette trace renforce la gouvernance, facilite l'amélioration des prompts et permet de montrer, si besoin, comment un document a été produit et contrôlé.</p>
+
+      <!-- CHECKLIST -->
+      <h2 class="article-title" id="checklist">Checklist avant d'utiliser un résultat</h2>
+      <ul class="article-text">
+        <li>Le prompt ne contenait aucune donnée ni combinaison de détails permettant d'identifier une personne.</li>
+        <li>Le prompt, l'outil, la date et le relecteur sont tracés.</li>
+        <li>Le résultat a été relu en entier par une personne compétente.</li>
+        <li>Les faits, chiffres et références juridiques ont été vérifiés sur une source fiable.</li>
+        <li>Le texte ne contient aucune formulation discriminatoire ou excluante.</li>
+        <li>Les hypothèses signalées par l'assistant ont été confirmées ou corrigées.</li>
+        <li>Aucune décision sur une personne ne repose sur le résultat.</li>
+        <li>Le document est adapté à votre entreprise, pas seulement plausible.</li>
+      </ul>
+
+      <!-- FAQ -->
+      <section id="faq" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(128,128,128,.25);">
+        <h2 class="article-title">Questions fréquentes</h2>
+
+        <h3 class="article-subtitle">Peut-on saisir des données de salariés dans un assistant IA ?</h3>
+        <p class="article-text">Il faut l'éviter autant que possible. La CNIL recommande de ne pas fournir de données personnelles aux outils d'IA générative grand public. Retirez les noms, identifiants, dates précises, lieux, intitulés de poste rares et toute combinaison de détails qui permettrait de reconnaître quelqu'un. Si l'anonymisation complète n'est pas possible, n'utilisez pas un outil grand public : pour des usages réguliers sur des données RH, privilégiez un outil d'entreprise encadré par un contrat, avec l'avis de votre DPO.</p>
+
+        <h3 class="article-subtitle">Peut-on utiliser un assistant IA généraliste pour trier des CV ou évaluer un salarié ?</h3>
+        <p class="article-text">Non. Pour ces usages, un assistant généraliste piloté par un prompt n'offre ni la documentation, ni la traçabilité, ni les contrôles de biais nécessaires. Les systèmes destinés au recrutement, à la sélection ou à l'évaluation des salariés peuvent relever du cadre des usages à haut risque de l'AI Act, et le RGPD encadre également les décisions fondées sur un traitement automatisé.</p>
+
+        <h3 class="article-subtitle">Faut-il former les équipes RH à l'IA ?</h3>
+        <p class="article-text">Oui. Depuis le 2 février 2025, l'article 4 de l'AI Act impose aux entreprises qui déploient des systèmes d'IA de prendre des mesures pour développer la maîtrise de l'IA de leurs collaborateurs et des personnes qui les utilisent pour leur compte. Depuis juillet 2026, le texte précise qu'aucun niveau précis n'est exigé pour chaque personne : le niveau attendu dépend des connaissances, de l'expérience, de la formation et du contexte d'utilisation. Pour une équipe RH, cela implique notamment de savoir rédiger un prompt, vérifier un résultat et identifier les usages à risque.</p>
+
+        <h3 class="article-subtitle">Quelle est la structure d'un bon prompt RH ?</h3>
+        <p class="article-text">Cinq éléments : le rôle que doit jouer l'assistant, le contexte de l'entreprise, la tâche précise, le format attendu et les contraintes (ton, longueur, ce qu'il ne doit pas faire). Ajoutez une consigne de vérification, par exemple signaler ce qui doit être confirmé par un humain.</p>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" style="margin-top: 3rem;">
+        <h2 class="article-title">Sources officielles</h2>
+        <ul class="article-text">
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" class="link-white-underline" target="_blank" rel="noopener">EUR-Lex : règlement (UE) 2024/1689 sur l'intelligence artificielle (AI Act)</a>, notamment l'article 4 (maîtrise de l'IA, dans sa rédaction issue du règlement (UE) 2026/1744), l'article 5 (pratiques interdites) et l'annexe III (usages à haut risque)</li>
+          <li><a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers" class="link-white-underline" target="_blank" rel="noopener">Commission européenne : questions-réponses sur la maîtrise de l'IA (article 4)</a>, publiées avant la modification de juillet 2026</li>
+          <li><a href="https://digital-strategy.ec.europa.eu/en/policies/ai-talent-skills-and-literacy" class="link-white-underline" target="_blank" rel="noopener">Commission européenne : compétences et maîtrise de l'IA</a></li>
+          <li><a href="https://cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative" class="link-white-underline" target="_blank" rel="noopener">CNIL : questions-réponses sur l'utilisation d'un système d'IA générative</a></li>
+          <li><a href="https://cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_4_les_precautions_0.pdf" class="link-white-underline" target="_blank" rel="noopener">CNIL : fiche « Utiliser l'IA générative dans les TPE et PME », les précautions</a></li>
+        </ul>
+      </section>
+
+      <p class="article-text" style="font-size:.9rem;opacity:.8;margin-top:2rem;">
+        <strong>Dernière vérification : 15 novembre 2026.</strong> Cette page présente des informations générales et ne constitue pas un conseil juridique individualisé.
+      </p>
+
+      <!-- À COMPLÉTER : encadré auteur -->
+      <div class="author-box">
+        <p class="article-text"><strong>À propos de l'auteur</strong></p>
+        <p class="article-text">
+          [PRÉNOM NOM] accompagne les PME et ETI sur la data RH, l'automatisation des processus et l'IA appliquée aux ressources humaines, avec 15 ans d'expérience du métier RH et une pratique de Python et de la data science. Il publie des tribunes dans le Journal du Net.
+          <a href="[URL PROFIL LINKEDIN]" class="link-white-underline" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+
+      <p class="article-text" style="margin-top: 3rem;"><a href="https://competencesrh.fr/contact.html" class="nav-cta" style="display:inline-block;">Parler de mon projet IA RH →</a></p>
+
+    </article>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
