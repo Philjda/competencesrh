@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quel assistant IA ou LLM choisir pour les RH d'une PME ? Une grille de décision fondée sur vos données RH, le RGPD, vos cas d'usage et le coût réel.">
+  <title>Choisir un assistant IA ou un LLM pour les RH d'une PME</title>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymacclcqrb");
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3ZT1R1H6RV');
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="canonical" href="https://competencesrh.fr/ia/choisir-assistant-ia-rh.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    .info-box{margin:2rem 0;padding:1.5rem 1.75rem;border-left:4px solid var(--accent);background:rgba(128,128,128,.08);border-radius:8px;}
+    .info-box p,.info-box li{line-height:1.7;}
+    .table-wrap{overflow-x:auto;margin:2rem 0;}
+    .data-table{width:100%;border-collapse:collapse;font-size:.9rem;line-height:1.55;min-width:680px;}
+    .data-table caption{text-align:left;font-family:var(--font-head);font-weight:700;margin-bottom:.75rem;}
+    .data-table th,.data-table td{padding:.7rem .8rem;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;vertical-align:top;}
+    .data-table th{font-family:var(--font-head);font-weight:700;}
+    .formula{font-family:var(--font-mono);font-weight:700;}
+    .author-box{margin-top:4rem;padding:1.5rem 1.75rem;border:1px solid rgba(128,128,128,.25);border-radius:8px;}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://competencesrh.fr/ia/choisir-assistant-ia-rh.html#article",
+        "headline": "Choisir un assistant IA ou un LLM pour les RH d'une PME : la grille de décision",
+        "description": "Quel assistant IA ou LLM choisir pour les RH d'une PME ? Une grille de décision fondée sur vos données RH, le RGPD, vos cas d'usage et le coût réel.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/ia/choisir-assistant-ia-rh.html",
+        "datePublished": "2026-11-15",
+        "dateModified": "2026-11-15",
+        "author": {
+          "@type": "Person",
+          "name": "[PRÉNOM NOM]",
+          "jobTitle": "Consultant Data & IA RH",
+          "url": "https://competencesrh.fr/",
+          "sameAs": ["[URL PROFIL LINKEDIN]", "[URL PAGE AUTEUR JOURNAL DU NET]"]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/"},
+          {"@type": "ListItem", "position": 2, "name": "IA RH", "item": "https://competencesrh.fr/ia-rh.html"},
+          {"@type": "ListItem", "position": 3, "name": "IA générative en RH", "item": "https://competencesrh.fr/ia/ia-generative-rh.html"},
+          {"@type": "ListItem", "position": 4, "name": "Choisir un assistant IA", "item": "https://competencesrh.fr/ia/choisir-assistant-ia-rh.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://competencesrh.fr/ia/choisir-assistant-ia-rh.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "ChatGPT, Claude, Gemini, Copilot ou Mistral : lequel choisir pour les RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il n'y a pas de réponse définitive : les modèles évoluent tous les quelques mois et leurs écarts de qualité sur les tâches RH courantes sont souvent faibles. Ce qui fait la différence pour une PME, ce sont les conditions de l'offre (contrat, réutilisation des données, localisation, conservation), l'intégration avec vos outils et le coût à l'échelle. Testez deux ou trois offres sur vos propres tâches avec la grille de décision."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on utiliser la version gratuite d'un assistant IA pour les RH ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Uniquement pour des contenus génériques, sans aucune donnée interne ni personnelle. Les offres gratuites ou grand public n'offrent pas de contrat de sous-traitance adapté, et les données saisies peuvent y servir à améliorer les modèles. Pour un usage RH régulier, une offre professionnelle encadrée par un contrat est le minimum."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il choisir un fournisseur européen ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ce n'est pas une obligation, mais c'est un critère légitime. Ce qui compte au regard du RGPD, ce sont le contrat de sous-traitance, le lieu de traitement et de stockage, les éventuels transferts hors de l'Union européenne et le droit applicable au fournisseur. Un fournisseur soumis à un droit étranger le reste même avec des serveurs en Europe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il héberger un modèle en interne pour les données RH sensibles ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ce n'est pas automatiquement nécessaire, mais c'est souvent l'option la plus prudente pour des données personnelles, sensibles ou de la documentation stratégique, à condition de pouvoir sécuriser et exploiter l'environnement. Pour une PME, le coût et les compétences requis doivent être évalués avant de trancher."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+    <ul class="nav-links">
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a></li>
+      <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html" class="active">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+    </ul>
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+  </nav>
+
+  <section class="page-hero">
+    <div class="section-label">// IA générative · Choix d'outil · PME</div>
+    <h1 class="page-title">Choisir un assistant IA ou un LLM pour les RH d'une PME : la grille de décision</h1>
+    <p class="page-sub">Pas un comparatif de modèles qui sera dépassé dans trois mois, mais une méthode : partir de vos données RH et de vos cas d'usage, appliquer les critères qui comptent vraiment, et calculer le coût réel.</p>
+  </section>
+
+  <section class="section">
+    <article class="blog-article">
+
+      <!-- À COMPLÉTER : remplacer [PRÉNOM NOM] ici, dans l'encadré auteur et dans les données structurées -->
+      <p class="article-meta">// Par [PRÉNOM NOM], consultant Data & IA RH · 15 novembre 2026 · 14 min de lecture</p>
+
+      <div class="info-box">
+        <p><strong>L'essentiel</strong></p>
+        <ul class="article-text">
+          <li><strong>Commencez par vos données, pas par le modèle.</strong> Le niveau de sensibilité des données RH que vous voulez traiter détermine les options possibles.</li>
+          <li><strong>Six critères comptent :</strong> qualité sur vos tâches, confidentialité et RGPD, intégration, déploiement et administration, coût réel, réversibilité.</li>
+          <li><strong>Certains critères sont éliminatoires :</strong> pas de cadre contractuel adapté, réutilisation des données non encadrée, localisation des données inconnue.</li>
+          <li><strong>Testez sur vos propres tâches</strong> avant de décider : c'est le seul comparatif qui ne vieillit pas.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <p><strong>Par où commencer : quatre situations</strong></p>
+        <ul class="article-text">
+          <li><strong>Vous voulez rédiger des documents non sensibles</strong> (fiches de poste, annonces, communications) → une offre professionnelle.</li>
+          <li><strong>Vous voulez répondre aux questions des salariés à partir de vos procédures</strong> → un assistant documentaire (RAG) sur vos documents internes.</li>
+          <li><strong>Vous voulez analyser des salaires, des absences ou des évaluations nominatives</strong> → pas d'assistant généraliste : un environnement maîtrisé.</li>
+          <li><strong>Vous voulez trier des CV ou évaluer des salariés</strong> → pas d'assistant généraliste : ces usages relèvent du cadre des IA à haut risque et d'une gouvernance dédiée.</li>
+        </ul>
+      </div>
+
+      <nav class="info-box" aria-label="Sommaire">
+        <p><strong>Sommaire</strong></p>
+        <ol class="article-text">
+          <li><a href="#comparatifs" class="link-white-underline">Pourquoi les comparatifs de modèles ne suffisent pas</a></li>
+          <li><a href="#donnees" class="link-white-underline">Étape 1 : classer vos données RH</a></li>
+          <li><a href="#deploiement" class="link-white-underline">Étape 2 : choisir le mode de déploiement</a></li>
+          <li><a href="#grille" class="link-white-underline">Étape 3 : la grille de décision</a></li>
+          <li><a href="#test" class="link-white-underline">Étape 4 : tester sur vos tâches</a></li>
+          <li><a href="#cout" class="link-white-underline">Le coût réel</a></li>
+          <li><a href="#cas-usage" class="link-white-underline">Quelle option pour quel cas d'usage</a></li>
+          <li><a href="#rgpd" class="link-white-underline">RGPD et AI Act : la checklist</a></li>
+          <li><a href="#questions" class="link-white-underline">Les questions à poser au fournisseur</a></li>
+          <li><a href="#faq" class="link-white-underline">Questions fréquentes</a></li>
+        </ol>
+      </nav>
+
+      <!-- COMPARATIFS -->
+      <h2 class="article-title" id="comparatifs">Pourquoi les comparatifs de modèles ne suffisent pas</h2>
+      <p class="article-text">
+        Les recherches « quel LLM choisir » ou « ChatGPT vs Claude vs Gemini » mènent surtout à des comparatifs de modèles. Ils ont trois limites pour une PME :
+      </p>
+      <ul class="article-text">
+        <li><strong>Ils vieillissent vite.</strong> Les éditeurs publient de nouvelles versions tous les quelques mois : le classement d'aujourd'hui sera faux au prochain trimestre.</li>
+        <li><strong>Ils mesurent ce qui compte peu.</strong> Sur les tâches RH courantes (rédiger une fiche de poste, résumer un document, répondre à une question à partir d'une procédure), les écarts de qualité entre les grands modèles sont souvent faibles. Les tests publiés portent plutôt sur le code, les mathématiques ou le raisonnement complexe.</li>
+        <li><strong>Ils oublient l'essentiel.</strong> Pour les RH, la vraie différence se joue ailleurs : ce que devient la donnée, le contrat, l'intégration avec vos outils, l'administration des accès et le coût à l'échelle de l'entreprise.</li>
+      </ul>
+      <p class="article-text">
+        Un même modèle peut d'ailleurs être accessible par une offre grand public, une offre professionnelle, une API ou une plateforme cloud, avec des conditions très différentes. <strong>On ne choisit pas un modèle, on choisit une offre.</strong>
+      </p>
+
+      <!-- ÉTAPE 1 -->
+      <h2 class="article-title" id="donnees">Étape 1 : classer vos données RH</h2>
+      <p class="article-text">Listez d'abord vos cas d'usage, puis classez les données que chacun implique. Quatre niveaux suffisent :</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Les quatre niveaux de sensibilité des données RH</caption>
+          <thead>
+            <tr><th scope="col">Niveau</th><th scope="col">Exemples</th><th scope="col">Ce que cela implique</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>0 : public ou générique</strong></td><td>Trame d'entretien type, annonce sans information interne, recherche d'idées</td><td>Toute offre peut convenir</td></tr>
+            <tr><td><strong>1 : interne, non personnel</strong></td><td>Procédures, accords d'entreprise, règlement intérieur, organisation des services</td><td>Offre professionnelle avec contrat et non-réutilisation des données</td></tr>
+            <tr><td><strong>2 : personnel, pseudonymisé ou fortement minimisé</strong></td><td>Notes d'entretien pseudonymisées ou fortement minimisées, après vérification qu'elles ne permettent pas de réidentifier une personne dans votre contexte ; statistiques agrégées</td><td>Offre professionnelle encadrée, avec cadre contractuel adapté, règles d'usage et contrôle du DPO</td></tr>
+            <tr><td><strong>3 : personnel identifiant ou sensible</strong></td><td>Salaires nominatifs, dossiers disciplinaires, données de santé, évaluations individuelles</td><td>À proscrire dans un assistant généraliste, sauf dispositif spécifiquement sécurisé, contractuellement encadré et validé avec votre DPO. À défaut, traitement dans un environnement maîtrisé, après analyse d'impact</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">
+        Le retrait du nom ne suffit pas : si une personne peut être reconnue à partir du poste, de la date, de l'équipe ou d'une combinaison de détails, traitez l'information comme identifiante, donc de niveau 3. Voir notre page sur l'<a href="https://competencesrh.fr/modelisation-donnees-rh/anonymisation-donnees-rh-machine-learning.html" class="link-white-underline">anonymisation des données RH</a>.
+      </p>
+
+      <!-- ÉTAPE 2 -->
+      <h2 class="article-title" id="deploiement">Étape 2 : choisir le mode de déploiement</h2>
+      <p class="article-text">La CNIL distingue les systèmes fournis sur site, sur une infrastructure cloud hébergée ou à la requête via des API. Pour une PME, cela donne quatre familles d'options :</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Les quatre familles d'options</caption>
+          <thead>
+            <tr><th scope="col">Option</th><th scope="col">Données acceptables</th><th scope="col">Atouts</th><th scope="col">Limites</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>A. Assistant grand public</strong> (version gratuite ou individuelle)</td><td>Niveau 0 uniquement</td><td>Gratuit ou peu cher, immédiat</td><td>Pas de contrat adapté, données parfois réutilisées pour améliorer les modèles, aucune administration</td></tr>
+            <tr><td><strong>B. Offre professionnelle ou entreprise</strong> (abonnement par utilisateur)</td><td>Niveaux 0 à 2</td><td>Cadre contractuel, paramètres de confidentialité et de rétention à vérifier, avec en général une possibilité de désactiver la réutilisation des données pour l'entraînement, console d'administration, authentification unique</td><td>Localisation des données variable selon l'éditeur et l'offre, coût qui croît avec le nombre d'utilisateurs</td></tr>
+            <tr><td><strong>C. API ou plateforme cloud</strong> intégrée à vos outils</td><td>Niveaux 0 à 2, voire certains cas de niveau 3 avec un cadre solide</td><td>Assistant documentaire sur vos procédures, choix de la région d'hébergement sur certaines plateformes, paiement à l'usage</td><td>Nécessite des compétences techniques ou un prestataire, coût d'intégration</td></tr>
+            <tr><td><strong>D. Modèle hébergé dans un environnement maîtrisé</strong> (sur site ou cloud dédié, souvent un modèle open source)</td><td>Niveaux 0 à 3</td><td>Les données ne quittent pas votre environnement</td><td>Coût d'installation et d'exploitation élevé, compétences rares en PME, qualité parfois inférieure</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">
+        Pour des données personnelles, sensibles ou de la documentation stratégique, la CNIL considère qu'un déploiement sur site est généralement plus opportun et plus sécurisé, car il limite les risques d'extraction de données vers un tiers. Mais son coût d'installation, de sécurisation et d'exploitation reste élevé pour une PME. Pour la plupart des PME, la combinaison réaliste est une <strong>offre professionnelle (B)</strong> pour les usages courants, éventuellement complétée par un <strong>assistant documentaire (C)</strong> sur les procédures internes, et <strong>pas de données de niveau 3</strong> dans un assistant généraliste, sauf dispositif spécifiquement sécurisé, contractuellement encadré et validé avec votre DPO.
+      </p>
+
+      <!-- ÉTAPE 3 -->
+      <h2 class="article-title" id="grille">Étape 3 : la grille de décision</h2>
+      <h3 class="article-subtitle">D'abord, les critères éliminatoires</h3>
+      <p class="article-text">Une offre qui ne remplit pas l'un de ces points est écartée, quelle que soit sa qualité :</p>
+      <ul class="article-text">
+        <li>pas de cadre contractuel adapté au rôle du fournisseur : contrat de sous-traitance conforme à l'article 28 du RGPD lorsqu'il traite les données pour votre compte, ou accord de responsabilité conjointe le cas échéant ;</li>
+        <li>réutilisation de vos données pour entraîner ou améliorer les modèles, sans cadre contractuel clair, sans possibilité de la désactiver lorsque cela est proposé, ou sans analyse de compatibilité et d'information des personnes concernées ;</li>
+        <li>lieu de traitement et de stockage impossible à connaître ;</li>
+        <li>aucune administration des comptes : impossible de retirer un accès quand un salarié part.</li>
+      </ul>
+
+      <h3 class="article-subtitle">Ensuite, la notation pondérée</h3>
+      <p class="article-text">Notez chaque offre de 1 à 5 sur chaque critère, multipliez par le poids, additionnez. Les poids proposés conviennent à la plupart des PME : ajustez-les à votre situation.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Grille de décision pour un assistant IA RH</caption>
+          <thead>
+            <tr><th scope="col">Critère</th><th scope="col">Poids</th><th scope="col">Ce qu'il faut vérifier</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Confidentialité et RGPD</strong></td><td>30 %</td><td>Rôle du fournisseur et cadre contractuel adapté, réglages de réutilisation des données, durée de conservation réglable, lieu de stockage et de traitement, transferts hors de l'Union européenne, liste des sous-traitants, droit applicable au fournisseur</td></tr>
+            <tr><td><strong>Qualité sur vos tâches</strong></td><td>25 %</td><td>Résultats obtenus sur vos 10 à 20 tâches réelles (étape 4) : exactitude, respect des consignes, erreurs inventées, temps de correction</td></tr>
+            <tr><td><strong>Intégration</strong></td><td>15 %</td><td>Connexion à vos outils (messagerie, stockage de documents, SIRH), possibilité de l'interroger sur vos procédures, API disponible</td></tr>
+            <tr><td><strong>Coût réel à l'échelle</strong></td><td>15 %</td><td>Coût total sur un an pour le nombre réel d'utilisateurs, intégration et formation comprises (voir plus bas)</td></tr>
+            <tr><td><strong>Déploiement et administration</strong></td><td>10 %</td><td>Authentification unique, gestion des droits, journalisation, réglage de l'historique, facilité de prise en main</td></tr>
+            <tr><td><strong>Réversibilité</strong></td><td>5 %</td><td>Export de vos données et de vos configurations, durée d'engagement, possibilité de changer de modèle sans tout refaire</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">
+        Calcul : <span class="formula">score = Σ (note × poids)</span>, sur 5. Un écart de moins de 0,3 point entre deux offres n'est pas significatif : départagez-les sur le critère qui compte le plus pour vous, souvent la confidentialité ou l'intégration avec les outils que vous utilisez déjà.
+      </p>
+
+      <!-- ÉTAPE 4 -->
+      <h2 class="article-title" id="test">Étape 4 : tester sur vos tâches</h2>
+      <p class="article-text">C'est l'étape qui remplace les comparatifs. Elle prend deux à trois jours de travail et évite de se tromper pour un an.</p>
+      <ol class="article-text">
+        <li><strong>Choisissez 10 à 20 tâches réelles</strong>, représentatives de vos usages : fiches de poste, annonces, réponses à partir de vos procédures, synthèses, communications.</li>
+        <li><strong>Préparez des données fictives.</strong> Les essais se font souvent avec des comptes d'essai, avant toute signature de contrat.</li>
+        <li><strong>Utilisez exactement les mêmes prompts</strong> sur deux ou trois offres. Voir nos <a href="https://competencesrh.fr/ia/prompt-engineering-rh.html" class="link-white-underline">modèles de prompts RH</a>.</li>
+        <li><strong>Faites noter les résultats à l'aveugle</strong> par deux personnes, sans savoir quel outil a produit quel texte : exactitude, respect des consignes, informations inventées, ton, temps de correction nécessaire.</li>
+        <li><strong>Testez les cas difficiles</strong> : une question dont la réponse ne figure pas dans le document fourni. Un bon outil le dit au lieu d'inventer.</li>
+      </ol>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Modèle de grille de test, à reproduire dans un tableur</caption>
+          <thead>
+            <tr><th scope="col">Tâche</th><th scope="col">Outil A (note /5)</th><th scope="col">Outil B (note /5)</th><th scope="col">Outil C (note /5)</th><th scope="col">Temps de correction</th><th scope="col">Commentaire</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Fiche de poste</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Annonce d'emploi</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Réponse à partir d'une procédure</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Synthèse de notes pseudonymisées</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Communication interne</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Question piège : réponse absente du document</td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="article-text">La moyenne des notes de chaque outil devient sa note sur le critère « Qualité sur vos tâches » de la grille de décision.</p>
+      <p class="article-text">Le critère le plus parlant est souvent le <strong>temps de correction</strong> : un texte un peu moins brillant mais juste du premier coup vaut mieux qu'un texte séduisant à vérifier ligne par ligne. Pour comprendre pourquoi un modèle invente, voir le <a href="https://competencesrh.fr/ia/llm-rh-fonctionnement.html" class="link-white-underline">fonctionnement des LLM en RH</a>.</p>
+
+      <!-- COÛT -->
+      <h2 class="article-title" id="cout">Le coût réel</h2>
+      <p class="article-text">Le prix affiché n'est qu'une partie du coût. Deux modèles de tarification coexistent :</p>
+      <ul class="article-text">
+        <li><strong>L'abonnement par utilisateur</strong> (offres professionnelles) : prévisible, mais il se multiplie par le nombre de personnes, y compris celles qui l'utilisent peu.</li>
+        <li><strong>Le paiement à l'usage</strong> (API) : proportionnel au volume de texte traité, souvent faible pour une PME, mais il faut ajouter le coût de l'intégration.</li>
+      </ul>
+      <p class="article-text">Pour comparer les offres sur une base honnête, calculez le coût total sur un an :</p>
+      <p class="article-text formula">Coût annuel = licences ou usage + intégration (amortie) + formation + temps de gouvernance + temps de relecture</p>
+      <ul class="article-text">
+        <li><strong>Licences ou usage :</strong> prix unitaire × nombre réel d'utilisateurs × 12, ou estimation du volume pour une API.</li>
+        <li><strong>Intégration :</strong> connexion aux outils, assistant documentaire, paramétrage. Souvent nulle pour une offre B, significative pour une option C ou D.</li>
+        <li><strong>Formation :</strong> les mesures de développement de la maîtrise de l'IA demandées par l'article 4 de l'AI Act.</li>
+        <li><strong>Gouvernance :</strong> rédaction de la charte d'usage, temps du DPO, revue des accès.</li>
+        <li><strong>Relecture :</strong> le temps passé à vérifier et corriger les résultats, que le test de l'étape 4 permet d'estimer.</li>
+      </ul>
+      <p class="article-text">Mettez ce coût en regard du temps gagné, mesuré sur vos tâches réelles et non sur une promesse commerciale. Les prix changent souvent : vérifiez-les sur les sites des éditeurs au moment de décider.</p>
+
+      <!-- CAS D'USAGE -->
+      <h2 class="article-title" id="cas-usage">Quelle option pour quel cas d'usage</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th scope="col">Cas d'usage</th><th scope="col">Niveau de données</th><th scope="col">Option adaptée</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Rédiger fiches de poste, annonces, trames d'entretien, communications</td><td>0 à 1</td><td>Offre professionnelle (B)</td></tr>
+            <tr><td>Répondre aux questions des salariés à partir des procédures internes</td><td>1</td><td>Assistant documentaire sur vos documents (B ou C) : voir le <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">RAG</a> et notre démo de <a href="https://competencesrh.fr/ia.html" class="link-white-underline">chatbot RH</a></td></tr>
+            <tr><td>Synthétiser des notes d'entretien pseudonymisées ou fortement minimisées</td><td>2</td><td>Offre professionnelle (B), avec règles d'usage écrites</td></tr>
+            <tr><td>Analyser des données RH nominatives (salaires, absences, turnover)</td><td>3</td><td>Pas d'assistant généraliste, sauf dispositif spécifiquement sécurisé et validé avec le DPO : de préférence un traitement maîtrisé, par exemple en <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python</a> sur votre poste ou votre serveur, avec des sorties agrégées</td></tr>
+            <tr><td>Trier, classer ou évaluer des candidats ou des salariés</td><td>3</td><td>Pas d'assistant généraliste : ces usages relèvent du cadre des <a href="https://competencesrh.fr/conformite/ai-act-conformite-pme.html" class="link-white-underline">IA RH à haut risque</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RGPD -->
+      <h2 class="article-title" id="rgpd">RGPD et AI Act : la checklist</h2>
+      <h3 class="article-subtitle">RGPD</h3>
+      <ul class="article-text">
+        <li><strong>Une finalité définie</strong> pour chaque usage, et une liste écrite de ce qui peut être saisi et de ce qui ne doit jamais l'être.</li>
+        <li><strong>Le rôle du fournisseur vérifié et le cadre contractuel adapté :</strong> contrat de sous-traitance (article 28) lorsque le fournisseur traite pour votre compte, ou accord de responsabilité conjointe le cas échéant.</li>
+        <li><strong>Le lieu de traitement et les transferts</strong> hors de l'Union européenne identifiés et encadrés. La localisation en Europe est souvent réservée aux offres entreprise ou passe par des plateformes cloud partenaires : vérifiez-la offre par offre.</li>
+        <li><strong>Une durée de conservation</strong> des conversations fixée et appliquée.</li>
+        <li><strong>L'inscription au registre des traitements</strong> et l'information des salariés concernés.</li>
+        <li><strong>Une analyse d'impact (AIPD)</strong> quand l'usage présente un risque élevé pour les personnes, avec l'avis du DPO.</li>
+      </ul>
+      <p class="article-text">Voir aussi notre page sur le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD appliqué aux données salariés</a>.</p>
+      <h3 class="article-subtitle">AI Act</h3>
+      <ul class="article-text">
+        <li><strong>Le risque dépend de l'usage, pas de l'outil.</strong> Le même assistant est à risque minimal pour rédiger une annonce, et relèverait du haut risque s'il servait à trier des candidatures.</li>
+        <li><strong>La maîtrise de l'IA :</strong> depuis février 2025, l'article 4 de l'AI Act demande aux entreprises qui déploient des systèmes d'IA de prendre des mesures pour développer la maîtrise de l'IA de leurs collaborateurs et des personnes qui les utilisent pour leur compte. Le niveau attendu dépend des connaissances, de l'expérience, de la formation et du contexte d'utilisation.</li>
+        <li><strong>La transparence :</strong> un chatbot qui répond aux salariés doit indiquer qu'il s'agit d'une IA.</li>
+      </ul>
+      <p class="article-text">Le calendrier et les obligations sont détaillés dans notre <a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">guide AI Act pour les PME</a>.</p>
+
+      <!-- QUESTIONS FOURNISSEUR -->
+      <h2 class="article-title" id="questions">Les questions à poser au fournisseur</h2>
+      <ol class="article-text">
+        <li>Vos données (prompts, documents, réponses) servent-elles à entraîner ou améliorer vos modèles ? Ce réglage est-il désactivé par défaut ?</li>
+        <li>Où les données sont-elles stockées et traitées ? Peut-on imposer une région européenne, et à quel prix ?</li>
+        <li>Combien de temps les conversations sont-elles conservées ? Peut-on régler cette durée ?</li>
+        <li>Quels sont vos sous-traitants, et dans quels pays ?</li>
+        <li>Quel est votre rôle au regard du RGPD pour ce service (sous-traitant ou responsable de traitement), et quel contrat proposez-vous en conséquence ?</li>
+        <li>L'administrateur peut-il gérer les comptes, retirer un accès et consulter les journaux d'utilisation ?</li>
+        <li>L'outil se connecte-t-il à nos outils existants, et en respectant les droits d'accès déjà en place ?</li>
+        <li>Comment récupère-t-on nos données et nos configurations si nous arrêtons le service ?</li>
+        <li>Quelle est la durée d'engagement, et comment le prix évolue-t-il avec le nombre d'utilisateurs ?</li>
+      </ol>
+      <p class="article-text">Demandez des réponses écrites et rattachez-les au contrat. Méfiez-vous en particulier des connecteurs : un assistant branché sur vos documents partagés hérite de leurs droits d'accès, et un dossier RH mal protégé devient soudain accessible par simple question.</p>
+
+      <!-- ERREURS -->
+      <h2 class="article-title">Les erreurs fréquentes</h2>
+      <ul class="article-text">
+        <li>Choisir d'après un classement de modèles plutôt que d'après ses propres tâches.</li>
+        <li>Laisser chacun utiliser son compte personnel gratuit, sans contrat ni règles.</li>
+        <li>Brancher l'assistant sur tous les documents partagés sans avoir revu les droits d'accès.</li>
+        <li>Oublier la formation et la charte d'usage dans le budget.</li>
+        <li>Signer pour toute l'entreprise avant un test sur quelques utilisateurs.</li>
+      </ul>
+
+      <!-- FAQ -->
+      <section id="faq" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(128,128,128,.25);">
+        <h2 class="article-title">Questions fréquentes</h2>
+
+        <h3 class="article-subtitle">ChatGPT, Claude, Gemini, Copilot ou Mistral : lequel choisir pour les RH ?</h3>
+        <p class="article-text">Il n'y a pas de réponse définitive : les modèles évoluent tous les quelques mois et leurs écarts de qualité sur les tâches RH courantes sont souvent faibles. Ce qui fait la différence pour une PME, ce sont les conditions de l'offre (contrat, réutilisation des données, localisation, conservation), l'intégration avec vos outils et le coût à l'échelle. Testez deux ou trois offres sur vos propres tâches avec la grille de décision.</p>
+
+        <h3 class="article-subtitle">Peut-on utiliser la version gratuite d'un assistant IA pour les RH ?</h3>
+        <p class="article-text">Uniquement pour des contenus génériques, sans aucune donnée interne ni personnelle. Les offres gratuites ou grand public n'offrent pas de contrat de sous-traitance adapté, et les données saisies peuvent y servir à améliorer les modèles. Pour un usage RH régulier, une offre professionnelle encadrée par un contrat est le minimum.</p>
+
+        <h3 class="article-subtitle">Faut-il choisir un fournisseur européen ?</h3>
+        <p class="article-text">Ce n'est pas une obligation, mais c'est un critère légitime. Ce qui compte au regard du RGPD, ce sont le contrat de sous-traitance, le lieu de traitement et de stockage, les éventuels transferts hors de l'Union européenne et le droit applicable au fournisseur. Un fournisseur soumis à un droit étranger le reste même avec des serveurs en Europe.</p>
+
+        <h3 class="article-subtitle">Faut-il héberger un modèle en interne pour les données RH sensibles ?</h3>
+        <p class="article-text">Ce n'est pas automatiquement nécessaire, mais c'est souvent l'option la plus prudente pour des données personnelles, sensibles ou de la documentation stratégique, à condition de pouvoir sécuriser et exploiter l'environnement. Pour une PME, le coût et les compétences requis doivent être évalués avant de trancher.</p>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources" style="margin-top: 3rem;">
+        <h2 class="article-title">Sources officielles</h2>
+        <ul class="article-text">
+          <li><a href="https://cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative" class="link-white-underline" target="_blank" rel="noopener">CNIL : questions-réponses sur l'utilisation d'un système d'IA générative</a> (modes de déploiement, choix du système)</li>
+          <li><a href="https://cnil.fr/fr/comment-deployer-une-ia-generative-la-cnil-apporte-de-premieres-precisions" class="link-white-underline" target="_blank" rel="noopener">CNIL : comment déployer une IA générative</a></li>
+          <li><a href="https://cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_4_les_precautions_0.pdf" class="link-white-underline" target="_blank" rel="noopener">CNIL : fiche « Utiliser l'IA générative dans les TPE et PME », les précautions</a></li>
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" class="link-white-underline" target="_blank" rel="noopener">EUR-Lex : règlement (UE) 2024/1689 sur l'intelligence artificielle (AI Act)</a>, article 4 dans sa rédaction issue du règlement (UE) 2026/1744</li>
+          <li><a href="https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers" class="link-white-underline" target="_blank" rel="noopener">Commission européenne : questions-réponses sur la maîtrise de l'IA (article 4)</a>, publiées avant la modification de juillet 2026</li>
+        </ul>
+      </section>
+
+      <p class="article-text" style="font-size:.9rem;opacity:.8;margin-top:2rem;">
+        <strong>Dernière vérification : 15 novembre 2026.</strong> Les offres, les conditions et les prix des éditeurs évoluent rapidement : vérifiez-les au moment de votre choix. Cette page présente des informations générales et ne constitue pas un conseil juridique individualisé.
+      </p>
+
+      <!-- À COMPLÉTER : encadré auteur -->
+      <div class="author-box">
+        <p class="article-text"><strong>À propos de l'auteur</strong></p>
+        <p class="article-text">
+          [PRÉNOM NOM] accompagne les PME et ETI sur la data RH, l'automatisation des processus et l'IA appliquée aux ressources humaines, avec 15 ans d'expérience du métier RH et une pratique de Python et de la data science. Il publie des tribunes dans le Journal du Net.
+          <a href="[URL PROFIL LINKEDIN]" class="link-white-underline" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+
+      <p class="article-text" style="margin-top: 3rem;">Pour aller plus loin sur les usages, voir notre page sur l'<a href="https://competencesrh.fr/ia/ia-generative-rh.html" class="link-white-underline">IA générative en RH</a>.</p>
+      <p class="article-text"><a href="https://competencesrh.fr/contact.html" class="nav-cta" style="display:inline-block;">Choisir mon assistant IA RH →</a></p>
+
+    </article>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="nav-logo">DATA<span>RH</span></span>
+      <p>L'intelligence RH par la donnée.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://competencesrh.fr/">Accueil</a>
+      <a href="https://competencesrh.fr/services.html">Services</a>
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+      <a href="https://competencesrh.fr/contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
