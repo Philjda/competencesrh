@@ -2,157 +2,722 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Découvrez les obligations de l'AI Act pour les systèmes IA RH à haut risque : rôle du CSE, documentation, audit de biais et encadré pratique pour PME." />
-  <title>IA RH à haut risque : obligations de l'AI Act et conformité | CompétencesRH</title>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ymacclcqrb");
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="IA RH à haut risque : interdictions en vigueur, obligations du déployeur (art. 26), CSE, information des candidats, AIPD et contrôle des biais. Fiche pratique AI Act pour les PME, à jour de l’Omnibus IA."
+  />
+
+  <title>IA RH à haut risque : obligations et conformité AI Act | CompétencesRH</title>
+
+  <link
+    rel="canonical"
+    href="https://competencesrh.fr/conformite/ai-act-conformite-pme.html"
+  />
+
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <!--
+    Mesure d’audience soumise au consentement.
+    Microsoft Clarity et Google Analytics 4 ne sont plus chargés d’office :
+    ils ne se déclenchent qu’après un consentement explicite.
+    À brancher sur votre outil de gestion du consentement (CMP) :
+    - appeler window.crhActiverMesure() lorsque l’internaute accepte ;
+    - ou enregistrer localStorage "crh_consent_mesure" = "granted".
+  -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3ZT1R1H6RV');
+    (function () {
+      var charge = false;
+
+      window.crhActiverMesure = function () {
+        if (charge) return;
+        charge = true;
+
+        try { localStorage.setItem("crh_consent_mesure", "granted"); } catch (e) {}
+
+        /* Microsoft Clarity */
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ymacclcqrb");
+
+        /* Google tag (gtag.js) */
+        var g = document.createElement("script");
+        g.async = true;
+        g.src = "https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV";
+        document.head.appendChild(g);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag("js", new Date());
+        gtag("config", "G-3ZT1R1H6RV");
+      };
+
+      var consenti = false;
+      try { consenti = localStorage.getItem("crh_consent_mesure") === "granted"; } catch (e) {}
+      if (consenti) window.crhActiverMesure();
+    })();
   </script>
-  <link rel="stylesheet" href="../style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="canonical" href="https://competencesrh.fr/conformite/ai-act-conformite-pme.html"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Maîtriser les risques et les obligations pour les IA RH à haut risque",
-    "description": "Guide technique et juridique sur les obligations de l'AI Act concernant les outils de recrutement et d'évaluation du personnel.",
-    "inLanguage": "fr",
-    "mainEntityOfPage": "https://competencesrh.fr/conformite/ai-act-conformite-pme.html",
-    "datePublished": "2026-05-26",
-    "dateModified": "2026-11-15",
-    "author": {
-      "@type": "Organization",
-      "name": "CompétencesRH",
-      "url": "https://competencesrh.fr"
-    }
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Maîtriser les obligations des IA RH à haut risque",
+        "description": "Fiche pratique sur les obligations de l’employeur utilisant une IA RH : interdictions en vigueur, AI Act modifié par l’Omnibus IA, CSE, information des candidats, AIPD et contrôle des biais.",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/conformite/ai-act-conformite-pme.html",
+        "datePublished": "2026-05-26",
+        "dateModified": "2026-11-27",
+        "author": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CompétencesRH",
+          "url": "https://competencesrh.fr"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://competencesrh.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Gouvernance & Conformité",
+            "item": "https://competencesrh.fr/conformite/conformite-ethique-rh.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "IA Haut Risque",
+            "item": "https://competencesrh.fr/conformite/ai-act-conformite-pme.html"
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
+
 <body>
 
-  <nav class="nav">
-    <a href="https://competencesrh.fr/" class="nav-logo">DATA<span>RH</span></a>
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="https://competencesrh.fr/" class="nav-logo">
+      DATA<span>RH</span>
+    </a>
+
     <ul class="nav-links">
-     <li><a href="https://competencesrh.fr/">Accueil</a></li>
-    <li><a href="https://competencesrh.fr/blog.html" >Blog</a></li>
-    <li><a href="https://competencesrh.fr/services.html">Services</a></li>
-    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
-    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a></li>
-    <li><a href="https://competencesrh.fr/ia-rh.html" >IA RH</a></li>
-    <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
+      <li><a href="https://competencesrh.fr/">Accueil</a></li>
+      <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+      <li><a href="https://competencesrh.fr/services.html">Services</a></li>
+      <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+      <li><a href="https://competencesrh.fr/analyse-donnees-rh.html">Analyse de données RH</a></li>
+      <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
+      <li><a href="https://competencesrh.fr/contact.html">Contact</a></li>
     </ul>
-    <a href="https://competencesrh.fr/contact.html" class="nav-cta">Parlons Data RH →</a>
+
+    <a href="https://competencesrh.fr/contact.html" class="nav-cta">
+      Parlons Data RH →
+    </a>
   </nav>
- 
-  <section class="page-hero">
-    <div class="section-label">// Fiche Pratique Conformité</div>
-    <div class="breadcrumb" style="font-family: 'DM Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem;">
-      <a href="https://competencesrh.fr/conformite/conformite-ethique-rh.html" style="color: #fff; text-decoration: underline;">Gouvernance & Conformité</a> / IA Haut Risque
-    </div>
-    <h1 class="page-title">Maîtriser les obligations des IA RH à haut risque</h1>
-    <p class="page-sub">Gouverner les algorithmes de recrutement, d'évaluation et de gestion des carrières sous l'AI Act.</p>
-  </section>
- 
-  <section class="section">
-    <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
-      
-      <p class="article-text">
-        L’intelligence artificielle s’installe dans les fonctions RH à mesure qu’elle automatise le tri des candidatures, assiste les entretiens, évalue les compétences ou aide au pilotage des carrières. Mais dès qu’un système peut influencer l’accès à l’emploi, la promotion, la rémunération ou l’évaluation d’un salarié, la logique n’est plus seulement technologique : elle devient juridique, sociale et <a href="https://competencesrh.fr/conformite/conformite-ethique-rh.html" class="link-white-underline">éthique</a>. Le cadre européen impose alors une lecture par les risques, avec une vigilance renforcée pour les usages RH à haut risque.
-      </p>
-      <p class="article-text">
-        <strong>Calendrier :</strong> après le report adopté en 2026 (Digital Omnibus), les obligations applicables aux systèmes à haut risque de l’annexe III, dont relèvent les principaux outils d’IA RH, s’appliquent à partir du <strong>2 décembre 2027</strong>. Ce délai laisse le temps de s’organiser, pas de reporter le travail : qualification des outils, information du CSE et documentation prennent plusieurs mois. Le calendrier complet, les sanctions et la feuille de route figurent dans notre <a href="https://competencesrh.fr/conformite/ai-act-pme-guide.html" class="link-white-underline">guide AI Act pour les PME</a>.
-      </p>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Évaluer le risque d’usage</h2>
-      <p class="article-text">
-        Le premier réflexe consiste à classer l’IA selon son statut d’utilisation et non selon son discours marketing. Une même technologie peut être sans enjeu majeur dans un usage de rédaction d’offre d’emploi, mais devenir à haut risque si elle trie des CV, classe des candidats ou recommande une décision d’embauche. L’AI Act adopte justement une approche fondée sur le risque, avec des obligations qui s’alourdissent à mesure que l’effet potentiel sur les droits fondamentaux augmente.
-      </p>
-      <p class="article-text">
-        Dans les RH, les cas les plus sensibles concernent le recrutement, l’évaluation de performance, la mobilité interne, la gestion disciplinaire et la surveillance. Ces usages peuvent affecter l’égalité de traitement, la vie privée, la réputation et les perspectives de carrière des personnes. C’est pourquoi il faut analyser non seulement l’outil, mais aussi le contexte, les données utilisées, le degré d’automatisation et la place de l’humain dans la décision finale.
-      </p>
+  <main>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Obligations à respecter</h2>
-      <p class="article-text">
-        Pour les IA RH à haut risque, les obligations sont multiples. D’abord, il faut mettre en place une gouvernance claire : identification du système, cartographie des usages, responsables désignés, et suivi documentaire tout au long du cycle de vie. Ensuite, l’entreprise doit assurer une supervision humaine réelle, afin qu’aucune décision déterminante ne soit laissée à l’autonomie complète de la machine.
-      </p>
-      <p class="article-text">
-        L’information et la consultation du CSE constituent un point central en France. Dans les entreprises d’au moins 50 salariés, le CSE doit être informé et consulté lorsque l’IA affecte l’organisation du travail, l’emploi ou les conditions de travail. Les salariés et représentants doivent aussi être informés de la finalité du système, de ses effets attendus et des limites de l’automatisation. À cela s’ajoutent la formation des utilisateurs, la sensibilisation des managers et l’encadrement des pratiques pour éviter les usages détournés ou non autorisés.
-      </p>
+    <section class="page-hero">
+      <div class="section-label">// Fiche Pratique Conformité</div>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Documents à formaliser</h2>
-      <p class="article-text">
-        La <a href="https://competencesrh.fr/conformite.html" class="link-white-underline">conformité</a> ne repose pas sur une déclaration d’intention, mais sur des preuves. Il faut donc formaliser un socle documentaire : fiche de qualification du cas d’usage, analyse de risque, registre des traitements si des données personnelles sont traitées, documentation fournisseur, procédures de contrôle, consignes d’usage et plan de supervision. Pour les projets sensibles, une charte interne d’usage de l’IA peut utilement compléter ce dispositif.
-      </p>
-      <p class="article-text">
-        Dans une logique RH, il est recommandé d’ajouter une analyse d’impact lorsque le traitement présente des risques élevés pour les droits et libertés des personnes, ainsi qu’une traçabilité des versions du modèle, des paramétrages et des décisions humaines associées. Ces documents ne servent pas seulement à “faire conforme” : ils permettent aussi d’expliquer, de corriger et d’auditer le système en cas de contestation.
-      </p>
+      <nav
+        class="breadcrumb"
+        aria-label="Fil d’Ariane"
+        style="font-family: 'DM Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem;"
+      >
+        <a
+          href="https://competencesrh.fr/conformite/conformite-ethique-rh.html"
+          style="color: #fff; text-decoration: underline;"
+        >
+          Gouvernance &amp; Conformité
+        </a>
+        / IA Haut Risque
+      </nav>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Non-discrimination et éthique</h2>
-      <p class="article-text">
-        Le point le plus critique reste le <a href="https://competencesrh.fr/conformite/audit-algorithmique-biais.html" class="link-white-underline">risque de biais</a>. Un système peut reproduire des discriminations historiques s’il apprend à partir de données passées biaisées ou s’il accorde un poids excessivement lourd à certains signaux corrélés à l’âge, au sexe, à l’origine ou au parcours. En RH, cela peut conduire à des filtres injustifiés dans le recrutement, à des évaluations asymétriques ou à des décisions de carrière difficilement explicables.
-      </p>
-      <p class="article-text">
-        Le principe de non-discrimination impose donc des contrôles réguliers sur les critères utilisés, les résultats produits et les écarts observés entre populations. La responsabilité sociale exige aussi de ne pas utiliser l’IA comme simple outil de réduction des coûts, mais comme instrument encadré qui améliore la qualité des décisions sans déshumaniser la relation de travail. Enfin, l’éthique suppose de pouvoir répondre à des questions simples : pourquoi ce système, pour qui, avec quelles limites, et avec quel droit de recours pour la personne concernée ?
-      </p>
+      <h1 class="page-title">
+        Maîtriser les obligations des IA RH à haut risque
+      </h1>
 
-      <h2 class="article-title" style="margin-top: 3rem;">Auditer une IA existante</h2>
-      <p class="article-text">
-        Auditer une IA RH commence par trois questions : que fait-elle réellement, sur quelles données, et avec quel impact concret sur les personnes. Il faut ensuite vérifier le niveau de supervision humaine, la qualité de la documentation, la présence de tests de biais, la robustesse des sorties et la capacité de l’outil à être contesté ou corrigé. Un audit efficace ne se limite pas au code : il examine aussi le processus métier, les utilisateurs, les règles de décision et les incidents observés.
+      <p class="page-sub">
+        Encadrer les algorithmes de recrutement, d’évaluation et de gestion
+        des carrières sous l’AI Act.
       </p>
-      <p class="article-text">
-        Les méthodes utiles incluent la revue documentaire, les tests de scénarios, l’analyse d’impact, les audits de biais, l’examen des logs, les entretiens avec les utilisateurs et les revues périodiques de conformité. L’objectif est d’identifier les écarts entre l’usage prévu et l’usage réel, souvent source principale de risque.
-      </p>
+    </section>
 
-      <div style="margin: 3rem 0; padding: 2.5rem; background: #ffffff; color: #1a1a1a; border: 1px solid #e0e0e0;">
-        <h3 style="font-family: 'Syne'; font-size: 1.3rem; margin-bottom: 1.5rem; color: #000; text-transform: uppercase; font-weight: bold;">Cas pratique : Présélection algorithmique</h3>
-        <p style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-          Imaginons une entreprise de 800 salariés qui déploie un outil d’IA pour présélectionner les candidatures. Le système attribue un score à chaque CV, puis propose une short-list au recruteur. Dans ce cas, l’usage est typiquement à haut risque, car il influence l’accès à l’emploi.
+    <section class="section">
+      <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+
+        <p class="article-text" style="font-size: 0.9rem;">
+          Par CompétencesRH · Mis à jour le
+          <time datetime="2026-11-27">27 novembre 2026</time>
         </p>
-        <p style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
-          La bonne démarche : qualifier l’outil comme système à haut risque, informer et consulter le CSE, vérifier le contrat fournisseur, documenter les données utilisées, former les recruteurs, imposer une validation humaine systématique, tester les biais sur plusieurs profils et définir une procédure d’escalade en cas d’erreur. Si des données personnelles sont traitées, il faut parallèlement valider la conformité aux exigences du <a href="rgpd-donnees-salaries.html" style="color: #000; text-decoration: underline;">cadre réglementaire RGPD</a>.
+
+        <p class="article-text">
+          L’intelligence artificielle s’installe dans les fonctions RH :
+          tri des candidatures, assistance aux entretiens, évaluation des
+          compétences ou pilotage des carrières. Lorsqu’un système intervient
+          dans l’accès à l’emploi ou dans les décisions concernant les salariés,
+          son usage soulève des enjeux juridiques, sociaux et
+          <a
+            href="https://competencesrh.fr/conformite/conformite-ethique-rh.html"
+            class="link-white-underline"
+          >éthiques</a>.
+          L’AI Act classe notamment certains systèmes de recrutement et de gestion
+          des travailleurs parmi les systèmes à haut risque. La qualification
+          dépend de leur destination et de leurs fonctionnalités, pas uniquement
+          de leur appellation commerciale.
         </p>
-      </div>
 
-      <h2 class="article-title">Mettre la conformité en pratique</h2>
-      <p class="article-text">
-        La clé n’est pas de bloquer l’innovation, mais de la rendre gouvernable. Les organisations qui réussiront seront celles qui intégreront dès le départ la conformité, le dialogue social, la supervision humaine et l’audit continu. En RH, l’IA à haut risque ne peut pas être traitée comme un simple logiciel : elle devient un objet de responsabilité partagée entre direction, RH, DPO, IT et représentants du personnel.
-      </p>
-      <p class="article-text">
-        Cette approche a un avantage stratégique majeur : elle sécurise l’entreprise, renforce la confiance des collaborateurs et évite de découvrir trop tard qu’un outil “utile” est en réalité juridiquement fragile. Dans un environnement où les usages RH de l’IA se multiplient, la maturité ne se mesure plus à la vitesse de déploiement, mais à la qualité du contrôle.
-      </p>
+        <p class="article-text">
+          <strong>Calendrier :</strong> l’AI Omnibus (règlement (UE) 2026/1744),
+          entré en vigueur le 27 juillet 2026, a reporté l’application des
+          règles relatives aux systèmes à haut risque de l’annexe III au
+          <strong>2 décembre 2027</strong>. Ce report ne concerne pas tout :
+          les pratiques interdites et l’obligation de maîtrise de l’IA
+          s’appliquent depuis le 2 février 2025, et le RGPD, le droit du
+          travail et le droit de la non-discrimination continuent de
+          s’appliquer pleinement. Le calendrier et la feuille de route
+          figurent dans notre
+          <a
+            href="https://competencesrh.fr/conformite/ai-act-pme-guide.html"
+            class="link-white-underline"
+          >guide AI Act pour les PME</a>.
+        </p>
 
-    </article>
-  </section>
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Ce qui s’applique déjà
+        </h2>
+
+        <p class="article-text">
+          <strong>Une interdiction à vérifier en priorité.</strong> Depuis le
+          2 février 2025, l’article 5 de l’AI Act interdit d’utiliser un système
+          d’IA pour inférer les émotions d’une personne sur le lieu de travail,
+          sauf pour des raisons médicales ou de sécurité. Le règlement définit
+          la reconnaissance des émotions par référence aux données biométriques.
+          Un outil qui utilise les données biométriques d’un candidat, par
+          exemple des caractéristiques faciales ou vocales, pour inférer ses
+          émotions pendant un entretien doit donc être examiné au regard de
+          cette interdiction, qui couvre aussi le processus de recrutement.
+          À l’inverse, l’analyse d’un texte écrit, sans donnée biométrique,
+          n’en relève pas. La qualification dépend de la finalité et du
+          fonctionnement réel du système, et non de son appellation commerciale
+          d’« analyse d’entretien » : avant d’activer un tel module, il faut
+          demander précisément à l’éditeur ce que le système mesure et à
+          partir de quelles données.
+        </p>
+
+        <p class="article-text">
+          <strong>La maîtrise de l’IA.</strong> L’article 4, réécrit par
+          l’Omnibus, impose aux fournisseurs et aux déployeurs de prendre des
+          mesures pour favoriser la maîtrise de l’IA de leur personnel. Le texte
+          n’exige pas de garantir un niveau précis pour chaque personne : ce que
+          l’entreprise doit pouvoir démontrer, ce sont les mesures prises
+          (sensibilisation, formation des utilisateurs, consignes). Pour une
+          équipe RH qui utilise un outil de présélection, cela concerne en
+          premier lieu les recruteurs et les managers.
+        </p>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Évaluer le risque d’usage
+        </h2>
+
+        <p class="article-text">
+          Le premier réflexe consiste à examiner la finalité du système et son
+          influence sur les décisions. Un outil utilisé uniquement pour rédiger
+          une offre d’emploi n’est pas, de ce seul fait, une IA RH à haut risque.
+          En revanche, un système destiné à filtrer les candidatures, classer
+          les candidats ou évaluer leur adéquation à un poste relève des usages
+          de recrutement visés par l’annexe III.
+        </p>
+
+        <p class="article-text">
+          Sont également visés certains systèmes destinés à prendre des décisions
+          concernant les conditions de travail, la promotion ou la rupture de
+          la relation de travail, ainsi qu’à attribuer des tâches selon les
+          caractéristiques individuelles ou à surveiller et évaluer les
+          performances et le comportement des travailleurs. La présence d’un
+          humain dans le processus ne suffit pas, à elle seule, à écarter
+          la qualification de haut risque.
+        </p>
+
+        <p class="article-text">
+          L’article 6 prévoit des exceptions encadrées pour certains systèmes
+          de l’annexe III ne présentant pas de risque important, notamment
+          lorsqu’ils n’influencent pas substantiellement la décision.
+          Ces exceptions doivent être examinées et documentées par le fournisseur.
+          Un système relevant de cette annexe qui effectue un profilage de
+          personnes physiques reste toutefois considéré comme à haut risque.
+        </p>
+
+        <aside
+          aria-label="Systèmes déjà en service"
+          style="margin: 2.5rem 0; padding: 1.75rem 2rem; border-left: 4px solid #fff; background: rgba(255, 255, 255, 0.06);"
+        >
+          <p
+            style="font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: bold; text-transform: uppercase; margin: 0 0 0.75rem;"
+          >
+            Encadré : systèmes déjà en service
+          </p>
+          <p class="article-text" style="margin: 0;">
+          Selon les dispositions
+          transitoires de l’article 111, un système à haut risque mis sur le
+          marché ou en service avant le 2 décembre 2027 n’est soumis aux
+          nouvelles exigences que s’il fait l’objet, à partir de cette date,
+          de modifications importantes de sa conception. Ce n’est pas une
+          dispense durable : une nouvelle version, un nouveau module d’IA ou
+          un changement de finalité peuvent faire basculer le système dans le
+          régime complet. Et cette période transitoire ne couvre ni les
+          interdictions de l’article 5, ni le RGPD, ni le droit du travail.
+          </p>
+        </aside>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Obligations à respecter
+        </h2>
+
+        <p class="article-text">
+          Il faut d’abord distinguer le fournisseur du déployeur. Une entreprise
+          qui utilise sous sa propre autorité un outil RH fourni par un éditeur
+          est généralement un déployeur. Elle n’a pas à reconstituer toute la
+          documentation technique du fournisseur, mais doit disposer des
+          informations nécessaires pour utiliser le système conformément à sa
+          notice et organiser son contrôle. Si elle développe elle-même le
+          système ou le modifie substantiellement, son rôle et ses obligations
+          doivent être réexaminés.
+        </p>
+
+        <p class="article-text">
+          Pour l’employeur déployeur d’une IA à haut risque, l’article 26 prévoit
+          notamment les obligations ci-dessous, à lire selon le calendrier
+          d’application et les dispositions transitoires présentés plus haut :
+        </p>
+
+        <ul class="article-text" style="padding-left: 1.25rem; line-height: 1.8;">
+          <li>
+            des mesures techniques et organisationnelles garantissant une
+            utilisation conforme à la notice du fournisseur ;
+          </li>
+          <li>
+            une supervision humaine confiée à des personnes disposant des
+            compétences, de la formation et de l’autorité nécessaires ;
+          </li>
+          <li>
+            la surveillance du fonctionnement du système et, en cas de risque
+            ou d’incident grave, l’information du fournisseur et de l’autorité
+            de surveillance, avec suspension de l’utilisation si nécessaire ;
+          </li>
+          <li>
+            la conservation des journaux générés automatiquement par le système,
+            lorsqu’ils sont sous son contrôle, pendant <strong>au moins six
+            mois</strong>, sauf disposition contraire ;
+          </li>
+          <li>
+            l’information préalable des représentants des travailleurs et des
+            travailleurs concernés avant la mise en service sur le lieu de
+            travail ;
+          </li>
+          <li>
+            l’information des personnes concernées, y compris les candidats,
+            lorsqu’un système de l’annexe III prend ou aide à prendre une
+            décision les concernant.
+          </li>
+        </ul>
+
+        <p class="article-text">
+          La supervision humaine doit permettre de comprendre les limites du
+          système, de remettre en cause ses résultats et d’intervenir lorsque
+          cela est nécessaire. Elle ne se réduit pas à approuver automatiquement
+          un score. L’article 86 ouvre en outre un droit à l’explication à la
+          personne qui fait l’objet d’une décision prise par un déployeur sur
+          la base des sorties d’un système à haut risque de l’annexe III,
+          lorsque cette décision produit des effets juridiques ou l’affecte de
+          manière significative et qu’elle l’estime défavorable à sa santé, à
+          sa sécurité ou à ses droits fondamentaux. Elle peut alors obtenir
+          des explications claires et pertinentes sur le rôle du système dans
+          la procédure décisionnelle et sur les principaux éléments de la
+          décision.
+        </p>
+
+        <p class="article-text">
+          L’analyse d’impact sur les droits fondamentaux de l’article 27 vise,
+          elle, principalement les organismes publics, les entités privées
+          fournissant des services publics et certains usages dans le crédit
+          et l’assurance. Un employeur privé classique n’y est généralement
+          pas soumis pour ses outils de recrutement ; il ne faut pas la
+          confondre avec l’AIPD prévue par le RGPD.
+        </p>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Droit du travail : candidats, salariés et CSE
+        </h2>
+
+        <p class="article-text">
+          Indépendamment de la taille de l’entreprise, le Code du travail
+          encadre déjà l’usage de ces outils. Le candidat doit être informé
+          des méthodes et techniques d’aide au recrutement utilisées à son
+          égard, qui doivent être pertinentes au regard de la finalité
+          poursuivie (article L1221-8). Aucune information le concernant ne
+          peut être collectée par un dispositif qui n’a pas été porté
+          préalablement à sa connaissance (article L1221-9) ; la même règle
+          protège les salariés (article L1222-4). Les restrictions apportées
+          aux droits des personnes doivent être justifiées et proportionnées
+          au but recherché (article L1121-1). Côté RGPD, l’article 22 encadre
+          les décisions fondées exclusivement sur un traitement automatisé.
+        </p>
+
+        <p class="article-text">
+          Le dialogue social doit être examiné séparément. Dans les entreprises
+          d’au moins 50 salariés, l’article L2312-38 prévoit l’information
+          préalable du CSE sur les méthodes d’aide au recrutement et les
+          traitements automatisés de gestion du personnel, et une
+          information-consultation préalable sur les moyens permettant un
+          contrôle de l’activité des salariés. Une consultation peut aussi
+          être requise au titre de l’article L2312-8, notamment lors de
+          l’introduction de nouvelles technologies ou de modifications
+          importantes des conditions de travail.
+        </p>
+
+        <p class="article-text">
+          L’obligation d’information prévue par l’AI Act (article 26) s’ajoute
+          à ces règles françaises, sans les remplacer : elle vise les
+          représentants des travailleurs et les travailleurs concernés, quel
+          que soit l’effectif. Les informations dues aux candidats et aux
+          salariés au titre de la protection des données doivent également
+          être organisées.
+        </p>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Documents à formaliser
+        </h2>
+
+        <p class="article-text">
+          La
+          <a
+            href="https://competencesrh.fr/conformite.html"
+            class="link-white-underline"
+          >conformité</a>
+          repose sur des éléments vérifiables. Pour piloter le projet, il est
+          utile de réunir une fiche décrivant le cas d’usage, la qualification
+          du système, la notice et les informations du fournisseur, les
+          responsabilités internes, les consignes d’utilisation, la procédure
+          de supervision et les actions de maîtrise de l’IA menées. Cette
+          organisation documentaire complète les documents légalement requis
+          selon le projet, comme le registre des traitements et les pièces
+          relatives au dialogue social.
+        </p>
+
+        <p class="article-text">
+          Lorsqu’un traitement de données personnelles est susceptible d’engendrer
+          un risque élevé pour les droits et libertés des personnes, une analyse
+          d’impact relative à la protection des données, ou AIPD, doit être
+          réalisée avant sa mise en œuvre. La liste publiée par la CNIL vise
+          expressément les traitements établissant des profils de personnes
+          à des fins de gestion des ressources humaines : un outil de scoring
+          ou de classement de candidats y entre en principe. Le déployeur peut
+          s’appuyer sur les informations transmises par le fournisseur pour
+          la réaliser. Cette obligation RGPD doit être distinguée de la
+          qualification de haut risque au sens de l’AI Act : les deux analyses
+          sont liées, mais ne se confondent pas.
+        </p>
+
+        <p class="article-text">
+          Il est également recommandé de tracer les changements de version,
+          les paramétrages importants, les contrôles réalisés et les incidents.
+          Pour les systèmes soumis au régime du haut risque, l’article 26
+          impose en outre de conserver au moins six mois les journaux sous le
+          contrôle du déployeur. Plus largement, les durées de conservation et les droits d’accès doivent être définis selon les
+          obligations applicables, les besoins de traçabilité et les principes
+          de minimisation et de limitation de conservation des données
+          personnelles.
+        </p>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Non-discrimination et éthique
+        </h2>
+
+        <p class="article-text">
+          Le
+          <a
+            href="https://competencesrh.fr/conformite/audit-algorithmique-biais.html"
+            class="link-white-underline"
+          >risque de biais</a>
+          mérite une attention particulière. Un système peut reproduire des
+          discriminations historiques ou s’appuyer sur des variables indirectement
+          corrélées à des critères protégés. En RH, cela peut conduire à des
+          exclusions injustifiées au recrutement, à des évaluations déséquilibrées
+          ou à des recommandations de carrière difficiles à expliquer.
+        </p>
+
+        <p class="article-text">
+          Les contrôles doivent porter sur la pertinence des critères, les
+          résultats obtenus et les écarts qui nécessitent une investigation.
+          Un écart statistique n’établit pas, à lui seul, une discrimination,
+          mais il peut constituer un signal d’alerte.
+        </p>
+
+        <p class="article-text">
+          L’Omnibus a créé un article 4 bis qui permet, à titre exceptionnel,
+          de traiter des données sensibles (origine, santé, etc.) pour détecter
+          et corriger des biais. Cette possibilité vise les fournisseurs de
+          systèmes à haut risque, mais aussi, dans la mesure strictement
+          nécessaire, les déployeurs. Elle est soumise à des conditions
+          cumulatives : impossibilité d’atteindre l’objectif avec d’autres
+          données (synthétiques ou anonymisées, par exemple), sécurité
+          renforcée, accès strictement contrôlés et documentés, absence de
+          transmission à des tiers, suppression des données une fois le biais
+          corrigé ou à l’expiration de leur durée de conservation, selon la
+          première de ces deux échéances, et justification de la stricte nécessité dans le registre
+          des traitements. Cette autorisation exceptionnelle de traiter des
+          données sensibles ne doit pas être confondue avec les obligations
+          de prévention et de traitement des biais applicables par ailleurs.
+          Pour les acteurs visés au paragraphe 2, notamment les déployeurs,
+          cet article ne crée pas à lui seul une obligation de procéder à
+          cette détection et à cette correction. Sa mise en œuvre doit être
+          préparée avec le DPO.
+        </p>
+
+        <p class="article-text">
+          L’éthique complète ces contrôles par des questions concrètes :
+          pourquoi utiliser ce système, quelles sont ses limites, qui peut
+          contester un résultat et comment obtenir un réexamen ? L’objectif
+          est d’améliorer la qualité des décisions sans rendre la relation
+          de travail opaque ni diluer la responsabilité de l’employeur.
+        </p>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Auditer une IA existante
+        </h2>
+
+        <p class="article-text">
+          Auditer une IA RH commence par trois questions : que fait-elle
+          réellement, sur quelles données et avec quel impact sur les personnes ?
+          Il faut ensuite examiner la documentation disponible, les conditions
+          d’utilisation, la supervision humaine, les contrôles de biais et
+          les moyens de corriger les erreurs. L’audit ne se limite pas au code :
+          il porte aussi sur le processus métier, les utilisateurs et les
+          décisions prises à partir des résultats.
+        </p>
+
+        <p class="article-text">
+          La revue documentaire, les tests de scénarios, l’examen des journaux
+          disponibles et les entretiens avec les utilisateurs permettent
+          d’identifier les écarts entre l’usage prévu et l’usage réel.
+          L’étendue de l’audit dépend du système, de son accès technique et
+          du rôle de l’entreprise. Un audit périodique constitue une mesure
+          de gouvernance utile ; il ne faut pas le présenter comme une
+          certification universellement obligatoire pour tout employeur
+          utilisant une IA.
+        </p>
+
+        <div
+          style="margin: 3rem 0; padding: 2.5rem; background: #ffffff; color: #1a1a1a; border: 1px solid #e0e0e0;"
+        >
+          <h3
+            style="font-family: 'Syne', sans-serif; font-size: 1.3rem; margin-bottom: 1.5rem; color: #000; text-transform: uppercase; font-weight: bold;"
+          >
+            Cas pratique : présélection algorithmique dans une PME
+          </h3>
+
+          <p
+            style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;"
+          >
+            Imaginons une PME de 120 salariés qui souhaite activer un module
+            d’IA dans son logiciel de recrutement. Le système attribue un score
+            à chaque CV et propose une liste restreinte au recruteur. Cet usage
+            de filtrage et d’évaluation des candidatures relève des cas de
+            recrutement visés par l’annexe III de l’AI Act.
+          </p>
+
+          <p
+            style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;"
+          >
+            Avant l’activation, l’entreprise demande à l’éditeur la qualification
+            du système, sa notice, ses limites, les modalités de contrôle humain
+            et la confirmation qu’aucune fonctionnalité n’infère les émotions
+            des candidats. Elle informe le CSE et examine les consultations
+            nécessaires selon les caractéristiques du projet. Elle informe les
+            candidats de la méthode utilisée et vérifie la conformité au
+            <a
+              href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html"
+              style="color: #000; text-decoration: underline;"
+            >cadre réglementaire RGPD</a>.
+            S’agissant d’un profilage à des fins RH, une AIPD est à réaliser
+            avant la mise en œuvre.
+          </p>
+
+          <p
+            style="font-family: 'DM Mono', monospace; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;"
+          >
+            Comme mesure de maîtrise du risque, la PME décide qu’aucun rejet
+            ne sera fondé uniquement sur le score. Elle forme les recruteurs à
+            l’utilisation du module, à ses limites et aux risques pour les
+            candidats ; cette formation contribue aux mesures de maîtrise de
+            l’IA prévues par l’article 4. Elle teste le module avant sa
+            généralisation. Elle définit une politique de
+            journalisation et de conservation adaptée au RGPD et prépare,
+            lorsque le système relève des obligations applicables aux IA à
+            haut risque, la conservation des journaux sous son contrôle selon
+            les durées prévues par l’article 26. Elle met enfin en place une
+            procédure de signalement des erreurs et de réexamen pour les
+            candidats. Ces choix organisationnels ne
+            remplacent pas les obligations légales : ils rendent le contrôle
+            humain effectif dans ce cas d’usage.
+          </p>
+        </div>
+
+        <h2 class="article-title">
+          Mettre la conformité en pratique
+        </h2>
+
+        <p class="article-text">
+          Commencez par recenser les outils réellement utilisés, y compris les
+          fonctionnalités d’IA ajoutées à des logiciels RH existants. Pour
+          chacun, déterminez votre rôle et sa qualification, puis associez la
+          direction, les RH, l’informatique, le DPO et les représentants du
+          personnel selon les règles applicables. L’enjeu n’est pas seulement
+          d’acheter un outil annoncé comme conforme, mais de vérifier que son
+          utilisation dans l’entreprise l’est également.
+        </p>
+
+        <h2 class="article-title" style="margin-top: 3rem;">
+          Textes et ressources officielles
+        </h2>
+
+        <ul class="article-text" style="padding-left: 1.25rem; line-height: 1.8;">
+          <li>
+            <a
+              href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/fra/pdf"
+              class="link-white-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Règlement européen sur l’intelligence artificielle, version
+              consolidée au 27 juillet 2026 (PDF)
+            </a>
+            : intègre les modifications de l’Omnibus IA ; voir notamment
+            les articles 4, 4 bis, 5, 6, 26, 86, 111 et l’annexe III.
+          </li>
+
+          <li>
+            <a
+              href="https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force"
+              class="link-white-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Commission européenne : entrée en vigueur de l’AI Omnibus
+              et nouveau calendrier
+            </a>.
+          </li>
+
+          <li>
+            <a
+              href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043975196"
+              class="link-white-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Code du travail, article L2312-8
+            </a>
+            : attributions générales du CSE dans les entreprises
+            d’au moins 50 salariés.
+          </li>
+
+          <li>
+            <a
+              href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035610275/"
+              class="link-white-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Code du travail, article L2312-38
+            </a>
+            : méthodes de recrutement, traitements automatisés de gestion
+            du personnel et contrôle de l’activité.
+          </li>
+
+          <li>
+            Code du travail, articles L1121-1, L1221-8, L1221-9 et L1222-4
+            (consultables sur Légifrance) : information des candidats et
+            des salariés, pertinence et proportionnalité des dispositifs.
+          </li>
+
+          <li>
+            <a
+              href="https://www.cnil.fr/fr/RGPD-analyse-impact-protection-des-donnees-aipd"
+              class="link-white-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CNIL : analyse d’impact relative à la protection des données
+            </a>
+            et
+            <a
+              href="https://www.cnil.fr/sites/default/files/atoms/files/liste-traitements-avec-aipd-requise-v2.pdf"
+              class="link-white-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              liste des traitements pour lesquels une AIPD est requise (PDF)
+            </a>.
+          </li>
+        </ul>
+
+        <p class="article-text" style="font-size: 0.9rem; margin-top: 1.5rem;">
+          Cette fiche présente des repères généraux. Les obligations précises
+          dépendent du système, de son usage, du rôle de l’entreprise et des
+          dispositions transitoires applicables. Un projet sensible peut
+          nécessiter un examen juridique et technique adapté.
+        </p>
+
+      </article>
+    </section>
+
+  </main>
 
   <footer class="footer">
     <div class="footer-left">
       <span class="nav-logo">DATA<span>RH</span></span>
-      <p>L'intelligence RH par la donnée.</p>
+      <p>L’intelligence RH par la donnée.</p>
     </div>
+
     <div class="footer-links">
       <a href="https://competencesrh.fr/">Accueil</a>
       <a href="https://competencesrh.fr/services.html">Services</a>
-      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a> 
+      <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
       <a href="https://competencesrh.fr/contact.html">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
+
+    <div class="footer-copy">
+      © 2026 CompétencesRH. Tous droits réservés.
+    </div>
   </footer>
- 
+
   <script src="../main.js"></script>
+
 </body>
 </html>
