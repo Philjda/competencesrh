@@ -3,26 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analyse de données RH en PME : méthode, indicateurs, outils</title>
-  <meta name="description" content="Turnover, absentéisme, masse salariale : une méthode en 4 étapes pour fiabiliser vos données RH, choisir vos indicateurs et en tirer des décisions.">
+  <title>Analyse de données RH en PME : méthode, indicateurs, outils | CompétencesRH</title>
+  <meta name="description" content="Turnover, absentéisme, masse salariale : une méthode en 4 étapes pour fiabiliser vos données RH, choisir vos indicateurs et en tirer des décisions, dans un cadre RGPD maîtrisé.">
   <link rel="canonical" href="https://competencesrh.fr/analyse-donnees-rh.html">
+
+  <!--
+    Chargement conditionnel des outils de mesure.
+    À relier à votre dispositif de gestion du consentement :
+    appeler window.crhActiverMesure() après acceptation.
+    Ce script ne remplace pas une CMP.
+  -->
+  <script>
+    (function () {
+      var charge = false;
+      window.crhActiverMesure = function () {
+        if (charge) return;
+        charge = true;
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ymacclcqrb");
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date());
+        window.gtag("config", "G-3ZT1R1H6RV");
+        var g = document.createElement("script");
+        g.async = true;
+        g.src = "https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV";
+        document.head.appendChild(g);
+      };
+    })();
+  </script>
+
   <link rel="stylesheet" href="https://competencesrh.fr/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
-  <!-- Styles propres à cette page : tableaux, encadré auteur, cas pratique -->
   <style>
     .table-wrap{overflow-x:auto;margin:2rem 0;}
     .data-table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.55;min-width:640px;}
-    .data-table caption{text-align:left;font-family:var(--font-head);font-weight:700;margin-bottom:.75rem;}
+    .data-table caption{text-align:left;font-family:var(--font-head,'Syne',sans-serif);font-weight:700;margin-bottom:.75rem;}
     .data-table th,.data-table td{padding:.75rem .9rem;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;vertical-align:top;}
-    .data-table th{font-family:var(--font-head);font-weight:700;}
-    .author-box{display:flex;gap:1rem;align-items:center;margin-top:1.5rem;font-size:.9rem;opacity:.9;}
-    .author-box strong{font-family:var(--font-head);}
-    .case-box{border-left:4px solid var(--accent);padding:1.5rem 1.75rem;margin:2rem 0;border-radius:8px;background:rgba(128,128,128,.06);}
+    .data-table th{font-family:var(--font-head,'Syne',sans-serif);font-weight:700;}
+    .author-box{margin-top:1.5rem;font-size:.9rem;opacity:.9;}
+    .case-box,.limits-box{border-left:4px solid var(--accent);padding:1.5rem 1.75rem;margin:2rem 0;border-radius:8px;background:rgba(128,128,128,.06);}
     .case-box .case-tag{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;opacity:.75;}
-    .case-box ol{line-height:1.8;padding-left:1.2rem;}
+    .case-box ol,.limits-box ul{line-height:1.8;padding-left:1.2rem;}
+    .limits-box h3{margin:0 0 1rem;}
+    .card h3 a{color:inherit;}
+    .faq-item{margin-bottom:1.5rem;border-bottom:1px solid rgba(128,128,128,.25);padding-bottom:1rem;}
+    .faq-item summary{font-weight:700;cursor:pointer;font-family:var(--font-head,'Syne',sans-serif);}
+    .faq-item p{margin-top:1rem;}
   </style>
 
   <script type="application/ld+json">
@@ -34,25 +67,14 @@
         "@id": "https://competencesrh.fr/analyse-donnees-rh.html#article",
         "mainEntityOfPage": "https://competencesrh.fr/analyse-donnees-rh.html",
         "headline": "Analyse de données RH en PME : méthode, indicateurs, outils",
-        "description": "Méthode en 4 étapes pour fiabiliser les données RH d'une PME, choisir les indicateurs prioritaires (turnover, absentéisme, masse salariale), sélectionner les outils et utiliser l'IA de façon encadrée.",
+        "description": "Méthode en 4 étapes pour fiabiliser les données RH d'une PME, choisir les indicateurs prioritaires, sélectionner les outils et utiliser l'IA de façon encadrée.",
         "inLanguage": "fr",
         "datePublished": "2026-05-26",
-        "dateModified": "2026-11-04",
-        "author": {
-          "@type": "Organization",
-          "name": "CompétencesRH",
-          "url": "https://competencesrh.fr"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "CompétencesRH",
-          "url": "https://competencesrh.fr"
-        },
+        "dateModified": "2026-11-27",
+        "author": {"@type": "Organization", "name": "CompétencesRH", "url": "https://competencesrh.fr"},
+        "publisher": {"@type": "Organization", "name": "CompétencesRH", "url": "https://competencesrh.fr"},
         "about": ["Analyse de données RH", "People Analytics", "Indicateurs RH", "Tableau de bord RH"],
-        "audience": {
-          "@type": "Audience",
-          "audienceType": "DRH, responsables RH et dirigeants de PME et ETI"
-        }
+        "audience": {"@type": "Audience", "audienceType": "DRH, responsables RH et dirigeants de PME et ETI"}
       },
       {
         "@type": "BreadcrumbList",
@@ -60,58 +82,22 @@
           {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/"},
           {"@type": "ListItem", "position": 2, "name": "Analyse de données RH", "item": "https://competencesrh.fr/analyse-donnees-rh.html"}
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Comment analyser les données RH d'une PME ?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Partez d'une question de gestion précise, par exemple « dans quels métiers les départs augmentent-ils ? ». Rassemblez ensuite les données utiles (paie, SIRH, absences, DSN), vérifiez leurs définitions et leurs trous, calculez quelques indicateurs documentés, puis confrontez les résultats aux managers avant de décider. Prévoyez enfin une date pour mesurer l'effet de l'action."}
-          },
-          {
-            "@type": "Question",
-            "name": "Quels indicateurs RH suivre en priorité dans une PME ?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Ceux qui répondent à une décision en cours. Le socle courant comprend l'effectif et les ETP, le taux de turnover, le taux d'absentéisme, l'évolution de la masse salariale et le délai de recrutement. Dès 50 salariés, l'index égalité professionnelle s'ajoute. Mieux vaut cinq indicateurs fiables et commentés que trente indicateurs que personne ne lit."}
-          },
-          {
-            "@type": "Question",
-            "name": "Peut-on analyser ses données RH avec Excel ?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Oui. Excel, associé à Power Query, suffit pour la plupart des analyses d'une PME : consolidation des exports, calculs d'indicateurs, tableaux croisés. Ses limites apparaissent quand les sources se multiplient, que la mise à jour devient manuelle et risquée ou que plusieurs personnes doivent consulter un tableau de bord. Power BI ou Python prennent alors le relais."}
-          },
-          {
-            "@type": "Question",
-            "name": "Peut-on utiliser l'IA ou ChatGPT pour analyser des données RH ?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Oui, pour des usages précis : aider à écrire des formules, résumer des commentaires d'enquête, repérer des anomalies ou tester un modèle prédictif. Ne collez jamais de données nominatives dans un outil grand public. Travaillez sur des données agrégées ou pseudonymisées, dans un outil encadré contractuellement, et faites valider chaque résultat par un humain."}
-          },
-          {
-            "@type": "Question",
-            "name": "Quelles données RH peut-on analyser sans enfreindre le RGPD ?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Toutes celles qui servent une finalité définie et proportionnée : pilotage des effectifs, absentéisme, rémunérations, par exemple. Le RGPD impose surtout de limiter les données au nécessaire, d'informer les salariés, de restreindre les accès et de fixer une durée de conservation. Un outil qui permet de contrôler l'activité des salariés implique en plus d'informer et de consulter le CSE."}
-          },
-          {
-            "@type": "Question",
-            "name": "Combien coûte et combien de temps dure un projet d'analyse de données RH ?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Le budget et le délai dépendent du nombre de sources, de leur qualité, du périmètre, des livrables et du niveau d'automatisation. Un premier échange de cadrage permet de les estimer à partir de vos données réelles plutôt que d'un tarif universel."}
-          }
-        ]
       }
     ]
   }
   </script>
-
-  <!-- Réintégrez ici vos scripts Analytics et Clarity actuels, si nécessaire. -->
 </head>
 
 <body>
-<nav class="nav">
+<nav class="nav" aria-label="Navigation principale">
   <a class="nav-logo" href="https://competencesrh.fr">DATA<span>RH</span></a>
   <ul class="nav-links">
     <li><a href="https://competencesrh.fr/">Accueil</a></li>
     <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
     <li><a href="https://competencesrh.fr/services.html">Services</a></li>
     <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
-    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active">Analyse de données RH</a></li>
+    <li><a href="https://competencesrh.fr/analyse-donnees-rh.html" class="active" aria-current="page">Analyse de données RH</a></li>
+    <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
     <li><a href="https://competencesrh.fr/ia-rh.html">IA RH</a></li>
     <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
   </ul>
@@ -119,8 +105,7 @@
 </nav>
 
 <header class="page-hero fade-in">
-  <div class="section-label">// Data RH · People Analytics</div>
-  <div class="section-label"><span class="dot"></span> Guide pratique · PME et ETI · Mis à jour : novembre 2026</div>
+  <div class="section-label"><span class="dot"></span> Guide pratique · PME et ETI · Mis à jour : <time datetime="2026-11-27">novembre 2026</time></div>
 
   <h1 class="page-title">
     Analyse de données RH en PME :<br>
@@ -128,19 +113,16 @@
   </h1>
 
   <p class="page-sub">
-    Vous disposez d’exports de paie, d’un SIRH ou de fichiers Excel, mais vos données RH ne répondent pas encore aux questions de la direction :
+    Vos exports de paie, votre SIRH ou vos fichiers Excel ne répondent pas encore aux questions de la direction :
     pourquoi les départs augmentent dans tel métier, d’où vient la hausse de la masse salariale, où l’absentéisme désorganise le plus.
-    L’analyse de données RH consiste à fiabiliser ces informations, à choisir quelques indicateurs reliés à une décision, puis à les interpréter avec le terrain.
-    Ce guide, conçu pour les DRH, responsables RH et dirigeants de PME, présente une méthode en quatre étapes, les indicateurs à suivre en premier,
+    Ce guide pour DRH et dirigeants de PME présente une méthode en quatre étapes, les indicateurs à suivre en premier,
     les outils adaptés (Excel, Power BI, Python) et la place réelle de l’IA.
   </p>
 
-  <!-- ENCADRÉ AUTEUR : compléter le nom, et remplacer l'URL LinkedIn. Vérifier que "15 ans" est exact. -->
   <div class="author-box">
-    <div>
-      Rédigé par <strong>[Prénom Nom]</strong>, consultant People Analytics : 15 ans d’expérience RH et data, méthodes et code publiés sur
-      <a href="https://github.com/CompetencesRH" class="link-white-underline" rel="noopener">GitHub</a>.
-    </div>
+    Rédigé par un consultant People Analytics : 15 ans de métier RH, pratique de la data science ;
+    méthodes et code publiés sur
+    <a href="https://github.com/CompetencesRH" class="link-white-underline" rel="noopener">GitHub</a>.
   </div>
 
   <div class="hero-stats">
@@ -161,18 +143,7 @@
   </div>
 </header>
 
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span>Analyse de données RH</span><span class="sep">·</span>
-    <span>Indicateurs RH</span><span class="sep">·</span>
-    <span>Turnover</span><span class="sep">·</span>
-    <span>Absentéisme</span><span class="sep">·</span>
-    <span>Masse salariale</span><span class="sep">·</span>
-    <span>Tableau de bord RH</span><span class="sep">·</span>
-    <span>People Analytics</span><span class="sep">·</span>
-    <span>Décision RH</span>
-  </div>
-</div>
+<main>
 
 <!-- 01 · DÉFINITION -->
 <section class="section fade-in">
@@ -180,24 +151,15 @@
   <h2 class="section-title">Qu’est-ce que l’analyse<br><em>de données RH ?</em></h2>
 
   <p>
-    <strong>L’analyse de données RH consiste à transformer les données de paie, d’absences, d’effectifs ou de recrutement en informations qui éclairent une décision de gestion.</strong>
+    <strong>L’analyse de données RH transforme les données de paie, d’absences, d’effectifs ou de recrutement en informations qui éclairent une décision de gestion.</strong>
     On parle aussi d’analytique RH, de HR Analytics ou de <a href="https://competencesrh.fr/data-rh/people-analytics.html" class="link-white-underline">People Analytics</a>.
-    Elle part d’une question concrète : pourquoi les départs augmentent-ils dans une équipe ? Les délais de recrutement s’allongent-ils ?
-    Comment évolue la masse salariale ?
+    Un indicateur isolé n’explique rien : il faut préciser sa définition, vérifier ses données et le replacer dans son contexte.
+    La <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">data RH</a> devient ainsi un support de pilotage, et non une fin en soi.
   </p>
 
   <p>
-    Un indicateur isolé ne donne pas automatiquement une explication. Il faut préciser sa définition, vérifier les données qui le composent,
-    observer son évolution et le replacer dans son contexte. La
-    <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">data RH</a>
-    devient ainsi un support de discussion et de pilotage, et non une fin en soi.
-  </p>
-
-  <h3>Analyse RH, reporting RH et People Analytics : quelles différences ?</h3>
-  <p>
-    Le reporting RH restitue des indicateurs à une fréquence fixe (effectif du mois, taux d’absentéisme du trimestre).
-    L’analyse RH cherche à expliquer un écart et à orienter une action. Le People Analytics désigne l’ensemble de la démarche,
-    y compris les méthodes statistiques et prédictives. Pour distinguer précisément les deux premières, consultez le guide
+    Le reporting RH restitue des indicateurs à fréquence fixe ; l’analyse RH cherche à expliquer un écart et à orienter une action ;
+    le People Analytics couvre l’ensemble de la démarche, jusqu’aux méthodes prédictives. Voir
     <a href="https://competencesrh.fr/analyse-donnees-rh/reporting-vs-analyse-avancee.html" class="link-white-underline">Reporting RH vs analyse avancée</a>.
   </p>
 </section>
@@ -207,26 +169,21 @@
   <div class="section-label">// 02</div>
   <h2 class="section-title">Pourquoi les données RH des PME<br><em>restent inexploitées</em></h2>
 
-  <p>
-    Dans la plupart des PME, les données existent déjà. Elles sont simplement réparties entre le logiciel de paie, la DSN, un SIRH partiel,
-    un outil de gestion des temps et plusieurs fichiers Excel tenus à la main. Trois difficultés reviennent presque toujours :
-  </p>
-
   <div class="cards">
     <div class="card">
       <div class="card-icon">⧉</div>
       <h3>Des sources dispersées</h3>
-      <p>Chaque export a son format, son périmètre et sa date d’arrêté. Les rapprocher prend des heures à chaque clôture et introduit des erreurs.</p>
+      <p>Paie, DSN, SIRH partiel, gestion des temps, fichiers Excel : chaque export a son format, son périmètre et sa date d’arrêté.</p>
     </div>
     <div class="card">
       <div class="card-icon">≠</div>
       <h3>Des définitions instables</h3>
-      <p>Un départ inclut-il les fins de CDD ? L’absentéisme compte-t-il les congés maternité ? Sans règle écrite, deux personnes obtiennent deux chiffres différents.</p>
+      <p>Un départ inclut-il les fins de CDD ? Sans règle écrite, deux personnes obtiennent deux chiffres différents.</p>
     </div>
     <div class="card">
       <div class="card-icon">?</div>
       <h3>Des chiffres sans question</h3>
-      <p>Le bilan social ou la BDESE sont produits, mais aucun indicateur n’est relié à une décision attendue par la direction ou le CSE.</p>
+      <p>Bilan social ou BDESE sont produits, mais aucun indicateur n’est relié à une décision attendue par la direction ou le CSE.</p>
     </div>
   </div>
 </section>
@@ -236,17 +193,14 @@
   <div class="section-label">// 03</div>
   <h2 class="section-title">Méthode : analyser ses données RH<br><em>en 4 étapes</em></h2>
 
-  <p>La méthode part d’une question, pas d’un tableau de bord. Chaque étape conditionne la fiabilité de la suivante.</p>
-
   <div class="services-list">
     <div class="service-item">
       <div class="service-num">01</div>
       <div class="service-body">
         <h3>Formuler la question de gestion</h3>
         <p>
-          Décrivez la décision à éclairer, les personnes concernées et la période étudiée.
-          « Réduire le turnover » est trop large pour démarrer. « Comprendre dans quels métiers et à quelles périodes les départs augmentent »
-          est une question plus exploitable.
+          « Réduire le turnover » est trop large. « Comprendre dans quels métiers et à quelles périodes les départs augmentent »
+          est exploitable : la décision, la population et la période sont définies.
         </p>
       </div>
       <div class="service-accent">◈</div>
@@ -258,7 +212,6 @@
         <h3>Recenser et fiabiliser les données (paie, SIRH, DSN)</h3>
         <p>
           Recensez les sources, les définitions, les périodes couvertes et les données manquantes.
-          Les fichiers de paie, la DSN, les exports SIRH, les historiques d’absence et les données de recrutement suffisent souvent à un premier diagnostic.
           La <a href="https://competencesrh.fr/ia/nettoyage-donnees-rh.html" class="link-white-underline">qualité et le nettoyage des données RH</a>
           conditionnent la fiabilité des analyses, tout comme des règles de
           <a href="https://competencesrh.fr/data-rh/qualite-et-gouvernance-donnees-rh.html" class="link-white-underline">gouvernance des données RH</a> partagées.
@@ -272,9 +225,9 @@
       <div class="service-body">
         <h3>Définir des indicateurs RH documentés</h3>
         <p>
-          Documentez le calcul, le périmètre et la fréquence de chaque mesure dans un dictionnaire d’indicateurs partagé.
+          Documentez le calcul, le périmètre et la fréquence de chaque mesure dans un dictionnaire partagé.
           Le <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">choix des indicateurs RH</a>
-          dépend de la question posée : une PME n’a pas besoin de suivre tous les KPI possibles.
+          dépend de la question posée.
         </p>
       </div>
       <div class="service-accent">⬡</div>
@@ -285,9 +238,8 @@
       <div class="service-body">
         <h3>Analyser, interpréter avec le terrain, décider</h3>
         <p>
-          Comparez les résultats dans le temps et entre des groupes suffisamment grands.
-          Formulez des hypothèses, confrontez-les aux managers et décidez d’une action proportionnée.
-          Fixez dès maintenant la date à laquelle vous mesurerez ce qui a changé.
+          Comparez dans le temps et entre des groupes suffisamment grands, confrontez vos hypothèses aux managers,
+          décidez d’une action proportionnée et fixez dès maintenant la date à laquelle vous mesurerez son effet.
         </p>
       </div>
       <div class="service-accent">◈</div>
@@ -307,8 +259,7 @@
   <h2 class="section-title">Quels indicateurs RH suivre<br><em>en premier dans une PME ?</em></h2>
 
   <p>
-    Commencez par quelques indicateurs associés à une décision réelle.
-    Le tableau ci-dessous relie chaque indicateur à la question qu’il éclaire. Les formules de calcul, seuils et exemples sont détaillés dans le
+    Commencez par quelques indicateurs associés à une décision réelle. Formules, seuils et exemples sont détaillés dans le
     <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">guide des indicateurs RH pour PME</a>.
   </p>
 
@@ -323,85 +274,65 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Effectif et ETP</td>
-          <td>Quelle est la taille réelle des équipes ?</td>
-          <td>Paie, DSN</td>
-        </tr>
-        <tr>
-          <td>Taux de turnover</td>
-          <td>Où et quand les départs se concentrent-ils ?</td>
-          <td>SIRH, DSN</td>
-        </tr>
-        <tr>
-          <td>Taux d’absentéisme</td>
-          <td>Où l’absence désorganise-t-elle le plus ?</td>
-          <td>Gestion des temps, paie</td>
-        </tr>
-        <tr>
-          <td>Masse salariale</td>
-          <td>D’où vient la hausse : effectifs, salaires ou structure ?</td>
-          <td>Paie</td>
-        </tr>
-        <tr>
-          <td>Délai de recrutement</td>
-          <td>Quelle étape ralentit les recrutements ?</td>
-          <td>Outil de recrutement, SIRH</td>
-        </tr>
-        <tr>
-          <td>Index égalité professionnelle (dès 50 salariés)</td>
-          <td>Où sont les écarts de rémunération femmes-hommes ?</td>
-          <td>Paie, SIRH</td>
-        </tr>
+        <tr><td>Effectif et ETP</td><td>Quelle est la taille réelle des équipes ?</td><td>Paie, DSN</td></tr>
+        <tr><td>Taux de turnover</td><td>Où et quand les départs se concentrent-ils ?</td><td>SIRH, DSN</td></tr>
+        <tr><td>Taux d’absentéisme</td><td>Où l’absence désorganise-t-elle le plus ?</td><td>Gestion des temps, paie</td></tr>
+        <tr><td>Masse salariale</td><td>D’où vient la hausse : effectifs, salaires ou structure ?</td><td>Paie</td></tr>
+        <tr><td>Délai de recrutement</td><td>Quelle étape ralentit les recrutements ?</td><td>Outil de recrutement, SIRH</td></tr>
+        <tr><td>Index égalité professionnelle (dès 50 salariés)*</td><td>Où sont les écarts de rémunération femmes-hommes ?</td><td>Paie, SIRH</td></tr>
       </tbody>
     </table>
   </div>
 
+  <p style="font-size:.9rem;opacity:.8;">
+    * Réforme en cours : le projet de loi de transposition de la directive européenne sur la transparence des rémunérations,
+    déposé au Sénat le 10 septembre 2026, prévoit de remplacer l’index par sept indicateurs. Tant qu’il n’est pas adopté,
+    l’index actuel reste dû.
+  </p>
+
   <div class="cards">
     <div class="card">
       <div class="card-icon">↗</div>
-      <h3><a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline" style="color:inherit;">Absentéisme</a></h3>
-      <p>Suivez son évolution selon une définition stable, puis examinez les contextes de travail et les périodes concernés. Un taux ne prouve pas à lui seul la cause d’une absence.</p>
+      <h3><a href="https://competencesrh.fr/blog/absenteeisme-2026-chiffres-enjeux-rh.html" class="link-white-underline">Absentéisme</a></h3>
+      <p>Suivez-le selon une définition stable, puis examinez les contextes et périodes concernés. Un taux ne prouve pas la cause d’une absence.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">⟳</div>
-      <h3><a href="https://competencesrh.fr/turnover.html" class="link-white-underline" style="color:inherit;">Turnover</a></h3>
-      <p>Définissez les départs inclus dans le calcul et observez les écarts par métier, ancienneté ou période, en évitant les conclusions sur de petits effectifs.</p>
+      <h3><a href="https://competencesrh.fr/turnover.html" class="link-white-underline">Turnover</a></h3>
+      <p>Définissez les départs inclus et observez les écarts par métier, ancienneté ou période, sans conclure sur de petits effectifs.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">∑</div>
-      <h3><a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="link-white-underline" style="color:inherit;">Masse salariale</a></h3>
+      <h3><a href="https://competencesrh.fr/analyse-donnees-rh/pilotage-masse-salariale.html" class="link-white-underline">Masse salariale</a></h3>
       <p>
-        Décomposez son évolution entre effet effectif, effet salaires et changements de périmètre, et mesurez aussi son
-        <a href="https://competencesrh.fr/analyse-donnees-rh/impact-conges-tresorerie.html" class="link-white-underline">impact des congés sur la trésorerie</a>.
-        Complétez cette lecture par les enjeux d’<a href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" class="link-white-underline">équité salariale</a>
-        et l’index égalité professionnelle.
+        Décomposez son évolution (effectif, salaires, périmètre) et mesurez l’<a href="https://competencesrh.fr/analyse-donnees-rh/impact-conges-tresorerie.html" class="link-white-underline">impact des congés sur la trésorerie</a>.
+        Complétez par les enjeux d’<a href="https://competencesrh.fr/analyse-donnees-rh/equite-salariale.html" class="link-white-underline">équité salariale</a>.
       </p>
     </div>
 
     <div class="card">
       <div class="card-icon">⧖</div>
-      <h3><a href="https://competencesrh.fr/automatisation/processus-rh-recrutement.html" class="link-white-underline" style="color:inherit;">Recrutement</a></h3>
-      <p>Le délai de recrutement, le coût par embauche et les étapes du processus aident à repérer les points de blocage, si les dates et les règles de calcul sont cohérentes.</p>
+      <h3><a href="https://competencesrh.fr/automatisation/processus-rh-recrutement.html" class="link-white-underline">Recrutement</a></h3>
+      <p>Délai, coût par embauche et étapes du processus révèlent les points de blocage, si les dates et les règles de calcul sont cohérentes.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">◎</div>
       <h3>Effectifs et ancienneté</h3>
-      <p>Ces données décrivent la structure des équipes et éclairent les questions de compétences, de mobilité et de renouvellement des effectifs.</p>
+      <p>Ils décrivent la structure des équipes et éclairent compétences, mobilité et renouvellement des effectifs.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">▤</div>
       <h3>Formation et compétences</h3>
-      <p>Reliez les actions de développement aux besoins métiers et aux parcours, sans confondre participation à une formation et acquisition effective d’une compétence.</p>
+      <p>Reliez les actions aux besoins métiers, sans confondre participation à une formation et compétence acquise.</p>
     </div>
   </div>
 
   <p>
-    Pour construire une restitution lisible et actionnable, découvrez le guide sur le
+    Pour une restitution lisible, voir le guide du
     <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-rh.html" class="link-white-underline">tableau de bord RH</a>
     et les principes de
     <a href="https://competencesrh.fr/analyse-donnees-rh/dataviz.html" class="link-white-underline">datavisualisation RH</a>.
@@ -413,16 +344,13 @@
   <div class="section-label">// 05</div>
   <h2 class="section-title">Exemple : analyser le turnover<br><em>d’une PME de 150 salariés</em></h2>
 
-  <p>Un même indicateur peut conduire à des décisions très différentes selon la façon dont on l’analyse.</p>
-
-  <!-- Cas illustratif. À remplacer par un cas client réel anonymisé dès que possible. -->
   <div class="case-box">
     <div class="case-tag">Exemple illustratif · données fictives</div>
     <ol>
-      <li><strong>Constat.</strong> Le taux de turnover annuel atteint 18 %. La direction envisage une hausse générale des salaires.</li>
-      <li><strong>Analyse.</strong> Les départs sont ventilés par métier, site et ancienneté. Ils se concentrent sur les préparateurs de commandes d’un site, dans les six premiers mois après l’embauche.</li>
-      <li><strong>Interprétation avec le terrain.</strong> Les entretiens de sortie et les managers pointent un accueil inexistant et des horaires annoncés différemment au recrutement.</li>
-      <li><strong>Décision.</strong> Plutôt qu’une hausse générale, un parcours d’intégration est mis en place sur ce site et les offres d’emploi sont corrigées.</li>
+      <li><strong>Constat.</strong> Le turnover annuel atteint 18 %. La direction envisage une hausse générale des salaires.</li>
+      <li><strong>Analyse.</strong> Ventilés par métier, site et ancienneté, les départs se concentrent sur les préparateurs de commandes d’un site, dans les six premiers mois.</li>
+      <li><strong>Interprétation avec le terrain.</strong> Entretiens de sortie et managers pointent un accueil inexistant et des horaires annoncés différemment au recrutement.</li>
+      <li><strong>Décision.</strong> Un parcours d’intégration est mis en place sur ce site et les offres d’emploi sont corrigées, plutôt qu’une hausse générale.</li>
       <li><strong>Mesure.</strong> L’indicateur suivi devient le taux de départ avant six mois d’ancienneté sur ce site, revu à six mois.</li>
     </ol>
   </div>
@@ -446,8 +374,7 @@
   </div>
 
   <p>
-    Cette démarche ne démontre pas automatiquement une causalité. Elle permet de construire des hypothèses, de les confronter aux acteurs concernés
-    et de décider quelles investigations ou actions sont utiles.
+    Cette démarche ne démontre pas une causalité : elle construit des hypothèses à confronter aux acteurs concernés.
     Une <a href="https://competencesrh.fr/analyse-donnees-rh/analyse-diagnostique-rh.html" class="link-white-underline">analyse diagnostique RH</a>
     va plus loin que le simple constat. Découvrez aussi des
     <a href="https://competencesrh.fr/realisations.html" class="link-white-underline">cas réels d’analyse de données RH en PME et ETI</a>.
@@ -460,9 +387,7 @@
   <h2 class="section-title">Avec quels outils<br><em>analyser ses données RH ?</em></h2>
 
   <p>
-    Le bon outil est celui qui répond au besoin avec un niveau de complexité maîtrisable.
-    Une analyse peut commencer avec un tableur bien structuré ; un environnement plus avancé devient pertinent quand les sources,
-    les mises à jour ou les analyses le justifient.
+    Le bon outil est celui qui répond au besoin avec une complexité maîtrisable. Une analyse peut commencer avec un tableur bien structuré.
   </p>
 
   <div class="table-wrap">
@@ -477,252 +402,157 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Nombre de sources</td>
-          <td>1 à 3 exports</td>
-          <td>Plusieurs sources reliées</td>
-          <td>Sans limite pratique</td>
-        </tr>
-        <tr>
-          <td>Mise à jour</td>
-          <td>Semi-automatique (actualisation des requêtes)</td>
-          <td>Automatisable, rapports partagés</td>
-          <td>Entièrement scriptée et reproductible</td>
-        </tr>
-        <tr>
-          <td>Compétences requises</td>
-          <td>Bureautique avancée</td>
-          <td>Modélisation de données, DAX</td>
-          <td>Programmation</td>
-        </tr>
-        <tr>
-          <td>Cas typique en PME</td>
-          <td>Premier tableau de bord RH, indicateurs mensuels</td>
-          <td>Tableau de bord partagé avec la direction et les managers</td>
-          <td>Analyses statistiques, contrôles de qualité, modèles prédictifs</td>
-        </tr>
+        <tr><td>Nombre de sources</td><td>1 à 3 exports</td><td>Plusieurs sources reliées</td><td>Sans limite pratique</td></tr>
+        <tr><td>Mise à jour</td><td>Semi-automatique (actualisation des requêtes)</td><td>Automatisable, rapports partagés</td><td>Entièrement scriptée et reproductible</td></tr>
+        <tr><td>Compétences requises</td><td>Bureautique avancée</td><td>Modélisation de données, DAX</td><td>Programmation</td></tr>
+        <tr><td>Cas typique en PME</td><td>Premier tableau de bord RH, indicateurs mensuels</td><td>Tableau de bord partagé avec la direction et les managers</td><td>Analyses statistiques, contrôles de qualité, modèles prédictifs</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="services-list">
-    <div class="service-item">
-      <div class="service-num">A</div>
-      <div class="service-body">
-        <h3>Excel et Power Query</h3>
-        <p>
-          Adaptés à des analyses et mises à jour simples, à condition de maîtriser les versions, les définitions et les contrôles de qualité.
-          Voir le guide <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel et Power Query pour un tableau de bord RH</a>.
-        </p>
-      </div>
-      <div class="service-accent">◫</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">B</div>
-      <div class="service-body">
-        <h3>Power BI</h3>
-        <p>
-          Utile pour construire des rapports interactifs et relier plusieurs sources lorsque le modèle de données et les règles de calcul sont correctement définis.
-          En savoir plus sur le <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">tableau de bord RH avec Power BI</a>.
-        </p>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">C</div>
-      <div class="service-body">
-        <h3>Python et SQL</h3>
-        <p>
-          Ils facilitent le traitement reproductible, les contrôles et les analyses plus spécifiques.
-          Ils demandent une méthode, une documentation et des compétences adaptées.
-          Découvrez <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-python.html" class="link-white-underline">Python pour l’analyse RH</a>,
-          ainsi que la <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-white-underline">modélisation des données RH</a>.
-        </p>
-      </div>
-      <div class="service-accent">⬡</div>
-    </div>
-  </div>
+  <p>
+    Guides détaillés :
+    <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel et Power Query pour un tableau de bord RH</a>,
+    <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-power-bi.html" class="link-white-underline">tableau de bord RH avec Power BI</a>,
+    <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-python.html" class="link-white-underline">Python pour l’analyse RH</a>
+    et <a href="https://competencesrh.fr/modelisation-donnees-rh.html" class="link-white-underline">modélisation des données RH</a>.
+    Quel que soit l’outil, maîtrisez les versions, les définitions et les contrôles de qualité.
+  </p>
 </section>
 
-<!-- 07 · IA -->
+<!-- 07 · IA ET CONFORMITÉ -->
 <section class="section fade-in">
   <div class="section-label">// 07</div>
   <h2 class="section-title">Analyser ses données RH avec l’IA :<br><em>usages utiles et limites</em></h2>
 
   <p>
-    L’IA est un moyen, pas le point de départ. Elle peut contribuer à certaines analyses lorsque la question, les données et les conditions d’usage sont adaptées,
-    mais ne remplace ni la qualité des données, ni la connaissance du travail réel, ni la validation humaine.
-    Pour une vue d’ensemble des <a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">usages de l’IA en RH dans une PME</a>, consultez le guide dédié.
+    L’IA est un moyen, pas le point de départ. Elle ne remplace ni la qualité des données, ni la connaissance du travail réel, ni la validation humaine.
+    Vue d’ensemble : <a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">usages de l’IA en RH dans une PME</a>.
   </p>
 
-  <h3>Ce que l’IA apporte vraiment à une PME</h3>
   <ul style="line-height:1.9;">
     <li><strong>Aider à produire l’analyse</strong> : écrire une formule Excel, une requête Power Query ou un script Python.</li>
-    <li><strong>Traiter du texte</strong> : regrouper par thème les commentaires d’une enquête d’engagement ou des entretiens de sortie.</li>
-    <li><strong>Repérer des anomalies</strong> : doublons, dates incohérentes, valeurs aberrantes dans les exports.</li>
+    <li><strong>Traiter du texte</strong> : regrouper par thème les commentaires d’une enquête ou des entretiens de sortie.</li>
+    <li><strong>Repérer des anomalies</strong> : doublons, dates incohérentes, valeurs aberrantes.</li>
     <li><strong>Estimer un risque</strong> : un modèle prédictif peut signaler des populations exposées, si l’historique est suffisant et testé.</li>
   </ul>
 
   <p>
-    Pour une analyse prédictive, il faut définir ce que l’on cherche à estimer, vérifier la qualité et la représentativité des données,
-    tester les résultats sur des données distinctes et examiner les erreurs. Une probabilité issue d’un modèle n’est ni une certitude ni une explication
-    de la situation d’une personne. La page dédiée à l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive RH</a>
-    approfondit cette approche. Pour comprendre les différentes familles d’analyse, consultez aussi l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-descriptive-rh.html" class="link-white-underline">analyse descriptive</a>,
+    Une probabilité issue d’un modèle n’est ni une certitude ni une explication de la situation d’une personne :
+    il faut tester les résultats sur des données distinctes et examiner les erreurs. Voir l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive RH</a>,
+    l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-descriptive-rh.html" class="link-white-underline">analyse descriptive</a>,
     l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-inferentielle-rh.html" class="link-white-underline">analyse inférentielle</a>
     et les <a href="https://competencesrh.fr/analyse-donnees-rh/statistiques-descriptives-rh.html" class="link-white-underline">statistiques descriptives RH</a>.
   </p>
 
-  <h3>RGPD, AI Act, CSE : les conditions d’un usage conforme</h3>
+  <h3>RGPD, CSE, AI Act : les conditions d’un usage conforme</h3>
+  <ul style="line-height:1.9;">
+    <li>
+      <strong>RGPD.</strong> Finalité définie, données limitées au nécessaire, salariés informés, accès restreints, durée de conservation fixée.
+      Ne collez jamais de données nominatives dans un outil d’IA grand public. Les absences appellent une vigilance particulière :
+      certaines catégories peuvent révéler des informations de santé.
+    </li>
+    <li>
+      <strong>Profilage.</strong> Un modèle qui attribue un score à chaque salarié constitue un profilage RH :
+      une analyse d’impact (AIPD) est requise avant sa mise en œuvre.
+    </li>
+    <li>
+      <strong>CSE (dès 50 salariés).</strong> Il est informé avant l’introduction de traitements automatisés de gestion du personnel,
+      et informé et consulté avant la mise en œuvre de moyens de contrôle de l’activité des salariés (article L2312-38 du Code du travail).
+    </li>
+    <li>
+      <strong>AI Act.</strong> Certains systèmes d’IA utilisés pour recruter, évaluer ou décider de la carrière des salariés sont classés
+      à haut risque ; d’autres pratiques, comme la reconnaissance des émotions au travail, sont interdites. Voir la fiche
+      <a href="https://competencesrh.fr/conformite/ai-act-conformite-pme.html" class="link-white-underline">IA RH à haut risque</a>.
+    </li>
+  </ul>
   <p>
-    Les usages impliquant des données de salariés exigent un examen de la finalité, des accès, de la minimisation, de la transparence et des risques.
-    Ne collez jamais de données nominatives dans un outil d’IA grand public. Un outil permettant de contrôler l’activité des salariés implique d’informer et de consulter le CSE.
-    Le cadre applicable dépend du dispositif concret ; faites valider le projet par les interlocuteurs compétents.
-    Consultez les ressources sur le
-    <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>
+    Consultez aussi le <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>
     et les <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-white-underline">limites du People Analytics</a>.
   </p>
 </section>
 
-<!-- 08 · RÉSULTATS ATTENDUS -->
+<!-- 08 · LIVRABLES ET LIMITES -->
 <section class="section fade-in">
   <div class="section-label">// 08</div>
-  <h2 class="section-title">Ce qu’une démarche d’analyse RH<br><em>produit concrètement</em></h2>
-
-  <p>Une analyse de données RH bien menée laisse des livrables que vos équipes peuvent réutiliser sans dépendre d’un prestataire :</p>
+  <h2 class="section-title">Ce que l’analyse produit,<br><em>et ce qu’elle ne prouve pas</em></h2>
 
   <div class="cards">
     <div class="card">
       <div class="card-icon">▦</div>
       <h3>Un dictionnaire d’indicateurs</h3>
-      <p>Chaque indicateur a une définition, une formule, un périmètre, une source et un responsable. Les chiffres cessent d’être contestés en comité.</p>
+      <p>Définition, formule, périmètre, source et responsable pour chaque indicateur : les chiffres cessent d’être contestés en comité.</p>
     </div>
     <div class="card">
       <div class="card-icon">⇄</div>
-      <h3>Une base consolidée et fiabilisée</h3>
-      <p>Paie, SIRH et absences sont rapprochés selon des règles écrites, avec des contrôles de qualité à chaque mise à jour.</p>
+      <h3>Une base consolidée</h3>
+      <p>Paie, SIRH et absences rapprochés selon des règles écrites, avec des contrôles à chaque mise à jour.</p>
     </div>
     <div class="card">
       <div class="card-icon">◧</div>
       <h3>Un tableau de bord utilisé</h3>
-      <p>Quelques indicateurs, reliés à des décisions, lisibles par la direction et les managers, actualisés sans ressaisie.</p>
+      <p>Quelques indicateurs reliés à des décisions, lisibles par la direction et les managers, actualisés sans ressaisie.</p>
     </div>
     <div class="card">
       <div class="card-icon">✎</div>
-      <h3>Une note d’analyse et un plan d’action</h3>
-      <p>Les constats, leurs limites, les hypothèses vérifiées avec le terrain et les actions retenues, avec la date de leur évaluation.</p>
+      <h3>Une note d’analyse</h3>
+      <p>Constats, limites, hypothèses vérifiées avec le terrain et actions retenues, avec la date de leur évaluation.</p>
     </div>
   </div>
-</section>
-
-<!-- 09 · LIMITES ET CONDITIONS DE RÉUSSITE -->
-<section class="section fade-in">
-  <div class="section-label">// 09</div>
-  <h2 class="section-title">Limites et conditions<br><em>de réussite</em></h2>
 
   <h3>Trois erreurs fréquentes</h3>
   <div class="process-steps">
     <div class="process-step">
       <span class="step-num">01</span>
-      <h3>Comparer des chiffres incomparables</h3>
-      <p>Une définition qui change, une période incomplète ou un périmètre différent peut rendre une comparaison trompeuse. Documentez les règles avant de commenter l’évolution.</p>
+      <h3>Comparer l’incomparable</h3>
+      <p>Une définition qui change, une période incomplète ou un périmètre différent rend une comparaison trompeuse.</p>
     </div>
-
     <div class="process-arrow">→</div>
-
     <div class="process-step">
       <span class="step-num">02</span>
-      <h3>Présenter une corrélation comme une cause</h3>
-      <p>Deux phénomènes qui évoluent ensemble ne prouvent pas que l’un provoque l’autre. Les analyses orientent l’enquête ; elles ne dispensent pas de vérifier le contexte et les explications alternatives.</p>
+      <h3>Confondre corrélation et cause</h3>
+      <p>Deux phénomènes qui évoluent ensemble ne prouvent pas que l’un provoque l’autre.</p>
     </div>
-
     <div class="process-arrow">→</div>
-
     <div class="process-step">
       <span class="step-num">03</span>
       <h3>Mesurer sans décider</h3>
-      <p>Un indicateur ne crée pas de valeur par sa seule présence. Associez à chaque mesure une question, un responsable de suivi et une décision possible.</p>
+      <p>Associez à chaque mesure une question, un responsable de suivi et une décision possible.</p>
     </div>
   </div>
 
   <p>
-    Pour approfondir les erreurs fréquentes, consultez le guide sur les
+    Voir le guide sur les
     <a href="https://competencesrh.fr/analyse-donnees-rh/erreurs-analyse-rh.html" class="link-white-underline">erreurs d’analyse RH</a>.
   </p>
 
-  <div style="padding:2.5rem;margin-top:2.5rem;background:linear-gradient(135deg,#fff8e7,#fff4d6);border-radius:12px;border-left:4px solid #f4a261;color:#2b2b2b;">
-    <h3 style="margin:0 0 1rem;font-family:var(--font-head);font-size:1.2rem;">Ce que l’analyse RH ne peut pas prouver</h3>
-    <ul style="line-height:1.9;font-size:.95rem;">
+  <div class="limits-box">
+    <h3>Ce que l’analyse RH ne peut pas prouver</h3>
+    <ul>
       <li>Un indicateur ne révèle pas à lui seul la cause d’une situation.</li>
-      <li>Un modèle ne prédit pas avec certitude les décisions individuelles ni les événements futurs.</li>
+      <li>Un modèle ne prédit pas avec certitude les décisions individuelles.</li>
       <li>Des données historiques peuvent refléter des pratiques passées et leurs biais.</li>
-      <li>Une analyse ne remplace ni le dialogue avec les équipes ni le jugement professionnel.</li>
-      <li>La pseudonymisation n’est pas l’anonymisation ; les règles de protection des données s’examinent selon le traitement envisagé.</li>
+      <li>La pseudonymisation n’est pas l’anonymisation : des données pseudonymisées restent des données personnelles.</li>
     </ul>
-    <p style="margin-top:1rem;">
-      Le People Analytics reste un outil d’aide à la décision, pas un décideur.
-      Les <a href="https://competencesrh.fr/data-rh/people-analytics-limites.html" class="link-white-underline">limites du People Analytics</a>
-      méritent d’être intégrées dès le cadrage.
-    </p>
   </div>
 </section>
 
-<!-- 10 · ACCOMPAGNEMENT -->
+<!-- 09 · ACCOMPAGNEMENT -->
 <section class="section fade-in">
-  <div class="section-label">// 10</div>
+  <div class="section-label">// 09</div>
   <h2 class="section-title">Être accompagné :<br><em>diagnostic de vos données RH</em></h2>
 
   <p>
-    Une petite structure peut commencer par clarifier quelques indicateurs et fiabiliser ses fichiers.
-    Une organisation disposant de plusieurs sources peut avoir besoin de règles de gestion partagées, d’un modèle de données et d’une restitution automatisée.
-    La taille ne suffit pas à déterminer la solution : les enjeux, les données disponibles et les utilisateurs comptent aussi.
+    Une petite structure peut commencer par clarifier quelques indicateurs et fiabiliser ses fichiers ; une organisation aux sources multiples
+    peut avoir besoin d’un modèle de données et d’une restitution automatisée. L’accompagnement suit les quatre étapes de la méthode,
+    sur un premier périmètre limité et vérifiable, avec une double compétence RH et data.
   </p>
 
-  <div class="services-list">
-    <div class="service-item">
-      <div class="service-num">10.01</div>
-      <div class="service-body">
-        <h3>Cadrer la demande</h3>
-        <p>Identifier la décision à soutenir, les personnes impliquées et les résultats attendus.</p>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">10.02</div>
-      <div class="service-body">
-        <h3>Évaluer les sources et les règles</h3>
-        <p>Examiner la disponibilité, la qualité, les définitions et les contraintes de traitement des données.</p>
-      </div>
-      <div class="service-accent">◉</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">10.03</div>
-      <div class="service-body">
-        <h3>Construire une première analyse utile</h3>
-        <p>Privilégier un périmètre limité, explicable et vérifiable plutôt qu’un dispositif complexe sans usage établi.</p>
-      </div>
-      <div class="service-accent">⬡</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-num">10.04</div>
-      <div class="service-body">
-        <h3>Transmettre et faire évoluer</h3>
-        <p>Documenter les indicateurs, expliquer les limites et permettre aux équipes de s’approprier la restitution.</p>
-      </div>
-      <div class="service-accent">◈</div>
-    </div>
-  </div>
-
   <p>
-    Cette approche repose sur une double compétence RH et data : comprendre les processus métier, puis choisir les méthodes et outils adaptés.
-    Le <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">diagnostic de vos données RH</a> en détaille le contenu et les tarifs.
-    Pour en savoir plus, consultez aussi la
-    <a href="https://competencesrh.fr/methodologie.html" class="link-white-underline">méthodologie d’accompagnement</a>,
-    les pages <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python appliqué aux RH</a>
+    Les offres (diagnostic, tableau de bord, analyse du turnover) sont présentées sur la page
+    <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">Data RH en PME</a>.
+    Voir aussi la <a href="https://competencesrh.fr/methodologie.html" class="link-white-underline">méthodologie d’accompagnement</a>,
+    <a href="https://competencesrh.fr/ia/python-rh.html" class="link-white-underline">Python appliqué aux RH</a>
     et <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">RAG et recherche sémantique</a>.
   </p>
 </section>
@@ -733,114 +563,87 @@
   <h2 class="section-title">Questions fréquentes sur<br><em>l’analyse de données RH</em></h2>
 
   <div class="faq-container" style="max-width:800px;margin-top:2rem;">
-    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
-      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Comment analyser les données RH d’une PME ?</summary>
-      <p style="margin-top:1rem;">
-        Partez d’une question de gestion précise, par exemple « dans quels métiers les départs augmentent-ils ? ».
-        Rassemblez ensuite les données utiles (paie, SIRH, absences, DSN), vérifiez leurs définitions et leurs trous, calculez quelques indicateurs documentés,
-        puis confrontez les résultats aux managers avant de décider. Prévoyez enfin une date pour mesurer l’effet de l’action.
-      </p>
+    <details class="faq-item">
+      <summary>Comment analyser les données RH d’une PME ?</summary>
       <p>
-        Pour distinguer le suivi périodique de l’analyse, voir
+        Partez d’une question précise, rassemblez les données utiles, vérifiez leurs définitions, calculez quelques indicateurs documentés
+        et confrontez les résultats aux managers avant de décider. Voir
         <a href="https://competencesrh.fr/analyse-donnees-rh/reporting-vs-analyse-avancee.html" class="link-white-underline">reporting RH et analyse avancée</a>.
       </p>
     </details>
 
-    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
-      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Quels indicateurs RH suivre en priorité dans une PME ?</summary>
-      <p style="margin-top:1rem;">
-        Ceux qui répondent à une décision en cours. Le socle courant comprend l’effectif et les ETP, le taux de turnover, le taux d’absentéisme,
-        l’évolution de la masse salariale et le délai de recrutement. Dès 50 salariés, l’index égalité professionnelle s’ajoute.
-        Mieux vaut cinq indicateurs fiables et commentés que trente indicateurs que personne ne lit.
-      </p>
+    <details class="faq-item">
+      <summary>Quels indicateurs RH suivre en priorité ?</summary>
       <p>
-        Voir le guide des <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">indicateurs RH</a>.
+        Ceux qui répondent à une décision en cours : effectif et ETP, turnover, absentéisme, masse salariale, délai de recrutement,
+        et l’index égalité dès 50 salariés. Voir le guide des <a href="https://competencesrh.fr/analyse-donnees-rh/indicateurs-rh.html" class="link-white-underline">indicateurs RH</a>.
       </p>
     </details>
 
-    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
-      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Peut-on analyser ses données RH avec Excel ?</summary>
-      <p style="margin-top:1rem;">
-        Oui. Excel, associé à Power Query, suffit pour la plupart des analyses d’une PME : consolidation des exports, calculs d’indicateurs, tableaux croisés.
-        Ses limites apparaissent quand les sources se multiplient, que la mise à jour devient manuelle et risquée ou que plusieurs personnes doivent consulter un tableau de bord.
-        Power BI ou Python prennent alors le relais.
-      </p>
+    <details class="faq-item">
+      <summary>Peut-on analyser ses données RH avec Excel ?</summary>
       <p>
-        Pour une approche tableur, consultez le guide
+        Oui. Excel et Power Query suffisent pour la plupart des analyses d’une PME. Power BI ou Python prennent le relais quand les sources
+        se multiplient ou que plusieurs personnes consultent le tableau de bord. Voir
         <a href="https://competencesrh.fr/analyse-donnees-rh/tableau-de-bord-excel-powerquery.html" class="link-white-underline">Excel et Power Query</a>.
       </p>
     </details>
 
-    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
-      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Peut-on utiliser l’IA ou ChatGPT pour analyser des données RH ?</summary>
-      <p style="margin-top:1rem;">
-        Oui, pour des usages précis : aider à écrire des formules, résumer des commentaires d’enquête, repérer des anomalies ou tester un modèle prédictif.
-        Ne collez jamais de données nominatives dans un outil grand public. Travaillez sur des données agrégées ou pseudonymisées,
-        dans un outil encadré contractuellement, et faites valider chaque résultat par un humain.
-      </p>
+    <details class="faq-item">
+      <summary>Peut-on utiliser l’IA ou ChatGPT pour analyser des données RH ?</summary>
       <p>
-        Pour les usages prédictifs, consultez la page sur l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive RH</a>.
+        Pour des usages précis, oui. Travaillez sur des données agrégées dans un outil encadré contractuellement, jamais avec des données nominatives
+        dans un outil grand public, et faites valider chaque résultat. Voir l’<a href="https://competencesrh.fr/analyse-donnees-rh/analyse-predictive-rh.html" class="link-white-underline">analyse prédictive RH</a>.
       </p>
     </details>
 
-    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
-      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Quelles données RH peut-on analyser sans enfreindre le RGPD ?</summary>
-      <p style="margin-top:1rem;">
-        Toutes celles qui servent une finalité définie et proportionnée : pilotage des effectifs, absentéisme, rémunérations, par exemple.
-        Le RGPD impose surtout de limiter les données au nécessaire, d’informer les salariés, de restreindre les accès et de fixer une durée de conservation.
-        Un outil qui permet de contrôler l’activité des salariés implique en plus d’informer et de consulter le CSE.
-      </p>
+    <details class="faq-item">
+      <summary>Quelles données RH peut-on analyser au regard du RGPD ?</summary>
       <p>
-        Consultez la page dédiée au
+        Celles qui sont nécessaires à une finalité définie et proportionnée, avec une information des salariés, des accès restreints et une durée
+        de conservation fixée. Les données d’absence et le profilage individuel demandent un examen renforcé. Voir le
         <a href="https://competencesrh.fr/conformite/rgpd-donnees-salaries.html" class="link-white-underline">RGPD des données salariés</a>.
       </p>
     </details>
 
-    <details style="margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:1rem;">
-      <summary style="font-weight:700;cursor:pointer;font-family:'Syne';">Combien coûte et combien de temps dure un projet ?</summary>
-      <p style="margin-top:1rem;">
-        Le budget et le délai dépendent du nombre de sources, de leur qualité, du périmètre, des livrables et du niveau d’automatisation.
-        Un premier échange de cadrage permet de les estimer à partir de vos données réelles plutôt que d’un tarif universel.
-      </p>
+    <details class="faq-item">
+      <summary>Combien coûte et combien de temps dure un projet ?</summary>
       <p>
-        Les offres et tarifs indicatifs sont détaillés sur la page
-        <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">Data RH décisionnelle</a>, ou
+        Cela dépend du nombre de sources, de leur qualité, du périmètre et du niveau d’automatisation. Un échange de cadrage permet de l’estimer
+        à partir de vos données réelles. Voir les offres sur la page
+        <a href="https://competencesrh.fr/data-rh.html" class="link-white-underline">Data RH en PME</a> ou
         <a href="https://competencesrh.fr/contact.html" class="link-white-underline">contactez CompétencesRH</a>.
       </p>
     </details>
   </div>
 </section>
 
-<!-- CTA PRINCIPAL -->
+<!-- CTA -->
 <section class="fade-in" style="max-width:900px;margin:0 auto 5rem;padding:0 2.5rem;">
   <div style="background:linear-gradient(135deg,var(--accent),#c9a227);color:white;padding:3rem 2.5rem;border-radius:16px;text-align:center;">
     <h2 style="font-family:var(--font-head);font-size:1.7rem;margin-bottom:1rem;">Faites le point sur vos données RH</h2>
     <p style="max-width:650px;margin:0 auto 1.5rem;line-height:1.7;">
-      En 45 minutes, nous clarifions votre question, nous identifions les données disponibles et nous vérifions si une analyse peut y répondre.
-      Échange gratuit, sans engagement ; vous repartez avec une première lecture de votre situation.
+      En 45 minutes, nous clarifions votre question, identifions les données disponibles et vérifions si une analyse peut y répondre.
+      Échange gratuit, sans engagement.
     </p>
-    <a href="https://competencesrh.fr/contact.html" class="btn-primary" style="background:white;color:var(--accent);font-weight:700;">Réserver un échange de cadrage →</a>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://competencesrh.fr/contact.html" class="btn-primary" style="background:white;color:var(--accent);font-weight:700;">Réserver un échange de cadrage →</a>
+      <a href="https://competencesrh.fr/realisations.html" class="btn-ghost" style="color:white;border-color:white;">Voir les réalisations</a>
+    </div>
+    <p style="max-width:650px;margin:1.5rem auto 0;font-size:.9rem;">
+      Voir aussi les <a href="https://competencesrh.fr/services.html" class="link-white-underline" style="color:white;">services</a>,
+      le <a href="https://competencesrh.fr/blog.html" class="link-white-underline" style="color:white;">blog RH, data et IA</a>
+      et l’<a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline" style="color:white;">IA appliquée aux RH</a>.
+    </p>
   </div>
 </section>
 
-<!-- POUR ALLER PLUS LOIN -->
-<section class="section fade-in" style="text-align:center;padding-bottom:3rem;">
-  <div class="section-label" style="justify-content:center;">// Pour aller plus loin</div>
-  <p style="max-width:650px;margin:0 auto 2rem;line-height:1.8;">
-    Retrouvez les <a href="https://competencesrh.fr/services.html" class="link-white-underline">services de CompétencesRH</a>,
-    les autres sujets du <a href="https://competencesrh.fr/blog.html" class="link-white-underline">blog RH, data et IA</a>,
-    ou les ressources consacrées à l’<a href="https://competencesrh.fr/ia-rh.html" class="link-white-underline">IA appliquée aux RH</a>.
-  </p>
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Contacter CompétencesRH →</a>
-    <a href="https://competencesrh.fr/realisations.html" class="btn-ghost">Voir les réalisations</a>
-  </div>
-</section>
+</main>
 
 <footer class="footer">
   <div class="footer-left">
     <div class="nav-logo">DATA<span>RH</span></div>
-    <p>L'intelligence RH par la donnée.</p>
+    <p>L’intelligence RH par la donnée.</p>
   </div>
 
   <div class="footer-links">
@@ -853,6 +656,7 @@
   <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
 </footer>
 
+<script src="https://competencesrh.fr/main.js"></script>
 <script>
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -863,7 +667,6 @@
         }
       });
     }, { threshold: 0.08 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
