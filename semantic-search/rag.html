@@ -1,57 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAG RH IA — CompétencesRH.fr</title>
-  <!-- Ton CSS existant -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RAG en RH : une IA qui répond à partir de vos documents | CompétencesRH</title>
+  <meta name="description" content="Le RAG (génération augmentée par la recherche) appliqué aux RH : fonctionnement en 4 étapes, différence avec un LLM seul, cas d'usage, limites RGPD et démo à tester." />
+  <link rel="canonical" href="https://competencesrh.fr/semantic-search/rag.html" />
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymacclcqrb");
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZT1R1H6RV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3ZT1R1H6RV');
+  </script>
+
+
+  <link rel="stylesheet" href="https://competencesrh.fr/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
   <style>
-    /* Iframe responsive */
-    .rag-container {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 75%; /* Ratio 4:3, adapte selon ton app */
-      margin: 20px 0;
-    }
-    .rag-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    @media (max-width: 768px) {
-      .rag-container { padding-bottom: 90%; } /* Plus haut sur mobile */
-    }
+    .rag-container{position:relative;width:100%;max-width:900px;height:0;padding-bottom:75%;margin:1.5rem 0;}
+    .rag-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:1px solid rgba(128,128,128,.35);border-radius:12px;}
+    @media (max-width:768px){.rag-container{padding-bottom:120%;}}
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "RAG en RH : une IA qui répond à partir de vos documents",
+        "inLanguage": "fr",
+        "mainEntityOfPage": "https://competencesrh.fr/semantic-search/rag.html",
+        "author": {"@type": "Organization", "name": "CompétencesRH", "url": "https://competencesrh.fr/"},
+        "publisher": {"@type": "Organization", "name": "CompétencesRH", "url": "https://competencesrh.fr/"},
+        "about": ["RAG", "Chatbot RH", "Recherche sémantique"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://competencesrh.fr/"},
+          {"@type": "ListItem", "position": 2, "name": "IA RH", "item": "https://competencesrh.fr/ia-rh.html"},
+          {"@type": "ListItem", "position": 3, "name": "Chatbot RH", "item": "https://competencesrh.fr/ia.html"},
+          {"@type": "ListItem", "position": 4, "name": "RAG", "item": "https://competencesrh.fr/semantic-search/rag.html"}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
+
 <body>
 
-  
-  <!-- Ton header/nav existant -->
-  
-  <section class="hero">
-    <h1>🤖 Assistant RAG RH IA</h1>
-    <p>Interrogation de documents RH (télétravail, RGPD, onboarding).</p>
+<nav class="nav">
+  <a class="nav-logo" href="https://competencesrh.fr/">DATA<span>RH</span></a>
+  <ul class="nav-links">
+    <li><a href="https://competencesrh.fr/">Accueil</a></li>
+    <li><a href="https://competencesrh.fr/services.html">Consultant data RH</a></li>
+    <li><a href="https://competencesrh.fr/data-rh.html">Data RH</a></li>
+    <li><a href="https://competencesrh.fr/automatisation.html">Automatisation</a></li>
+    <li><a href="https://competencesrh.fr/ia-rh.html" class="active" aria-current="page">IA RH</a></li>
+    <li><a href="https://competencesrh.fr/realisations.html">Réalisations</a></li>
+    <li><a href="https://competencesrh.fr/blog.html">Blog</a></li>
+  </ul>
+  <a href="https://competencesrh.fr/contact.html" class="nav-cta">Réserver un appel →</a>
+</nav>
+
+<header class="page-hero">
+  <div class="section-label">// IA RH · Chatbot RH · RAG</div>
+  <h1 class="page-title">RAG en RH :<br><em>une IA qui répond à partir de vos documents</em></h1>
+  <p class="page-sub">
+    Le RAG relie un modèle de langage à vos documents RH validés. L'assistant cherche d'abord les bons passages,
+    puis rédige sa réponse à partir de ces seuls passages, et dit qu'il ne sait pas quand l'information n'existe pas.
+  </p>
+  <div class="hero-actions">
+    <a href="#demo" class="btn-primary">Tester la démo →</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
+    <article class="blog-article">
+      <div class="section-label">// Définition</div>
+      <h2 class="article-title">Qu'est-ce que le RAG ?</h2>
+      <p class="article-text">
+        <strong>Le RAG (Retrieval-Augmented Generation, ou génération augmentée par la recherche) est une architecture qui oblige un modèle de langage à s'appuyer sur une base documentaire choisie avant de répondre.</strong>
+        Au lieu de puiser dans ses connaissances générales, l'outil répond à partir de votre règlement intérieur, de vos accords, de vos procédures.
+      </p>
+      <p class="article-text">
+        C'est l'architecture qui rend un <a href="https://competencesrh.fr/ia.html" class="link-white-underline">chatbot RH</a> fiable : sans elle, un <a href="https://competencesrh.fr/ia/llm-rh-fonctionnement.html" class="link-white-underline">modèle de langage (LLM)</a> peut inventer une règle plausible mais fausse.
+      </p>
+
+      <h3 class="article-subtitle">Comment fonctionne le RAG, en 4 étapes</h3>
+      <p class="article-text">
+        <strong>1. Indexer les documents.</strong> Chaque document est découpé en passages courts, puis chaque passage est converti en
+        <a href="https://competencesrh.fr/semantic-search/embeddings-rh.html" class="link-white-underline">embedding</a>, une représentation numérique de son sens, rangée dans une
+        <a href="https://competencesrh.fr/semantic-search/vector-database-rh.html" class="link-white-underline">base vectorielle</a>.
+      </p>
+      <p class="article-text">
+        <strong>2. Retrouver les bons passages.</strong> La question du salarié est convertie de la même façon, puis comparée aux passages indexés :
+        c'est la <a href="https://competencesrh.fr/semantic-search.html" class="link-white-underline">recherche sémantique</a>. Elle retrouve un passage par son sens, même si la question n'emploie pas les mêmes mots.
+      </p>
+      <p class="article-text">
+        <strong>3. Rédiger sous contrainte.</strong> Le modèle de langage reçoit la question et les seuls passages retrouvés, avec la consigne de ne répondre qu'à partir d'eux.
+      </p>
+      <p class="article-text">
+        <strong>4. Citer ou s'abstenir.</strong> La réponse indique les documents utilisés. Si aucun passage pertinent n'est trouvé, l'assistant le dit et oriente vers l'équipe RH.
+      </p>
+
+      <h3 class="article-subtitle">Pourquoi ne pas utiliser un modèle de langage seul</h3>
+      <p class="article-text">
+        Un modèle de langage seul ne connaît pas les règles de votre entreprise : vos accords, vos usages, vos délais. Il répond avec des généralités,
+        parfois fausses, et sans source vérifiable. Avec le RAG, la réponse est traçable, et la mettre à jour revient à mettre à jour le document, sans réentraîner le modèle.
+      </p>
+
+      <h3 class="article-subtitle">Cas d'usage en RH</h3>
+      <p class="article-text">
+        <strong>Questions des salariés</strong> : congés, mutuelle, télétravail, notes de frais, à partir des documents de référence.<br>
+        <strong>Base de connaissances de l'équipe RH</strong> : retrouver en quelques secondes une clause d'accord, une procédure, une décision passée.<br>
+        <strong>Accueil des nouveaux arrivants</strong> : un livret d'accueil qui répond aux questions des premières semaines.<br>
+        <strong>Référentiels de compétences</strong> : interroger des fiches de poste et des référentiels rédigés en langage naturel.
+      </p>
+
+      <h3 class="article-subtitle">Limites et conformité</h3>
+      <p class="article-text">
+        La qualité des réponses dépend de celle des documents : un document obsolète produit une réponse obsolète. Les droits d'accès doivent suivre
+        ceux des documents, pour qu'un salarié n'obtienne pas une information réservée. Les échanges peuvent contenir des données personnelles :
+        hébergement, durée de conservation et information des salariés sont à définir avant le déploiement, et l'utilisateur doit savoir qu'il échange avec une IA.
+        Ces points relèvent de la <a href="https://competencesrh.fr/conformite.html" class="link-white-underline">mise en conformité des outils IA RH</a>.
+      </p>
+    </article>
   </section>
 
-  <!-- L'iframe RAG -->
-  <section class="rag-section">
+  <section class="section" id="demo">
+    <div class="section-label">// Démo</div>
+    <h2 class="section-title">Testez un assistant RAG<br><em>sur des documents RH</em></h2>
+    <p style="max-width:700px;line-height:1.8;">
+      Cette démo interroge des documents RH d'exemple (télétravail, RGPD, onboarding). Elle ne connaît pas les règles de votre entreprise.
+      Le premier chargement peut prendre une trentaine de secondes, le temps que le service démarre. N'indiquez aucune donnée personnelle.
+    </p>
     <div class="rag-container">
-      <iframe 
-        src="https://rag-rh-3.onrender.com/" 
-        title="RAG RH Multi-Documents"
-        loading="lazy"
-        allowfullscreen>
-      </iframe>
+      <iframe src="https://rag-rh-3.onrender.com/" title="Démo d'assistant RAG sur des documents RH" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- Ton footer existant -->
-  
+</main>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <p class="cta-band-text">Un assistant RAG relié à vos propres documents ?</p>
+    <a href="https://competencesrh.fr/contact.html" class="btn-primary">Parlons de votre projet →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="nav-logo">DATA<span>RH</span></div>
+    <p>L'intelligence RH par la donnée.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://competencesrh.fr/">Accueil</a>
+    <a href="https://competencesrh.fr/services.html">Services</a>
+    <a href="https://competencesrh.fr/lexique.html">Lexique IA</a>
+    <a href="https://competencesrh.fr/contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 CompétencesRH. Tous droits réservés.</div>
+</footer>
+
 </body>
 </html>

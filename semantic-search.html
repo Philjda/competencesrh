@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Découvrez la puissance de la recherche sémantique RH combinée à l'IA hybride pour trier efficacement les candidatures et libérer le potentiel des recruteurs." />
-  <title>La Recherche Sémantique RH : Le Moteur de l'IA Hybride</title>
+  <meta name="description" content="Recherche sémantique en RH : définition, fonctionnement, différence avec un chatbot, cas d'usage (documents RH, compétences, tri des CV), limites et démo à tester." />
+  <title>Recherche sémantique RH : retrouver documents et CV par le sens | CompétencesRH</title>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -63,14 +63,186 @@
   </nav>
 
 <section class="page-hero">
-  <div class="section-label">// Outils</div>
-  <h1 class="page-title">Outils IA</h1>
-  <p class="page-sub">Découvrez la donnée RH avec Python…
-    <a href="https://semantic-search-aifnsgug5hnkzterkefg6s.streamlit.app" target="_blank" class="link-white-underline" >
-      Et testez notre outil de recherche sémantique 🔍 Essayer la démo
-    </a> 
+  <div class="section-label">// IA RH · Recherche sémantique</div>
+  <h1 class="page-title">Recherche sémantique RH :<br><em>retrouver un document ou un CV par le sens</em></h1>
+  <p class="page-sub">Un outil simple d'IA appliquée aux RH, sans chatbot : un moteur qui comprend le sens d'une question pour retrouver une procédure, une compétence ou un profil dans vos documents.
+    <a href="https://semantic-search-aifnsgug5hnkzterkefg6s.streamlit.app" target="_blank" class="link-white-underline">Tester la démo de recherche sémantique →</a>
   </p>
 </section>
+
+  <section class="section">
+
+    <article class="blog-article">
+
+      <h2 class="article-title">
+        Qu’est-ce que le semantic search en ressources humaines ?
+      </h2>
+
+      <p class="article-text">
+        Le semantic search, ou recherche sémantique, est une technologie d’intelligence artificielle qui permet de rechercher de l’information en fonction du sens d’une requête plutôt que des mots exacts utilisés.
+      </p>
+
+      <p class="article-text">
+        Dans un système classique, une recherche fonctionne par correspondance de mots-clés. Si un utilisateur tape “gestion du turnover”, le moteur cherche uniquement les documents contenant ces mots précis.
+      </p>
+
+      <p class="article-text">
+        Le semantic search, lui, cherche à comprendre l’intention derrière la requête. Il peut donc renvoyer des résultats liés à la rétention des talents, à l’engagement collaborateur ou aux causes de départ, même si ces termes ne sont pas explicitement présents.
+      </p>
+
+      <p class="article-text">
+        C’est une rupture importante dans la manière d’accéder à l’information RH, car les organisations disposent déjà de volumes massifs de données souvent mal exploitées : SIRH, entretiens annuels, fiches de poste, CV internes ou enquêtes d’engagement.
+      </p>
+
+      <h3 class="article-subtitle">
+        Comment fonctionne le semantic search ?
+      </h3>
+
+      <p class="article-text">
+        Le semantic search repose sur une technologie appelée embeddings.
+      </p>
+
+      <p class="article-text">
+        Chaque document est transformé en représentation mathématique (un vecteur) qui capture son sens global. De la même manière, une requête utilisateur est également transformée en vecteur.
+      </p>
+
+      <p class="article-text">
+        Ensuite, le système compare la proximité entre ces vecteurs. Plus deux vecteurs sont proches, plus les contenus sont sémantiquement similaires.
+      </p>
+
+      <p class="article-text">
+        Cela permet d’obtenir une recherche beaucoup plus intelligente, capable de comprendre les reformulations, les synonymes et le contexte métier.
+      </p>
+
+      <h3 class="article-subtitle">
+        Différence entre semantic search et chatbot IA
+      </h3>
+
+      <p class="article-text">
+        Il existe souvent une confusion entre chatbot IA et semantic search, alors qu’il s’agit de deux briques différentes mais complémentaires.
+      </p>
+
+      <p class="article-text">
+        Le <a href="https://competencesrh.fr/ia.html" class="link-white-underline">chatbot RH</a> est une interface conversationnelle. Il est conçu pour dialoguer avec un utilisateur, reformuler des réponses et générer du texte.
+      </p>
+
+      <p class="article-text">
+        Le semantic search, lui, est un moteur de recherche intelligent. Il ne “répond” pas, il retrouve les informations pertinentes dans une base de connaissances.
+      </p>
+
+      <p class="article-text">
+        Dans une architecture moderne (type <a href="https://competencesrh.fr/semantic-search/rag.html" class="link-white-underline">RAG</a>), le semantic search joue un rôle fondamental : il récupère les documents les plus pertinents, puis le chatbot utilise ces documents pour formuler une réponse.
+      </p>
+
+      <p class="article-text">
+        Sans semantic search, un chatbot peut manquer de précision ou halluciner des réponses. Sans chatbot, le semantic search reste puissant mais moins interactif.
+      </p>
+
+      <h3 class="article-subtitle">
+        Pourquoi le semantic search est essentiel en RH
+      </h3>
+
+      <p class="article-text">
+        Les ressources humaines sont l’un des domaines les plus riches en données non structurées.
+      </p>
+
+      <p class="article-text">
+        Une entreprise peut avoir des milliers de documents RH sans pouvoir les exploiter efficacement :
+      </p>
+
+      <ul class="article-text">
+        <li>CV internes et externes</li>
+        <li>fiches de poste</li>
+        <li>entretiens annuels</li>
+        <li>compétences métiers</li>
+        <li>rapports sociaux</li>
+      </ul>
+
+      <p class="article-text">
+        Dans ce contexte, le semantic search permet de transformer cette masse d’informations en un système de connaissance exploitable.
+      </p>
+
+      <h3 class="article-subtitle">
+        Cas d’usage concrets en RH
+      </h3>
+
+      <p class="article-text">
+        Le semantic search peut être utilisé dans plusieurs cas RH stratégiques :
+      </p>
+
+      <ul class="article-text">
+        <li>identifier des talents internes pour une mobilité</li>
+        <li>retrouver des profils similaires à un collaborateur performant</li>
+        <li>analyser les compétences disponibles dans l’organisation</li>
+        <li>améliorer le matching entre offres et candidats</li>
+        <li>centraliser la connaissance RH dispersée</li>
+      </ul>
+
+      <p class="article-text">
+        Par exemple, un DRH cherchant un “manager capable de piloter une transformation digitale” peut obtenir des résultats basés sur des expériences similaires, même si les mots exacts ne figurent pas dans les CV.
+      </p>
+
+      <h3 class="article-subtitle">
+        Impact sur la gestion des compétences
+      </h3>
+
+      <p class="article-text">
+        Le semantic search change profondément la gestion des compétences.
+      </p>
+
+      <p class="article-text">
+        Au lieu de se baser uniquement sur des référentiels statiques, les organisations peuvent analyser dynamiquement les compétences réelles présentes dans l’entreprise.
+      </p>
+
+      <p class="article-text">
+        Cela permet d’identifier des compétences cachées, souvent invisibles dans les systèmes traditionnels de gestion RH.
+      </p>
+
+      <h3 class="article-subtitle">
+        Lien avec le RAG et l’IA RH moderne
+      </h3>
+
+      <p class="article-text">
+        Le semantic search est la base technique des systèmes RAG (Retrieval Augmented Generation).
+      </p>
+
+      <p class="article-text">
+        Dans une architecture RAG :
+      </p>
+
+      <ul class="article-text">
+        <li>le semantic search récupère les documents pertinents</li>
+        <li>le modèle d’IA génère ensuite une réponse contextualisée</li>
+      </ul>
+
+      <p class="article-text">
+        Cette combinaison permet de créer des assistants RH capables de répondre à des questions complexes en s’appuyant sur les données internes de l’entreprise.
+      </p>
+
+      <h3 class="article-subtitle">
+        Limites et points de vigilance
+      </h3>
+
+      <p class="article-text">
+        Le semantic search n’est pas une solution magique.
+      </p>
+
+      <p class="article-text">
+        Il dépend fortement de la qualité des données disponibles. Des données mal structurées ou incomplètes réduisent la pertinence des résultats.
+      </p>
+
+      <p class="article-text">
+        Il nécessite également une gouvernance des données RH et une attention particulière au respect du RGPD, notamment lorsqu’il s’agit de données sensibles liées aux collaborateurs.
+      </p>
+
+      <p class="article-text">
+        Le premier usage où cette technologie change le quotidien des RH est le tri des candidatures.
+      </p>
+
+    </article>
+
+  </section>
+
 
 <section class="section">
   <article class="blog-article">
